@@ -1,0 +1,31 @@
+@layer components {
+  .Section--root {
+    margin-block-end: var(--space-6);
+  }
+
+  .Section--root p {
+    color: var(--color-text-muted);
+    line-height: var(--line-height-relaxed);
+    margin-block-end: var(--space-2);
+  }
+
+  .Section--root p:last-child {
+    margin-block-end: 0;
+  }
+
+  .Section--root ul,
+  .Section--root ol {
+    color: var(--color-text-muted);
+    margin-block: var(--space-2);
+    padding-inline-start: var(--space-3);
+  }
+
+  .Section--root li {
+    margin-block-end: var(--space-1);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .Section--root li::marker {
+    color: var(--color-primary);
+  }
+}

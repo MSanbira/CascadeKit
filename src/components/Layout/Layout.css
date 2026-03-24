@@ -1,0 +1,35 @@
+@layer components {
+  .Layout--root {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: var(--navbar-height) 1fr;
+    block-size: 100dvh;
+  }
+
+  .Layout--main {
+    grid-column: 1;
+    grid-row: 2;
+    padding-block: var(--space-4);
+    padding-inline: var(--space-2);
+    overflow-y: auto;
+  }
+
+  .Layout--content {
+    max-inline-size: var(--content-max-width);
+    margin-inline: auto;
+  }
+
+  /* Desktop - 2 column layout */
+  @media (min-width: 768px) {
+    .Layout--root {
+      grid-template-columns: var(--sidebar-width) 1fr;
+    }
+
+    .Layout--main {
+      grid-column: 2;
+      grid-row: 2;
+      padding-block: var(--space-6);
+      padding-inline: var(--space-4);
+    }
+  }
+}

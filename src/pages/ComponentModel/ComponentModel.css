@@ -1,0 +1,54 @@
+@layer pages {
+  .ComponentModel--root {
+    container-type: inline-size;
+  }
+
+  .ComponentModel--rules {
+    margin-block-start: var(--space-6);
+  }
+
+  .ComponentModel--rules ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .ComponentModel--rules li {
+    margin-block-end: var(--space-2);
+    padding-inline-start: 0;
+  }
+
+  .ComponentModel--example {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  @container (min-width: 600px) {
+    .ComponentModel--example {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .ComponentModel--benefits {
+    display: grid;
+    gap: var(--space-4);
+    margin-block-start: var(--space-4);
+  }
+
+  @container (min-width: 500px) {
+    .ComponentModel--benefits {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .ComponentModel--benefits h4 {
+    font-size: var(--text-base);
+    margin-block-end: var(--space-2);
+  }
+
+  .ComponentModel--benefits p {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+}

@@ -1,0 +1,48 @@
+@layer components {
+  .CodeBlock--root {
+    background-color: var(--color-code-bg);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-block: var(--space-3);
+    font-size: var(--text-1_75);
+  }
+
+  .CodeBlock--header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: var(--space-1);
+    padding-inline: var(--space-2);
+    background-color: rgba(255, 255, 255, 0.05);
+    border-block-end: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .CodeBlock--filename {
+    color: var(--color-code-text);
+    font-family: var(--font-mono);
+    font-weight: 500;
+  }
+
+  .CodeBlock--language {
+    color: var(--color-code-comment);
+    font-family: var(--font-mono);
+    font-size: var(--text-1_5);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .CodeBlock--pre {
+    margin: 0;
+    padding: var(--space-2);
+    overflow-x: auto;
+  }
+
+  .CodeBlock--code {
+    color: var(--color-code-text);
+    font-family: var(--font-mono);
+    line-height: var(--line-height-relaxed);
+    background: none;
+    padding: 0;
+    white-space: pre;
+  }
+}

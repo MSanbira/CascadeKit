@@ -1,0 +1,7 @@
+/* 
+ * CascadeKit Layer Order Definition
+ * This file MUST be imported first to establish cascade hierarchy
+ * Lower layers have lower priority, higher layers win in conflicts
+ */
+
+@layer base, utils, components, pages, overrides;

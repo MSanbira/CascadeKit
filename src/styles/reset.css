@@ -1,0 +1,114 @@
+@layer base {
+  /* Reset */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: var(--font-sans);
+    font-size: var(--text-2);
+    line-height: var(--line-height-normal);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    min-block-size: 100vh;
+  }
+  
+  /* Typography defaults */
+  h1, h2, h3, h4, h5, h6 {
+    line-height: var(--line-height-tight);
+    font-weight: 600;
+  }
+  
+  h1 { font-size: var(--text-4_5); }
+  h2 { font-size: var(--text-3_75); }
+  h3 { font-size: var(--text-3); }
+  h4 { font-size: var(--text-2_5); }
+  h5 { font-size: var(--text-2_25); }
+  h6 { font-size: var(--text-2); }
+  
+  p {
+    line-height: var(--line-height-relaxed);
+  }
+  
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+  
+  a:hover {
+    color: var(--color-primary-hover);
+  }
+  
+  /* Focus styles for accessibility */
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+  
+  /* Remove default button styles */
+  button {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Lists */
+  ul, ol {
+    list-style-position: inside;
+  }
+  
+  /* Code defaults */
+  code, pre {
+    font-family: var(--font-mono);
+  }
+  
+  code {
+    font-size: 0.9em;
+    background-color: var(--color-bg-muted);
+    padding-inline: var(--space-0_5);
+    padding-block: 0.125rem;
+    border-radius: var(--radius-sm);
+  }
+  
+  pre code {
+    background: none;
+    padding: 0;
+  }
+  
+  /* Images */
+  img {
+    max-inline-size: 100%;
+    block-size: auto;
+    display: block;
+  }
+  
+  /* Skip link for accessibility */
+  .skip-link {
+    position: absolute;
+    inset-inline-start: -9999px;
+    z-index: var(--z-tooltip);
+    padding: var(--space-1) var(--space-2);
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: 500;
+  }
+  
+  .skip-link:focus {
+    inset-inline-start: var(--space-2);
+    inset-block-start: var(--space-2);
+  }
+}

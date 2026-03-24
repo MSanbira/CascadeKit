@@ -1,0 +1,1 @@
+export { ComponentModel } from './ComponentModel';

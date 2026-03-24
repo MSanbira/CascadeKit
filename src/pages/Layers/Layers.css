@@ -1,0 +1,158 @@
+@layer pages {
+  .Layers--root {
+    container-type: inline-size;
+  }
+
+  .Layers--diagram {
+    margin-block: var(--space-6);
+  }
+
+  .Layers--stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-inline-size: 400px;
+  }
+
+  .Layers--stackItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+  }
+
+  .Layers--stackLabel {
+    font-weight: 600;
+  }
+
+  .Layers--stackPriority {
+    font-size: var(--text-xs);
+    opacity: 0.7;
+  }
+
+  .Layers--stackItem-overrides {
+    background-color: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+  }
+
+  .Layers--stackItem-pages {
+    background-color: #fefce8;
+    color: #854d0e;
+    border: 1px solid #fef08a;
+  }
+
+  .Layers--stackItem-components {
+    background-color: #f0fdf4;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+  }
+
+  .Layers--stackItem-utils {
+    background-color: #eff6ff;
+    color: #1e40af;
+    border: 1px solid #bfdbfe;
+  }
+
+  .Layers--stackItem-base {
+    background-color: #f5f5f5;
+    color: #525252;
+    border: 1px solid #e5e5e5;
+  }
+
+  [data-theme="dark"] .Layers--stackItem-overrides {
+    background-color: rgba(239, 68, 68, 0.15);
+    color: #fca5a5;
+    border-color: rgba(239, 68, 68, 0.3);
+  }
+
+  [data-theme="dark"] .Layers--stackItem-pages {
+    background-color: rgba(234, 179, 8, 0.15);
+    color: #fde047;
+    border-color: rgba(234, 179, 8, 0.3);
+  }
+
+  [data-theme="dark"] .Layers--stackItem-components {
+    background-color: rgba(34, 197, 94, 0.15);
+    color: #86efac;
+    border-color: rgba(34, 197, 94, 0.3);
+  }
+
+  [data-theme="dark"] .Layers--stackItem-utils {
+    background-color: rgba(59, 130, 246, 0.15);
+    color: #93c5fd;
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+
+  [data-theme="dark"] .Layers--stackItem-base {
+    background-color: rgba(115, 115, 115, 0.15);
+    color: #a3a3a3;
+    border-color: rgba(115, 115, 115, 0.3);
+  }
+
+  .Layers--card {
+    margin-block-start: var(--space-6);
+  }
+
+  .Layers--card p {
+    margin-block-end: var(--space-2);
+  }
+
+  .Layers--insight {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-block: var(--space-6);
+    padding: var(--space-4);
+    background-color: var(--color-bg-subtle);
+    border-radius: var(--radius-lg);
+  }
+
+  .Layers--insightItem {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .Layers--insightCode {
+    font-size: var(--text-sm);
+    flex-shrink: 0;
+  }
+
+  .Layers--insightLayer {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .Layers--insightResult {
+    margin-inline-start: auto;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+  }
+
+  .Layers--insightResult-wins {
+    background-color: #dcfce7;
+    color: #166534;
+  }
+
+  .Layers--insightResult-loses {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+
+  [data-theme="dark"] .Layers--insightResult-wins {
+    background-color: rgba(34, 197, 94, 0.2);
+    color: #86efac;
+  }
+
+  [data-theme="dark"] .Layers--insightResult-loses {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: #fca5a5;
+  }
+}
