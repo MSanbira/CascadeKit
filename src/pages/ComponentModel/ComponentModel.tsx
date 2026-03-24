@@ -146,8 +146,8 @@ export function ComponentModel() {
         <div className="ComponentModel--benefits">
           <Card>
             <CardContent>
-              <h4>🔍 Debuggable</h4>
-              <p>
+              <h4 className="text-base mb-2">🔍 Debuggable</h4>
+              <p className="text-sm text-muted">
                 Real class names in DevTools. See <code>.Button--primary</code>, 
                 not <code>.sc-bdnylx</code>.
               </p>
@@ -156,8 +156,8 @@ export function ComponentModel() {
           
           <Card>
             <CardContent>
-              <h4>📦 Portable</h4>
-              <p>
+              <h4 className="text-base mb-2">📦 Portable</h4>
+              <p className="text-sm text-muted">
                 Copy a component folder and you have everything. 
                 No hunting for scattered styles.
               </p>
@@ -166,8 +166,8 @@ export function ComponentModel() {
           
           <Card>
             <CardContent>
-              <h4>🎯 Predictable</h4>
-              <p>
+              <h4 className="text-base mb-2">🎯 Predictable</h4>
+              <p className="text-sm text-muted">
                 Know exactly where styles are defined. 
                 Component name → folder → CSS file.
               </p>
@@ -176,8 +176,8 @@ export function ComponentModel() {
           
           <Card>
             <CardContent>
-              <h4>🤝 Collaborative</h4>
-              <p>
+              <h4 className="text-base mb-2">🤝 Collaborative</h4>
+              <p className="text-sm text-muted">
                 Teams can work on components independently. 
                 No merge conflicts on shared style files.
               </p>

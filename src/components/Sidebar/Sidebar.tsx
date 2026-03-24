@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { classNames } from '../../helpers/classNameHelper';
 import './Sidebar.css';
 
 interface NavItem {
@@ -31,7 +32,7 @@ export function Sidebar({ isOpen = true, onClose }: SidebarProps) {
         />
       )}
       <aside 
-        className={`Sidebar--root ${isOpen ? 'Sidebar--open' : ''}`}
+        className={classNames('Sidebar', [], { 'Sidebar--open': isOpen })}
         aria-label="Main navigation"
       >
         <nav className="Sidebar--nav">

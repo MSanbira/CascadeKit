@@ -21,15 +21,9 @@
     padding: var(--space-3) var(--space-4);
     border-radius: var(--radius-md);
     font-family: var(--font-mono);
-    font-size: var(--text-sm);
   }
 
-  .Layers--stackLabel {
-    font-weight: 600;
-  }
-
-  .Layers--stackPriority {
-    font-size: var(--text-xs);
+  .Layers--stackItem > span:last-child {
     opacity: 0.7;
   }
 
@@ -118,20 +112,12 @@
     gap: var(--space-3);
   }
 
-  .Layers--insightCode {
-    font-size: var(--text-sm);
+  .Layers--insightItem code {
     flex-shrink: 0;
-  }
-
-  .Layers--insightLayer {
-    font-size: var(--text-sm);
-    color: var(--color-text-muted);
   }
 
   .Layers--insightResult {
     margin-inline-start: auto;
-    font-size: var(--text-sm);
-    font-weight: 600;
     padding: var(--space-1) var(--space-2);
     border-radius: var(--radius-sm);
   }

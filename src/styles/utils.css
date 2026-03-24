@@ -43,12 +43,28 @@
   /* Text utilities */
   .text-center { text-align: center; }
   .text-muted { color: var(--color-text-muted); }
-  .text-small { font-size: var(--text-sm); }
+  .text-xs { font-size: var(--text-1_5); }
+  .text-sm { font-size: var(--text-1_75); }
+  .text-base { font-size: var(--text-2); }
+  .text-lg { font-size: var(--text-2_25); }
+  .text-xl { font-size: var(--text-2_5); }
+  .text-2xl { font-size: var(--text-3); }
+  .text-3xl { font-size: var(--text-3_75); }
+  .text-4xl { font-size: var(--text-4_5); }
+  
+  /* Font weight utilities */
+  .font-medium { font-weight: 500; }
+  .font-semibold { font-weight: 600; }
+  .font-bold { font-weight: 700; }
   
   /* Spacing utilities */
+  .mt-2 { margin-block-start: var(--space-2); }
+  .mt-3 { margin-block-start: var(--space-3); }
   .mt-4 { margin-block-start: var(--space-4); }
   .mt-6 { margin-block-start: var(--space-6); }
   .mt-8 { margin-block-start: var(--space-8); }
+  .mb-2 { margin-block-end: var(--space-2); }
+  .mb-3 { margin-block-end: var(--space-3); }
   .mb-4 { margin-block-end: var(--space-4); }
   .mb-6 { margin-block-end: var(--space-6); }
   .mb-8 { margin-block-end: var(--space-8); }

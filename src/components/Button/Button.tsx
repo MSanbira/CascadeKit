@@ -1,3 +1,4 @@
+import { classNames } from '../../helpers/classNameHelper';
 import './Button.css';
 
 type ButtonVariant = 'primary' | 'secondary' | 'ghost';
@@ -16,15 +17,8 @@ export function Button({
   className = '',
   ...props 
 }: ButtonProps) {
-  const classes = [
-    'Button--root',
-    `Button--${variant}`,
-    `Button--${size}`,
-    className
-  ].filter(Boolean).join(' ');
-
   return (
-    <button className={classes} {...props}>
+    <button className={classNames('Button', [`Button--${variant}`, `Button--${size}`, className])} {...props}>
       {children}
     </button>
   );

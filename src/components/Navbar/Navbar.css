@@ -38,8 +38,8 @@
   }
 
   .Navbar--menuIcon {
-    inline-size: 24px;
-    block-size: 24px;
+    inline-size: var(--space-3);
+    block-size: var(--space-3);
   }
 
   .Navbar--brand {
@@ -70,8 +70,8 @@
   }
 
   .Navbar--themeIcon {
-    inline-size: 20px;
-    block-size: 20px;
+    inline-size: var(--space-2_5);
+    block-size: var(--space-2_5);
   }
 
   .Navbar--githubLink {
@@ -92,8 +92,8 @@
   }
 
   .Navbar--githubIcon {
-    inline-size: 20px;
-    block-size: 20px;
+    inline-size: var(--space-2_5);
+    block-size: var(--space-2_5);
   }
 
   /* Desktop */

@@ -99,25 +99,25 @@ export function Layers() {
         
         <div className="Layers--diagram">
           <div className="Layers--stack">
-            <div className="Layers--stackItem Layers--stackItem-overrides">
-              <span className="Layers--stackLabel">overrides</span>
-              <span className="Layers--stackPriority">Highest priority</span>
+            <div className="Layers--stackItem Layers--stackItem-overrides text-sm">
+              <span className="font-semibold">overrides</span>
+              <span className="text-xs">Highest priority</span>
             </div>
-            <div className="Layers--stackItem Layers--stackItem-pages">
-              <span className="Layers--stackLabel">pages</span>
-              <span className="Layers--stackPriority">↑</span>
+            <div className="Layers--stackItem Layers--stackItem-pages text-sm">
+              <span className="font-semibold">pages</span>
+              <span className="text-xs">↑</span>
             </div>
-            <div className="Layers--stackItem Layers--stackItem-components">
-              <span className="Layers--stackLabel">components</span>
-              <span className="Layers--stackPriority">↑</span>
+            <div className="Layers--stackItem Layers--stackItem-components text-sm">
+              <span className="font-semibold">components</span>
+              <span className="text-xs">↑</span>
             </div>
-            <div className="Layers--stackItem Layers--stackItem-utils">
-              <span className="Layers--stackLabel">utils</span>
-              <span className="Layers--stackPriority">↑</span>
+            <div className="Layers--stackItem Layers--stackItem-utils text-sm">
+              <span className="font-semibold">utils</span>
+              <span className="text-xs">↑</span>
             </div>
-            <div className="Layers--stackItem Layers--stackItem-base">
-              <span className="Layers--stackLabel">base</span>
-              <span className="Layers--stackPriority">Lowest priority</span>
+            <div className="Layers--stackItem Layers--stackItem-base text-sm">
+              <span className="font-semibold">base</span>
+              <span className="text-xs">Lowest priority</span>
             </div>
           </div>
         </div>
@@ -190,14 +190,14 @@ export function Layers() {
         </p>
         <div className="Layers--insight">
           <div className="Layers--insightItem">
-            <code className="Layers--insightCode">.Button--root</code>
-            <span className="Layers--insightLayer">in @layer overrides</span>
-            <span className="Layers--insightResult Layers--insightResult-wins">WINS ✓</span>
+            <code className="text-sm">.Button--root</code>
+            <span className="text-sm text-muted">in @layer overrides</span>
+            <span className="Layers--insightResult Layers--insightResult-wins text-sm font-semibold">WINS ✓</span>
           </div>
           <div className="Layers--insightItem">
-            <code className="Layers--insightCode">body main .Card--root .Button--root:hover</code>
-            <span className="Layers--insightLayer">in @layer components</span>
-            <span className="Layers--insightResult Layers--insightResult-loses">loses</span>
+            <code className="text-sm">body main .Card--root .Button--root:hover</code>
+            <span className="text-sm text-muted">in @layer components</span>
+            <span className="Layers--insightResult Layers--insightResult-loses text-sm font-semibold">loses</span>
           </div>
         </div>
         <p>

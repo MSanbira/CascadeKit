@@ -14,16 +14,12 @@
     padding-inline: var(--space-3);
     background-color: var(--color-primary-subtle);
     color: var(--color-primary);
-    font-size: var(--text-sm);
-    font-weight: 600;
     border-radius: var(--radius-full);
     margin-block-end: var(--space-4);
   }
 
   .Home--tagline {
-    font-size: var(--text-xl);
-    color: var(--color-text-muted);
-    max-inline-size: 600px;
+    max-inline-size: calc(var(--base-size) * 75);
     margin-inline: auto;
     margin-block-end: var(--space-8);
   }
@@ -47,17 +43,6 @@
     }
   }
 
-  .Home--featureTitle {
-    font-size: var(--text-lg);
-    font-weight: 600;
-    margin-block-end: var(--space-2);
-  }
-
-  .Home--featureDesc {
-    color: var(--color-text-muted);
-    font-size: var(--text-sm);
-    line-height: var(--line-height-relaxed);
-  }
 
   .Home--codeExample {
     display: grid;

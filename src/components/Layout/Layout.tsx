@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Navbar } from '../Navbar';
 import { Sidebar } from '../Sidebar';
+import { classNames } from '../../helpers/classNameHelper';
 import './Layout.css';
 
 interface LayoutProps {
@@ -14,7 +15,7 @@ export function Layout({ children }: LayoutProps) {
   const closeSidebar = () => setSidebarOpen(false);
 
   return (
-    <div className="Layout--root">
+    <div className={classNames('Layout')}>
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>

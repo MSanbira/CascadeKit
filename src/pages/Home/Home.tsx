@@ -29,11 +29,11 @@ export function Home() {
     <div className="Home--root">
       <Section>
         <div className="Home--hero">
-          <span className="Home--badge">CSS Architecture</span>
+          <span className="Home--badge text-sm font-semibold">CSS Architecture</span>
           <Heading level={1}>
             CSS via Imports + Layers
           </Heading>
-          <p className="Home--tagline">
+          <p className="Home--tagline text-xl text-muted">
             A modern CSS architecture that combines the simplicity of global CSS 
             with the power of native cascade layers. No build-time magic, 
             no runtime overhead — just CSS.
@@ -59,8 +59,8 @@ export function Home() {
         <div className="Home--features">
           <Card>
             <CardContent>
-              <h3 className="Home--featureTitle">📦 Co-located CSS</h3>
-              <p className="Home--featureDesc">
+              <h3 className="text-lg font-semibold mb-2">📦 Co-located CSS</h3>
+              <p className="text-sm text-muted">
                 Each component imports its own CSS file. Styles travel 
                 with components through the module graph.
               </p>
@@ -69,8 +69,8 @@ export function Home() {
           
           <Card>
             <CardContent>
-              <h3 className="Home--featureTitle">🎯 Layer Control</h3>
-              <p className="Home--featureDesc">
+              <h3 className="text-lg font-semibold mb-2">🎯 Layer Control</h3>
+              <p className="text-sm text-muted">
                 All CSS lives inside <code>@layer</code> blocks. 
                 The cascade is explicit, predictable, and debuggable.
               </p>
@@ -79,8 +79,8 @@ export function Home() {
           
           <Card>
             <CardContent>
-              <h3 className="Home--featureTitle">🏷️ Clear Naming</h3>
-              <p className="Home--featureDesc">
+              <h3 className="text-lg font-semibold mb-2">🏷️ Clear Naming</h3>
+              <p className="text-sm text-muted">
                 Components use <code>ComponentName--element</code> naming. 
                 No generated hashes, no runtime, no magic.
               </p>

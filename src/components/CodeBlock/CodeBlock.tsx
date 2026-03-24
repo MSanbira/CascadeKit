@@ -1,3 +1,4 @@
+import { classNames } from '../../helpers/classNameHelper';
 import './CodeBlock.css';
 
 interface CodeBlockProps {
@@ -8,7 +9,7 @@ interface CodeBlockProps {
 
 export function CodeBlock({ children, language = 'css', filename }: CodeBlockProps) {
   return (
-    <div className="CodeBlock--root">
+    <div className={classNames('CodeBlock')}>
       {filename && (
         <div className="CodeBlock--header">
           <span className="CodeBlock--filename">{filename}</span>

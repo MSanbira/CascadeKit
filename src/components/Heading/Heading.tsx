@@ -1,3 +1,4 @@
+import { classNames } from '../../helpers/classNameHelper';
 import './Heading.css';
 
 type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
@@ -15,7 +16,7 @@ export function Heading({ level = 2, children, className = '', id }: HeadingProp
   return (
     <Tag 
       id={id}
-      className={`Heading--root Heading--h${level} ${className}`.trim()}
+      className={classNames('Heading', [`Heading--h${level}`, className])}
     >
       {children}
     </Tag>

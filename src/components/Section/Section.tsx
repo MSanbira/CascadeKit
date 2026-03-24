@@ -1,3 +1,4 @@
+import { classNames } from '../../helpers/classNameHelper';
 import './Section.css';
 
 interface SectionProps {
@@ -7,7 +8,7 @@ interface SectionProps {
 
 export function Section({ children, className = '' }: SectionProps) {
   return (
-    <section className={`Section--root ${className}`.trim()}>
+    <section className={classNames('Section', [className])}>
       {children}
     </section>
   );

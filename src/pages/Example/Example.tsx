@@ -121,7 +121,7 @@ export function Example() {
           <CardHeader>Counter Example</CardHeader>
           <CardContent>
             <div className="Example--counter">
-              <span className="Example--counterValue">{count}</span>
+              <span className="Example--counterValue text-4xl font-bold">{count}</span>
               <div className="Example--counterControls">
                 <Button 
                   variant="secondary" 
@@ -163,7 +163,7 @@ export function Example() {
                 {(['primary', 'secondary', 'ghost'] as const).map((variant) => (
                   <button
                     key={variant}
-                    className={`Example--variantOption ${selectedVariant === variant ? 'Example--variantOption-active' : ''}`}
+                    className={`Example--variantOption text-sm font-medium ${selectedVariant === variant ? 'Example--variantOption-active' : ''}`}
                     onClick={() => setSelectedVariant(variant)}
                   >
                     {variant}

@@ -102,15 +102,15 @@ export function How() {
         </CodeBlock>
         <div className="How--naming">
           <div className="How--namingItem">
-            <code>ComponentName--element</code>
+            <code className="font-semibold">ComponentName--element</code>
             <span>Root and child elements</span>
           </div>
           <div className="How--namingItem">
-            <code>ComponentName--variant</code>
+            <code className="font-semibold">ComponentName--variant</code>
             <span>Visual variants</span>
           </div>
           <div className="How--namingItem">
-            <code>ComponentName--state</code>
+            <code className="font-semibold">ComponentName--state</code>
             <span>State modifiers</span>
           </div>
         </div>
@@ -124,11 +124,11 @@ export function How() {
           will always beat a complex selector in <code>@layer components</code>:
         </p>
         <div className="How--layerDiagram">
-          <div className="How--layer How--layer-overrides">overrides (highest)</div>
-          <div className="How--layer How--layer-pages">pages</div>
-          <div className="How--layer How--layer-components">components</div>
-          <div className="How--layer How--layer-utils">utils</div>
-          <div className="How--layer How--layer-base">base (lowest)</div>
+          <div className="How--layer How--layer-overrides text-sm font-medium">overrides (highest)</div>
+          <div className="How--layer How--layer-pages text-sm font-medium">pages</div>
+          <div className="How--layer How--layer-components text-sm font-medium">components</div>
+          <div className="How--layer How--layer-utils text-sm font-medium">utils</div>
+          <div className="How--layer How--layer-base text-sm font-medium">base (lowest)</div>
         </div>
         <p>
           This means you can always override component styles from a page without 

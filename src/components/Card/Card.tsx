@@ -1,3 +1,4 @@
+import { classNames } from '../../helpers/classNameHelper';
 import './Card.css';
 
 interface CardProps {
@@ -17,7 +18,7 @@ interface CardContentProps {
 
 export function Card({ children, className = '' }: CardProps) {
   return (
-    <div className={`Card--root ${className}`.trim()}>
+    <div className={classNames('Card', [className])}>
       {children}
     </div>
   );
