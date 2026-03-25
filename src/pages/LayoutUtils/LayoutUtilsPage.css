@@ -9,7 +9,7 @@
 
   .LayoutUtilsPage--demoBox {
     padding: var(--space-3);
-    background: var(--color-background);
+    background: var(--color-bg);
     border-radius: var(--radius-md);
   }
 
@@ -17,11 +17,11 @@
     background: var(--color-primary-subtle);
     border-radius: var(--radius-sm);
     font-family: var(--font-mono);
-    font-size: var(--text-sm);
+    font-size: var(--text-1_75);
   }
 
   .LayoutUtilsPage--alignDemo {
-    min-height: calc(var(--base-size) * 8);
+    min-block-size: calc(var(--base-size) * 8);
   }
 
   .LayoutUtilsPage--gapItem {
@@ -35,7 +35,7 @@
 
   .LayoutUtilsPage--gapValue {
     color: var(--color-text-muted);
-    font-size: var(--text-xs);
+    font-size: var(--text-1_5);
   }
 
   .LayoutUtilsPage--list {

@@ -2,179 +2,228 @@ import { useState } from 'react';
 import { Section } from '../../components/Section';
 import { Button } from '../../components/Button';
 import { Card, CardHeader, CardContent } from '../../components/Card';
-import { CodeBlock } from '../../components/CodeBlock';
 import { Text } from '../../components/Text';
 import { Box } from '../../components/Box';
+import { Badge } from '../../components/Badge';
 import './ExamplePage.css';
 
-const buttonCode = `import './Button.css';
-
-export function Button({ variant, size, children }) {
-  return (
-    <button className={\`Button--root Button--\${variant} Button--\${size}\`}>
-      {children}
-    </button>
-  );
-}`;
-
-const cardCode = `import './Card.css';
-
-export function Card({ children }) {
-  return <div className="Card--root">{children}</div>;
-}
-
-export function CardHeader({ children }) {
-  return <div className="Card--header">{children}</div>;
-}
-
-export function CardContent({ children }) {
-  return <div className="Card--content">{children}</div>;
-}`;
-
 export function ExamplePage() {
-  const [count, setCount] = useState(0);
-  const [selectedVariant, setSelectedVariant] = useState<'primary' | 'secondary' | 'ghost'>('primary');
+  const [notifications, setNotifications] = useState<Array<{ id: number; type: 'success' | 'warning' | 'error'; message: string }>>([
+    { id: 1, type: 'success', message: 'Your changes have been saved successfully.' },
+    { id: 2, type: 'warning', message: 'Your session will expire in 5 minutes.' },
+  ]);
+  const [formData, setFormData] = useState({ email: '', message: '' });
+  const [selectedPlan, setSelectedPlan] = useState<'starter' | 'pro' | 'enterprise'>('pro');
+
+  const dismissNotification = (id: number) => {
+    setNotifications(prev => prev.filter(n => n.id !== id));
+  };
+
+  const addNotification = () => {
+    const types = ['success', 'warning', 'error'] as const;
+    const messages = [
+      'Operation completed successfully!',
+      'Please review your settings.',
+      'Something went wrong. Try again.',
+    ];
+    const type = types[Math.floor(Math.random() * types.length)];
+    setNotifications(prev => [...prev, {
+      id: Date.now(),
+      type,
+      message: messages[types.indexOf(type)],
+    }]);
+  };
 
   return (
-    <div className="ExamplePage--root container-query">
+    <div className="ExamplePage--root">
       <Section>
-        <Text variant="h1">Live Example</Text>
+        <Text variant="h1">Live Examples</Text>
         <p>
-          This page showcases CascadeKit components working together. 
-          Everything you see here follows the CascadeKit architecture — 
-          inspect the elements to see real class names!
+          Real-world UI patterns built with CascadeKit. Inspect any element 
+          to see readable class names and CSS layers in action.
         </p>
       </Section>
 
       <Section>
-        <Text variant="h2">Button Component</Text>
-        <p>
-          Buttons support multiple variants and sizes. Try them out:
-        </p>
-        
-        <div className="ExamplePage--showcase">
-          <Card>
-            <CardHeader>Button Variants</CardHeader>
-            <CardContent>
-              <Box className="d-flex-f-wrap-gap-3-ali-center container-query">
-                <Button variant="primary">Primary</Button>
-                <Button variant="secondary">Secondary</Button>
-                <Button variant="ghost">Ghost</Button>
-              </Box>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>Button Sizes</CardHeader>
-            <CardContent>
-              <Box className="d-flex-f-wrap-gap-3-ali-center container-query">
-                <Button size="sm">Small</Button>
-                <Button size="md">Medium</Button>
-                <Button size="lg">Large</Button>
-              </Box>
-            </CardContent>
-          </Card>
-        </div>
-
-        <CodeBlock language="tsx" filename="Button.tsx">
-          {buttonCode}
-        </CodeBlock>
-      </Section>
-
-      <Section>
-        <Text variant="h2">Card Component</Text>
-        <p>
-          Cards provide a surface for grouping related content:
-        </p>
-        
-        <div className="ExamplePage--cardShowcase">
-          <Card>
-            <CardHeader>Simple Card</CardHeader>
-            <CardContent>
-              <p>Cards can contain any content — text, buttons, forms, or other components.</p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>Card with Actions</CardHeader>
-            <CardContent>
-              <p>Combine cards with other components:</p>
-              <Box className="d-flex-gap-2" mixin={{ mt: 4 }}>
-                <Button variant="primary" size="sm">Confirm</Button>
-                <Button variant="ghost" size="sm">Cancel</Button>
-              </Box>
-            </CardContent>
-          </Card>
-        </div>
-
-        <CodeBlock language="tsx" filename="Card.tsx">
-          {cardCode}
-        </CodeBlock>
-      </Section>
-
-      <Section>
-        <Text variant="h2">Interactive Demo</Text>
-        <p>
-          Components work with React state like any other component:
-        </p>
-
-        <Card>
-          <CardHeader>Counter Example</CardHeader>
+        <Text variant="h2">User Profile Card</Text>
+        <p>A common pattern for displaying user information with actions.</p>
+        <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <CardContent>
-            <Box className="d-flex-dir-col-ali-center-gap-4" mixin={{ p: 6 }}>
-              <Text variant="h1" tag="span" className="ExamplePage--counterValue">{count}</Text>
-              <Box className="d-flex-gap-2">
-                <Button 
-                  variant="secondary" 
-                  size="sm" 
-                  onClick={() => setCount(c => c - 1)}
-                >
-                  −
-                </Button>
-                <Button 
-                  variant="secondary" 
-                  size="sm" 
-                  onClick={() => setCount(0)}
-                >
-                  Reset
-                </Button>
-                <Button 
-                  variant="secondary" 
-                  size="sm" 
-                  onClick={() => setCount(c => c + 1)}
-                >
-                  +
-                </Button>
-              </Box>
-            </Box>
+            <Text variant="body2" muted>
+              <strong>CascadeKit principles:</strong> Component composition (Card + Badge + Button), 
+              utility classes for layout (<code>d-flex-gap-4-ali-center</code>), 
+              responsive grid via mixin (<code>smallScreen</code>/<code>mediumScreen</code>), 
+              page-specific CSS for avatar styling.
+            </Text>
           </CardContent>
         </Card>
+        
+        <Box className="d-grid" mixin={{ gap: 4, mt: 4, smallScreen: { gridColTemplate: '1fr' }, mediumScreen: { gridColTemplate: '1fr 1fr' } }}>
+          <Card>
+            <CardContent>
+              <div className="d-flex-gap-4-ali-center">
+                <div className="ExamplePage--avatar">JD</div>
+                <div className="d-flex-dir-col-gap-1">
+                  <Text variant="h5" tag="span">Jane Doe</Text>
+                  <Text variant="body2" muted>Senior Developer</Text>
+                  <Box className="d-flex-gap-1" mixin={{ mt: 1 }}>
+                    <Badge variant="primary">React</Badge>
+                    <Badge variant="secondary">TypeScript</Badge>
+                  </Box>
+                </div>
+              </div>
+              <Box className="d-flex-gap-2" mixin={{ mt: 4 }}>
+                <Button variant="primary" size="sm">Message</Button>
+                <Button variant="secondary" size="sm">View Profile</Button>
+              </Box>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent>
+              <div className="d-flex-gap-4-ali-center">
+                <div className="ExamplePage--avatar ExamplePage--avatar-secondary">AS</div>
+                <div className="d-flex-dir-col-gap-1">
+                  <Text variant="h5" tag="span">Alex Smith</Text>
+                  <Text variant="body2" muted>Product Designer</Text>
+                  <Box className="d-flex-gap-1" mixin={{ mt: 1 }}>
+                    <Badge variant="success">Figma</Badge>
+                    <Badge variant="warning">CSS</Badge>
+                  </Box>
+                </div>
+              </div>
+              <Box className="d-flex-gap-2" mixin={{ mt: 4 }}>
+                <Button variant="primary" size="sm">Message</Button>
+                <Button variant="secondary" size="sm">View Profile</Button>
+              </Box>
+            </CardContent>
+          </Card>
+        </Box>
       </Section>
 
       <Section>
-        <Text variant="h2">Variant Selector</Text>
-        <p>
-          Switch between button variants dynamically:
-        </p>
+        <Text variant="h2">Notifications</Text>
+        <p>Dismissible alerts with different severity levels.</p>
+        <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
+          <CardContent>
+            <Text variant="body2" muted>
+              <strong>CascadeKit principles:</strong> BEM-style variant classes 
+              (<code>--notification-success</code>, <code>--notification-warning</code>), 
+              design tokens for colors (<code>var(--color-success)</code>), 
+              CSS <code>color-mix()</code> for computed backgrounds.
+            </Text>
+          </CardContent>
+        </Card>
+
+        <Box className="d-flex-dir-col-gap-2" mixin={{ mt: 4 }}>
+          {notifications.map(notification => (
+            <div key={notification.id} className={`ExamplePage--notification ExamplePage--notification-${notification.type}`}>
+              <Text variant="body2">{notification.message}</Text>
+              <button 
+                className="ExamplePage--notificationClose"
+                onClick={() => dismissNotification(notification.id)}
+              >
+                ×
+              </button>
+            </div>
+          ))}
+          {notifications.length === 0 && (
+            <Text variant="body2" muted>No notifications. Click below to add one.</Text>
+          )}
+        </Box>
+        <Button variant="secondary" size="sm" onClick={addNotification} mixin={{ mt: 3 }}>
+          Add Notification
+        </Button>
+      </Section>
+
+      <Section>
+        <Text variant="h2">Pricing Cards</Text>
+        <p>Interactive pricing comparison with selection state.</p>
+        <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
+          <CardContent>
+            <Text variant="body2" muted>
+              <strong>CascadeKit principles:</strong> Layer cascade for state overrides 
+              (<code>@layer pages</code> overrides <code>@layer components</code>), 
+              responsive breakpoints via mixin (<code>bigScreen: gridColTemplate</code>), 
+              dynamic className for selected state without runtime CSS.
+            </Text>
+          </CardContent>
+        </Card>
+
+        <Box className="d-grid" mixin={{ gap: 4, smallScreen: { gridColTemplate: '1fr' }, bigScreen: { gridColTemplate: '1fr 1fr 1fr' } }}>
+          {[
+            { id: 'starter' as const, name: 'Starter', price: '$9', features: ['5 Projects', '10GB Storage', 'Email Support'] },
+            { id: 'pro' as const, name: 'Pro', price: '$29', features: ['Unlimited Projects', '100GB Storage', 'Priority Support', 'Analytics'] },
+            { id: 'enterprise' as const, name: 'Enterprise', price: '$99', features: ['Everything in Pro', 'Dedicated Account', 'Custom Integrations', 'SLA'] },
+          ].map(plan => (
+            <Card 
+              key={plan.id} 
+              className={selectedPlan === plan.id ? 'ExamplePage--pricingCard-selected' : ''}
+            >
+              <CardContent>
+                <Box className="d-flex-dir-col-ali-center" mixin={{ p: 2 }}>
+                  {plan.id === 'pro' && <Badge variant="primary" mixin={{ mb: 2 }}>Popular</Badge>}
+                  <Text variant="h4">{plan.name}</Text>
+                  <Text variant="h2" tag="span" mixin={{ my: 2 }}>{plan.price}<Text variant="body2" tag="span" muted>/mo</Text></Text>
+                  <Box className="d-flex-dir-col-gap-2" mixin={{ mb: 4 }}>
+                    {plan.features.map(feature => (
+                      <Text key={feature} variant="body2" muted>✓ {feature}</Text>
+                    ))}
+                  </Box>
+                  <Button 
+                    variant={selectedPlan === plan.id ? 'primary' : 'secondary'} 
+                    onClick={() => setSelectedPlan(plan.id)}
+                  >
+                    {selectedPlan === plan.id ? 'Selected' : 'Choose Plan'}
+                  </Button>
+                </Box>
+              </CardContent>
+            </Card>
+          ))}
+        </Box>
+      </Section>
+
+      <Section>
+        <Text variant="h2">Contact Form</Text>
+        <p>Form layout with validation states and responsive design.</p>
+        <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
+          <CardContent>
+            <Text variant="body2" muted>
+              <strong>CascadeKit principles:</strong> Page-specific form styles in <code>@layer pages</code>, 
+              focus states using design tokens (<code>var(--color-primary)</code>), 
+              utility classes for form layout (<code>d-flex-dir-col-gap-4</code>), 
+              no CSS-in-JS — pure native CSS transitions.
+            </Text>
+          </CardContent>
+        </Card>
 
         <Card>
+          <CardHeader>Get in Touch</CardHeader>
           <CardContent>
-            <div className="ExamplePage--variantSelector">
-              <div className="ExamplePage--variantOptions">
-                {(['primary', 'secondary', 'ghost'] as const).map((variant) => (
-                  <button
-                    key={variant}
-                    className={`ExamplePage--variantOption ${selectedVariant === variant ? 'ExamplePage--variantOption-active' : ''}`}
-                    onClick={() => setSelectedVariant(variant)}
-                  >
-                    {variant}
-                  </button>
-                ))}
+            <div className="d-flex-dir-col-gap-4">
+              <div className="d-flex-dir-col-gap-1">
+                <label className="ExamplePage--label">Email</label>
+                <input 
+                  type="email" 
+                  className="ExamplePage--input"
+                  placeholder="your@email.com"
+                  value={formData.email}
+                  onChange={e => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                />
               </div>
-              <div className="d-flex-jc-center">
-                <Button variant={selectedVariant} size="lg">
-                  {selectedVariant.charAt(0).toUpperCase() + selectedVariant.slice(1)} Button
-                </Button>
+              <div className="d-flex-dir-col-gap-1">
+                <label className="ExamplePage--label">Message</label>
+                <textarea 
+                  className="ExamplePage--textarea"
+                  placeholder="How can we help?"
+                  rows={4}
+                  value={formData.message}
+                  onChange={e => setFormData(prev => ({ ...prev, message: e.target.value }))}
+                />
+              </div>
+              <div className="d-flex-jc-end-gap-2">
+                <Button variant="ghost" onClick={() => setFormData({ email: '', message: '' })}>Clear</Button>
+                <Button variant="primary">Send Message</Button>
               </div>
             </div>
           </CardContent>
@@ -182,20 +231,48 @@ export function ExamplePage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Inspect the CSS</Text>
+        <Text variant="h2">Stats Dashboard</Text>
+        <p>Data visualization cards with responsive grid layout.</p>
+        <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
+          <CardContent>
+            <Text variant="body2" muted>
+              <strong>CascadeKit principles:</strong> Component variants via props (<code>Card variant="subtle"</code>), 
+              conditional Badge variants for positive/negative states, 
+              4-column responsive grid demonstrating mixin breakpoints, 
+              all styling defined in component CSS — zero inline styles.
+            </Text>
+          </CardContent>
+        </Card>
+
+        <Box className="d-grid" mixin={{ gap: 4, smallScreen: { gridColTemplate: '1fr 1fr' }, bigScreen: { gridColTemplate: '1fr 1fr 1fr 1fr' } }}>
+          {[
+            { label: 'Total Users', value: '12,345', change: '+12%', positive: true },
+            { label: 'Revenue', value: '$54,321', change: '+8%', positive: true },
+            { label: 'Orders', value: '1,234', change: '-3%', positive: false },
+            { label: 'Conversion', value: '3.2%', change: '+0.5%', positive: true },
+          ].map(stat => (
+            <Card key={stat.label} variant="subtle">
+              <CardContent>
+                <Text variant="body2" muted>{stat.label}</Text>
+                <Text variant="h3" mixin={{ my: 1 }}>{stat.value}</Text>
+                <Badge variant={stat.positive ? 'success' : 'error'}>{stat.change}</Badge>
+              </CardContent>
+            </Card>
+          ))}
+        </Box>
+      </Section>
+
+      <Section>
+        <Text variant="h2">Inspect & Learn</Text>
         <p>
-          Open your browser's DevTools and inspect any element on this page. 
-          You'll see:
+          Open DevTools and inspect any element above. You'll see:
         </p>
         <ul>
-          <li><strong>Real class names</strong> like <code>.Button--primary</code></li>
-          <li><strong>Layer annotations</strong> in the Styles panel</li>
-          <li><strong>CSS custom properties</strong> for theming</li>
-          <li><strong>No generated hashes</strong> — everything is readable</li>
+          <li><strong>Semantic class names</strong> — <code>.ExamplePage--avatar</code>, <code>.Button--primary</code></li>
+          <li><strong>CSS layers</strong> — <code>@layer components</code>, <code>@layer pages</code></li>
+          <li><strong>Design tokens</strong> — <code>var(--color-primary)</code>, <code>var(--space-4)</code></li>
+          <li><strong>No runtime overhead</strong> — pure CSS, no JS style computation</li>
         </ul>
-        <p>
-          This is the power of CascadeKit: debuggable, predictable, native CSS.
-        </p>
       </Section>
     </div>
   );

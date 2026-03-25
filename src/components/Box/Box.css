@@ -1,5 +1,3 @@
 @layer components {
-  .Box {
-    display: block;
-  }
+  .Box--root {}
 }
