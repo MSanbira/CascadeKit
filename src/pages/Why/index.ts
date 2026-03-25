@@ -1,1 +1,1 @@
-export { Why } from './Why';
+export { WhyPage } from './WhyPage';

@@ -16,7 +16,7 @@
   }
 
   /* Desktop - use grid positioning */
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     .Sidebar--root {
       position: static;
       grid-column: 1;
@@ -25,10 +25,6 @@
       block-size: auto;
       transform: none;
     }
-  }
-
-  .Sidebar--open {
-    transform: translateX(0);
   }
 
   .Sidebar--overlay {
@@ -70,18 +66,8 @@
     color: var(--color-text);
   }
 
-  .Sidebar--link-active {
-    background-color: var(--color-primary-subtle);
-    color: var(--color-primary);
-  }
-
-  .Sidebar--link-active:hover {
-    background-color: var(--color-primary-subtle);
-    color: var(--color-primary);
-  }
-
   /* Mobile - overlay behavior */
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {
     .Sidebar--overlay {
       display: block;
       position: fixed;
@@ -92,7 +78,26 @@
       opacity: 1;
       transition: opacity var(--transition-base);
     }
+  }
+}
 
+@layer component-overrides {
+  /* State modifiers */
+  .Sidebar--open {
+    transform: translateX(0);
+  }
+
+  .Sidebar--link-active {
+    background-color: var(--color-primary-subtle);
+    color: var(--color-primary);
+  }
+
+  .Sidebar--link-active:hover {
+    background-color: var(--color-primary-subtle);
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 1024px) {
     .Sidebar--root:not(.Sidebar--open) + .Sidebar--overlay {
       display: none;
     }

@@ -1,0 +1,55 @@
+@layer pages {
+  .LayersPage--card {
+    margin-block-start: var(--space-6);
+  }
+
+  .LayersPage--card p {
+    margin-block-end: var(--space-2);
+  }
+
+  .LayersPage--insight {
+    margin-block: var(--space-6);
+    padding: var(--space-4);
+    background-color: var(--color-bg-subtle);
+    border-radius: var(--radius-lg);
+  }
+
+  .LayersPage--insightItem {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .LayersPage--insightItem code {
+    flex-shrink: 0;
+  }
+
+  .LayersPage--insightResult {
+    margin-inline-start: auto;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+  }
+
+  .LayersPage--insightResult-wins {
+    background-color: #dcfce7;
+    color: #166534;
+  }
+
+  .LayersPage--insightResult-loses {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .LayersPage--insightResult-wins {
+      background-color: rgba(34, 197, 94, 0.2);
+      color: #86efac;
+    }
+
+    .LayersPage--insightResult-loses {
+      background-color: rgba(239, 68, 68, 0.2);
+      color: #fca5a5;
+    }
+  }
+}

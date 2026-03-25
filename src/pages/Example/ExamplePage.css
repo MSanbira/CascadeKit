@@ -1,0 +1,65 @@
+@layer pages {
+  .ExamplePage--showcase,
+  .ExamplePage--cardShowcase {
+    display: grid;
+    gap: var(--space-4);
+    margin-block: var(--space-6);
+  }
+
+  @container (min-width: 500px) {
+    .ExamplePage--showcase,
+    .ExamplePage--cardShowcase {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .ExamplePage--counterValue {
+    font-variant-numeric: tabular-nums;
+    color: var(--color-primary);
+  }
+
+  .ExamplePage--variantSelector {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    padding: var(--space-4);
+  }
+
+  @container (min-width: 400px) {
+    .ExamplePage--variantSelector {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .ExamplePage--variantOptions {
+    display: flex;
+    gap: var(--space-2);
+    background-color: var(--color-bg-muted);
+    padding: var(--space-1);
+    border-radius: var(--radius-md);
+  }
+
+  .ExamplePage--variantOption {
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-muted);
+    font-size: var(--text-1_75);
+    font-weight: 500;
+    transition: 
+      background-color var(--transition-fast),
+      color var(--transition-fast);
+  }
+
+  .ExamplePage--variantOption:hover {
+    color: var(--color-text);
+  }
+
+  .ExamplePage--variantOption-active {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    box-shadow: var(--shadow-sm);
+  }
+
+}

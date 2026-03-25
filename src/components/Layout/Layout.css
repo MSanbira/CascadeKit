@@ -20,7 +20,7 @@
   }
 
   /* Desktop - 2 column layout */
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     .Layout--root {
       grid-template-columns: var(--sidebar-width) 1fr;
     }

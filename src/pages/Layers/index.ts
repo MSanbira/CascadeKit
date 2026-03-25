@@ -1,1 +1,1 @@
-export { Layers } from './Layers';
+export { LayersPage } from './LayersPage';

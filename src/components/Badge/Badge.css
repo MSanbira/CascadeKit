@@ -1,0 +1,35 @@
+@layer components {
+  .Badge--root {
+    display: inline-block;
+    padding-block: var(--space-1);
+    padding-inline: var(--space-3);
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: var(--text-1_75);
+  }
+
+  .Badge--primary {
+    background-color: var(--color-primary-subtle);
+    color: var(--color-primary);
+  }
+
+  .Badge--secondary {
+    background-color: var(--color-bg-muted);
+    color: var(--color-text-muted);
+  }
+
+  .Badge--success {
+    background-color: color-mix(in srgb, var(--color-success) 15%, transparent);
+    color: var(--color-success);
+  }
+
+  .Badge--warning {
+    background-color: color-mix(in srgb, var(--color-warning) 15%, transparent);
+    color: var(--color-warning);
+  }
+
+  .Badge--error {
+    background-color: color-mix(in srgb, var(--color-error) 15%, transparent);
+    color: var(--color-error);
+  }
+}

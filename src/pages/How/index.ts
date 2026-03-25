@@ -1,1 +1,1 @@
-export { How } from './How';
+export { HowPage } from './HowPage';

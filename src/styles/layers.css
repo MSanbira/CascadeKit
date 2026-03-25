@@ -4,4 +4,4 @@
  * Lower layers have lower priority, higher layers win in conflicts
  */
 
-@layer base, utils, components, pages, overrides;
+@layer base, utils, components, pages, component-overrides, user-overrides;

@@ -1,1 +1,1 @@
-export { ComponentModel } from './ComponentModel';
+export { ComponentModelPage } from './ComponentModelPage';

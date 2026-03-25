@@ -1,0 +1,23 @@
+@layer pages {
+  .MixinPage--exampleBox {
+    background: var(--color-primary-subtle);
+    border-radius: var(--radius-sm);
+  }
+
+  .MixinPage--demoItem {
+    display: block;
+    background: linear-gradient(135deg, var(--color-primary) 0%, color-mix(in srgb, var(--color-primary) 70%, black) 100%);
+    color: white;
+    border-radius: var(--radius-md);
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+  }
+
+  .MixinPage--resizable {
+    resize: horizontal;
+    overflow: auto;
+    min-width: 200px;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,15 @@
+@layer pages {
+  .ComponentModelPage--rules {
+    margin-block-start: var(--space-6);
+  }
+
+  .ComponentModelPage--rules ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .ComponentModelPage--rules li {
+    margin-block-end: var(--space-2);
+  }
+}

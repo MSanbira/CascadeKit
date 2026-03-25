@@ -4,16 +4,20 @@ import './styles/layers.css';
 import './styles/base.css';
 import './styles/reset.css';
 import './styles/utils.css';
+import './styles/layoutUtils.css';
+import './styles/mixin.css';
 import './styles/override.css';
 
 import { Layout } from './components/Layout';
 import { ScrollToTop } from './components/ScrollToTop';
-import { Home } from './pages/Home';
-import { Why } from './pages/Why';
-import { How } from './pages/How';
-import { ComponentModel } from './pages/ComponentModel';
-import { Layers } from './pages/Layers';
-import { Example } from './pages/Example';
+import { HomePage } from './pages/Home';
+import { WhyPage } from './pages/Why';
+import { HowPage } from './pages/How';
+import { ComponentModelPage } from './pages/ComponentModel';
+import { LayersPage } from './pages/Layers';
+import { MixinPage } from './pages/Mixin';
+import { LayoutUtilsPage } from './pages/LayoutUtils';
+import { ExamplePage } from './pages/Example';
 
 function App() {
   return (
@@ -21,12 +25,14 @@ function App() {
       <ScrollToTop />
       <Layout>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/why" element={<Why />} />
-          <Route path="/how" element={<How />} />
-          <Route path="/components" element={<ComponentModel />} />
-          <Route path="/layers" element={<Layers />} />
-          <Route path="/example" element={<Example />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/why" element={<WhyPage />} />
+          <Route path="/how" element={<HowPage />} />
+          <Route path="/components" element={<ComponentModelPage />} />
+          <Route path="/layers" element={<LayersPage />} />
+          <Route path="/mixin" element={<MixinPage />} />
+          <Route path="/layout-utils" element={<LayoutUtilsPage />} />
+          <Route path="/example" element={<ExamplePage />} />
         </Routes>
       </Layout>
     </BrowserRouter>

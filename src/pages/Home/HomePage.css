@@ -1,0 +1,47 @@
+@layer pages {
+  .HomePage--tagline {
+    max-width: calc(var(--base-size) * 75);
+    margin-inline: auto;
+  }
+
+  .HomePage--principle {
+    display: flex;
+    gap: var(--space-3);
+    align-items: flex-start;
+    padding: var(--space-3);
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+  }
+
+  .HomePage--principleNumber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: calc(var(--base-size) * 3);
+    height: calc(var(--base-size) * 3);
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+    border-radius: var(--radius-full);
+    flex-shrink: 0;
+    font-size: var(--text-sm);
+  }
+
+  .HomePage--layer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--color-border);
+    background: var(--color-surface);
+  }
+
+  .HomePage--layer--base { border-left-color: var(--color-text-muted); }
+  .HomePage--layer--utils { border-left-color: var(--color-secondary); }
+  .HomePage--layer--components { border-left-color: var(--color-primary); }
+  .HomePage--layer--pages { border-left-color: var(--color-success); }
+  .HomePage--layer--component-overrides { border-left-color: var(--color-warning); }
+  .HomePage--layer--user-overrides { border-left-color: var(--color-error); }
+}

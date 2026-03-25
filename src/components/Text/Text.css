@@ -1,0 +1,113 @@
+@layer components {
+  .Text--root {
+    color: var(--color-text);
+  }
+
+  /* Heading variants */
+  .Text--variant-h1 {
+    font-size: var(--text-4_5);
+    font-weight: var(--font-weight-bold);
+    margin-block-end: var(--space-3);
+  }
+
+  .Text--variant-h2 {
+    font-size: var(--text-3_75);
+    font-weight: var(--font-weight-medium);
+    margin-block-start: var(--space-6);
+    margin-block-end: var(--space-2);
+  }
+
+  .Text--variant-h3 {
+    font-size: var(--text-3);
+    font-weight: var(--font-weight-medium);
+    margin-block-start: var(--space-4);
+  }
+
+  .Text--variant-h4 {
+    font-size: var(--text-2_5);
+    font-weight: var(--font-weight-medium);
+    margin-block-start: var(--space-3);
+  }
+
+  .Text--variant-h5 {
+    font-size: var(--text-2_25);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .Text--variant-h6 {
+    font-size: var(--text-2);
+    font-weight: var(--font-weight-medium);
+  }
+
+  /* Body text variants */
+  .Text--variant-body1 {
+    font-size: var(--text-2);
+    font-weight: var(--font-weight-light);
+    line-height: 1.6;
+  }
+
+  .Text--variant-body2 {
+    font-size: var(--text-1_75);
+    font-weight: var(--font-weight-light);
+    line-height: 1.5;
+  }
+
+  .Text--variant-inline {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  /* Colors */
+  .Text--color-primary {
+    color: var(--color-primary);
+  }
+
+  .Text--color-secondary {
+    color: var(--color-secondary);
+  }
+
+  .Text--color-success {
+    color: var(--color-success);
+  }
+
+  .Text--color-warning {
+    color: var(--color-warning);
+  }
+
+  .Text--color-error {
+    color: var(--color-error);
+  }
+
+  /* Remove top margin for first heading */
+  :where(.Text--variant-h1, .Text--variant-h2, .Text--variant-h3, .Text--variant-h4):first-child {
+    margin-block-start: 0;
+  }
+}
+
+@layer component-overrides {
+  /* Modifiers */
+  .Text--muted {
+    color: var(--color-text-muted);
+  }
+
+  .Text--bold {
+    font-weight: var(--font-weight-bold);
+  }
+
+  .Text--underline {
+    text-decoration: underline;
+  }
+
+  /* Alignment */
+  .Text--align-left {
+    text-align: left;
+  }
+
+  .Text--align-center {
+    text-align: center;
+  }
+
+  .Text--align-right {
+    text-align: right;
+  }
+}

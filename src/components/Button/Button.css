@@ -19,12 +19,6 @@
     transform: scale(0.98);
   }
 
-  .Button--root:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
-  }
-
   /* Variants */
   .Button--primary {
     background-color: var(--color-primary);
@@ -53,8 +47,10 @@
   .Button--ghost:hover:not(:disabled) {
     background-color: var(--color-bg-muted);
   }
+}
 
-  /* Sizes */
+@layer component-overrides {
+  /* Sizes - override variant padding */
   .Button--sm {
     padding-block: var(--space-0_5);
     padding-inline: var(--space-1_5);
@@ -71,5 +67,12 @@
     padding-block: var(--space-1_5);
     padding-inline: var(--space-3);
     font-size: var(--text-2_25);
+  }
+
+  /* Disabled state - override all variants */
+  .Button--root:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
   }
 }

@@ -13,6 +13,8 @@ const navItems: NavItem[] = [
   { to: '/how', label: 'How It Works' },
   { to: '/components', label: 'Component Model' },
   { to: '/layers', label: 'Layers Explained' },
+  { to: '/mixin', label: 'Mixin System' },
+  { to: '/layout-utils', label: 'Layout Utilities' },
   { to: '/example', label: 'Live Example' },
 ];
 

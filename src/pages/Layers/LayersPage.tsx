@@ -1,11 +1,13 @@
-import { Heading } from '../../components/Heading';
 import { Section } from '../../components/Section';
 import { CodeBlock } from '../../components/CodeBlock';
 import { Card, CardHeader, CardContent } from '../../components/Card';
-import './Layers.css';
+import { Text } from '../../components/Text';
+import { Box } from '../../components/Box';
+import { LayerStack } from '../../components/LayerStack';
+import './LayersPage.css';
 
 const layerDefinition = `/* This MUST be first CSS import */
-@layer base, utils, components, pages, overrides;`;
+@layer base, utils, components, pages, component-overrides, user-overrides;`;
 
 const baseLayerExample = `@layer base {
   :root {
@@ -64,7 +66,23 @@ const pagesLayerExample = `@layer pages {
   }
 }`;
 
-const overridesLayerExample = `@layer overrides {
+const componentOverridesLayerExample = `@layer component-overrides {
+  /* Component modifiers that need to override variants */
+  .Text--bold {
+    font-weight: var(--font-weight-bold);
+  }
+
+  .Text--muted {
+    color: var(--color-text-muted);
+  }
+
+  .Button--disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}`;
+
+const userOverridesLayerExample = `@layer user-overrides {
   /* Emergency fixes, A/B tests, etc. */
   .Button--root[data-experiment="new-cta"] {
     background: var(--color-accent);
@@ -76,11 +94,11 @@ const overridesLayerExample = `@layer overrides {
   }
 }`;
 
-export function Layers() {
+export function LayersPage() {
   return (
-    <div className="Layers--root">
+    <div className="LayersPage--root">
       <Section>
-        <Heading level={1}>Layers Explained</Heading>
+        <Text variant="h1">Layers Explained</Text>
         <p>
           CSS Cascade Layers (<code>@layer</code>) let you control which styles 
           win when there are conflicts — without resorting to specificity tricks 
@@ -89,44 +107,21 @@ export function Layers() {
       </Section>
 
       <Section>
-        <Heading level={2}>Layer Order</Heading>
+        <Text variant="h2">Layer Order</Text>
         <p>
-          CascadeKit uses five layers, ordered from lowest to highest priority:
+          CascadeKit uses six layers, ordered from lowest to highest priority:
         </p>
         <CodeBlock language="css" filename="layers.css">
           {layerDefinition}
         </CodeBlock>
         
-        <div className="Layers--diagram">
-          <div className="Layers--stack">
-            <div className="Layers--stackItem Layers--stackItem-overrides text-sm">
-              <span className="font-semibold">overrides</span>
-              <span className="text-xs">Highest priority</span>
-            </div>
-            <div className="Layers--stackItem Layers--stackItem-pages text-sm">
-              <span className="font-semibold">pages</span>
-              <span className="text-xs">↑</span>
-            </div>
-            <div className="Layers--stackItem Layers--stackItem-components text-sm">
-              <span className="font-semibold">components</span>
-              <span className="text-xs">↑</span>
-            </div>
-            <div className="Layers--stackItem Layers--stackItem-utils text-sm">
-              <span className="font-semibold">utils</span>
-              <span className="text-xs">↑</span>
-            </div>
-            <div className="Layers--stackItem Layers--stackItem-base text-sm">
-              <span className="font-semibold">base</span>
-              <span className="text-xs">Lowest priority</span>
-            </div>
-          </div>
-        </div>
+        <LayerStack mixin={{ my: 6 }} />
       </Section>
 
       <Section>
-        <Heading level={2}>Layer Purposes</Heading>
+        <Text variant="h2">Layer Purposes</Text>
         
-        <Card className="Layers--card">
+        <Card className="LayersPage--card">
           <CardHeader>
             <code>@layer base</code>
           </CardHeader>
@@ -137,7 +132,7 @@ export function Layers() {
           </CardContent>
         </Card>
 
-        <Card className="Layers--card">
+        <Card className="LayersPage--card">
           <CardHeader>
             <code>@layer utils</code>
           </CardHeader>
@@ -148,7 +143,7 @@ export function Layers() {
           </CardContent>
         </Card>
 
-        <Card className="Layers--card">
+        <Card className="LayersPage--card">
           <CardHeader>
             <code>@layer components</code>
           </CardHeader>
@@ -159,7 +154,7 @@ export function Layers() {
           </CardContent>
         </Card>
 
-        <Card className="Layers--card">
+        <Card className="LayersPage--card">
           <CardHeader>
             <code>@layer pages</code>
           </CardHeader>
@@ -170,36 +165,52 @@ export function Layers() {
           </CardContent>
         </Card>
 
-        <Card className="Layers--card">
+        <Card className="LayersPage--card">
           <CardHeader>
-            <code>@layer overrides</code>
+            <code>@layer component-overrides</code>
+          </CardHeader>
+          <CardContent>
+            <p><strong>Purpose:</strong> Component modifiers that need to override variant styles</p>
+            <p><strong>Contains:</strong> Modifier classes like bold, muted, disabled states</p>
+            <p>
+              <strong>Why after pages?</strong> Placing this layer after <code>pages</code> ensures 
+              that granular component behavior (like disabled buttons or active links) always works 
+              as intended — even when pages apply custom styling to those components.
+            </p>
+            <CodeBlock language="css">{componentOverridesLayerExample}</CodeBlock>
+          </CardContent>
+        </Card>
+
+        <Card className="LayersPage--card">
+          <CardHeader>
+            <code>@layer user-overrides</code>
           </CardHeader>
           <CardContent>
             <p><strong>Purpose:</strong> Last-resort overrides, experiments, third-party fixes</p>
             <p><strong>Contains:</strong> A/B test styles, vendor overrides, hotfixes</p>
-            <CodeBlock language="css">{overridesLayerExample}</CodeBlock>
+            <CodeBlock language="css">{userOverridesLayerExample}</CodeBlock>
           </CardContent>
         </Card>
       </Section>
 
       <Section>
-        <Heading level={2}>Key Insight</Heading>
+        <Text variant="h2">Key Insight</Text>
         <p>
           With layers, a <strong>simple selector</strong> in a higher layer always 
           beats a <strong>complex selector</strong> in a lower layer:
         </p>
-        <div className="Layers--insight">
-          <div className="Layers--insightItem">
-            <code className="text-sm">.Button--root</code>
-            <span className="text-sm text-muted">in @layer overrides</span>
-            <span className="Layers--insightResult Layers--insightResult-wins text-sm font-semibold">WINS ✓</span>
+        <Box className="d-flex-dir-col-gap-3 LayersPage--insight">
+          <div className="LayersPage--insightItem">
+            <Text variant="body2" tag="code">.Button--root</Text>
+            <Text variant="body2" muted>in @layer user-overrides</Text>
+            <Text variant="body2" tag="span" className="LayersPage--insightResult LayersPage--insightResult-wins">WINS ✓</Text>
           </div>
-          <div className="Layers--insightItem">
-            <code className="text-sm">body main .Card--root .Button--root:hover</code>
-            <span className="text-sm text-muted">in @layer components</span>
-            <span className="Layers--insightResult Layers--insightResult-loses text-sm font-semibold">loses</span>
+          <div className="LayersPage--insightItem">
+            <Text variant="body2" tag="code">body main .Card--root .Button--root:hover</Text>
+            <Text variant="body2" muted>in @layer components</Text>
+            <Text variant="body2" tag="span" className="LayersPage--insightResult LayersPage--insightResult-loses">loses</Text>
           </div>
-        </div>
+        </Box>
         <p>
           This makes overriding predictable. No more fighting specificity.
         </p>

@@ -11,6 +11,16 @@
     box-shadow: var(--shadow-md);
   }
 
+  .Card--subtle {
+    background-color: var(--color-bg-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .Card--subtle:hover {
+    box-shadow: none;
+  }
+
   .Card--header {
     padding: var(--space-2) var(--space-3);
     border-block-end: 1px solid var(--color-border-subtle);

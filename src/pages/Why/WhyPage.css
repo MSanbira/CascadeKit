@@ -1,45 +1,29 @@
 @layer pages {
-  .Why--root {
-    container-type: inline-size;
-  }
-
-  .Why--comparison {
-    display: grid;
-    gap: var(--space-4);
-    margin-block-start: var(--space-6);
-  }
-
-  @media (min-width: 640px) {
-    .Why--comparison {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  .Why--list {
+  .WhyPage--list {
     list-style: none;
     padding: 0;
     margin: 0;
   }
 
-  .Why--list li {
+  .WhyPage--list li {
     position: relative;
     padding-inline-start: var(--space-6);
     margin-block-end: var(--space-2);
     color: var(--color-text-muted);
   }
 
-  .Why--list li::before {
+  .WhyPage--list li::before {
     position: absolute;
     inset-inline-start: 0;
     font-weight: bold;
   }
 
-  .Why--list-positive li::before {
+  .WhyPage--list-positive li::before {
     content: "✓";
     color: var(--color-success);
   }
 
-  .Why--list-negative li::before {
+  .WhyPage--list-negative li::before {
     content: "✗";
     color: var(--color-error);
   }

@@ -1,0 +1,18 @@
+@layer pages {
+  .HowPage--namingItem {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-3);
+    background-color: var(--color-bg-subtle);
+    border-radius: var(--radius-md);
+  }
+
+  .HowPage--namingItem code {
+    min-inline-size: calc(var(--base-size) * 25);
+  }
+
+  .HowPage--namingItem span {
+    color: var(--color-text-muted);
+  }
+}

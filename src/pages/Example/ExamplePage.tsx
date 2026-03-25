@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { Heading } from '../../components/Heading';
 import { Section } from '../../components/Section';
 import { Button } from '../../components/Button';
 import { Card, CardHeader, CardContent } from '../../components/Card';
 import { CodeBlock } from '../../components/CodeBlock';
-import './Example.css';
+import { Text } from '../../components/Text';
+import { Box } from '../../components/Box';
+import './ExamplePage.css';
 
 const buttonCode = `import './Button.css';
 
@@ -30,14 +31,14 @@ export function CardContent({ children }) {
   return <div className="Card--content">{children}</div>;
 }`;
 
-export function Example() {
+export function ExamplePage() {
   const [count, setCount] = useState(0);
   const [selectedVariant, setSelectedVariant] = useState<'primary' | 'secondary' | 'ghost'>('primary');
 
   return (
-    <div className="Example--root">
+    <div className="ExamplePage--root container-query">
       <Section>
-        <Heading level={1}>Live Example</Heading>
+        <Text variant="h1">Live Example</Text>
         <p>
           This page showcases CascadeKit components working together. 
           Everything you see here follows the CascadeKit architecture — 
@@ -46,31 +47,31 @@ export function Example() {
       </Section>
 
       <Section>
-        <Heading level={2}>Button Component</Heading>
+        <Text variant="h2">Button Component</Text>
         <p>
           Buttons support multiple variants and sizes. Try them out:
         </p>
         
-        <div className="Example--showcase">
+        <div className="ExamplePage--showcase">
           <Card>
             <CardHeader>Button Variants</CardHeader>
             <CardContent>
-              <div className="Example--buttonGrid">
+              <Box className="d-flex-f-wrap-gap-3-ali-center container-query">
                 <Button variant="primary">Primary</Button>
                 <Button variant="secondary">Secondary</Button>
                 <Button variant="ghost">Ghost</Button>
-              </div>
+              </Box>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader>Button Sizes</CardHeader>
             <CardContent>
-              <div className="Example--buttonGrid">
+              <Box className="d-flex-f-wrap-gap-3-ali-center container-query">
                 <Button size="sm">Small</Button>
                 <Button size="md">Medium</Button>
                 <Button size="lg">Large</Button>
-              </div>
+              </Box>
             </CardContent>
           </Card>
         </div>
@@ -81,12 +82,12 @@ export function Example() {
       </Section>
 
       <Section>
-        <Heading level={2}>Card Component</Heading>
+        <Text variant="h2">Card Component</Text>
         <p>
           Cards provide a surface for grouping related content:
         </p>
         
-        <div className="Example--cardShowcase">
+        <div className="ExamplePage--cardShowcase">
           <Card>
             <CardHeader>Simple Card</CardHeader>
             <CardContent>
@@ -98,10 +99,10 @@ export function Example() {
             <CardHeader>Card with Actions</CardHeader>
             <CardContent>
               <p>Combine cards with other components:</p>
-              <div className="Example--cardActions">
+              <Box className="d-flex-gap-2" mixin={{ mt: 4 }}>
                 <Button variant="primary" size="sm">Confirm</Button>
                 <Button variant="ghost" size="sm">Cancel</Button>
-              </div>
+              </Box>
             </CardContent>
           </Card>
         </div>
@@ -112,7 +113,7 @@ export function Example() {
       </Section>
 
       <Section>
-        <Heading level={2}>Interactive Demo</Heading>
+        <Text variant="h2">Interactive Demo</Text>
         <p>
           Components work with React state like any other component:
         </p>
@@ -120,9 +121,9 @@ export function Example() {
         <Card>
           <CardHeader>Counter Example</CardHeader>
           <CardContent>
-            <div className="Example--counter">
-              <span className="Example--counterValue text-4xl font-bold">{count}</span>
-              <div className="Example--counterControls">
+            <Box className="d-flex-dir-col-ali-center-gap-4" mixin={{ p: 6 }}>
+              <Text variant="h1" tag="span" className="ExamplePage--counterValue">{count}</Text>
+              <Box className="d-flex-gap-2">
                 <Button 
                   variant="secondary" 
                   size="sm" 
@@ -144,33 +145,33 @@ export function Example() {
                 >
                   +
                 </Button>
-              </div>
-            </div>
+              </Box>
+            </Box>
           </CardContent>
         </Card>
       </Section>
 
       <Section>
-        <Heading level={2}>Variant Selector</Heading>
+        <Text variant="h2">Variant Selector</Text>
         <p>
           Switch between button variants dynamically:
         </p>
 
         <Card>
           <CardContent>
-            <div className="Example--variantSelector">
-              <div className="Example--variantOptions">
+            <div className="ExamplePage--variantSelector">
+              <div className="ExamplePage--variantOptions">
                 {(['primary', 'secondary', 'ghost'] as const).map((variant) => (
                   <button
                     key={variant}
-                    className={`Example--variantOption text-sm font-medium ${selectedVariant === variant ? 'Example--variantOption-active' : ''}`}
+                    className={`ExamplePage--variantOption ${selectedVariant === variant ? 'ExamplePage--variantOption-active' : ''}`}
                     onClick={() => setSelectedVariant(variant)}
                   >
                     {variant}
                   </button>
                 ))}
               </div>
-              <div className="Example--variantPreview">
+              <div className="d-flex-jc-center">
                 <Button variant={selectedVariant} size="lg">
                   {selectedVariant.charAt(0).toUpperCase() + selectedVariant.slice(1)} Button
                 </Button>
@@ -181,7 +182,7 @@ export function Example() {
       </Section>
 
       <Section>
-        <Heading level={2}>Inspect the CSS</Heading>
+        <Text variant="h2">Inspect the CSS</Text>
         <p>
           Open your browser's DevTools and inspect any element on this page. 
           You'll see:

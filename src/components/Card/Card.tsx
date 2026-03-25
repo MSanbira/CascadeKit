@@ -1,9 +1,14 @@
 import { classNames } from '../../helpers/classNameHelper';
+import { getMixin, type MixinProps } from '../../helpers/mixinHelper';
 import './Card.css';
+
+type CardVariant = 'default' | 'subtle';
 
 interface CardProps {
   children: React.ReactNode;
   className?: string;
+  variant?: CardVariant;
+  mixin?: MixinProps;
 }
 
 interface CardHeaderProps {
@@ -16,9 +21,12 @@ interface CardContentProps {
   className?: string;
 }
 
-export function Card({ children, className = '' }: CardProps) {
+export function Card({ children, className = '', variant = 'default', mixin }: CardProps) {
+  const { className: mixinClassName, style: mixinStyle } = getMixin(mixin);
+  const variantClass = variant !== 'default' ? `Card--${variant}` : '';
+  
   return (
-    <div className={classNames('Card', [className])}>
+    <div className={classNames('Card', [variantClass, mixinClassName, className])} style={mixinStyle}>
       {children}
     </div>
   );
