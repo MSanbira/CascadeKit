@@ -32,24 +32,12 @@
   }
 
   .LayersPage--insightResult-wins {
-    background-color: #dcfce7;
-    color: #166534;
+    background-color: color-mix(in srgb, var(--color-success) 20%, var(--color-bg));
+    color: var(--color-success);
   }
 
   .LayersPage--insightResult-loses {
-    background-color: #fee2e2;
-    color: #991b1b;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .LayersPage--insightResult-wins {
-      background-color: rgba(34, 197, 94, 0.2);
-      color: #86efac;
-    }
-
-    .LayersPage--insightResult-loses {
-      background-color: rgba(239, 68, 68, 0.2);
-      color: #fca5a5;
-    }
+    background-color: color-mix(in srgb, var(--color-error) 20%, var(--color-bg));
+    color: var(--color-error);
   }
 }

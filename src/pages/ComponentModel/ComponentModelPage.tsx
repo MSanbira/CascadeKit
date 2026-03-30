@@ -1,7 +1,7 @@
 import { Section } from '../../components/Section';
 import { CodeBlock } from '../../components/CodeBlock';
 import { Card, CardContent } from '../../components/Card';
-import { Text } from '../../components/Text';
+import { Text, Strong } from '../../components/Text';
 import './ComponentModelPage.css';
 import { Box } from '../../components/Box';
 
@@ -16,57 +16,89 @@ const folderStructure = `/src
       Card.css
       index.ts`;
 
-const componentTSX = `import './Button.css';
+const componentTSX = `import { classNames } from '../../helpers/classNameHelper';
+import { getMixin, type MixinProps } from '../../helpers/mixinHelper';
+import './Button.css';
 
 type ButtonVariant = 'primary' | 'secondary' | 'ghost';
+type ButtonSize = 'sm' | 'md' | 'lg';
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
+  size?: ButtonSize;
   children: React.ReactNode;
+  mixin?: MixinProps;
 }
 
-export function Button({ variant = 'primary', children }: ButtonProps) {
+export function Button({ 
+  variant = 'primary', 
+  size = 'md', 
+  children, 
+  className = '',
+  mixin,
+  ...props 
+}: ButtonProps) {
+  const { className: mixinClassName, style: mixinStyle } = getMixin(mixin);
+  
   return (
-    <button className={\`Button--root Button--\${variant}\`}>
+    <button 
+      className={classNames('Button', [\`Button--\${variant}\`, \`Button--\${size}\`, mixinClassName, className])} 
+      style={{...mixinStyle, ...props.style}}
+      {...props}
+    >
       {children}
     </button>
   );
 }`;
 
 const componentCSS = `@layer components {
-  /* Root element - always required */
   .Button--root {
     display: inline-flex;
     align-items: center;
-    padding: var(--space-2) var(--space-4);
     border-radius: var(--radius-md);
-    font-weight: 500;
-    transition: background-color 150ms ease;
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    /* CSS custom properties with fallbacks */
+    background: var(--button-bg-color, var(--color-bg));
+    color: var(--button-color, var(--color-text));
+    border: 1px solid var(--button-border-color, transparent);
   }
 
-  /* Variants */
+  .Button--root:hover {
+    background: var(--button-bg-color-hover, var(--button-bg-color));
+  }
+
+  /* Variants only set CSS custom properties */
   .Button--primary {
-    background-color: var(--color-primary);
-    color: white;
+    --button-bg-color: var(--color-primary);
+    --button-color: var(--color-bg);
+    --button-bg-color-hover: var(--color-primary-hover);
   }
 
   .Button--secondary {
-    background-color: var(--color-bg-muted);
-    color: var(--color-text);
+    --button-bg-color: var(--color-bg-subtle);
+    --button-border-color: var(--color-border);
   }
+}
 
-  .Button--ghost {
-    background-color: transparent;
-  }
+@layer component-overrides {
+  /* Sizes live in higher-priority layer */
+  .Button--sm { padding: var(--space-0_5) var(--space-1_5); }
+  .Button--md { padding: var(--space-1) var(--space-2); }
+  .Button--lg { padding: var(--space-1_5) var(--space-3); }
 
-  /* States */
-  .Button--root:hover {
-    filter: brightness(1.1);
-  }
-
+  /* Disabled state resets hover/active to prevent visual feedback */
   .Button--root:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+
+    &:hover {
+      background: var(--button-bg-color, var(--color-bg));
+    }
+    
+    &:active {
+      border-color: var(--button-border-color, transparent);
+    }
   }
 }`;
 
@@ -117,9 +149,9 @@ export function ComponentModelPage() {
             <CardContent>
               <h4>Naming Rules</h4>
               <ul>
-                <li><strong>PascalCase</strong> component name</li>
-                <li><strong>Double dash</strong> separator</li>
-                <li><strong>camelCase</strong> element/modifier name</li>
+                <li><Strong>PascalCase</Strong> component name</li>
+                <li><Strong>Double dash</Strong> separator</li>
+                <li><Strong>camelCase</Strong> element/modifier name</li>
                 <li>Always start with <code>--root</code></li>
               </ul>
             </CardContent>

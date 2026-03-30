@@ -16,6 +16,7 @@
     --color-primary: #6366f1;
     --color-primary-hover: #4f46e5;
     --color-primary-subtle: #eef2ff;
+    --color-primary-active: #4f46e5;
     
     --color-accent: #06b6d4;
     --color-success: #10b981;
@@ -32,7 +33,7 @@
     --color-code-number: #fab387;
     
     /* Base size unit */
-    --base-size: clamp(8px, .5vw, 16px);
+    --base-size: clamp(8px, .5vw, 12px);
     
     /* Typography */
     --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;

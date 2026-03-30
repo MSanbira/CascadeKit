@@ -1,6 +1,6 @@
 import { Section } from '../../components/Section';
 import { Card, CardHeader, CardContent } from '../../components/Card';
-import { Text } from '../../components/Text';
+import { Text, Strong } from '../../components/Text';
 import { Box } from '../../components/Box';
 import './WhyPage.css';
 
@@ -21,10 +21,10 @@ export function WhyPage() {
           Most CSS approaches trade one problem for another:
         </p>
         <ul>
-          <li><strong>CSS-in-JS</strong> — Runtime overhead, generated class names, library lock-in</li>
-          <li><strong>Utility-first</strong> — Verbose markup, specificity issues, proprietary syntax</li>
-          <li><strong>CSS Modules</strong> — Hash names, no cascade control, awkward global styles</li>
-          <li><strong>Global CSS</strong> — Specificity conflicts, unpredictable overrides</li>
+          <li><Strong>CSS-in-JS</Strong> — Runtime overhead, generated class names, library lock-in</li>
+          <li><Strong>Utility-first</Strong> — Verbose markup, specificity issues, proprietary syntax</li>
+          <li><Strong>CSS Modules</Strong> — Hash names, no cascade control, awkward global styles</li>
+          <li><Strong>Global CSS</Strong> — Specificity conflicts, unpredictable overrides</li>
         </ul>
       </Section>
 
@@ -59,8 +59,8 @@ export function WhyPage() {
             <CardContent>
               <Text variant="h6" mixin={{ mb: 1 }}>Co-location keeps styles with components</Text>
               <Text variant="body2" muted>
-                Each component imports its own CSS file. 
-                Delete a component, its styles go with it.
+                Each component imports its own CSS file. Tree-shaking means 
+                unused CSS never ships. Delete a component, its styles go with it.
               </Text>
             </CardContent>
           </Card>
@@ -88,6 +88,7 @@ export function WhyPage() {
                 <li>Predictable cascade — layers define order</li>
                 <li>Debuggable — real class names</li>
                 <li>Tree-shakeable — unused CSS doesn't ship</li>
+                <li>SSR-friendly — no hydration issues, CSS load order doesn't matter</li>
                 <li>Future-proof — native features, no abstractions</li>
               </ul>
             </CardContent>

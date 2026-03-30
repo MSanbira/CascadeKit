@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { Section } from '../../components/Section';
 import { Button } from '../../components/Button';
 import { Card, CardHeader, CardContent } from '../../components/Card';
-import { Text } from '../../components/Text';
+import { Text, Strong } from '../../components/Text';
 import { Box } from '../../components/Box';
 import { Badge } from '../../components/Badge';
+import { CodeBlock } from '../../components/CodeBlock';
 import './ExamplePage.css';
 
 export function ExamplePage() {
@@ -45,12 +46,95 @@ export function ExamplePage() {
       </Section>
 
       <Section>
+        <Text variant="h2">Button Component</Text>
+        <p>The Button component demonstrates CascadeKit's variant and size system.</p>
+        <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
+          <CardContent>
+            <Text variant="body2" muted>
+              <Strong>CascadeKit principles:</Strong> The base class defines all behavior (hover, active, transitions) 
+              using CSS variables with sensible fallbacks. Variant classes only set variable values — 
+              they don't repeat property declarations. This keeps the code DRY and makes adding new variants simple. 
+              Size and state overrides live in a higher-priority layer to ensure they always win.
+            </Text>
+          </CardContent>
+        </Card>
+
+        <Box mixin={{ mt: 4 }}>
+          <Text variant="h5" mixin={{ mb: 2 }}>Variants</Text>
+          <Box className="d-flex-gap-3-ali-center" mixin={{ mb: 3 }}>
+            <Button variant="primary">Primary</Button>
+            <Button variant="secondary">Secondary</Button>
+            <Button variant="ghost">Ghost</Button>
+          </Box>
+          <CodeBlock language="tsx" filename="Usage">{`<Button variant="primary">Primary</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="ghost">Ghost</Button>`}</CodeBlock>
+        </Box>
+
+        <Box mixin={{ mt: 4 }}>
+          <Text variant="h5" mixin={{ mb: 2 }}>How Variants Work (CSS)</Text>
+          <Text variant="body2" muted mixin={{ mb: 2 }}>
+            Base styles use variables with fallbacks. Variants only set variable values.
+          </Text>
+          <CodeBlock language="css" filename="Button.css">{`.Button--root {
+  background: var(--button-bg-color, var(--color-bg));
+  color: var(--button-color, var(--color-text));
+  border: 1px solid var(--button-border-color, transparent);
+}
+
+.Button--root:hover {
+  background: var(--button-bg-color-hover, var(--button-bg-color));
+}
+
+.Button--primary {
+  --button-bg-color: var(--color-primary);
+  --button-color: var(--color-bg);
+  --button-bg-color-hover: var(--color-primary-hover);
+}`}</CodeBlock>
+        </Box>
+
+        <Box mixin={{ mt: 4 }}>
+          <Text variant="h5" mixin={{ mb: 2 }}>Sizes</Text>
+          <Box className="d-flex-gap-3-ali-center" mixin={{ mb: 3 }}>
+            <Button variant="primary" size="sm">Small</Button>
+            <Button variant="primary" size="md">Medium</Button>
+            <Button variant="primary" size="lg">Large</Button>
+          </Box>
+          <CodeBlock language="tsx" filename="Usage">{`<Button variant="primary" size="sm">Small</Button>
+<Button variant="primary" size="md">Medium</Button>
+<Button variant="primary" size="lg">Large</Button>`}</CodeBlock>
+        </Box>
+
+        <Box mixin={{ mt: 4 }}>
+          <Text variant="h5" mixin={{ mb: 2 }}>Disabled State</Text>
+          <Box className="d-flex-gap-3-ali-center" mixin={{ mb: 3 }}>
+            <Button variant="primary" disabled>Primary</Button>
+            <Button variant="secondary" disabled>Secondary</Button>
+            <Button variant="ghost" disabled>Ghost</Button>
+          </Box>
+          <Text variant="body2" muted mixin={{ mb: 2 }}>
+            Disabled styles in <code>@layer component-overrides</code> reset hover/active states.
+          </Text>
+          <CodeBlock language="css" filename="Button.css">{`@layer component-overrides {
+  .Button--root:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+
+    &:hover {
+      background: var(--button-bg-color, var(--color-bg));
+    }
+  }
+}`}</CodeBlock>
+        </Box>
+      </Section>
+
+      <Section>
         <Text variant="h2">User Profile Card</Text>
         <p>A common pattern for displaying user information with actions.</p>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <CardContent>
             <Text variant="body2" muted>
-              <strong>CascadeKit principles:</strong> Component composition (Card + Badge + Button), 
+              <Strong>CascadeKit principles:</Strong> Component composition (Card + Badge + Button), 
               utility classes for layout (<code>d-flex-gap-4-ali-center</code>), 
               responsive grid via mixin (<code>smallScreen</code>/<code>mediumScreen</code>), 
               page-specific CSS for avatar styling.
@@ -107,7 +191,7 @@ export function ExamplePage() {
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <CardContent>
             <Text variant="body2" muted>
-              <strong>CascadeKit principles:</strong> BEM-style variant classes 
+              <Strong>CascadeKit principles:</Strong> BEM-style variant classes 
               (<code>--notification-success</code>, <code>--notification-warning</code>), 
               design tokens for colors (<code>var(--color-success)</code>), 
               CSS <code>color-mix()</code> for computed backgrounds.
@@ -142,7 +226,7 @@ export function ExamplePage() {
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <CardContent>
             <Text variant="body2" muted>
-              <strong>CascadeKit principles:</strong> Layer cascade for state overrides 
+              <Strong>CascadeKit principles:</Strong> Layer cascade for state overrides 
               (<code>@layer pages</code> overrides <code>@layer components</code>), 
               responsive breakpoints via mixin (<code>bigScreen: gridColTemplate</code>), 
               dynamic className for selected state without runtime CSS.
@@ -189,7 +273,7 @@ export function ExamplePage() {
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <CardContent>
             <Text variant="body2" muted>
-              <strong>CascadeKit principles:</strong> Page-specific form styles in <code>@layer pages</code>, 
+              <Strong>CascadeKit principles:</Strong> Page-specific form styles in <code>@layer pages</code>, 
               focus states using design tokens (<code>var(--color-primary)</code>), 
               utility classes for form layout (<code>d-flex-dir-col-gap-4</code>), 
               no CSS-in-JS — pure native CSS transitions.
@@ -236,7 +320,7 @@ export function ExamplePage() {
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <CardContent>
             <Text variant="body2" muted>
-              <strong>CascadeKit principles:</strong> Component variants via props (<code>Card variant="subtle"</code>), 
+              <Strong>CascadeKit principles:</Strong> Component variants via props (<code>Card variant="subtle"</code>), 
               conditional Badge variants for positive/negative states, 
               4-column responsive grid demonstrating mixin breakpoints, 
               all styling defined in component CSS — zero inline styles.
@@ -268,10 +352,10 @@ export function ExamplePage() {
           Open DevTools and inspect any element above. You'll see:
         </p>
         <ul>
-          <li><strong>Semantic class names</strong> — <code>.ExamplePage--avatar</code>, <code>.Button--primary</code></li>
-          <li><strong>CSS layers</strong> — <code>@layer components</code>, <code>@layer pages</code></li>
-          <li><strong>Design tokens</strong> — <code>var(--color-primary)</code>, <code>var(--space-4)</code></li>
-          <li><strong>No runtime overhead</strong> — pure CSS, no JS style computation</li>
+          <li><Strong>Semantic class names</Strong> — <code>.ExamplePage--avatar</code>, <code>.Button--primary</code></li>
+          <li><Strong>CSS layers</Strong> — <code>@layer components</code>, <code>@layer pages</code></li>
+          <li><Strong>Design tokens</Strong> — <code>var(--color-primary)</code>, <code>var(--space-4)</code></li>
+          <li><Strong>No runtime overhead</Strong> — pure CSS, no JS style computation</li>
         </ul>
       </Section>
     </div>

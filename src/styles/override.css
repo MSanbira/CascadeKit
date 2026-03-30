@@ -1,4 +1,4 @@
-@layer override {
+@layer user-overrides {
   /* Dark mode - responds to system preference */
   @media (prefers-color-scheme: dark) {
     :root {

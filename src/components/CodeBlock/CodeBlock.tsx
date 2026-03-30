@@ -1,15 +1,20 @@
 import { classNames } from '../../helpers/classNameHelper';
+import { getMixin, type MixinProps } from '../../helpers/mixinHelper';
 import './CodeBlock.css';
 
 interface CodeBlockProps {
   children: string;
   language?: string;
   filename?: string;
+  className?: string;
+  mixin?: MixinProps;
 }
 
-export function CodeBlock({ children, language = 'css', filename }: CodeBlockProps) {
+export function CodeBlock({ children, language = 'css', filename, className = '', mixin }: CodeBlockProps) {
+  const { className: mixinClassName, style: mixinStyle } = getMixin(mixin);
+  
   return (
-    <div className={classNames('CodeBlock')}>
+    <div className={classNames('CodeBlock', [mixinClassName, className])} style={mixinStyle}>
       {filename && (
         <div className="CodeBlock--header">
           <span className="CodeBlock--filename">{filename}</span>

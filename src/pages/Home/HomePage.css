@@ -1,4 +1,9 @@
 @layer pages {
+  .HomePage--cardLink {
+    margin-block-start: auto;
+    padding-block-start: var(--space-3);
+  }
+
   .HomePage--tagline {
     max-inline-size: calc(var(--base-size) * 75);
     margin-inline: auto;

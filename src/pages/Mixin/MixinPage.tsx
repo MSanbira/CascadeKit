@@ -1,7 +1,7 @@
 import { Section } from '../../components/Section';
 import { CodeBlock } from '../../components/CodeBlock';
 import { Card, CardHeader, CardContent } from '../../components/Card';
-import { Text } from '../../components/Text';
+import { Text, Strong } from '../../components/Text';
 import { Button } from '../../components/Button';
 import './MixinPage.css';
 import { Box } from '../../components/Box';
@@ -109,13 +109,13 @@ export function MixinPage() {
           <CardHeader>Why Not Just Use Inline Styles?</CardHeader>
           <CardContent>
             <Text variant="body2" mixin={{ mb: 2 }}>
-              In CascadeKit, <strong>every styling tool must respect the layer system</strong>.
+              In CascadeKit, <Strong>every styling tool must respect the layer system</Strong>.
               If we wrote CSS values directly into inline styles, they would bypass the cascade
               entirely — making it impossible for <code>user-overrides</code> to override them.
             </Text>
             <Text variant="body2" mixin={{ mb: 2 }}>
-              Instead, the mixin system uses <strong>CSS custom properties</strong> (variables)
-              combined with <strong>CSS classes</strong> that live in the <code>component-overrides</code> layer.
+              Instead, the mixin system uses <Strong>CSS custom properties</Strong> (variables)
+              combined with <Strong>CSS classes</Strong> that live in the <code>component-overrides</code> layer.
               This preserves the cascade: users can still override mixin-applied styles from higher layers.
             </Text>
             <Text variant="body2">
@@ -147,10 +147,10 @@ export function MixinPage() {
           <CardHeader>Spacing Values</CardHeader>
           <CardContent>
             <Text variant="body2" mixin={{ mb: 1 }}>
-              <strong>Numbers</strong> are multiplied by <code>--base-size</code> (e.g., <code>2</code> → <code>calc(var(--base-size) * 2)</code>)
+              <Strong>Numbers</Strong> are multiplied by <code>--base-size</code> (e.g., <code>2</code> → <code>calc(var(--base-size) * 2)</code>)
             </Text>
             <Text variant="body2">
-              <strong>Strings</strong> are used as-is (e.g., <code>"16px"</code>, <code>"1rem"</code>)
+              <Strong>Strings</Strong> are used as-is (e.g., <code>"16px"</code>, <code>"1rem"</code>)
             </Text>
           </CardContent>
         </Card>
@@ -212,7 +212,7 @@ export function MixinPage() {
           styles based on the container size rather than viewport.
         </Text>
         <Text variant="body2" muted mixin={{ mb: 2 }}>
-          <strong>Note:</strong> Container queries require the parent element to have <code>container-type: inline-size</code> defined in CSS.
+          <Strong>Note:</Strong> Container queries require the parent element to have <code>container-type: inline-size</code> defined in CSS.
           The mixin system provides the responsive classes, but the container context must be set separately.
         </Text>
         <CodeBlock language="tsx">{containerExample}</CodeBlock>

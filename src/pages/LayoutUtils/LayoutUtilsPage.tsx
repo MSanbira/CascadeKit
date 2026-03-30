@@ -1,7 +1,7 @@
 import { Section } from '../../components/Section';
 import { CodeBlock } from '../../components/CodeBlock';
 import { Card, CardHeader, CardContent } from '../../components/Card';
-import { Text } from '../../components/Text';
+import { Text, Strong } from '../../components/Text';
 import { Box } from '../../components/Box';
 import './LayoutUtilsPage.css';
 
@@ -102,7 +102,7 @@ export function LayoutUtilsPage() {
           <CardHeader>Key Concept</CardHeader>
           <CardContent>
             <Text variant="body2" mixin={{ mb: 2 }}>
-              Classes can be <strong>combined freely</strong> in a single className string.
+              Classes can be <Strong>combined freely</Strong> in a single className string.
               The attribute selector <code>[class*="..."]</code> matches any class containing that substring.
             </Text>
             <Text variant="body2">
@@ -251,8 +251,8 @@ export function LayoutUtilsPage() {
       <Section>
         <Text variant="h2">Combining with Mixin</Text>
         <Text variant="body1" mixin={{ mb: 2 }}>
-          Layout utilities handle <strong>static structure</strong>, while the mixin system handles 
-          <strong> dynamic and responsive</strong> properties. They work together seamlessly.
+          Layout utilities handle <Strong>static structure</Strong>, while the mixin system handles 
+          <Strong> dynamic and responsive</Strong> properties. They work together seamlessly.
         </Text>
         <CodeBlock language="tsx">{combinedExample}</CodeBlock>
 
@@ -260,7 +260,7 @@ export function LayoutUtilsPage() {
           <CardHeader>When to Use Each</CardHeader>
           <CardContent>
             <Text variant="body2" mixin={{ mb: 2 }}>
-              <strong>Use layout utilities when:</strong>
+              <Strong>Use layout utilities when:</Strong>
             </Text>
             <ul className="LayoutUtilsPage--list">
               <li>Layout structure is static (always flex, always 3 columns)</li>
@@ -268,7 +268,7 @@ export function LayoutUtilsPage() {
               <li>Gap and alignment don't need to change responsively</li>
             </ul>
             <Text variant="body2" mixin={{ mb: 2, mt: 3 }}>
-              <strong>Use mixin when:</strong>
+              <Strong>Use mixin when:</Strong>
             </Text>
             <ul className="LayoutUtilsPage--list">
               <li>Properties need to change at breakpoints</li>
@@ -276,7 +276,7 @@ export function LayoutUtilsPage() {
               <li>Spacing/opacity/display varies by screen size</li>
             </ul>
             <Text variant="body2" mixin={{ mt: 3 }}>
-              <strong>Combine both:</strong> Use utility classes for base layout, mixin for responsive overrides.
+              <Strong>Combine both:</Strong> Use utility classes for base layout, mixin for responsive overrides.
             </Text>
           </CardContent>
         </Card>

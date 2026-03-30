@@ -3,7 +3,7 @@ import { Section } from '../../components/Section';
 import { Button } from '../../components/Button';
 import { Card, CardContent } from '../../components/Card';
 import { CodeBlock } from '../../components/CodeBlock';
-import { Text } from '../../components/Text';
+import { Text, Strong } from '../../components/Text';
 import { Box } from '../../components/Box';
 import { Badge } from '../../components/Badge';
 import './HomePage.css';
@@ -69,8 +69,8 @@ export function HomePage() {
             <div>
               <Text variant="h6" mixin={{ mb: 1 }}>Co-located Component CSS</Text>
               <Text variant="body2" muted>
-                Each component imports its own CSS file. Styles travel with 
-                components through the module graph. Delete a component, delete its CSS.
+                Each component imports its own CSS file. Tree-shaking means 
+                unused components = unused CSS. Delete a component, delete its CSS.
               </Text>
             </div>
           </div>
@@ -182,7 +182,7 @@ export function HomePage() {
               <CodeBlock language="tsx">{`<div className="d-flex-gap-2-ali-center">
   ...
 </div>`}</CodeBlock>
-              <Link to="/layout-utils" className="mt-auto" style={{ paddingBlockStart: 'var(--space-3)' }}>
+              <Link to="/layout-utils" className="HomePage--cardLink">
                 <Button variant="ghost" size="sm">Layout utilities →</Button>
               </Link>
             </CardContent>
@@ -199,7 +199,7 @@ export function HomePage() {
   p: 2, 
   smallScreen: { p: 1 } 
 }}>...</Box>`}</CodeBlock>
-              <Link to="/mixin" className="mt-auto" style={{ paddingBlockStart: 'var(--space-3)' }}>
+              <Link to="/mixin" className="HomePage--cardLink">
                 <Button variant="ghost" size="sm">Mixin system →</Button>
               </Link>
             </CardContent>
@@ -213,11 +213,12 @@ export function HomePage() {
       <Section>
         <Text variant="h2">Why CascadeKit?</Text>
         <ul>
-          <li><strong>Zero Runtime</strong> — Native CSS, no JavaScript overhead</li>
-          <li><strong>Predictable Cascade</strong> — Layers eliminate specificity conflicts</li>
-          <li><strong>Debuggable</strong> — Real class names, visible in DevTools</li>
-          <li><strong>Tree-shakeable</strong> — Unused component CSS never ships</li>
-          <li><strong>Future-proof</strong> — Uses native CSS features that browsers already support</li>
+          <li><Strong>Zero Runtime</Strong> — Native CSS, no JavaScript overhead</li>
+          <li><Strong>Predictable Cascade</Strong> — Layers eliminate specificity conflicts</li>
+          <li><Strong>Debuggable</Strong> — Real class names, visible in DevTools</li>
+          <li><Strong>Tree-shakeable</Strong> — Unused component CSS never ships</li>
+          <li><Strong>SSR-friendly</Strong> — No hydration issues, layers ensure CSS order doesn't matter</li>
+          <li><Strong>Future-proof</Strong> — Uses native CSS features that browsers already support</li>
         </ul>
         <Box mixin={{ mt: 6 }}>
           <Link to="/why">

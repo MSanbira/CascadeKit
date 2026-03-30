@@ -67,3 +67,11 @@ export function Text({
     </Tag>
   );
 }
+
+export const Strong = ({ children, ...props }: TextProps) => {
+  return (
+    <Text {...props} isBold tag="span">
+      {children}
+    </Text>
+  );
+};

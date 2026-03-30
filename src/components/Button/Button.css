@@ -4,53 +4,54 @@
     align-items: center;
     justify-content: center;
     gap: var(--space-1);
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
     border-radius: var(--radius-md);
-    transition: 
-      background-color var(--transition-fast),
-      color var(--transition-fast),
-      box-shadow var(--transition-fast),
-      transform var(--transition-fast);
+    border: 1px solid var(--button-border-color, transparent);
     cursor: pointer;
     white-space: nowrap;
+    background: var(--button-bg-color, var(--color-bg));
+    color: var(--button-color, var(--color-text));
+
+    transition:
+      background-color var(--transition-fast),
+      border-color var(--transition-fast),
+      box-shadow var(--transition-fast);
   }
 
-  .Button--root:active {
-    transform: scale(0.98);
+  .Button--root:hover {
+    background: var(--button-bg-color-hover, var(--button-bg-color));
   }
 
-  /* Variants */
+  .Button--root:active{
+    border-color: var(--color-primary-active);
+  }
+
   .Button--primary {
-    background-color: var(--color-primary);
-    color: white;
-  }
-
-  .Button--primary:hover:not(:disabled) {
-    background-color: var(--color-primary-hover);
+    --button-bg-color: var(--color-primary);
+    --button-color: var(--color-bg);
+    --button-bg-color-hover: var(--color-primary-hover);
   }
 
   .Button--secondary {
-    background-color: var(--color-bg-muted);
-    color: var(--color-text);
-    border: 1px solid var(--color-border);
-  }
-
-  .Button--secondary:hover:not(:disabled) {
-    background-color: var(--color-border);
+    --button-bg-color: var(--color-bg-subtle);
+    --button-color: var(--color-text);
+    --button-bg-color-hover: var(--color-bg-muted);
+    --button-border-color: var(--color-border);
   }
 
   .Button--ghost {
-    background-color: transparent;
-    color: var(--color-text);
-  }
-
-  .Button--ghost:hover:not(:disabled) {
-    background-color: var(--color-bg-muted);
+    --button-bg-color: transparent;
+    --button-color: var(--color-text);
+    --button-bg-color-hover: var(--color-bg-muted);
   }
 }
 
 @layer component-overrides {
-  /* Sizes - override variant padding */
+  .Button--root:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
   .Button--sm {
     padding-block: var(--space-0_5);
     padding-inline: var(--space-1_5);
@@ -69,10 +70,17 @@
     font-size: var(--text-2_25);
   }
 
-  /* Disabled state - override all variants */
   .Button--root:disabled {
     opacity: 0.5;
     cursor: not-allowed;
     transform: none;
+
+    &:hover {
+      background: var(--button-bg-color, var(--color-bg));
+    }
+    
+    &:active {
+      border-color: var(--button-border-color, transparent);
+    }
   }
 }

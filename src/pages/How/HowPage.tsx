@@ -1,6 +1,6 @@
 import { Section } from '../../components/Section';
 import { CodeBlock } from '../../components/CodeBlock';
-import { Text } from '../../components/Text';
+import { Text, Strong } from '../../components/Text';
 import { Box } from '../../components/Box';
 import { LayerStack } from '../../components/LayerStack';
 import './HowPage.css';
@@ -36,6 +36,15 @@ const globalClassCSS = `/* Global but structured */
 .Button--root { }      /* Unique by convention */
 .Button--icon { }      /* Component-scoped */
 .Button--label { }     /* No hash needed */`;
+
+const classNamesHelper = `import { classNames } from '../../helpers/classNameHelper';
+
+// classNames auto-adds --root and joins classes
+<button className={classNames('Button', [\`Button--\${variant}\`, className])}>
+  {children}
+</button>
+
+// Output: "Button--root Button--primary custom-class"`;
 
 const inlineStyleBad = `/* ❌ Inline styles bypass the cascade */
 <Button style={{ margin: '16px' }}>
@@ -142,6 +151,10 @@ export function HowPage() {
             <span>State modifiers</span>
           </div>
         </Box>
+        <p>
+          The <code>classNames</code> helper enforces this convention automatically:
+        </p>
+        <CodeBlock language="tsx">{classNamesHelper}</CodeBlock>
       </Section>
 
       <Section>
@@ -161,19 +174,19 @@ export function HowPage() {
       <Section>
         <Text variant="h2">Why All Tools Must Respect Layers</Text>
         <p>
-          The layering system only works when <strong>all styling tools respect it</strong>. 
+          The layering system only works when <Strong>all styling tools respect it</Strong>. 
           Any feature that applies styles — whether built-in props, mixins, or utilities — 
           must integrate with the cascade to preserve override capabilities.
         </p>
         <p>
-          <strong>The problem with inline styles:</strong> When you write CSS properties 
+          <Strong>The problem with inline styles:</Strong> When you write CSS properties 
           directly into the <code>style</code> attribute, those values bypass the cascade 
           entirely. Inline styles have the highest specificity and cannot be overridden 
           by any layer — not even <code>user-overrides</code>.
         </p>
         <CodeBlock language="tsx">{inlineStyleBad}</CodeBlock>
         <p>
-          <strong>The solution — CSS custom properties:</strong> Instead of setting values 
+          <Strong>The solution — CSS custom properties:</Strong> Instead of setting values 
           directly, we set CSS variables. The actual styling happens in CSS classes that 
           live within the layer system. This means user overrides still work.
         </p>
