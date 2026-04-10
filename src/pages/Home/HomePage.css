@@ -19,7 +19,7 @@
     border: 1px solid var(--color-border);
   }
 
-  .HomePage--principleNumber {
+  .HomePage--principle-number {
     display: flex;
     align-items: center;
     justify-content: center;

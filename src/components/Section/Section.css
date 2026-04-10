@@ -21,7 +21,6 @@
   }
 
   .Section--root li {
-    margin-block-end: var(--space-1);
     line-height: var(--line-height-relaxed);
   }
 

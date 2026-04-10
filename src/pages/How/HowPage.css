@@ -1,5 +1,5 @@
 @layer pages {
-  .HowPage--namingItem {
+  .HowPage--naming-item {
     display: flex;
     align-items: center;
     gap: var(--space-4);
@@ -8,7 +8,7 @@
     border-radius: var(--radius-md);
   }
 
-  .HowPage--namingItem code {
+  .HowPage--naming-item code {
     min-inline-size: calc(var(--base-size) * 25);
   }
 }

@@ -1,5 +1,4 @@
 @layer base {
-  /* Reset */
   *,
   *::before,
   *::after {
@@ -24,7 +23,6 @@
     min-block-size: 100vh;
   }
   
-  /* Typography defaults */
   h1, h2, h3, h4, h5, h6 {
     line-height: var(--line-height-tight);
     font-weight: 600;
@@ -51,13 +49,11 @@
     color: var(--color-primary-hover);
   }
   
-  /* Focus styles for accessibility */
   :focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
   }
   
-  /* Remove default button styles */
   button {
     font: inherit;
     color: inherit;
@@ -66,12 +62,10 @@
     cursor: pointer;
   }
   
-  /* Lists */
   ul, ol {
     list-style-position: inside;
   }
   
-  /* Code defaults */
   code, pre {
     font-family: var(--font-mono);
   }
@@ -89,14 +83,12 @@
     padding: 0;
   }
   
-  /* Images */
   img {
     max-inline-size: 100%;
     block-size: auto;
     display: block;
   }
   
-  /* Skip link for accessibility */
   .skip-link {
     position: absolute;
     inset-inline-start: -9999px;

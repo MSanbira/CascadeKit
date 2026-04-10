@@ -1,6 +1,6 @@
 import { Section } from '../../components/Section';
 import { CodeBlock } from '../../components/CodeBlock';
-import { Card, CardHeader, CardContent } from '../../components/Card';
+import { Card } from '../../components/Card';
 import { Text, Strong } from '../../components/Text';
 import { Box } from '../../components/Box';
 import { Button } from '../../components/Button';
@@ -93,34 +93,28 @@ export function ThemePage() {
         </Text>
 
         <Box className="d-grid" mixin={{ gap: 4, mt: 4, smallScreen: { gridColTemplate: '1fr' }, mediumScreen: { gridColTemplate: '1fr 1fr 1fr' } }}>
-          <Card className="ThemePage--principleCard">
-            <CardContent>
-              <Text variant="h6" mixin={{ mb: 1 }}>1. Token Override</Text>
-              <Text variant="body2" muted>
-                Themes redefine CSS variables like <code>--color-primary</code> and <code>--color-bg</code>.
-                All components using these tokens update automatically.
-              </Text>
-            </CardContent>
+          <Card className="ThemePage--principle-card">
+            <Text variant="h6" mixin={{ mb: 1 }}>1. Token Override</Text>
+            <Text variant="body2" muted>
+              Themes redefine CSS variables like <code>--color-primary</code> and <code>--color-bg</code>.
+              All components using these tokens update automatically.
+            </Text>
           </Card>
 
-          <Card className="ThemePage--principleCard">
-            <CardContent>
-              <Text variant="h6" mixin={{ mb: 1 }}>2. Layer Priority</Text>
-              <Text variant="body2" muted>
-                Themes use <code>@layer user-overrides</code> — the highest priority layer.
-                Theme values always win without specificity tricks.
-              </Text>
-            </CardContent>
+          <Card className="ThemePage--principle-card">
+            <Text variant="h6" mixin={{ mb: 1 }}>2. Layer Priority</Text>
+            <Text variant="body2" muted>
+              Themes use <code>@layer user-overrides</code> — the highest priority layer.
+              Theme values always win without specificity tricks.
+            </Text>
           </Card>
 
-          <Card className="ThemePage--principleCard">
-            <CardContent>
-              <Text variant="h6" mixin={{ mb: 1 }}>3. Dark Mode Support</Text>
-              <Text variant="body2" muted>
-                Each theme defines light and dark variants using <code>@media (prefers-color-scheme)</code>.
-                System preference is respected automatically.
-              </Text>
-            </CardContent>
+          <Card className="ThemePage--principle-card">
+            <Text variant="h6" mixin={{ mb: 1 }}>3. Dark Mode Support</Text>
+            <Text variant="body2" muted>
+              Each theme defines light and dark variants using <code>@media (prefers-color-scheme)</code>.
+              System preference is respected automatically.
+            </Text>
           </Card>
         </Box>
       </Section>
@@ -170,7 +164,7 @@ export function ThemePage() {
           Try the current themes. Notice how components adapt to each theme's personality.
         </Text>
         
-        <Card variant="subtle" mixin={{ mt: 4, p: 4 }}>
+        <Card variant="subtle" mixin={{ mt: 4 }}>
           <Box className="d-flex ali-center jc-sb f-wrap gap-3">
             <Box className="d-flex ali-center gap-3">
               <Text variant="h5">Current Theme:</Text>
@@ -183,34 +177,28 @@ export function ThemePage() {
         </Card>
 
         <Box className="d-grid" mixin={{ gap: 4, mt: 4, smallScreen: { gridColTemplate: '1fr' }, mediumScreen: { gridColTemplate: '1fr 1fr' } }}>
-          <Card>
-            <CardHeader>Sample Card</CardHeader>
-            <CardContent>
-              <Text variant="body2" muted mixin={{ mb: 3 }}>
-                This card uses theme tokens for colors, borders, and shadows.
-              </Text>
-              <Box className="d-flex gap-2">
-                <Button variant="primary" size="sm">Primary</Button>
-                <Button variant="secondary" size="sm">Secondary</Button>
-                <Button variant="ghost" size="sm">Ghost</Button>
-              </Box>
-            </CardContent>
+          <Card title="Sample Card">
+            <Text variant="body2" muted mixin={{ mb: 3 }}>
+              This card uses theme tokens for colors, borders, and shadows.
+            </Text>
+            <Box className="d-flex gap-2">
+              <Button variant="primary" size="sm">Primary</Button>
+              <Button variant="secondary" size="sm">Secondary</Button>
+              <Button variant="ghost" size="sm">Ghost</Button>
+            </Box>
           </Card>
 
-          <Card>
-            <CardHeader>Badge Variants</CardHeader>
-            <CardContent>
-              <Text variant="body2" muted mixin={{ mb: 3 }}>
-                Badges adapt to theme colors and may change shape.
-              </Text>
-              <Box className="d-flex gap-2 f-wrap">
-                <Badge variant="primary">Primary</Badge>
-                <Badge variant="secondary">Secondary</Badge>
-                <Badge variant="success">Success</Badge>
-                <Badge variant="warning">Warning</Badge>
-                <Badge variant="error">Error</Badge>
-              </Box>
-            </CardContent>
+          <Card title="Badge Variants">
+            <Text variant="body2" muted mixin={{ mb: 3 }}>
+              Badges adapt to theme colors and may change shape.
+            </Text>
+            <Box className="d-flex gap-2 f-wrap">
+              <Badge variant="primary">Primary</Badge>
+              <Badge variant="secondary">Secondary</Badge>
+              <Badge variant="success">Success</Badge>
+              <Badge variant="warning">Warning</Badge>
+              <Badge variant="error">Error</Badge>
+            </Box>
           </Card>
         </Box>
       </Section>
@@ -219,31 +207,25 @@ export function ThemePage() {
         <Text variant="h2">Creating a New Theme</Text>
         <Box className="d-flex dir-col gap-3" mixin={{ mt: 3 }}>
           <Card>
-            <CardContent>
-              <Text variant="h6" mixin={{ mb: 1 }}>1. Add theme CSS</Text>
-              <Text variant="body2" muted>
-                Create a new <code>[data-theme="yourtheme"]</code> block in <code>theme.css</code> with
-                light and dark variants.
-              </Text>
-            </CardContent>
+            <Text variant="h6" mixin={{ mb: 1 }}>1. Add theme CSS</Text>
+            <Text variant="body2" muted>
+              Create a new <code>[data-theme="yourtheme"]</code> block in <code>theme.css</code> with
+              light and dark variants.
+            </Text>
           </Card>
           <Card>
-            <CardContent>
-              <Text variant="h6" mixin={{ mb: 1 }}>2. Register in context</Text>
-              <Text variant="body2" muted>
-                Add the theme name to the <code>THEMES</code> array and <code>THEME_LABELS</code> map
-                in <code>ThemeContext.tsx</code>.
-              </Text>
-            </CardContent>
+            <Text variant="h6" mixin={{ mb: 1 }}>2. Register in context</Text>
+            <Text variant="body2" muted>
+              Add the theme name to the <code>THEMES</code> array and <code>THEME_LABELS</code> map
+              in <code>ThemeContext.tsx</code>.
+            </Text>
           </Card>
           <Card>
-            <CardContent>
-              <Text variant="h6" mixin={{ mb: 1 }}>3. Optional: Component overrides</Text>
-              <Text variant="body2" muted>
-                Add component-specific styles using <code>[data-theme="yourtheme"] .Component--root</code>
-                selectors for unique component styling.
-              </Text>
-            </CardContent>
+            <Text variant="h6" mixin={{ mb: 1 }}>3. Optional: Component overrides</Text>
+            <Text variant="body2" muted>
+              Add component-specific styles using <code>[data-theme="yourtheme"] .Component--root</code>
+              selectors for unique component styling.
+            </Text>
           </Card>
         </Box>
       </Section>

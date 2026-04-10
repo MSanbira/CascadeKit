@@ -1,6 +1,6 @@
 import { Section } from '../../components/Section';
 import { CodeBlock } from '../../components/CodeBlock';
-import { Card, CardContent } from '../../components/Card';
+import { Card } from '../../components/Card';
 import { Text, Strong } from '../../components/Text';
 import './ComponentModelPage.css';
 import { Box } from '../../components/Box';
@@ -145,16 +145,13 @@ export function ComponentModelPage() {
         </CodeBlock>
 
         <div className="ComponentModelPage--rules">
-          <Card>
-            <CardContent>
-              <Text variant="h4">Naming Rules</Text>
-              <ul>
-                <li><Strong>PascalCase</Strong> component name</li>
-                <li><Strong>Double dash</Strong> separator</li>
-                <li><Strong>camelCase</Strong> element/modifier name</li>
-                <li>Always start with <code>--root</code></li>
-              </ul>
-            </CardContent>
+          <Card title="Naming Rules">
+            <ul>
+              <li><Strong>PascalCase</Strong> component name</li>
+              <li><Strong>Double dash</Strong> separator</li>
+              <li><Strong>dash-separated</Strong> element/modifier name</li>
+              <li>Always start with <code>--root</code></li>
+            </ul>
           </Card>
         </div>
       </Section>
@@ -174,45 +171,37 @@ export function ComponentModelPage() {
 
       <Section>
         <Text variant="h2">Why This Pattern?</Text>
-        <Box className="d-grid" mixin={{gap: 4, smallScreen: {gridColTemplate: '1fr'}, mediumScreen: {gridColTemplate: '1fr 1fr'}}}>
+        <Box className="d-grid" mixin={{ gap: 4, smallScreen: { gridColTemplate: '1fr' }, mediumScreen: { gridColTemplate: '1fr 1fr' } }}>
           <Card>
-            <CardContent>
-              <Text variant="h6" tag="h4" mixin={{ mb: 2 }}>🔍 Debuggable</Text>
-              <Text variant="body2" muted>
-                Real class names in DevTools. See <code>.Button--primary</code>,
-                not <code>.sc-bdnylx</code>.
-              </Text>
-            </CardContent>
+            <Text variant="h6" tag="h4" mixin={{ mb: 2 }}>🔍 Debuggable</Text>
+            <Text variant="body2" muted>
+              Real class names in DevTools. See <code>.Button--primary</code>,
+              not <code>.sc-bdnylx</code>.
+            </Text>
           </Card>
 
           <Card>
-            <CardContent>
-              <Text variant="h6" tag="h4" mixin={{ mb: 2 }}>📦 Portable</Text>
-              <Text variant="body2" muted>
-                Copy a component folder and you have everything.
-                No hunting for scattered styles.
-              </Text>
-            </CardContent>
+            <Text variant="h6" tag="h4" mixin={{ mb: 2 }}>📦 Portable</Text>
+            <Text variant="body2" muted>
+              Copy a component folder and you have everything.
+              No hunting for scattered styles.
+            </Text>
           </Card>
 
           <Card>
-            <CardContent>
-              <Text variant="h6" tag="h4" mixin={{ mb: 2 }}>🎯 Predictable</Text>
-              <Text variant="body2" muted>
-                Know exactly where styles are defined.
-                Component name → folder → CSS file.
-              </Text>
-            </CardContent>
+            <Text variant="h6" tag="h4" mixin={{ mb: 2 }}>🎯 Predictable</Text>
+            <Text variant="body2" muted>
+              Know exactly where styles are defined.
+              Component name → folder → CSS file.
+            </Text>
           </Card>
 
           <Card>
-            <CardContent>
-              <Text variant="h6" tag="h4" mixin={{ mb: 2 }}>🤝 Collaborative</Text>
-              <Text variant="body2" muted>
-                Teams can work on components independently.
-                No merge conflicts on shared style files.
-              </Text>
-            </CardContent>
+            <Text variant="h6" tag="h4" mixin={{ mb: 2 }}>🤝 Collaborative</Text>
+            <Text variant="body2" muted>
+              Teams can work on components independently.
+              No merge conflicts on shared style files.
+            </Text>
           </Card>
         </Box>
       </Section>

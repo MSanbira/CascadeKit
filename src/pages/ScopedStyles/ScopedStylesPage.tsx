@@ -1,21 +1,18 @@
 import { Section } from '../../components/Section';
 import { CodeBlock } from '../../components/CodeBlock';
-import { Card, CardHeader, CardContent } from '../../components/Card';
+import { Card } from '../../components/Card';
 import { Text, Strong } from '../../components/Text';
 import { Box } from '../../components/Box';
 import { Button } from '../../components/Button';
 import { Badge } from '../../components/Badge';
 import './ScopedStylesPage.css';
 
-const basicUsage = `<Card scopedStyle={{
+const basicUsage = `<Card title="Custom Card" scopedStyle={{
   '--color-primary': '#10b981',
   '--color-border': '#10b981',
   boxShadow: '0 4px 20px rgba(16, 185, 129, 0.3)'
 }}>
-  <CardHeader>Custom Card</CardHeader>
-  <CardContent>
-    <Button variant="primary">Action</Button>
-  </CardContent>
+  <Button variant="primary">Action</Button>
 </Card>`;
 
 const nestedSelectors = `<Card scopedStyle={{
@@ -53,13 +50,12 @@ const generatedCSS = `/* What scopedStyle generates */
 const backendExample = `// Dynamic colors from backend/user preferences
 function UserCard({ user }) {
   return (
-    <Card scopedStyle={{
+    <Card title={user.name} scopedStyle={{
       '--color-primary': user.brandColor,
       '--color-bg-subtle': user.backgroundColor,
       borderColor: user.accentColor
     }}>
-      <CardHeader>{user.name}</CardHeader>
-      <CardContent>...</CardContent>
+      ...
     </Card>
   );
 }`;
@@ -92,43 +88,35 @@ export function ScopedStylesPage() {
 
         <Box className="d-grid" mixin={{ gap: 4, mt: 4, smallScreen: { gridColTemplate: '1fr' }, mediumScreen: { gridColTemplate: '1fr 1fr' } }}>
           <Card variant="subtle">
-            <CardContent>
-              <Text variant="h6" mixin={{ mb: 1 }}>Backend/User Inputs</Text>
-              <Text variant="body2" muted>
-                User-selected brand colors, custom themes from a CMS, or any dynamic values 
-                that aren't known at build time.
-              </Text>
-            </CardContent>
+            <Text variant="h6" mixin={{ mb: 1 }}>Backend/User Inputs</Text>
+            <Text variant="body2" muted>
+              User-selected brand colors, custom themes from a CMS, or any dynamic values 
+              that aren't known at build time.
+            </Text>
           </Card>
 
           <Card variant="subtle">
-            <CardContent>
-              <Text variant="h6" mixin={{ mb: 1 }}>Extreme Customizations</Text>
-              <Text variant="body2" muted>
-                One-off styling that doesn't fit into your design system — promotional cards, 
-                special states, or highly specific UI requirements.
-              </Text>
-            </CardContent>
+            <Text variant="h6" mixin={{ mb: 1 }}>Extreme Customizations</Text>
+            <Text variant="body2" muted>
+              One-off styling that doesn't fit into your design system — promotional cards, 
+              special states, or highly specific UI requirements.
+            </Text>
           </Card>
 
           <Card variant="subtle">
-            <CardContent>
-              <Text variant="h6" mixin={{ mb: 1 }}>Prototype & Experimentation</Text>
-              <Text variant="body2" muted>
-                Quick iteration on styles without creating new CSS classes or modifying 
-                component stylesheets.
-              </Text>
-            </CardContent>
+            <Text variant="h6" mixin={{ mb: 1 }}>Prototype & Experimentation</Text>
+            <Text variant="body2" muted>
+              Quick iteration on styles without creating new CSS classes or modifying 
+              component stylesheets.
+            </Text>
           </Card>
 
           <Card variant="subtle">
-            <CardContent>
-              <Text variant="h6" mixin={{ mb: 1 }}>Third-party Integration</Text>
-              <Text variant="body2" muted>
-                Styling components to match external brand guidelines or embedded widgets 
-                with specific color requirements.
-              </Text>
-            </CardContent>
+            <Text variant="h6" mixin={{ mb: 1 }}>Third-party Integration</Text>
+            <Text variant="body2" muted>
+              Styling components to match external brand guidelines or embedded widgets 
+              with specific color requirements.
+            </Text>
           </Card>
         </Box>
       </Section>
@@ -161,12 +149,10 @@ export function ScopedStylesPage() {
         </Text>
         <CodeBlock language="tsx" mixin={{ mt: 3 }}>{customLayerExample}</CodeBlock>
         <Card variant="subtle" mixin={{ mt: 3 }}>
-          <CardContent>
-            <Text variant="body2" muted>
-              <Strong>Example:</Strong> User-selected colors from a settings page should use 
-              <code>user-overrides</code> layer to ensure they always win over component and theme styles.
-            </Text>
-          </CardContent>
+          <Text variant="body2" muted>
+            <Strong>Example:</Strong> User-selected colors from a settings page should use 
+            <code>user-overrides</code> layer to ensure they always win over component and theme styles.
+          </Text>
         </Card>
       </Section>
 
@@ -178,45 +164,37 @@ export function ScopedStylesPage() {
 
         <Box mixin={{ mt: 4 }}>
           <Card variant="subtle" mixin={{ mb: 3 }}>
-            <CardContent>
-              <Text variant="h6" mixin={{ mb: 2 }}>Cascade Respect</Text>
-              <Text variant="body2" muted>
-                Inline styles have the highest specificity and can only be overridden with <code>!important</code>. 
-                Scoped styles live in <code>@layer component-overrides</code>, so <code>user-overrides</code> layer 
-                naturally wins without specificity hacks. The cascade stays predictable.
-              </Text>
-            </CardContent>
+            <Text variant="h6" mixin={{ mb: 2 }}>Cascade Respect</Text>
+            <Text variant="body2" muted>
+              Inline styles have the highest specificity and can only be overridden with <code>!important</code>. 
+              Scoped styles live in <code>@layer component-overrides</code>, so <code>user-overrides</code> layer 
+              naturally wins without specificity hacks. The cascade stays predictable.
+            </Text>
           </Card>
 
           <Card variant="subtle" mixin={{ mb: 3 }}>
-            <CardContent>
-              <Text variant="h6" mixin={{ mb: 2 }}>Full CSS Selector Support</Text>
-              <Text variant="body2" muted>
-                Inline styles can't use selectors at all. With <code>@scope</code>, you get <code>&:hover</code>, 
-                <code>@media</code> queries, and can target children like <code>.Card--header</code> — 
-                all with native CSS nesting.
-              </Text>
-            </CardContent>
+            <Text variant="h6" mixin={{ mb: 2 }}>Full CSS Selector Support</Text>
+            <Text variant="body2" muted>
+              Inline styles can't use selectors at all. With <code>@scope</code>, you get <code>&:hover</code>, 
+              <code>@media</code> queries, and can target children like <code>.Card--header</code> — 
+              all with native CSS nesting.
+            </Text>
           </Card>
 
           <Card variant="subtle" mixin={{ mb: 3 }}>
-            <CardContent>
-              <Text variant="h6" mixin={{ mb: 2 }}>Token Inheritance</Text>
-              <Text variant="body2" muted>
-                When you override <code>--color-primary</code> on a Card, all children (Buttons, Badges) 
-                automatically inherit it. Inline styles would require passing the value to every child.
-              </Text>
-            </CardContent>
+            <Text variant="h6" mixin={{ mb: 2 }}>Token Inheritance</Text>
+            <Text variant="body2" muted>
+              When you override <code>--color-primary</code> on a Card, all children (Buttons, Badges) 
+              automatically inherit it. Inline styles would require passing the value to every child.
+            </Text>
           </Card>
 
           <Card variant="subtle">
-            <CardContent>
-              <Text variant="h6" mixin={{ mb: 2 }}>DevTools Experience</Text>
-              <Text variant="body2" muted>
-                Scoped styles appear as proper CSS rules in DevTools with clear layer information, 
-                making debugging easier than hunting through inline style attributes.
-              </Text>
-            </CardContent>
+            <Text variant="h6" mixin={{ mb: 2 }}>DevTools Experience</Text>
+            <Text variant="body2" muted>
+              Scoped styles appear as proper CSS rules in DevTools with clear layer information, 
+              making debugging easier than hunting through inline style attributes.
+            </Text>
           </Card>
         </Box>
 
@@ -234,15 +212,12 @@ export function ScopedStylesPage() {
         </Text>
 
         <Box className="d-grid" mixin={{ gap: 4, mt: 4, smallScreen: { gridColTemplate: '1fr' }, mediumScreen: { gridColTemplate: '1fr 1fr 1fr' } }}>
-          <Card>
-            <CardHeader>Default</CardHeader>
-            <CardContent>
-              <Text variant="body2" muted>No scoped styles applied.</Text>
-              <Button variant="primary" size="sm" mixin={{ mt: 2 }}>Action</Button>
-            </CardContent>
+          <Card title="Default">
+            <Text variant="body2" muted>No scoped styles applied.</Text>
+            <Button variant="primary" size="sm" mixin={{ mt: 2 }}>Action</Button>
           </Card>
 
-          <Card scopedStyle={{
+          <Card title="Pink Theme" scopedStyle={{
             '--color-primary': '#ec4899',
             '--color-border': '#ec4899',
             '&:hover': {
@@ -250,14 +225,11 @@ export function ScopedStylesPage() {
               boxShadow: '0 8px 24px rgba(236, 72, 153, 0.3)'
             }
           }}>
-            <CardHeader>Pink Theme</CardHeader>
-            <CardContent>
-              <Text variant="body2" muted>Hover for effect!</Text>
-              <Button variant="primary" size="sm" mixin={{ mt: 2 }}>Action</Button>
-            </CardContent>
+            <Text variant="body2" muted>Hover for effect!</Text>
+            <Button variant="primary" size="sm" mixin={{ mt: 2 }}>Action</Button>
           </Card>
 
-          <Card scopedStyle={{
+          <Card title="Teal + Dark Mode" scopedStyle={{
             '--color-primary': '#14b8a6',
             '--color-border': '#14b8a6',
             borderStyle: 'dashed',
@@ -267,11 +239,8 @@ export function ScopedStylesPage() {
               boxShadow: '0 0 20px rgba(45, 212, 191, 0.3)'
             }
           }}>
-            <CardHeader>Teal + Dark Mode</CardHeader>
-            <CardContent>
-              <Text variant="body2" muted>Different in dark mode.</Text>
-              <Button variant="primary" size="sm" mixin={{ mt: 2 }}>Action</Button>
-            </CardContent>
+            <Text variant="body2" muted>Different in dark mode.</Text>
+            <Button variant="primary" size="sm" mixin={{ mt: 2 }}>Action</Button>
           </Card>
         </Box>
       </Section>
@@ -279,23 +248,21 @@ export function ScopedStylesPage() {
       <Section>
         <Text variant="h2">Browser Support</Text>
         <Card variant="subtle" mixin={{ mt: 3 }}>
-          <CardContent>
-            <Text variant="body2">
-              <Strong>CSS @scope</Strong> is supported in Chrome 118+, Edge 118+, and Safari 17.4+. 
-              Firefox support is in development (behind a flag as of early 2024).
-            </Text>
-            <Text variant="body2" muted mixin={{ mt: 2 }}>
-              For production apps targeting older browsers, consider using this feature progressively — 
-              the base styles will still apply, only the scoped overrides won't work. Alternatively, 
-              you can use a PostCSS plugin to transform <code>@scope</code> to equivalent selectors.
-            </Text>
-            <Box mixin={{ mt: 3 }}>
-              <Badge variant="success" mixin={{ mr: 1 }}>Chrome 118+</Badge>
-              <Badge variant="success" mixin={{ mr: 1 }}>Edge 118+</Badge>
-              <Badge variant="success" mixin={{ mr: 1 }}>Safari 17.4+</Badge>
-              <Badge variant="secondary">Firefox (flag)</Badge>
-            </Box>
-          </CardContent>
+          <Text variant="body2">
+            <Strong>CSS @scope</Strong> is supported in Chrome 118+, Edge 118+, and Safari 17.4+. 
+            Firefox support is in development (behind a flag as of early 2024).
+          </Text>
+          <Text variant="body2" muted mixin={{ mt: 2 }}>
+            For production apps targeting older browsers, consider using this feature progressively — 
+            the base styles will still apply, only the scoped overrides won't work. Alternatively, 
+            you can use a PostCSS plugin to transform <code>@scope</code> to equivalent selectors.
+          </Text>
+          <Box mixin={{ mt: 3 }}>
+            <Badge variant="success" mixin={{ mr: 1 }}>Chrome 118+</Badge>
+            <Badge variant="success" mixin={{ mr: 1 }}>Edge 118+</Badge>
+            <Badge variant="success" mixin={{ mr: 1 }}>Safari 17.4+</Badge>
+            <Badge variant="secondary">Firefox (flag)</Badge>
+          </Box>
         </Card>
       </Section>
 

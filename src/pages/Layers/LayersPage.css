@@ -1,24 +1,13 @@
 @layer pages {
   .LayersPage--card {
-    margin-block-start: var(--space-6);
+    margin-block-start: var(--space-3);
   }
 
   .LayersPage--insight {
-    margin-block: var(--space-6);
-    padding: var(--space-4);
+    margin-block: var(--space-3);
+    padding: var(--space-3);
     background-color: var(--color-bg-subtle);
     border-radius: var(--radius-lg);
-  }
-
-  .LayersPage--insightItem {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--space-3);
-  }
-
-  .LayersPage--insightItem code {
-    flex-shrink: 0;
   }
 
   .LayersPage--insightResult {

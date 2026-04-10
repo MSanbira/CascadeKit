@@ -8,8 +8,4 @@
     padding: 0;
     margin: 0;
   }
-
-  .ComponentModelPage--rules li {
-    margin-block-end: var(--space-2);
-  }
 }

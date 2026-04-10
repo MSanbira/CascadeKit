@@ -1,5 +1,4 @@
 @layer base {
-  /* CSS Custom Properties - Design Tokens */
   :root {
     /* Colors */
     --color-bg: #ffffff;
@@ -97,5 +96,28 @@
     --z-fixed: 300;
     --z-modal: 400;
     --z-tooltip: 500;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bg: #0f172a;
+      --color-bg-subtle: #1e293b;
+      --color-bg-muted: #334155;
+      --color-surface: #1e293b;
+      --color-border: #334155;
+      --color-border-subtle: #1e293b;
+      
+      --color-text: #f1f5f9;
+      --color-text-muted: #94a3b8;
+      --color-text-subtle: #64748b;
+      
+      --color-primary: #818cf8;
+      --color-primary-hover: #a5b4fc;
+      --color-primary-subtle: #1e1b4b;
+      
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+    }
   }
 }

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Section } from '../../components/Section';
 import { Button } from '../../components/Button';
-import { Card, CardHeader, CardContent } from '../../components/Card';
+import { Card } from '../../components/Card';
 import { Text, Strong } from '../../components/Text';
 import { Box } from '../../components/Box';
 import { Badge } from '../../components/Badge';
@@ -49,14 +49,12 @@ export function ExamplePage() {
         <Text variant="h2">Button Component</Text>
         <Text>The Button component demonstrates CascadeKit's variant and size system.</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
-          <CardContent>
-            <Text variant="body2" muted>
-              <Strong>CascadeKit principles:</Strong> The base class defines all behavior (hover, active, transitions) 
-              using CSS variables with sensible fallbacks. Variant classes only set variable values — 
-              they don't repeat property declarations. This keeps the code DRY and makes adding new variants simple. 
-              Size and state overrides live in a higher-priority layer to ensure they always win.
-            </Text>
-          </CardContent>
+          <Text variant="body2" muted>
+            <Strong>CascadeKit principles:</Strong> The base class defines all behavior (hover, active, transitions) 
+            using CSS variables with sensible fallbacks. Variant classes only set variable values — 
+            they don't repeat property declarations. This keeps the code DRY and makes adding new variants simple. 
+            Size and state overrides live in a higher-priority layer to ensure they always win.
+          </Text>
         </Card>
 
         <Box mixin={{ mt: 4 }}>
@@ -132,55 +130,48 @@ export function ExamplePage() {
         <Text variant="h2">User Profile Card</Text>
         <Text>A common pattern for displaying user information with actions.</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
-          <CardContent>
-            <Text variant="body2" muted>
-              <Strong>CascadeKit principles:</Strong> Component composition (Card + Badge + Button), 
-              utility classes for layout (<code>d-flex gap-4 ali-center</code>), 
-              responsive grid via mixin (<code>smallScreen</code>/<code>mediumScreen</code>), 
-              page-specific CSS for avatar styling.
-            </Text>
-          </CardContent>
+          <Text variant="body2" muted>
+            <Strong>CascadeKit principles:</Strong> Component composition (Card + Badge + Button), 
+            utility classes for layout (<code>d-flex gap-4 ali-center</code>), 
+            responsive grid via mixin (<code>smallScreen</code>/<code>mediumScreen</code>), 
+            page-specific CSS for avatar styling.
+          </Text>
         </Card>
-        
         <Box className="d-grid" mixin={{ gap: 4, mt: 4, smallScreen: { gridColTemplate: '1fr' }, mediumScreen: { gridColTemplate: '1fr 1fr' } }}>
           <Card>
-            <CardContent>
-              <div className="d-flex gap-4 ali-center">
-                <div className="ExamplePage--avatar">JD</div>
-                <div className="d-flex dir-col gap-1">
-                  <Text variant="h5" tag="span">Jane Doe</Text>
-                  <Text variant="body2" muted>Senior Developer</Text>
-                  <Box className="d-flex gap-1" mixin={{ mt: 1 }}>
-                    <Badge variant="primary">React</Badge>
-                    <Badge variant="secondary">TypeScript</Badge>
-                  </Box>
-                </div>
+            <div className="d-flex gap-4 ali-center">
+              <div className="ExamplePage--avatar">JD</div>
+              <div className="d-flex dir-col gap-1">
+                <Text variant="h5" tag="span">Jane Doe</Text>
+                <Text variant="body2" muted>Senior Developer</Text>
+                <Box className="d-flex gap-1" mixin={{ mt: 1 }}>
+                  <Badge variant="primary">React</Badge>
+                  <Badge variant="secondary">TypeScript</Badge>
+                </Box>
               </div>
-              <Box className="d-flex gap-2" mixin={{ mt: 4 }}>
-                <Button variant="primary" size="sm">Message</Button>
-                <Button variant="secondary" size="sm">View Profile</Button>
-              </Box>
-            </CardContent>
+            </div>
+            <Box className="d-flex gap-2" mixin={{ mt: 4 }}>
+              <Button variant="primary" size="sm">Message</Button>
+              <Button variant="secondary" size="sm">View Profile</Button>
+            </Box>
           </Card>
 
           <Card>
-            <CardContent>
-              <div className="d-flex gap-4 ali-center">
-                <div className="ExamplePage--avatar ExamplePage--avatar-secondary">AS</div>
-                <div className="d-flex dir-col gap-1">
-                  <Text variant="h5" tag="span">Alex Smith</Text>
-                  <Text variant="body2" muted>Product Designer</Text>
-                  <Box className="d-flex gap-1" mixin={{ mt: 1 }}>
-                    <Badge variant="success">Figma</Badge>
-                    <Badge variant="warning">CSS</Badge>
-                  </Box>
-                </div>
+            <div className="d-flex gap-4 ali-center">
+              <div className="ExamplePage--avatar ExamplePage--avatar-secondary">AS</div>
+              <div className="d-flex dir-col gap-1">
+                <Text variant="h5" tag="span">Alex Smith</Text>
+                <Text variant="body2" muted>Product Designer</Text>
+                <Box className="d-flex gap-1" mixin={{ mt: 1 }}>
+                  <Badge variant="success">Figma</Badge>
+                  <Badge variant="warning">CSS</Badge>
+                </Box>
               </div>
-              <Box className="d-flex gap-2" mixin={{ mt: 4 }}>
-                <Button variant="primary" size="sm">Message</Button>
-                <Button variant="secondary" size="sm">View Profile</Button>
-              </Box>
-            </CardContent>
+            </div>
+            <Box className="d-flex gap-2" mixin={{ mt: 4 }}>
+              <Button variant="primary" size="sm">Message</Button>
+              <Button variant="secondary" size="sm">View Profile</Button>
+            </Box>
           </Card>
         </Box>
       </Section>
@@ -189,14 +180,12 @@ export function ExamplePage() {
         <Text variant="h2">Notifications</Text>
         <Text>Dismissible alerts with different severity levels.</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
-          <CardContent>
-            <Text variant="body2" muted>
-              <Strong>CascadeKit principles:</Strong> BEM-style variant classes 
-              (<code>--notification-success</code>, <code>--notification-warning</code>), 
-              design tokens for colors (<code>var(--color-success)</code>), 
-              CSS <code>color-mix()</code> for computed backgrounds.
-            </Text>
-          </CardContent>
+          <Text variant="body2" muted>
+            <Strong>CascadeKit principles:</Strong> BEM-style variant classes 
+            (<code>--notification-success</code>, <code>--notification-warning</code>), 
+            design tokens for colors (<code>var(--color-success)</code>), 
+            CSS <code>color-mix()</code> for computed backgrounds.
+          </Text>
         </Card>
 
         <Box className="d-flex dir-col gap-2" mixin={{ mt: 4 }}>
@@ -204,7 +193,7 @@ export function ExamplePage() {
             <div key={notification.id} className={`ExamplePage--notification ExamplePage--notification-${notification.type}`}>
               <Text variant="body2">{notification.message}</Text>
               <Button 
-                className="ExamplePage--notificationClose"
+                className="ExamplePage--notification-close"
                 onClick={() => dismissNotification(notification.id)}
                 variant="ghost"
               >
@@ -225,14 +214,12 @@ export function ExamplePage() {
         <Text variant="h2">Pricing Cards</Text>
         <Text>Interactive pricing comparison with selection state.</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
-          <CardContent>
-            <Text variant="body2" muted>
-              <Strong>CascadeKit principles:</Strong> Layer cascade for state overrides 
-              (<code>@layer pages</code> overrides <code>@layer components</code>), 
-              responsive breakpoints via mixin (<code>bigScreen: gridColTemplate</code>), 
-              dynamic className for selected state without runtime CSS.
-            </Text>
-          </CardContent>
+          <Text variant="body2" muted>
+            <Strong>CascadeKit principles:</Strong> Layer cascade for state overrides 
+            (<code>@layer pages</code> overrides <code>@layer components</code>), 
+            responsive breakpoints via mixin (<code>bigScreen: gridColTemplate</code>), 
+            dynamic className for selected state without runtime CSS.
+          </Text>
         </Card>
 
         <Box className="d-grid" mixin={{ gap: 4, smallScreen: { gridColTemplate: '1fr' }, bigScreen: { gridColTemplate: '1fr 1fr 1fr' } }}>
@@ -245,24 +232,22 @@ export function ExamplePage() {
               key={plan.id} 
               className={selectedPlan === plan.id ? 'ExamplePage--pricingCard-selected' : ''}
             >
-              <CardContent>
-                <Box className="d-flex dir-col ali-center" mixin={{ p: 2 }}>
-                  {plan.id === 'pro' && <Badge variant="primary" mixin={{ mb: 2 }}>Popular</Badge>}
-                  <Text variant="h4">{plan.name}</Text>
-                  <Text variant="h2" tag="span" mixin={{ my: 2 }}>{plan.price}<Text variant="body2" tag="span" muted>/mo</Text></Text>
-                  <Box className="d-flex dir-col gap-2" mixin={{ mb: 4 }}>
-                    {plan.features.map(feature => (
-                      <Text key={feature} variant="body2" muted>✓ {feature}</Text>
-                    ))}
-                  </Box>
-                  <Button 
-                    variant={selectedPlan === plan.id ? 'primary' : 'secondary'} 
-                    onClick={() => setSelectedPlan(plan.id)}
-                  >
-                    {selectedPlan === plan.id ? 'Selected' : 'Choose Plan'}
-                  </Button>
+              <Box className="d-flex dir-col ali-center" mixin={{ p: 2 }}>
+                {plan.id === 'pro' && <Badge variant="primary" mixin={{ mb: 2 }}>Popular</Badge>}
+                <Text variant="h4">{plan.name}</Text>
+                <Text variant="h2" tag="span" mixin={{ my: 2 }}>{plan.price}<Text variant="body2" tag="span" muted>/mo</Text></Text>
+                <Box className="d-flex dir-col gap-2" mixin={{ mb: 4 }}>
+                  {plan.features.map(feature => (
+                    <Text key={feature} variant="body2" muted>✓ {feature}</Text>
+                  ))}
                 </Box>
-              </CardContent>
+                <Button 
+                  variant={selectedPlan === plan.id ? 'primary' : 'secondary'} 
+                  onClick={() => setSelectedPlan(plan.id)}
+                >
+                  {selectedPlan === plan.id ? 'Selected' : 'Choose Plan'}
+                </Button>
+              </Box>
             </Card>
           ))}
         </Box>
@@ -272,46 +257,41 @@ export function ExamplePage() {
         <Text variant="h2">Contact Form</Text>
         <Text>Form layout with validation states and responsive design.</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
-          <CardContent>
-            <Text variant="body2" muted>
-              <Strong>CascadeKit principles:</Strong> Page-specific form styles in <code>@layer pages</code>, 
-              focus states using design tokens (<code>var(--color-primary)</code>), 
-              utility classes for form layout (<code>d-flex dir-col gap-4</code>), 
-              no CSS-in-JS — pure native CSS transitions.
-            </Text>
-          </CardContent>
+          <Text variant="body2" muted>
+            <Strong>CascadeKit principles:</Strong> Page-specific form styles in <code>@layer pages</code>, 
+            focus states using design tokens (<code>var(--color-primary)</code>), 
+            utility classes for form layout (<code>d-flex dir-col gap-4</code>), 
+            no CSS-in-JS — pure native CSS transitions.
+          </Text>
         </Card>
 
-        <Card>
-          <CardHeader>Get in Touch</CardHeader>
-          <CardContent>
-            <div className="d-flex dir-col gap-4">
-              <div className="d-flex dir-col gap-1">
-                <label className="ExamplePage--label">Email</label>
-                <input 
-                  type="email" 
-                  className="ExamplePage--input"
-                  placeholder="your@email.com"
-                  value={formData.email}
-                  onChange={e => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                />
-              </div>
-              <div className="d-flex dir-col gap-1">
-                <label className="ExamplePage--label">Message</label>
-                <textarea 
-                  className="ExamplePage--textarea"
-                  placeholder="How can we help?"
-                  rows={4}
-                  value={formData.message}
-                  onChange={e => setFormData(prev => ({ ...prev, message: e.target.value }))}
-                />
-              </div>
-              <div className="d-flex jc-end gap-2">
-                <Button variant="ghost" onClick={() => setFormData({ email: '', message: '' })}>Clear</Button>
-                <Button variant="primary">Send Message</Button>
-              </div>
+        <Card title="Get in Touch">
+          <div className="d-flex dir-col gap-4">
+            <div className="d-flex dir-col gap-1">
+              <label className="ExamplePage--label">Email</label>
+              <input 
+                type="email" 
+                className="ExamplePage--input"
+                placeholder="your@email.com"
+                value={formData.email}
+                onChange={e => setFormData(prev => ({ ...prev, email: e.target.value }))}
+              />
             </div>
-          </CardContent>
+            <div className="d-flex dir-col gap-1">
+              <label className="ExamplePage--label">Message</label>
+              <textarea 
+                className="ExamplePage--textarea"
+                placeholder="How can we help?"
+                rows={4}
+                value={formData.message}
+                onChange={e => setFormData(prev => ({ ...prev, message: e.target.value }))}
+              />
+            </div>
+            <div className="d-flex jc-end gap-2">
+              <Button variant="ghost" onClick={() => setFormData({ email: '', message: '' })}>Clear</Button>
+              <Button variant="primary">Send Message</Button>
+            </div>
+          </div>
         </Card>
       </Section>
 
@@ -319,14 +299,12 @@ export function ExamplePage() {
         <Text variant="h2">Stats Dashboard</Text>
         <Text>Data visualization cards with responsive grid layout.</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
-          <CardContent>
-            <Text variant="body2" muted>
-              <Strong>CascadeKit principles:</Strong> Component variants via props (<code>Card variant="subtle"</code>), 
-              conditional Badge variants for positive/negative states, 
-              4-column responsive grid demonstrating mixin breakpoints, 
-              all styling defined in component CSS — zero inline styles.
-            </Text>
-          </CardContent>
+          <Text variant="body2" muted>
+            <Strong>CascadeKit principles:</Strong> Component variants via props (<code>Card variant="subtle"</code>), 
+            conditional Badge variants for positive/negative states, 
+            4-column responsive grid demonstrating mixin breakpoints, 
+            all styling defined in component CSS — zero inline styles.
+          </Text>
         </Card>
 
         <Box className="d-grid" mixin={{ gap: 4, smallScreen: { gridColTemplate: '1fr 1fr' }, bigScreen: { gridColTemplate: '1fr 1fr 1fr 1fr' } }}>
@@ -337,11 +315,9 @@ export function ExamplePage() {
             { label: 'Conversion', value: '3.2%', change: '+0.5%', positive: true },
           ].map(stat => (
             <Card key={stat.label} variant="subtle">
-              <CardContent>
-                <Text variant="body2" muted>{stat.label}</Text>
-                <Text variant="h3" mixin={{ my: 1 }}>{stat.value}</Text>
-                <Badge variant={stat.positive ? 'success' : 'error'}>{stat.change}</Badge>
-              </CardContent>
+              <Text variant="body2" muted>{stat.label}</Text>
+              <Text variant="h3" mixin={{ my: 1 }}>{stat.value}</Text>
+              <Badge variant={stat.positive ? 'success' : 'error'}>{stat.change}</Badge>
             </Card>
           ))}
         </Box>
@@ -351,26 +327,21 @@ export function ExamplePage() {
         <Text variant="h2">Scoped Styles</Text>
         <Text>Override CSS custom properties and regular CSS properties per-component instance using CSS <code>@scope</code>.</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
-          <CardContent>
-            <Text variant="body2" muted>
-              <Strong>CascadeKit principles:</Strong> The <code>scopedStyle</code> prop accepts both CSS custom properties 
-              (design tokens like <code>--color-primary</code>) and regular CSS properties (<code>boxShadow</code>, <code>background</code>). 
-              It injects a scoped <code>&lt;style&gt;</code> element within <code>@layer component-overrides</code> — 
-              per-instance styling that respects the cascade without inline styles.
-            </Text>
-          </CardContent>
+          <Text variant="body2" muted>
+            <Strong>CascadeKit principles:</Strong> The <code>scopedStyle</code> prop accepts both CSS custom properties 
+            (design tokens like <code>--color-primary</code>) and regular CSS properties (<code>boxShadow</code>, <code>background</code>). 
+            It injects a scoped <code>&lt;style&gt;</code> element within <code>@layer component-overrides</code> — 
+            per-instance styling that respects the cascade without inline styles.
+          </Text>
         </Card>
 
         <Box className="d-grid" mixin={{ gap: 4, mt: 4, smallScreen: { gridColTemplate: '1fr' }, mediumScreen: { gridColTemplate: '1fr 1fr 1fr' } }}>
-          <Card>
-            <CardHeader>Default Card</CardHeader>
-            <CardContent>
-              <Text variant="body2" muted>Uses base design tokens.</Text>
-              <Button variant="primary" size="sm" mixin={{ mt: 2 }}>Action</Button>
-            </CardContent>
+          <Card title="Default Card">
+            <Text variant="body2" muted>Uses base design tokens.</Text>
+            <Button variant="primary" size="sm" mixin={{ mt: 2 }}>Action</Button>
           </Card>
 
-          <Card scopedStyle={{ 
+          <Card title="Green Theme" scopedStyle={{ 
             '--color-primary': '#10b981', 
             '--color-primary-hover': '#059669',
             '--color-border': '#10b981',
@@ -378,15 +349,12 @@ export function ExamplePage() {
             boxShadow: '0 4px 20px rgba(16, 185, 129, 0.3)',
             transform: 'scale(1.02)'
           }}>
-            <CardHeader>Green Theme</CardHeader>
-            <CardContent>
-              <Text variant="body2" muted>Tokens + boxShadow & transform.</Text>
-              <Button variant="primary" size="sm" mixin={{ mt: 2 }}>Action</Button>
-              <Badge variant="secondary" mixin={{ ml: 1 }}>New</Badge>
-            </CardContent>
+            <Text variant="body2" muted>Tokens + boxShadow & transform.</Text>
+            <Button variant="primary" size="sm" mixin={{ mt: 2 }}>Action</Button>
+            <Badge variant="secondary" mixin={{ ml: 1 }}>New</Badge>
           </Card>
 
-          <Card scopedStyle={{ 
+          <Card title="Orange Theme" scopedStyle={{ 
             '--color-primary': '#f59e0b', 
             '--color-primary-hover': '#d97706',
             '--color-border': '#f59e0b',
@@ -394,16 +362,13 @@ export function ExamplePage() {
             borderStyle: 'dashed',
             borderWidth: '2px',
             background: 'linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)',
-            '.Card--header': {
+            '.Card--title': {
               color: '#000'
             }
           }}>
-            <CardHeader>Orange Theme</CardHeader>
-            <CardContent>
-              <Text variant="body2" muted>Tokens + dashed border & gradient.</Text>
-              <Button variant="primary" size="sm" mixin={{ mt: 2 }}>Action</Button>
-              <Badge variant="secondary" mixin={{ ml: 1 }}>Hot</Badge>
-            </CardContent>
+            <Text variant="body2" muted>Tokens + dashed border & gradient.</Text>
+            <Button variant="primary" size="sm" mixin={{ mt: 2 }}>Action</Button>
+            <Badge variant="secondary" mixin={{ ml: 1 }}>Hot</Badge>
           </Card>
         </Box>
 
@@ -413,7 +378,7 @@ export function ExamplePage() {
         </Text>
 
         <Box className="d-grid" mixin={{ gap: 4, smallScreen: { gridColTemplate: '1fr' }, mediumScreen: { gridColTemplate: '1fr 1fr' } }}>
-          <Card scopedStyle={{ 
+          <Card title="Hover Effect" scopedStyle={{ 
             '--color-primary': '#8b5cf6',
             '--color-border': '#8b5cf6',
             transition: 'transform 0.2s, box-shadow 0.2s',
@@ -422,14 +387,11 @@ export function ExamplePage() {
               boxShadow: '0 12px 24px rgba(139, 92, 246, 0.3)'
             }
           }}>
-            <CardHeader>Hover Effect</CardHeader>
-            <CardContent>
-              <Text variant="body2" muted>Hover me! Uses <code>&:hover</code> nesting.</Text>
-              <Button variant="primary" size="sm" mixin={{ mt: 2 }}>Action</Button>
-            </CardContent>
+            <Text variant="body2" muted>Hover me! Uses <code>&:hover</code> nesting.</Text>
+            <Button variant="primary" size="sm" mixin={{ mt: 2 }}>Action</Button>
           </Card>
 
-          <Card scopedStyle={{ 
+          <Card title="Dark Mode Aware" scopedStyle={{ 
             '--color-primary': '#06b6d4',
             '--color-border': '#06b6d4',
             '@media (prefers-color-scheme: dark)': {
@@ -441,11 +403,8 @@ export function ExamplePage() {
               }
             }
           }}>
-            <CardHeader>Dark Mode Aware</CardHeader>
-            <CardContent>
-              <Text variant="body2" muted>Nested <code>@media</code> with <code>&:hover</code> inside.</Text>
-              <Button variant="primary" size="sm" mixin={{ mt: 2 }}>Action</Button>
-            </CardContent>
+            <Text variant="body2" muted>Nested <code>@media</code> with <code>&:hover</code> inside.</Text>
+            <Button variant="primary" size="sm" mixin={{ mt: 2 }}>Action</Button>
           </Card>
         </Box>
 
@@ -464,9 +423,7 @@ export function ExamplePage() {
     }
   }
 }}>
-  <CardContent>
-    <Button variant="primary">Action</Button>
-  </CardContent>
+  <Button variant="primary">Action</Button>
 </Card>`}</CodeBlock>
         <Text variant="body2" muted mixin={{ mt: 2 }}>
           Object values are nested CSS rules — use <code>&</code> for pseudo-selectors, nest infinitely.

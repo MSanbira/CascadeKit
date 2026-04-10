@@ -1,15 +1,10 @@
 @layer pages {
-  .ScopedStylesPage--root {
-    max-width: 900px;
-  }
-
   .ScopedStylesPage--list {
     margin-top: var(--space-3);
-    padding-left: var(--space-4);
+    padding-left: var(--space-3);
   }
 
   .ScopedStylesPage--list li {
-    margin-bottom: var(--space-3);
-    line-height: 1.6;
+    margin-bottom: var(--space-1);
   }
 }

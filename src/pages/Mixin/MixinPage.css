@@ -1,10 +1,10 @@
 @layer pages {
-  .MixinPage--exampleBox {
+  .MixinPage--example-box {
     background: var(--color-primary-subtle);
     border-radius: var(--radius-sm);
   }
 
-  .MixinPage--demoItem {
+  .MixinPage--demo-item {
     display: block;
     background: linear-gradient(135deg, var(--color-primary) 0%, color-mix(in srgb, var(--color-primary) 70%, black) 100%);
     color: white;

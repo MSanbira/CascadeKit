@@ -44,7 +44,7 @@
     border-color: var(--color-error);
   }
 
-  .ExamplePage--notificationClose {
+  .ExamplePage--notification-close {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,7 +57,7 @@
     transition: background-color var(--transition-fast);
   }
 
-  .ExamplePage--notificationClose:hover {
+  .ExamplePage--notification-close:hover {
     background-color: var(--color-bg-muted);
   }
 

@@ -137,20 +137,6 @@ export function HowPage() {
         <CodeBlock language="css">
           {globalClassCSS}
         </CodeBlock>
-        <Box className="d-flex dir-col gap-2" mixin={{ mt: 4 }}>
-          <div className="HowPage--namingItem">
-            <Text variant="body2" tag="code">ComponentName--element</Text>
-            <Text tag="span" muted>Root and child elements</Text>
-          </div>
-          <div className="HowPage--namingItem">
-            <Text variant="body2" tag="code">ComponentName--variant</Text>
-            <Text tag="span" muted>Visual variants</Text>
-          </div>
-          <div className="HowPage--namingItem">
-            <Text variant="body2" tag="code">ComponentName--state</Text>
-            <Text tag="span" muted>State modifiers</Text>
-          </div>
-        </Box>
         <Text>
           The <code>classNames</code> helper enforces this convention automatically:
         </Text>
@@ -164,7 +150,7 @@ export function HowPage() {
           styles in other layers. A simple selector in <code>@layer user-overrides</code> 
           will always beat a complex selector in <code>@layer components</code>:
         </Text>
-        <LayerStack mixin={{ my: 6 }} />
+        <LayerStack mixin={{ my: 3 }} />
         <Text>
           This means you can always override component styles from a page without 
           increasing specificity or using <code>!important</code>.

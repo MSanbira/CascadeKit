@@ -7,7 +7,6 @@ import './styles/reset.css';
 import './styles/utils.css';
 import './styles/layoutUtils.css';
 import './styles/mixin.css';
-import './styles/override.css';
 import './styles/theme.css';
 
 import { Layout } from './components/Layout';

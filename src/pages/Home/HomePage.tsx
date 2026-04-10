@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 import { Section } from '../../components/Section';
 import { Button } from '../../components/Button';
-import { Card, CardContent } from '../../components/Card';
+import { Card } from '../../components/Card';
 import { CodeBlock } from '../../components/CodeBlock';
 import { Text, Strong } from '../../components/Text';
 import { Box } from '../../components/Box';
 import { Badge } from '../../components/Badge';
 import './HomePage.css';
+import { HomePagePrinciple } from './HomePagePrinciple';
 
 export function HomePage() {
   return (
@@ -34,74 +35,44 @@ export function HomePage() {
         <Text variant="h2">Core Principles</Text>
 
         <Box className="d-flex dir-col gap-3" mixin={{ mt: 4 }}>
-          <div className="HomePage--principle">
-            <Text variant="h6" className="HomePage--principleNumber">1</Text>
-            <div>
-              <Text variant="h6" mixin={{ mb: 1 }}>Ordered Cascade Layers</Text>
-              <Text variant="body2" muted>
-                All CSS lives in <code>@layer</code> blocks with a defined order.
-                Later layers override earlier ones — no specificity wars.
-              </Text>
-            </div>
-          </div>
-          <div className="HomePage--principle">
-            <Text variant="h6" className="HomePage--principleNumber">2</Text>
-            <div>
-              <Text variant="h6" mixin={{ mb: 1 }}>Unified Design Tokens</Text>
-              <Text variant="body2" muted>
-                Colors, spacing, typography defined once in <code>base.css</code>.
-                Every component references the same <code>var(--token)</code> values.
-              </Text>
-            </div>
-          </div>
-          <div className="HomePage--principle">
-            <Text variant="h6" className="HomePage--principleNumber">3</Text>
-            <div>
-              <Text variant="h6" mixin={{ mb: 1 }}>CSS Classes, Not Inline Styles</Text>
-              <Text variant="body2" muted>
-                Styling happens in CSS files via classes. Utilities and mixins
-                generate classes — keeping styles in the cascade, not on elements.
-              </Text>
-            </div>
-          </div>
-          <div className="HomePage--principle">
-            <Text variant="h6" className="HomePage--principleNumber">4</Text>
-            <div>
-              <Text variant="h6" mixin={{ mb: 1 }}>Co-located Component CSS</Text>
-              <Text variant="body2" muted>
-                Each component imports its own CSS file. Tree-shaking means
-                unused components = unused CSS. Delete a component, delete its CSS.
-              </Text>
-            </div>
-          </div>
-          <div className="HomePage--principle">
-            <Text variant="h6" className="HomePage--principleNumber">5</Text>
-            <div>
-              <Text variant="h6" mixin={{ mb: 1 }}>Consistent Class Naming</Text>
-              <Text variant="body2" muted>
-                All classes follow <code>ComponentName--element</code> convention.
-                Readable in DevTools, greppable in code, no generated hashes.
-              </Text>
-            </div>
-          </div>
-          <div className="HomePage--principle">
-            <Text variant="h6" className="HomePage--principleNumber">6</Text>
-            <div>
-              <Text variant="h6" mixin={{ mb: 1 }}>Utility Classes for Recurring Patterns</Text>
-              <Text variant="body2" muted>
-                Common layout patterns (flex, grid, gaps) live in a <code>utils</code> layer.
-                Composable classes that don't bloat component CSS.
-              </Text>
-            </div>
-          </div>
+          <HomePagePrinciple
+            number="1"
+            title="Ordered Cascade Layers"
+            description={<>All CSS lives in <code>@layer</code> blocks with a defined order. Later layers override earlier ones — no specificity wars.</>}
+          />
+          <HomePagePrinciple
+            number="2"
+            title="Unified Design Tokens"
+            description={<>Colors, spacing, typography defined once in <code>base.css</code>. Every component references the same <code>var(--token)</code> values.</>}
+          />
+          <HomePagePrinciple
+            number="3"
+            title="CSS Classes, Not Inline Styles"
+            description="Styling happens in CSS files via classes. Utilities and mixins generate classes — keeping styles in the cascade, not on elements."
+          />
+          <HomePagePrinciple
+            number="4"
+            title="Co-located Component CSS"
+            description="Each component imports its own CSS file. Tree-shaking means unused components = unused CSS. Delete a component, delete its CSS."
+          />
+          <HomePagePrinciple
+            number="5"
+            title="Consistent Class Naming"
+            description={<>All classes follow <code>ComponentName--element</code> convention. Readable in DevTools, greppable in code, no generated hashes.</>}
+          />
+          <HomePagePrinciple
+            number="6"
+            title="Utility Classes for Recurring Patterns"
+            description={<>Common layout patterns (flex, grid, gaps) live in a <code>utils</code> layer. Composable classes that don't bloat component CSS.</>}
+          />
         </Box>
       </Section>
 
       <Section>
         <Text variant="h2">The Layer Stack</Text>
-        <p>
+        <Text>
           Layers are declared once and define the cascade order. Each layer has a clear purpose:
-        </p>
+        </Text>
 
         <CodeBlock language="css">{`@layer base, utils, components, pages, component-overrides, user-overrides;`}</CodeBlock>
 
@@ -138,10 +109,10 @@ export function HomePage() {
 
       <Section>
         <Text variant="h2">File Structure</Text>
-        <p>
+        <Text>
           Components are self-contained: a TSX file imports its CSS file.
           Global styles live in <code>src/styles/</code>.
-        </p>
+        </Text>
 
         <CodeBlock language="text">{`src/
 ├── styles/
@@ -166,72 +137,64 @@ export function HomePage() {
 
       <Section>
         <Text variant="h2">Example Patterns</Text>
-        <p>
+        <Text>
           These patterns demonstrate how to build tools within the layer system.
           All work through CSS classes and layers, not inline styles.
-        </p>
+        </Text>
 
         <Box className="d-grid gap-4" mixin={{ mt: 4, smallContainer: { gridColTemplate: '1fr' }, mediumContainer: { gridColTemplate: '1fr 1fr' } }}>
           <Card className="d-flex dir-col">
-            <CardContent>
-              <Text variant="h5" tag="h3" mixin={{ mb: 1 }}>Layout Utilities</Text>
-              <Text variant="body2" muted mixin={{ mb: 2 }}>
-                Utility classes in the <code>utils</code> layer for flex, grid,
-                alignment, and gaps.
-              </Text>
-              <CodeBlock language="tsx">{`<div className="d-flex gap-2 ali-center">
+            <Text variant="h5" tag="h3" mixin={{ mb: 1 }}>Layout Utilities</Text>
+            <Text variant="body2" muted mixin={{ mb: 2 }}>
+              Utility classes in the <code>utils</code> layer for flex, grid,
+              alignment, and gaps.
+            </Text>
+            <CodeBlock language="tsx">{`<div className="d-flex gap-2 ali-center">
   ...
 </div>`}</CodeBlock>
-              <Link to="/layout-utils" className="HomePage--cardLink">
-                <Button variant="ghost" size="sm">Layout utilities →</Button>
-              </Link>
-            </CardContent>
+            <Link to="/layout-utils" className="HomePage--cardLink">
+              <Button variant="secondary" size="sm">Layout utilities →</Button>
+            </Link>
           </Card>
 
           <Card className="d-flex dir-col">
-            <CardContent>
-              <Text variant="h5" tag="h3" mixin={{ mb: 1 }}>Mixin System</Text>
-              <Text variant="body2" muted mixin={{ mb: 2 }}>
-                Per-component responsive styling with breakpoints and container queries.
-              </Text>
-              <CodeBlock language="tsx">{`<Box mixin={{ 
+            <Text variant="h5" tag="h3" mixin={{ mb: 1 }}>Mixin System</Text>
+            <Text variant="body2" muted mixin={{ mb: 2 }}>
+              Per-component responsive styling with breakpoints and container queries.
+            </Text>
+            <CodeBlock language="tsx">{`<Box mixin={{ 
   p: 2, 
   smallScreen: { p: 1 } 
 }}>...</Box>`}</CodeBlock>
-              <Link to="/mixin" className="HomePage--cardLink">
-                <Button variant="ghost" size="sm">Mixin system →</Button>
-              </Link>
-            </CardContent>
+            <Link to="/mixin" className="HomePage--cardLink">
+              <Button variant="secondary" size="sm">Mixin system →</Button>
+            </Link>
           </Card>
 
           <Card className="d-flex dir-col">
-            <CardContent>
-              <Text variant="h5" tag="h3" mixin={{ mb: 1 }}>Theming</Text>
-              <Text variant="body2" muted mixin={{ mb: 2 }}>
-                Token overrides via <code>data-theme</code> attribute in the <code>user-overrides</code> layer.
-              </Text>
-              <CodeBlock language="css">{`[data-theme="midnight"] {
+            <Text variant="h5" tag="h3" mixin={{ mb: 1 }}>Theming</Text>
+            <Text variant="body2" muted mixin={{ mb: 2 }}>
+              Token overrides via <code>data-theme</code> attribute in the <code>user-overrides</code> layer.
+            </Text>
+            <CodeBlock language="css">{`[data-theme="midnight"] {
   --color-primary: #7c3aed;
 }`}</CodeBlock>
-              <Link to="/theme" className="HomePage--cardLink">
-                <Button variant="ghost" size="sm">Theming →</Button>
-              </Link>
-            </CardContent>
+            <Link to="/theme" className="HomePage--cardLink">
+              <Button variant="secondary" size="sm">Theming →</Button>
+            </Link>
           </Card>
 
           <Card className="d-flex dir-col">
-            <CardContent>
-              <Text variant="h5" tag="h3" mixin={{ mb: 1 }}>Scoped Styles</Text>
-              <Text variant="body2" muted mixin={{ mb: 2 }}>
-                Per-instance overrides using CSS <code>@scope</code> for dynamic or extreme customizations.
-              </Text>
-              <CodeBlock language="tsx">{`<Card scopedStyle={{ 
+            <Text variant="h5" tag="h3" mixin={{ mb: 1 }}>Scoped Styles</Text>
+            <Text variant="body2" muted mixin={{ mb: 2 }}>
+              Per-instance overrides using CSS <code>@scope</code> for dynamic or extreme customizations.
+            </Text>
+            <CodeBlock language="tsx">{`<Card scopedStyle={{ 
   '--color-primary': userColor 
 }}>...</Card>`}</CodeBlock>
-              <Link to="/scoped-styles" className="HomePage--cardLink">
-                <Button variant="ghost" size="sm">Scoped styles →</Button>
-              </Link>
-            </CardContent>
+            <Link to="/scoped-styles" className="HomePage--cardLink">
+              <Button variant="secondary" size="sm">Scoped styles →</Button>
+            </Link>
           </Card>
         </Box>
         <Text variant="body2" muted mixin={{ mt: 2 }}>
@@ -251,7 +214,7 @@ export function HomePage() {
         </ul>
         <Box mixin={{ mt: 6 }}>
           <Link to="/why">
-            <Button variant="ghost">Learn more about the philosophy →</Button>
+            <Button variant="secondary">Learn more about the philosophy →</Button>
           </Link>
         </Box>
       </Section>

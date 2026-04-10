@@ -1,8 +1,4 @@
 @layer user-overrides {
-  /* ========================================
-     Theme: Bubblegum - Light variant
-     Pink primary, light blue accents, rounder & bigger
-     ======================================== */
   [data-theme="bubblegum"] {
     --color-bg: #fdf2f8;
     --color-bg-subtle: #fce7f3;
@@ -29,7 +25,6 @@
     --shadow-md: 0 4px 8px -1px rgba(236, 72, 153, 0.15), 0 2px 4px -2px rgba(236, 72, 153, 0.1);
     --shadow-lg: 0 12px 20px -4px rgba(236, 72, 153, 0.15), 0 4px 8px -4px rgba(236, 72, 153, 0.1);
 
-    /* Code colors - pink/cyan theme */
     --color-code-bg: #2d1523;
     --color-code-text: #fdf2f8;
     --color-code-comment: #9d6a8a;
@@ -38,14 +33,12 @@
     --color-code-function: #f472b6;
     --color-code-number: #38bdf8;
 
-    /* Bubblegum sizing - rounder and slightly bigger */
     --radius-sm: calc(var(--base-size) * 0.75);
     --radius-md: calc(var(--base-size) * 1.25);
     --radius-lg: calc(var(--base-size) * 2);
     --radius-xl: calc(var(--base-size) * 3);
   }
 
-  /* Bubblegum theme - component overrides */
   [data-theme="bubblegum"] .Button--root {
     font-weight: var(--font-weight-bold);
     text-transform: uppercase;
@@ -66,7 +59,6 @@
     border: 2px solid var(--color-primary);
   }
 
-  /* Theme: Bubblegum - Dark variant */
   @media (prefers-color-scheme: dark) {
     [data-theme="bubblegum"] {
       --color-bg: #1a0a14;
@@ -94,7 +86,6 @@
       --shadow-md: 0 4px 8px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
       --shadow-lg: 0 12px 20px -4px rgba(0, 0, 0, 0.5), 0 4px 8px -4px rgba(0, 0, 0, 0.4);
 
-      /* Code colors - pink/cyan theme (dark) */
       --color-code-bg: #1a0a14;
       --color-code-text: #fdf2f8;
       --color-code-comment: #9d6a8a;
@@ -105,9 +96,6 @@
     }
   }
 
-  /* ========================================
-     Theme: Midnight - Light variant
-     ======================================== */
   [data-theme="midnight"] {
     --color-bg: #f5f3ff;
     --color-bg-subtle: #ede9fe;
@@ -135,7 +123,6 @@
     --shadow-lg: 0 10px 15px -3px rgba(91, 33, 182, 0.15), 0 4px 6px -4px rgba(91, 33, 182, 0.1);
   }
 
-  /* Theme: Midnight - Dark variant (respects system preference) */
   @media (prefers-color-scheme: dark) {
     [data-theme="midnight"] {
       --color-bg: #0f0d1a;
