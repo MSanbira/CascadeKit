@@ -72,129 +72,129 @@ export function HowPage() {
     <div className="HowPage--root">
       <Section>
         <Text variant="h1">How It Works</Text>
-        <p>
+        <Text>
           CascadeKit works by combining three native CSS/JS features:
           import-based CSS loading, cascade layers, and naming conventions.
-        </p>
+        </Text>
       </Section>
 
       <Section>
         <Text variant="h2">1. Define Layer Order</Text>
-        <p>
+        <Text>
           First, define the cascade layer order in a single file. This file 
           must be imported before any other CSS to establish the hierarchy:
-        </p>
+        </Text>
         <CodeBlock language="css" filename="styles/layers.css">
           {layerOrderCSS}
         </CodeBlock>
-        <p>
+        <Text>
           Layers listed later have higher priority. So <code>user-overrides</code> beats 
           <code>component-overrides</code>, which beats <code>pages</code>, and so on.
-        </p>
-        <p>
+        </Text>
+        <Text>
           Notice that <code>component-overrides</code> comes <em>after</em> <code>pages</code>. 
           This ensures that component modifiers (like <code>:disabled</code> or <code>--active</code> states) 
           always work as intended, even when pages apply custom styling to components.
-        </p>
+        </Text>
       </Section>
 
       <Section>
         <Text variant="h2">2. Import CSS in Components</Text>
-        <p>
+        <Text>
           Each component imports its own CSS file. Bundlers like Vite handle 
           this automatically — CSS loads when the component is used:
-        </p>
+        </Text>
         <CodeBlock language="tsx" filename="Button.tsx">
           {componentImportTSX}
         </CodeBlock>
         <CodeBlock language="css" filename="Button.css">
           {componentCSS}
         </CodeBlock>
-        <p>
+        <Text>
           When <code>Button</code> is imported, its CSS is added to the bundle. 
           If <code>Button</code> is never used, its CSS never loads.
-        </p>
+        </Text>
       </Section>
 
       <Section>
         <Text variant="h2">3. Bootstrap in App Root</Text>
-        <p>
+        <Text>
           In your app entry point, import global styles first, then components:
-        </p>
+        </Text>
         <CodeBlock language="tsx" filename="App.tsx">
           {appImportTSX}
         </CodeBlock>
-        <p>
+        <Text>
           The import order ensures layers are defined before component CSS loads.
-        </p>
+        </Text>
       </Section>
 
       <Section>
         <Text variant="h2">4. Use Global-but-Structured Classes</Text>
-        <p>
+        <Text>
           Class names are global (no hashing), but structured by convention:
-        </p>
+        </Text>
         <CodeBlock language="css">
           {globalClassCSS}
         </CodeBlock>
-        <Box className="d-flex-dir-col-gap-2" mixin={{ mt: 4 }}>
+        <Box className="d-flex dir-col gap-2" mixin={{ mt: 4 }}>
           <div className="HowPage--namingItem">
             <Text variant="body2" tag="code">ComponentName--element</Text>
-            <span>Root and child elements</span>
+            <Text tag="span" muted>Root and child elements</Text>
           </div>
           <div className="HowPage--namingItem">
             <Text variant="body2" tag="code">ComponentName--variant</Text>
-            <span>Visual variants</span>
+            <Text tag="span" muted>Visual variants</Text>
           </div>
           <div className="HowPage--namingItem">
             <Text variant="body2" tag="code">ComponentName--state</Text>
-            <span>State modifiers</span>
+            <Text tag="span" muted>State modifiers</Text>
           </div>
         </Box>
-        <p>
+        <Text>
           The <code>classNames</code> helper enforces this convention automatically:
-        </p>
+        </Text>
         <CodeBlock language="tsx">{classNamesHelper}</CodeBlock>
       </Section>
 
       <Section>
         <Text variant="h2">How the Cascade Works</Text>
-        <p>
+        <Text>
           With <code>@layer</code>, specificity within a layer doesn't affect 
           styles in other layers. A simple selector in <code>@layer user-overrides</code> 
           will always beat a complex selector in <code>@layer components</code>:
-        </p>
+        </Text>
         <LayerStack mixin={{ my: 6 }} />
-        <p>
+        <Text>
           This means you can always override component styles from a page without 
           increasing specificity or using <code>!important</code>.
-        </p>
+        </Text>
       </Section>
 
       <Section>
         <Text variant="h2">Why All Tools Must Respect Layers</Text>
-        <p>
+        <Text>
           The layering system only works when <Strong>all styling tools respect it</Strong>. 
           Any feature that applies styles — whether built-in props, mixins, or utilities — 
           must integrate with the cascade to preserve override capabilities.
-        </p>
-        <p>
+        </Text>
+        <Text>
           <Strong>The problem with inline styles:</Strong> When you write CSS properties 
           directly into the <code>style</code> attribute, those values bypass the cascade 
           entirely. Inline styles have the highest specificity and cannot be overridden 
           by any layer — not even <code>user-overrides</code>.
-        </p>
+        </Text>
         <CodeBlock language="tsx">{inlineStyleBad}</CodeBlock>
-        <p>
+        <Text>
           <Strong>The solution — CSS custom properties:</Strong> Instead of setting values 
           directly, we set CSS variables. The actual styling happens in CSS classes that 
           live within the layer system. This means user overrides still work.
-        </p>
+        </Text>
         <CodeBlock language="tsx">{cssVarsGood}</CodeBlock>
-        <p>
+        <Text>
           This principle applies to any dynamic styling feature: spacing props, responsive 
           mixins, theme toggles, etc. Always use CSS vars + classes, never raw inline styles.
-        </p>
+        </Text>
       </Section>
     </div>
   );

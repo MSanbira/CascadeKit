@@ -1,14 +1,6 @@
 # CascadeKit
 
-A modern CSS architecture system using native cascade layers and component co-location.
-
-## Core Principles
-
-1. **Layered Cascade** — All styles live in `@layer` blocks with defined order. Higher layers always win.
-2. **No Inline Styles** — Styles via classes, not `style` attributes. Inline breaks cascade control.
-3. **Naming Convention** — `ComponentName--element` for all classes. Readable, greppable, no hashes.
-4. **Co-located CSS** — Each component imports its own CSS file. Tree-shaking: unused components = unused CSS.
-5. **Token-Driven Values** — All values derive from `--base-size` and design tokens.
+CSS architecture using native cascade layers, co-located styles, and zero runtime.
 
 ## Layer Order
 
@@ -16,46 +8,52 @@ A modern CSS architecture system using native cascade layers and component co-lo
 @layer base, utils, components, pages, component-overrides, user-overrides;
 ```
 
-| Layer | Purpose |
-|-------|---------|
-| `base` | Design tokens, resets, typography |
-| `utils` | Layout utilities (flex, grid, gaps) |
-| `components` | Component styles + variants |
-| `pages` | Page-specific compositions |
-| `component-overrides` | Modifiers, sizes, states, mixins |
-| `user-overrides` | Final customizations |
+Higher layers always win—no specificity wars.
 
-## System Tools
+## Principles
 
-- **`classNames` helper** — Auto-adds `--root`, enforces naming convention
-- **`mixin` prop** — Layout via CSS vars + classes (not inline styles)
-- **Layout utils** — Composable classes: `d-flex-gap-2-ali-center`
+1. **Layers over specificity** — `@layer` controls cascade order, not selector complexity
+2. **Classes over inline** — All styling through CSS classes, CSS vars for dynamic values
+3. **Co-located CSS** — Components import their own `.css` files (tree-shakeable)
+4. **Token-driven** — Values derive from `--base-size` and design tokens
+5. **Readable names** — `ComponentName--element` convention, no generated hashes
 
-## Getting Started
+## Quick Start
 
 ```bash
-npm install
-npm run dev
+npm install && npm run dev
 ```
 
-## Project Structure
+## Key Patterns
+
+### Layout Utilities
+```tsx
+<div className="d-flex gap-2 ali-center">...</div>
+<div className="col-container col-num-3 gap-4">...</div>
+<div className="inline-container">...</div>  // for container queries
+```
+
+### Mixin (responsive styles without inline)
+```tsx
+<Box mixin={{ p: 2, smallScreen: { p: 1 } }}>...</Box>
+<Card mixin={{ mediumContainer: { gridColTemplate: '1fr 1fr' } }}>...</Card>
+```
+
+### Scoped Styles (per-instance overrides)
+```tsx
+<Card scopedStyle={{ '--color-primary': userColor }}>...</Card>
+```
+
+### Naming Convention
+All classes: `ComponentName--element`, `ComponentName--variant`
+
+## Structure
 
 ```
-/src
-  /styles            # Global styles (layers.css, base.css, utils.css)
-  /components        # Reusable UI components
-    /Button
-    /Card
-    /Text
-    /Box
-    /Badge
-    /CodeBlock
-    /Layout
-    /Navbar
-    /Sidebar
-    /Section
-  /pages             # Documentation pages
-  /helpers           # classNames, mixin helpers
+src/
+  styles/       # layers.css, base.css, layoutUtils.css, mixin.css
+  components/   # Each imports its own .css file
+  helpers/      # classNames, getMixin, scopedStyle
 ```
 
 ## License

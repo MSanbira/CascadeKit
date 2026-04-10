@@ -114,32 +114,32 @@ export function ComponentModelPage() {
     <div className="ComponentModelPage--root">
       <Section>
         <Text variant="h1">Component Model</Text>
-        <p>
+        <Text>
           CascadeKit components follow a simple pattern: each component owns
           its styles through co-located CSS files and consistent naming.
-        </p>
+        </Text>
       </Section>
 
       <Section>
         <Text variant="h2">Folder Structure</Text>
-        <p>
+        <Text>
           Each component lives in its own folder with its TSX and CSS files:
-        </p>
+        </Text>
         <CodeBlock language="text" filename="Project Structure">
           {folderStructure}
         </CodeBlock>
-        <p>
+        <Text>
           This co-location means styles always travel with their component.
           When you move a component, you move its styles too.
-        </p>
+        </Text>
       </Section>
 
       <Section>
         <Text variant="h2">The Root Class Pattern</Text>
-        <p>
+        <Text>
           Every component must have a root class: <code>.ComponentName--root</code>.
           This provides a reliable anchor for all component styles:
-        </p>
+        </Text>
         <CodeBlock language="css">
           {namingExamples}
         </CodeBlock>
@@ -147,7 +147,7 @@ export function ComponentModelPage() {
         <div className="ComponentModelPage--rules">
           <Card>
             <CardContent>
-              <h4>Naming Rules</h4>
+              <Text variant="h4">Naming Rules</Text>
               <ul>
                 <li><Strong>PascalCase</Strong> component name</li>
                 <li><Strong>Double dash</Strong> separator</li>
@@ -161,9 +161,9 @@ export function ComponentModelPage() {
 
       <Section>
         <Text variant="h2">Complete Example</Text>
-        <p>
+        <Text>
           Here's a complete Button component showing the full pattern:
-        </p>
+        </Text>
         <CodeBlock language="tsx" filename="Button.tsx">
           {componentTSX}
         </CodeBlock>

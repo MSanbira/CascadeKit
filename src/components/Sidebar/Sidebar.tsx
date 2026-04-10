@@ -1,5 +1,9 @@
 import { NavLink } from 'react-router-dom';
+import { useTheme } from '../../context/ThemeContext';
+import { Box } from '../Box';
 import { classNames } from '../../helpers/classNameHelper';
+import { Button } from '../Button';
+import { Text } from '../Text';
 import './Sidebar.css';
 
 interface NavItem {
@@ -15,6 +19,8 @@ const navItems: NavItem[] = [
   { to: '/layers', label: 'Layers Explained' },
   { to: '/mixin', label: 'Mixin System' },
   { to: '/layout-utils', label: 'Layout Utilities' },
+  { to: '/theme', label: 'Theming' },
+  { to: '/scoped-styles', label: 'Scoped Styles' },
   { to: '/example', label: 'Live Example' },
 ];
 
@@ -24,16 +30,18 @@ interface SidebarProps {
 }
 
 export function Sidebar({ isOpen = true, onClose }: SidebarProps) {
+  const { themeLabel, toggleTheme } = useTheme();
+
   return (
     <>
       {isOpen && (
-        <div 
-          className="Sidebar--overlay" 
+        <div
+          className="Sidebar--overlay"
           onClick={onClose}
           aria-hidden="true"
         />
       )}
-      <aside 
+      <aside
         className={classNames('Sidebar', [], { 'Sidebar--open': isOpen })}
         aria-label="Main navigation"
       >
@@ -43,7 +51,7 @@ export function Sidebar({ isOpen = true, onClose }: SidebarProps) {
               <li key={item.to} className="Sidebar--item">
                 <NavLink
                   to={item.to}
-                  className={({ isActive }) => 
+                  className={({ isActive }) =>
                     `Sidebar--link ${isActive ? 'Sidebar--link-active' : ''}`
                   }
                   onClick={onClose}
@@ -54,6 +62,17 @@ export function Sidebar({ isOpen = true, onClose }: SidebarProps) {
             ))}
           </ul>
         </nav>
+        <Box
+          className="Sidebar--themeSection d-flex dir-col gap-1"
+          mixin={{ pt: 3 }}
+        >
+          <Text variant='body2'>
+            Theme: {themeLabel}
+          </Text>
+          <Button onClick={toggleTheme} variant="secondary">
+            Change Theme
+          </Button>
+        </Box>
       </aside>
     </>
   );

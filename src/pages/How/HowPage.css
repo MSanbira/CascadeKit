@@ -11,8 +11,4 @@
   .HowPage--namingItem code {
     min-inline-size: calc(var(--base-size) * 25);
   }
-
-  .HowPage--namingItem span {
-    color: var(--color-text-muted);
-  }
 }

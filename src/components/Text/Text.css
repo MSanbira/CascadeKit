@@ -97,6 +97,10 @@
   .Text--underline {
     text-decoration: underline;
   }
+  
+  .Text--pretty {
+    text-wrap: pretty;
+  }
 
   /* Alignment */
   .Text--align-left {

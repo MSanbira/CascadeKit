@@ -1,1 +1,1 @@
-export { GitHubIcon, MenuIcon } from './Icons';
+export { GitHubIcon, MenuIcon, SunIcon, MoonIcon } from './Icons';

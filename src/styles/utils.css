@@ -1,10 +1,8 @@
 @layer utils {
-  /* Container query utilities */
-  .container-query {
+  .inline-container {
     container-type: inline-size;
   }
 
-  /* Visibility utilities */
   .visually-hidden {
     position: absolute;
     inline-size: 1px;

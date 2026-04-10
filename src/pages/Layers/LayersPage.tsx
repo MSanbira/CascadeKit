@@ -67,30 +67,32 @@ const pagesLayerExample = `@layer pages {
 }`;
 
 const componentOverridesLayerExample = `@layer component-overrides {
-  /* Component modifiers that need to override variants */
+  /* Component modifiers, mixin styles, scoped styles */
   .Text--bold {
     font-weight: var(--font-weight-bold);
-  }
-
-  .Text--muted {
-    color: var(--color-text-muted);
   }
 
   .Button--disabled {
     opacity: 0.5;
     pointer-events: none;
   }
+}
+
+/* Scoped styles also inject here by default */
+@layer component-overrides {
+  @scope { :scope { --color-primary: #10b981; } }
 }`;
 
 const userOverridesLayerExample = `@layer user-overrides {
-  /* Emergency fixes, A/B tests, etc. */
-  .Button--root[data-experiment="new-cta"] {
-    background: var(--color-accent);
+  /* Themes override tokens globally */
+  [data-theme="midnight"] {
+    --color-primary: #7c3aed;
+    --color-bg: #0f0d1a;
   }
 
-  /* Third-party component overrides */
-  .DatePicker--input {
-    border-color: var(--color-border);
+  /* Emergency fixes, A/B tests */
+  .Button--root[data-experiment="new-cta"] {
+    background: var(--color-accent);
   }
 }`;
 
@@ -99,18 +101,18 @@ export function LayersPage() {
     <div className="LayersPage--root">
       <Section>
         <Text variant="h1">Layers Explained</Text>
-        <p>
+        <Text>
           CSS Cascade Layers (<code>@layer</code>) let you control which styles 
           win when there are conflicts — without resorting to specificity tricks 
           or <code>!important</code>.
-        </p>
+        </Text>
       </Section>
 
       <Section>
         <Text variant="h2">Layer Order</Text>
-        <p>
+        <Text>
           CascadeKit uses six layers, ordered from lowest to highest priority:
-        </p>
+        </Text>
         <CodeBlock language="css" filename="layers.css">
           {layerDefinition}
         </CodeBlock>
@@ -126,8 +128,8 @@ export function LayersPage() {
             <code>@layer base</code>
           </CardHeader>
           <CardContent>
-            <p><Strong>Purpose:</Strong> CSS reset, design tokens, typography defaults</p>
-            <p><Strong>Contains:</Strong> Variables, reset styles, element defaults</p>
+            <Text><Strong>Purpose:</Strong> CSS reset, design tokens, typography defaults</Text>
+            <Text><Strong>Contains:</Strong> Variables, reset styles, element defaults</Text>
             <CodeBlock language="css">{baseLayerExample}</CodeBlock>
           </CardContent>
         </Card>
@@ -137,8 +139,8 @@ export function LayersPage() {
             <code>@layer utils</code>
           </CardHeader>
           <CardContent>
-            <p><Strong>Purpose:</Strong> Reusable utility classes</p>
-            <p><Strong>Contains:</Strong> Layout helpers, visibility, spacing shortcuts</p>
+            <Text><Strong>Purpose:</Strong> Reusable utility classes</Text>
+            <Text><Strong>Contains:</Strong> Layout helpers, visibility, spacing shortcuts</Text>
             <CodeBlock language="css">{utilsLayerExample}</CodeBlock>
           </CardContent>
         </Card>
@@ -148,8 +150,8 @@ export function LayersPage() {
             <code>@layer components</code>
           </CardHeader>
           <CardContent>
-            <p><Strong>Purpose:</Strong> Reusable UI components</p>
-            <p><Strong>Contains:</Strong> Button, Card, Input, Modal, etc.</p>
+            <Text><Strong>Purpose:</Strong> Reusable UI components</Text>
+            <Text><Strong>Contains:</Strong> Button, Card, Input, Modal, etc.</Text>
             <CodeBlock language="css">{componentsLayerExample}</CodeBlock>
           </CardContent>
         </Card>
@@ -159,8 +161,8 @@ export function LayersPage() {
             <code>@layer pages</code>
           </CardHeader>
           <CardContent>
-            <p><Strong>Purpose:</Strong> Page-specific styles and component overrides</p>
-            <p><Strong>Contains:</Strong> Page layouts, contextual component tweaks</p>
+            <Text><Strong>Purpose:</Strong> Page-specific styles and component overrides</Text>
+            <Text><Strong>Contains:</Strong> Page layouts, contextual component tweaks</Text>
             <CodeBlock language="css">{pagesLayerExample}</CodeBlock>
           </CardContent>
         </Card>
@@ -170,13 +172,12 @@ export function LayersPage() {
             <code>@layer component-overrides</code>
           </CardHeader>
           <CardContent>
-            <p><Strong>Purpose:</Strong> Component modifiers that need to override variant styles</p>
-            <p><Strong>Contains:</Strong> Modifier classes like bold, muted, disabled states</p>
-            <p>
-              <Strong>Why after pages?</Strong> Placing this layer after <code>pages</code> ensures 
-              that granular component behavior (like disabled buttons or active links) always works 
-              as intended — even when pages apply custom styling to those components.
-            </p>
+            <Text><Strong>Purpose:</Strong> Component modifiers, mixin styles, and scoped styles</Text>
+            <Text><Strong>Contains:</Strong> Modifier classes, responsive mixins, per-instance <code>scopedStyle</code> overrides</Text>
+            <Text>
+              <Strong>Why after pages?</Strong> Ensures granular component behavior (disabled states, 
+              scoped overrides) always works — even when pages apply custom styling.
+            </Text>
             <CodeBlock language="css">{componentOverridesLayerExample}</CodeBlock>
           </CardContent>
         </Card>
@@ -186,8 +187,8 @@ export function LayersPage() {
             <code>@layer user-overrides</code>
           </CardHeader>
           <CardContent>
-            <p><Strong>Purpose:</Strong> Last-resort overrides, experiments, third-party fixes</p>
-            <p><Strong>Contains:</Strong> A/B test styles, vendor overrides, hotfixes</p>
+            <Text><Strong>Purpose:</Strong> Themes, last-resort overrides, experiments</Text>
+            <Text><Strong>Contains:</Strong> Theme token overrides via <code>data-theme</code>, A/B tests, hotfixes</Text>
             <CodeBlock language="css">{userOverridesLayerExample}</CodeBlock>
           </CardContent>
         </Card>
@@ -195,11 +196,11 @@ export function LayersPage() {
 
       <Section>
         <Text variant="h2">Key Insight</Text>
-        <p>
+        <Text>
           With layers, a <Strong>simple selector</Strong> in a higher layer always 
           beats a <Strong>complex selector</Strong> in a lower layer:
-        </p>
-        <Box className="d-flex-dir-col-gap-3 LayersPage--insight">
+        </Text>
+        <Box className="d-flex dir-col gap-3 LayersPage--insight">
           <div className="LayersPage--insightItem">
             <Text variant="body2" tag="code">.Button--root</Text>
             <Text variant="body2" muted>in @layer user-overrides</Text>
@@ -211,9 +212,9 @@ export function LayersPage() {
             <Text variant="body2" tag="span" className="LayersPage--insightResult LayersPage--insightResult-loses">loses</Text>
           </div>
         </Box>
-        <p>
+        <Text>
           This makes overriding predictable. No more fighting specificity.
-        </p>
+        </Text>
       </Section>
     </div>
   );

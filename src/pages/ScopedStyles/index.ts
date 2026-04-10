@@ -1,0 +1,1 @@
+export { ScopedStylesPage } from './ScopedStylesPage';

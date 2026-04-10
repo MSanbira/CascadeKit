@@ -1,49 +1,49 @@
 @layer utils {
-  [class*="d-flex"] {
+  .d-flex {
     display: flex;
   }
-  :where([class*="d-flex"]) {
+  :where(.d-flex) {
     gap: 0;
   }
-  [class*="d-flex"][class*="dir-col"] {
+  .d-flex.dir-col {
     flex-direction: column;
   }
-  [class*="d-flex"][class*="f-wrap"] {
+  .d-flex.f-wrap {
     flex-wrap: wrap;
   }
-  [class*="d-flex"][class*="min-0"] {
+  .d-flex.min-0 {
     min-width: 0;
   }
 
-  [class*="d-grid"],
-  [class*="col-container"] {
+  .d-grid,
+  .col-container {
     display: grid;
     --layout-gap: var(--space-2);
   }
 
-  :where([class*="d-grid"], [class*="col-container"]) {
+  :where(.d-grid, .col-container) {
     gap: var(--space-2);
   }
-  [class*="d-grid"] > * {
+  .d-grid > * {
     min-width: 0;
   }
 
-  [class*="col-container"] {
+  .col-container {
     grid-template-columns: var(--col-template, minmax(0, 1fr));
   }
-  [class*="col-container:2"] {
+  .col-container.col-num-2 {
     --col-template: minmax(0, 1fr) minmax(0, 1fr);
   }
-  [class*="col-container:3"] {
+  .col-container.col-num-3 {
     --col-template: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
   }
-  [class*="col-container:4"] {
+  .col-container.col-num-4 {
     --col-template: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
   }
-  [class*="col-container"][class*="with-divider"] > *:not(:last-child) {
+  .col-container.with-divider > *:not(:last-child) {
     position: relative;
   }
-  [class*="col-container"][class*="with-divider"] > *:not(:last-child)::after {
+  .col-container.with-divider > *:not(:last-child)::after {
     content: "";
     display: block;
     position: absolute;
@@ -53,197 +53,219 @@
     height: 100%;
     background: var(--divider-color, var(--color-border));
   }
-  [class*="col-container:auto"] {
+  .col-container.col-num-auto {
     grid-template-columns: repeat(
       auto-fill,
       minmax(var(--auto-col-min-width, 0), 1fr)
     );
   }
 
-  [class*="ali-start"]:where(
-    [class*="d-flex"],
-    [class*="d-grid"],
-    [class*="col-container"]
+  .ali-start:where(
+    .d-flex,
+    .d-grid,
+    .col-container
   ) {
     align-items: flex-start;
   }
-  [class*="ali-center"]:where(
-    [class*="d-flex"],
-    [class*="d-grid"],
-    [class*="col-container"]
+  .ali-center:where(
+    .d-flex,
+    .d-grid,
+    .col-container
   ) {
     align-items: center;
   }
-  [class*="ali-end"]:where(
-    [class*="d-flex"],
-    [class*="d-grid"],
-    [class*="col-container"]
+  .ali-end:where(
+    .d-flex,
+    .d-grid,
+    .col-container
   ) {
     align-items: flex-end;
   }
-  [class*="ali-baseline"]:where(
-    [class*="d-flex"],
-    [class*="d-grid"],
-    [class*="col-container"]
+  .ali-baseline:where(
+    .d-flex,
+    .d-grid,
+    .col-container
   ) {
     align-items: baseline;
   }
-  [class*="ali-stretch"]:where(
-    [class*="d-flex"],
-    [class*="d-grid"],
-    [class*="col-container"]
+  .ali-stretch:where(
+    .d-flex,
+    .d-grid,
+    .col-container
   ) {
     align-items: stretch;
   }
-  [class*="jc-start"]:where(
-    [class*="d-flex"],
-    [class*="d-grid"],
-    [class*="col-container"]
+  .jc-start:where(
+    .d-flex,
+    .d-grid,
+    .col-container
   ) {
     justify-content: flex-start;
   }
-  [class*="jc-center"]:where(
-    [class*="d-flex"],
-    [class*="d-grid"],
-    [class*="col-container"]
+  .jc-center:where(
+    .d-flex,
+    .d-grid,
+    .col-container
   ) {
     justify-content: center;
   }
-  [class*="jc-end"]:where(
-    [class*="d-flex"],
-    [class*="d-grid"],
-    [class*="col-container"]
+  .jc-end:where(
+    .d-flex,
+    .d-grid,
+    .col-container
   ) {
     justify-content: flex-end;
   }
-  [class*="jc-sb"]:where(
-    [class*="d-flex"],
-    [class*="d-grid"],
-    [class*="col-container"]
+  .jc-sb:where(
+    .d-flex,
+    .d-grid,
+    .col-container
   ) {
     justify-content: space-between;
   }
-  [class*="jc-se"]:where(
-    [class*="d-flex"],
-    [class*="d-grid"],
-    [class*="col-container"]
+  .jc-se:where(
+    .d-flex,
+    .d-grid,
+    .col-container
   ) {
     justify-content: space-evenly;
   }
-  [class*="gap-0_5"]:where(
-    [class*="d-flex"],
-    [class*="d-grid"],
-    [class*="col-container"]
+  .gap-0_5:where(
+    .d-flex,
+    .d-grid,
+    .col-container
   ) {
     gap: var(--space-0_5);
   }
-  [class*="gap-1"]:where(
-    [class*="d-flex"],
-    [class*="d-grid"],
-    [class*="col-container"]
+  .gap-1:where(
+    .d-flex,
+    .d-grid,
+    .col-container
   ) {
     gap: var(--space-1);
   }
-  [class*="gap-1_5"]:where(
-    [class*="d-flex"],
-    [class*="d-grid"],
-    [class*="col-container"]
+  .gap-1_5:where(
+    .d-flex,
+    .d-grid,
+    .col-container
   ) {
     gap: var(--space-1_5);
   }
-  [class*="gap-2"]:where(
-    [class*="d-flex"],
-    [class*="d-grid"],
-    [class*="col-container"]
+  .gap-2:where(
+    .d-flex,
+    .d-grid,
+    .col-container
   ) {
     gap: var(--space-2);
   }
-  [class*="gap-2_5"]:where(
-    [class*="d-flex"],
-    [class*="d-grid"],
-    [class*="col-container"]
+  .gap-2_5:where(
+    .d-flex,
+    .d-grid,
+    .col-container
   ) {
     gap: var(--space-2_5);
   }
-  [class*="gap-3"]:where(
-    [class*="d-flex"],
-    [class*="d-grid"],
-    [class*="col-container"]
+  .gap-3:where(
+    .d-flex,
+    .d-grid,
+    .col-container
   ) {
     gap: var(--space-3);
   }
-  [class*="gap-4"]:where(
-    [class*="d-flex"],
-    [class*="d-grid"],
-    [class*="col-container"]
+  .gap-4:where(
+    .d-flex,
+    .d-grid,
+    .col-container
   ) {
     gap: var(--space-4);
   }
-  [class*="gap-5"]:where(
-    [class*="d-flex"],
-    [class*="d-grid"],
-    [class*="col-container"]
+  .gap-5:where(
+    .d-flex,
+    .d-grid,
+    .col-container
   ) {
     gap: var(--space-5);
   }
-  [class*="gap-6"]:where(
-    [class*="d-flex"],
-    [class*="d-grid"],
-    [class*="col-container"]
+  .gap-6:where(
+    .d-flex,
+    .d-grid,
+    .col-container
   ) {
     gap: var(--space-6);
   }
-  [class*="gap-8"]:where(
-    [class*="d-flex"],
-    [class*="d-grid"],
-    [class*="col-container"]
+  .gap-7:where(
+    .d-flex,
+    .d-grid,
+    .col-container
+  ) {
+    gap: var(--space-7);
+  }
+  .gap-8:where(
+    .d-flex,
+    .d-grid,
+    .col-container
   ) {
     gap: var(--space-8);
   }
-  [class*="gap-10"]:where(
-    [class*="d-flex"],
-    [class*="d-grid"],
-    [class*="col-container"]
+  .gap-10:where(
+    .d-flex,
+    .d-grid,
+    .col-container
   ) {
     gap: var(--space-10);
   }
-  [class*="gap-0_25"]:where(
-    [class*="d-flex"],
-    [class*="d-grid"],
-    [class*="col-container"]
+  .gap-0_25:where(
+    .d-flex,
+    .d-grid,
+    .col-container
   ) {
     gap: calc(var(--base-size) * 0.25);
   }
-  [class*="no-gap"]:where(
-    [class*="d-flex"],
-    [class*="d-grid"],
-    [class*="col-container"]
+  .no-gap:where(
+    .d-flex,
+    .d-grid,
+    .col-container
   ) {
     gap: 0;
   }
 
-  [class*="gap-0_5"][class*="col-container"] {
+  .gap-0_5.col-container {
     --layout-gap: var(--space-0_5);
   }
-  [class*="gap-1"][class*="col-container"] {
+  .gap-1.col-container {
     --layout-gap: var(--space-1);
   }
-  [class*="gap-2"][class*="col-container"] {
+  .gap-2.col-container {
     --layout-gap: var(--space-2);
   }
-  [class*="gap-3"][class*="col-container"] {
+  .gap-3.col-container {
     --layout-gap: var(--space-3);
   }
-  [class*="gap-6"][class*="col-container"] {
+  .gap-4.col-container {
+    --layout-gap: var(--space-4);
+  }
+  .gap-5.col-container {
+    --layout-gap: var(--space-5);
+  }
+  .gap-6.col-container {
     --layout-gap: var(--space-6);
   }
-  [class*="gap-8"][class*="col-container"] {
+  .gap-7.col-container {
+    --layout-gap: var(--space-7);
+  }
+  .gap-8.col-container {
     --layout-gap: var(--space-8);
   }
-  [class*="gap-0_25"][class*="col-container"] {
+  .gap-9.col-container {
+    --layout-gap: var(--space-9);
+  }
+  .gap-10.col-container {
+    --layout-gap: var(--space-10);
+  }
+  .gap-0_25.col-container {
     --layout-gap: calc(var(--base-size) * 0.25);
   }
-  [class*="no-gap"][class*="col-container"] {
+  .no-gap.col-container {
     --layout-gap: 1px;
   }
 }

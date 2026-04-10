@@ -1,0 +1,167 @@
+@layer user-overrides {
+  /* ========================================
+     Theme: Bubblegum - Light variant
+     Pink primary, light blue accents, rounder & bigger
+     ======================================== */
+  [data-theme="bubblegum"] {
+    --color-bg: #fdf2f8;
+    --color-bg-subtle: #fce7f3;
+    --color-bg-muted: #fbcfe8;
+    --color-surface: #ffffff;
+    --color-border: #f9a8d4;
+    --color-border-subtle: #fbcfe8;
+    
+    --color-text: #831843;
+    --color-text-muted: #be185d;
+    --color-text-subtle: #db2777;
+    
+    --color-primary: #ec4899;
+    --color-primary-hover: #db2777;
+    --color-primary-subtle: #fce7f3;
+    --color-primary-active: #be185d;
+    
+    --color-accent: #38bdf8;
+    --color-success: #22c55e;
+    --color-warning: #eab308;
+    --color-error: #ef4444;
+    
+    --shadow-sm: 0 2px 4px rgba(236, 72, 153, 0.1);
+    --shadow-md: 0 4px 8px -1px rgba(236, 72, 153, 0.15), 0 2px 4px -2px rgba(236, 72, 153, 0.1);
+    --shadow-lg: 0 12px 20px -4px rgba(236, 72, 153, 0.15), 0 4px 8px -4px rgba(236, 72, 153, 0.1);
+
+    /* Code colors - pink/cyan theme */
+    --color-code-bg: #2d1523;
+    --color-code-text: #fdf2f8;
+    --color-code-comment: #9d6a8a;
+    --color-code-keyword: #f9a8d4;
+    --color-code-string: #7dd3fc;
+    --color-code-function: #f472b6;
+    --color-code-number: #38bdf8;
+
+    /* Bubblegum sizing - rounder and slightly bigger */
+    --radius-sm: calc(var(--base-size) * 0.75);
+    --radius-md: calc(var(--base-size) * 1.25);
+    --radius-lg: calc(var(--base-size) * 2);
+    --radius-xl: calc(var(--base-size) * 3);
+  }
+
+  /* Bubblegum theme - component overrides */
+  [data-theme="bubblegum"] .Button--root {
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+  }
+
+  [data-theme="bubblegum"] .Badge--root {
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-bold);
+  }
+
+  [data-theme="bubblegum"] .Card--root {
+    border-width: 2px;
+    border-radius: var(--radius-xl);
+  }
+
+  [data-theme="bubblegum"] .CodeBlock--root {
+    border: 2px solid var(--color-primary);
+  }
+
+  /* Theme: Bubblegum - Dark variant */
+  @media (prefers-color-scheme: dark) {
+    [data-theme="bubblegum"] {
+      --color-bg: #1a0a14;
+      --color-bg-subtle: #2d1523;
+      --color-bg-muted: #4a1d3d;
+      --color-surface: #2d1523;
+      --color-border: #6b2154;
+      --color-border-subtle: #4a1d3d;
+      
+      --color-text: #fdf2f8;
+      --color-text-muted: #f9a8d4;
+      --color-text-subtle: #f472b6;
+      
+      --color-primary: #f472b6;
+      --color-primary-hover: #f9a8d4;
+      --color-primary-subtle: #500724;
+      --color-primary-active: #ec4899;
+      
+      --color-accent: #7dd3fc;
+      --color-success: #4ade80;
+      --color-warning: #facc15;
+      --color-error: #f87171;
+      
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 4px 8px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 12px 20px -4px rgba(0, 0, 0, 0.5), 0 4px 8px -4px rgba(0, 0, 0, 0.4);
+
+      /* Code colors - pink/cyan theme (dark) */
+      --color-code-bg: #1a0a14;
+      --color-code-text: #fdf2f8;
+      --color-code-comment: #9d6a8a;
+      --color-code-keyword: #f9a8d4;
+      --color-code-string: #7dd3fc;
+      --color-code-function: #f472b6;
+      --color-code-number: #38bdf8;
+    }
+  }
+
+  /* ========================================
+     Theme: Midnight - Light variant
+     ======================================== */
+  [data-theme="midnight"] {
+    --color-bg: #f5f3ff;
+    --color-bg-subtle: #ede9fe;
+    --color-bg-muted: #ddd6fe;
+    --color-surface: #ffffff;
+    --color-border: #c4b5fd;
+    --color-border-subtle: #ddd6fe;
+    
+    --color-text: #1e1b4b;
+    --color-text-muted: #5b21b6;
+    --color-text-subtle: #7c3aed;
+    
+    --color-primary: #7c3aed;
+    --color-primary-hover: #6d28d9;
+    --color-primary-subtle: #ede9fe;
+    --color-primary-active: #5b21b6;
+    
+    --color-accent: #0ea5e9;
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    
+    --shadow-sm: 0 1px 2px rgba(91, 33, 182, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(91, 33, 182, 0.15), 0 2px 4px -2px rgba(91, 33, 182, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(91, 33, 182, 0.15), 0 4px 6px -4px rgba(91, 33, 182, 0.1);
+  }
+
+  /* Theme: Midnight - Dark variant (respects system preference) */
+  @media (prefers-color-scheme: dark) {
+    [data-theme="midnight"] {
+      --color-bg: #0f0d1a;
+      --color-bg-subtle: #1a1625;
+      --color-bg-muted: #2d2640;
+      --color-surface: #1a1625;
+      --color-border: #3d3455;
+      --color-border-subtle: #2d2640;
+      
+      --color-text: #e8e4f0;
+      --color-text-muted: #a89fc4;
+      --color-text-subtle: #6b5f8a;
+      
+      --color-primary: #a78bfa;
+      --color-primary-hover: #c4b5fd;
+      --color-primary-subtle: #2e1065;
+      --color-primary-active: #8b5cf6;
+      
+      --color-accent: #38bdf8;
+      --color-success: #4ade80;
+      --color-warning: #fbbf24;
+      --color-error: #f87171;
+      
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+    }
+  }
+}

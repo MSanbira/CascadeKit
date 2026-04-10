@@ -14,6 +14,7 @@ interface TextProps extends React.HTMLAttributes<HTMLElement> {
   muted?: boolean;
   isBold?: boolean;
   isUnderline?: boolean;
+  isPretty?: boolean;
   alignText?: TextAlign;
   color?: TextColor;
   mixin?: MixinProps;
@@ -39,6 +40,7 @@ export function Text({
   muted = false,
   isBold = false,
   isUnderline = false,
+  isPretty = false,
   alignText,
   color,
   mixin,
@@ -57,6 +59,7 @@ export function Text({
         'Text--muted': muted,
         'Text--bold': isBold,
         'Text--underline': isUnderline,
+        'Text--pretty': isPretty,
         [`Text--align-${alignText}`]: !!alignText,
         [`Text--color-${color}`]: !!color,
       })}

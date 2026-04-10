@@ -5,6 +5,10 @@
     inset-inline-start: 0;
     inline-size: var(--sidebar-width);
     block-size: calc(100vh - var(--navbar-height));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-2);
     background-color: var(--color-surface);
     border-inline-end: 1px solid var(--color-border);
     padding-block: var(--space-2);
@@ -16,7 +20,7 @@
   }
 
   /* Desktop - use grid positioning */
-  @media (min-width: 1024px) {
+  @media (min-width: 640px) {
     .Sidebar--root {
       position: static;
       grid-column: 1;
@@ -29,11 +33,6 @@
 
   .Sidebar--overlay {
     display: none;
-  }
-
-  .Sidebar--nav {
-    position: sticky;
-    inset-block-start: 0;
   }
 
   .Sidebar--list {
@@ -66,8 +65,12 @@
     color: var(--color-text);
   }
 
+  .Sidebar--themeSection {
+    border-block-start: 1px solid var(--color-border);
+  }
+
   /* Mobile - overlay behavior */
-  @media (max-width: 1024px) {
+  @media (max-width: 640px) {
     .Sidebar--overlay {
       display: block;
       position: fixed;
@@ -97,7 +100,7 @@
     color: var(--color-primary);
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 640px) {
     .Sidebar--root:not(.Sidebar--open) + .Sidebar--overlay {
       display: none;
     }

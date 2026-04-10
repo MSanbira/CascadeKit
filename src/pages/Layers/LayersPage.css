@@ -3,10 +3,6 @@
     margin-block-start: var(--space-6);
   }
 
-  .LayersPage--card p {
-    margin-block-end: var(--space-2);
-  }
-
   .LayersPage--insight {
     margin-block: var(--space-6);
     padding: var(--space-4);

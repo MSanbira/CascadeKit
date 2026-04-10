@@ -39,15 +39,15 @@ export function ExamplePage() {
     <div className="ExamplePage--root">
       <Section>
         <Text variant="h1">Live Examples</Text>
-        <p>
+        <Text>
           Real-world UI patterns built with CascadeKit. Inspect any element 
           to see readable class names and CSS layers in action.
-        </p>
+        </Text>
       </Section>
 
       <Section>
         <Text variant="h2">Button Component</Text>
-        <p>The Button component demonstrates CascadeKit's variant and size system.</p>
+        <Text>The Button component demonstrates CascadeKit's variant and size system.</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <CardContent>
             <Text variant="body2" muted>
@@ -61,7 +61,7 @@ export function ExamplePage() {
 
         <Box mixin={{ mt: 4 }}>
           <Text variant="h5" mixin={{ mb: 2 }}>Variants</Text>
-          <Box className="d-flex-gap-3-ali-center" mixin={{ mb: 3 }}>
+          <Box className="d-flex gap-3 ali-center" mixin={{ mb: 3 }}>
             <Button variant="primary">Primary</Button>
             <Button variant="secondary">Secondary</Button>
             <Button variant="ghost">Ghost</Button>
@@ -95,7 +95,7 @@ export function ExamplePage() {
 
         <Box mixin={{ mt: 4 }}>
           <Text variant="h5" mixin={{ mb: 2 }}>Sizes</Text>
-          <Box className="d-flex-gap-3-ali-center" mixin={{ mb: 3 }}>
+          <Box className="d-flex gap-3 ali-center" mixin={{ mb: 3 }}>
             <Button variant="primary" size="sm">Small</Button>
             <Button variant="primary" size="md">Medium</Button>
             <Button variant="primary" size="lg">Large</Button>
@@ -107,7 +107,7 @@ export function ExamplePage() {
 
         <Box mixin={{ mt: 4 }}>
           <Text variant="h5" mixin={{ mb: 2 }}>Disabled State</Text>
-          <Box className="d-flex-gap-3-ali-center" mixin={{ mb: 3 }}>
+          <Box className="d-flex gap-3 ali-center" mixin={{ mb: 3 }}>
             <Button variant="primary" disabled>Primary</Button>
             <Button variant="secondary" disabled>Secondary</Button>
             <Button variant="ghost" disabled>Ghost</Button>
@@ -130,12 +130,12 @@ export function ExamplePage() {
 
       <Section>
         <Text variant="h2">User Profile Card</Text>
-        <p>A common pattern for displaying user information with actions.</p>
+        <Text>A common pattern for displaying user information with actions.</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <CardContent>
             <Text variant="body2" muted>
               <Strong>CascadeKit principles:</Strong> Component composition (Card + Badge + Button), 
-              utility classes for layout (<code>d-flex-gap-4-ali-center</code>), 
+              utility classes for layout (<code>d-flex gap-4 ali-center</code>), 
               responsive grid via mixin (<code>smallScreen</code>/<code>mediumScreen</code>), 
               page-specific CSS for avatar styling.
             </Text>
@@ -145,18 +145,18 @@ export function ExamplePage() {
         <Box className="d-grid" mixin={{ gap: 4, mt: 4, smallScreen: { gridColTemplate: '1fr' }, mediumScreen: { gridColTemplate: '1fr 1fr' } }}>
           <Card>
             <CardContent>
-              <div className="d-flex-gap-4-ali-center">
+              <div className="d-flex gap-4 ali-center">
                 <div className="ExamplePage--avatar">JD</div>
-                <div className="d-flex-dir-col-gap-1">
+                <div className="d-flex dir-col gap-1">
                   <Text variant="h5" tag="span">Jane Doe</Text>
                   <Text variant="body2" muted>Senior Developer</Text>
-                  <Box className="d-flex-gap-1" mixin={{ mt: 1 }}>
+                  <Box className="d-flex gap-1" mixin={{ mt: 1 }}>
                     <Badge variant="primary">React</Badge>
                     <Badge variant="secondary">TypeScript</Badge>
                   </Box>
                 </div>
               </div>
-              <Box className="d-flex-gap-2" mixin={{ mt: 4 }}>
+              <Box className="d-flex gap-2" mixin={{ mt: 4 }}>
                 <Button variant="primary" size="sm">Message</Button>
                 <Button variant="secondary" size="sm">View Profile</Button>
               </Box>
@@ -165,18 +165,18 @@ export function ExamplePage() {
 
           <Card>
             <CardContent>
-              <div className="d-flex-gap-4-ali-center">
+              <div className="d-flex gap-4 ali-center">
                 <div className="ExamplePage--avatar ExamplePage--avatar-secondary">AS</div>
-                <div className="d-flex-dir-col-gap-1">
+                <div className="d-flex dir-col gap-1">
                   <Text variant="h5" tag="span">Alex Smith</Text>
                   <Text variant="body2" muted>Product Designer</Text>
-                  <Box className="d-flex-gap-1" mixin={{ mt: 1 }}>
+                  <Box className="d-flex gap-1" mixin={{ mt: 1 }}>
                     <Badge variant="success">Figma</Badge>
                     <Badge variant="warning">CSS</Badge>
                   </Box>
                 </div>
               </div>
-              <Box className="d-flex-gap-2" mixin={{ mt: 4 }}>
+              <Box className="d-flex gap-2" mixin={{ mt: 4 }}>
                 <Button variant="primary" size="sm">Message</Button>
                 <Button variant="secondary" size="sm">View Profile</Button>
               </Box>
@@ -187,7 +187,7 @@ export function ExamplePage() {
 
       <Section>
         <Text variant="h2">Notifications</Text>
-        <p>Dismissible alerts with different severity levels.</p>
+        <Text>Dismissible alerts with different severity levels.</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <CardContent>
             <Text variant="body2" muted>
@@ -199,16 +199,17 @@ export function ExamplePage() {
           </CardContent>
         </Card>
 
-        <Box className="d-flex-dir-col-gap-2" mixin={{ mt: 4 }}>
+        <Box className="d-flex dir-col gap-2" mixin={{ mt: 4 }}>
           {notifications.map(notification => (
             <div key={notification.id} className={`ExamplePage--notification ExamplePage--notification-${notification.type}`}>
               <Text variant="body2">{notification.message}</Text>
-              <button 
+              <Button 
                 className="ExamplePage--notificationClose"
                 onClick={() => dismissNotification(notification.id)}
+                variant="ghost"
               >
                 ×
-              </button>
+              </Button>
             </div>
           ))}
           {notifications.length === 0 && (
@@ -222,7 +223,7 @@ export function ExamplePage() {
 
       <Section>
         <Text variant="h2">Pricing Cards</Text>
-        <p>Interactive pricing comparison with selection state.</p>
+        <Text>Interactive pricing comparison with selection state.</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <CardContent>
             <Text variant="body2" muted>
@@ -245,11 +246,11 @@ export function ExamplePage() {
               className={selectedPlan === plan.id ? 'ExamplePage--pricingCard-selected' : ''}
             >
               <CardContent>
-                <Box className="d-flex-dir-col-ali-center" mixin={{ p: 2 }}>
+                <Box className="d-flex dir-col ali-center" mixin={{ p: 2 }}>
                   {plan.id === 'pro' && <Badge variant="primary" mixin={{ mb: 2 }}>Popular</Badge>}
                   <Text variant="h4">{plan.name}</Text>
                   <Text variant="h2" tag="span" mixin={{ my: 2 }}>{plan.price}<Text variant="body2" tag="span" muted>/mo</Text></Text>
-                  <Box className="d-flex-dir-col-gap-2" mixin={{ mb: 4 }}>
+                  <Box className="d-flex dir-col gap-2" mixin={{ mb: 4 }}>
                     {plan.features.map(feature => (
                       <Text key={feature} variant="body2" muted>✓ {feature}</Text>
                     ))}
@@ -269,13 +270,13 @@ export function ExamplePage() {
 
       <Section>
         <Text variant="h2">Contact Form</Text>
-        <p>Form layout with validation states and responsive design.</p>
+        <Text>Form layout with validation states and responsive design.</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <CardContent>
             <Text variant="body2" muted>
               <Strong>CascadeKit principles:</Strong> Page-specific form styles in <code>@layer pages</code>, 
               focus states using design tokens (<code>var(--color-primary)</code>), 
-              utility classes for form layout (<code>d-flex-dir-col-gap-4</code>), 
+              utility classes for form layout (<code>d-flex dir-col gap-4</code>), 
               no CSS-in-JS — pure native CSS transitions.
             </Text>
           </CardContent>
@@ -284,8 +285,8 @@ export function ExamplePage() {
         <Card>
           <CardHeader>Get in Touch</CardHeader>
           <CardContent>
-            <div className="d-flex-dir-col-gap-4">
-              <div className="d-flex-dir-col-gap-1">
+            <div className="d-flex dir-col gap-4">
+              <div className="d-flex dir-col gap-1">
                 <label className="ExamplePage--label">Email</label>
                 <input 
                   type="email" 
@@ -295,7 +296,7 @@ export function ExamplePage() {
                   onChange={e => setFormData(prev => ({ ...prev, email: e.target.value }))}
                 />
               </div>
-              <div className="d-flex-dir-col-gap-1">
+              <div className="d-flex dir-col gap-1">
                 <label className="ExamplePage--label">Message</label>
                 <textarea 
                   className="ExamplePage--textarea"
@@ -305,7 +306,7 @@ export function ExamplePage() {
                   onChange={e => setFormData(prev => ({ ...prev, message: e.target.value }))}
                 />
               </div>
-              <div className="d-flex-jc-end-gap-2">
+              <div className="d-flex jc-end gap-2">
                 <Button variant="ghost" onClick={() => setFormData({ email: '', message: '' })}>Clear</Button>
                 <Button variant="primary">Send Message</Button>
               </div>
@@ -316,7 +317,7 @@ export function ExamplePage() {
 
       <Section>
         <Text variant="h2">Stats Dashboard</Text>
-        <p>Data visualization cards with responsive grid layout.</p>
+        <Text>Data visualization cards with responsive grid layout.</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <CardContent>
             <Text variant="body2" muted>
@@ -347,10 +348,136 @@ export function ExamplePage() {
       </Section>
 
       <Section>
+        <Text variant="h2">Scoped Styles</Text>
+        <Text>Override CSS custom properties and regular CSS properties per-component instance using CSS <code>@scope</code>.</Text>
+        <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
+          <CardContent>
+            <Text variant="body2" muted>
+              <Strong>CascadeKit principles:</Strong> The <code>scopedStyle</code> prop accepts both CSS custom properties 
+              (design tokens like <code>--color-primary</code>) and regular CSS properties (<code>boxShadow</code>, <code>background</code>). 
+              It injects a scoped <code>&lt;style&gt;</code> element within <code>@layer component-overrides</code> — 
+              per-instance styling that respects the cascade without inline styles.
+            </Text>
+          </CardContent>
+        </Card>
+
+        <Box className="d-grid" mixin={{ gap: 4, mt: 4, smallScreen: { gridColTemplate: '1fr' }, mediumScreen: { gridColTemplate: '1fr 1fr 1fr' } }}>
+          <Card>
+            <CardHeader>Default Card</CardHeader>
+            <CardContent>
+              <Text variant="body2" muted>Uses base design tokens.</Text>
+              <Button variant="primary" size="sm" mixin={{ mt: 2 }}>Action</Button>
+            </CardContent>
+          </Card>
+
+          <Card scopedStyle={{ 
+            '--color-primary': '#10b981', 
+            '--color-primary-hover': '#059669',
+            '--color-border': '#10b981',
+            '--color-text-muted': '#047857',
+            boxShadow: '0 4px 20px rgba(16, 185, 129, 0.3)',
+            transform: 'scale(1.02)'
+          }}>
+            <CardHeader>Green Theme</CardHeader>
+            <CardContent>
+              <Text variant="body2" muted>Tokens + boxShadow & transform.</Text>
+              <Button variant="primary" size="sm" mixin={{ mt: 2 }}>Action</Button>
+              <Badge variant="secondary" mixin={{ ml: 1 }}>New</Badge>
+            </CardContent>
+          </Card>
+
+          <Card scopedStyle={{ 
+            '--color-primary': '#f59e0b', 
+            '--color-primary-hover': '#d97706',
+            '--color-border': '#f59e0b',
+            '--color-text-muted': '#b45309',
+            borderStyle: 'dashed',
+            borderWidth: '2px',
+            background: 'linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)',
+            '.Card--header': {
+              color: '#000'
+            }
+          }}>
+            <CardHeader>Orange Theme</CardHeader>
+            <CardContent>
+              <Text variant="body2" muted>Tokens + dashed border & gradient.</Text>
+              <Button variant="primary" size="sm" mixin={{ mt: 2 }}>Action</Button>
+              <Badge variant="secondary" mixin={{ ml: 1 }}>Hot</Badge>
+            </CardContent>
+          </Card>
+        </Box>
+
+        <Text variant="h4" mixin={{ mt: 5, mb: 2 }}>With Nested Selectors</Text>
+        <Text variant="body2" muted mixin={{ mb: 3 }}>
+          Use CSS nesting with <code>&</code> for pseudo-selectors and <code>@media</code> for responsive styles.
+        </Text>
+
+        <Box className="d-grid" mixin={{ gap: 4, smallScreen: { gridColTemplate: '1fr' }, mediumScreen: { gridColTemplate: '1fr 1fr' } }}>
+          <Card scopedStyle={{ 
+            '--color-primary': '#8b5cf6',
+            '--color-border': '#8b5cf6',
+            transition: 'transform 0.2s, box-shadow 0.2s',
+            '&:hover': {
+              transform: 'translateY(-4px)',
+              boxShadow: '0 12px 24px rgba(139, 92, 246, 0.3)'
+            }
+          }}>
+            <CardHeader>Hover Effect</CardHeader>
+            <CardContent>
+              <Text variant="body2" muted>Hover me! Uses <code>&:hover</code> nesting.</Text>
+              <Button variant="primary" size="sm" mixin={{ mt: 2 }}>Action</Button>
+            </CardContent>
+          </Card>
+
+          <Card scopedStyle={{ 
+            '--color-primary': '#06b6d4',
+            '--color-border': '#06b6d4',
+            '@media (prefers-color-scheme: dark)': {
+              '--color-primary': '#22d3ee',
+              '--color-border': '#22d3ee',
+              boxShadow: '0 0 20px rgba(34, 211, 238, 0.3)',
+              '&:hover': {
+                boxShadow: '0 0 30px rgba(34, 211, 238, 0.5)'
+              }
+            }
+          }}>
+            <CardHeader>Dark Mode Aware</CardHeader>
+            <CardContent>
+              <Text variant="body2" muted>Nested <code>@media</code> with <code>&:hover</code> inside.</Text>
+              <Button variant="primary" size="sm" mixin={{ mt: 2 }}>Action</Button>
+            </CardContent>
+          </Card>
+        </Box>
+
+        <CodeBlock language="tsx" filename="Usage" mixin={{ mt: 4 }}>{`<Card scopedStyle={{ 
+  '--color-primary': '#8b5cf6',
+  transition: 'transform 0.2s',
+  
+  '&:hover': {
+    transform: 'translateY(-4px)'
+  },
+  
+  '@media (prefers-color-scheme: dark)': {
+    '--color-primary': '#a78bfa',
+    '&:hover': {
+      boxShadow: '0 0 30px rgba(167, 139, 250, 0.5)'
+    }
+  }
+}}>
+  <CardContent>
+    <Button variant="primary">Action</Button>
+  </CardContent>
+</Card>`}</CodeBlock>
+        <Text variant="body2" muted mixin={{ mt: 2 }}>
+          Object values are nested CSS rules — use <code>&</code> for pseudo-selectors, nest infinitely.
+        </Text>
+      </Section>
+
+      <Section>
         <Text variant="h2">Inspect & Learn</Text>
-        <p>
+        <Text>
           Open DevTools and inspect any element above. You'll see:
-        </p>
+        </Text>
         <ul>
           <li><Strong>Semantic class names</Strong> — <code>.ExamplePage--avatar</code>, <code>.Button--primary</code></li>
           <li><Strong>CSS layers</Strong> — <code>@layer components</code>, <code>@layer pages</code></li>

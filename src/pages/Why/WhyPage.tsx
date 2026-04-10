@@ -9,17 +9,17 @@ export function WhyPage() {
     <div className="WhyPage--root">
       <Section>
         <Text variant="h1">Why CascadeKit?</Text>
-        <p>
+        <Text>
           CSS has evolved. Native features like <code>@layer</code>, CSS variables, and container queries 
           solve problems that once required tooling. CascadeKit is an architecture that uses these features directly.
-        </p>
+        </Text>
       </Section>
 
       <Section>
         <Text variant="h2">The Problem</Text>
-        <p>
+        <Text>
           Most CSS approaches trade one problem for another:
-        </p>
+        </Text>
         <ul>
           <li><Strong>CSS-in-JS</Strong> — Runtime overhead, generated class names, library lock-in</li>
           <li><Strong>Utility-first</Strong> — Verbose markup, specificity issues, proprietary syntax</li>
@@ -30,9 +30,9 @@ export function WhyPage() {
 
       <Section>
         <Text variant="h2">The Solution</Text>
-        <p>
+        <Text>
           CascadeKit solves these with native CSS features and clear conventions:
-        </p>
+        </Text>
 
         <Box className="d-grid" mixin={{gap: 4, mt: 4, smallScreen: {gridColTemplate: '1fr'}, mediumScreen: {gridColTemplate: '1fr 1fr'}}}>
           <Card>

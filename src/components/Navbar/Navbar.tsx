@@ -20,8 +20,8 @@ export function Navbar({ onMenuClick }: NavbarProps) {
             <MenuIcon className="Navbar--menuIcon" />
           </button>
           <Link to="/" className="Navbar--brand">
-            <span className="Navbar--logo" aria-hidden="true">⚡</span>
-            <span className="Navbar--title">CascadeKit</span>
+            <img src="/CascadeKitIcon.png" alt="" className="Navbar--logo" aria-hidden="true" />
+            CascadeKit
           </Link>
         </div>
         <div className="Navbar--end">

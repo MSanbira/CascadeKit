@@ -1,5 +1,6 @@
 import { classNames } from '../../helpers/classNameHelper';
 import { getMixin, type MixinProps } from '../../helpers/mixinHelper';
+import { ScopedStyle, type ScopedStylesObj, type LayerOptions } from '../ScopedStyle';
 import './Button.css';
 
 type ButtonVariant = 'primary' | 'secondary' | 'ghost';
@@ -10,6 +11,8 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
   children: React.ReactNode;
   mixin?: MixinProps;
+  scopedStyle?: ScopedStylesObj;
+  scopedLayer?: LayerOptions;
 }
 
 export function Button({ 
@@ -18,6 +21,8 @@ export function Button({
   children, 
   className = '',
   mixin,
+  scopedStyle,
+  scopedLayer,
   ...props 
 }: ButtonProps) {
   const { className: mixinClassName, style: mixinStyle } = getMixin(mixin);
@@ -28,6 +33,7 @@ export function Button({
       style={{...mixinStyle, ...props.style}}
       {...props}
     >
+      <ScopedStyle style={scopedStyle} layer={scopedLayer} />
       {children}
     </button>
   );

@@ -5,30 +5,30 @@ import { Text, Strong } from '../../components/Text';
 import { Box } from '../../components/Box';
 import './LayoutUtilsPage.css';
 
-const flexExample = `<div className="d-flex-gap-2-ali-center">
+const flexExample = `<div className="d-flex gap-2 ali-center">
   <span>Item 1</span>
   <span>Item 2</span>
   <span>Item 3</span>
 </div>
 
-<div className="d-flex-dir-col-gap-1">
+<div className="d-flex dir-col gap-1">
   <span>Stacked 1</span>
   <span>Stacked 2</span>
 </div>`;
 
-const gridExample = `<div className="d-grid-gap-3">
+const gridExample = `<div className="d-grid gap-3">
   <div>Cell 1</div>
   <div>Cell 2</div>
 </div>
 
-<div className="col-container:3-gap-2">
+<div className="col-container col-num-3 gap-2">
   <div>Column 1</div>
   <div>Column 2</div>
   <div>Column 3</div>
 </div>`;
 
 const combinedExample = `{/* Static layout with utility classes */}
-<div className="d-flex-gap-2-ali-center">
+<div className="d-flex gap-2 ali-center">
   {/* Dynamic spacing with mixin */}
   <Text mixin={{ p: 2, smallScreen: { p: 1 } }}>
     Responsive padding
@@ -37,7 +37,7 @@ const combinedExample = `{/* Static layout with utility classes */}
 
 {/* Grid layout + responsive mixin */}
 <Box 
-  className="col-container:2-gap-3"
+  className="col-container col-num-2 gap-3"
   mixin={{ smallScreen: { gridColTemplate: '1fr' } }}
 >
   <Card>Column 1</Card>
@@ -54,10 +54,10 @@ const classReference = {
   grid: [
     { class: 'd-grid', desc: 'display: grid' },
     { class: 'col-container', desc: 'Grid with 1 column' },
-    { class: 'col-container:2', desc: 'Grid with 2 equal columns' },
-    { class: 'col-container:3', desc: 'Grid with 3 equal columns' },
-    { class: 'col-container:4', desc: 'Grid with 4 equal columns' },
-    { class: 'col-container:auto', desc: 'Auto-fill columns (use --auto-col-min-width)' },
+    { class: 'col-num-2', desc: 'Grid with 2 equal columns' },
+    { class: 'col-num-3', desc: 'Grid with 3 equal columns' },
+    { class: 'col-num-4', desc: 'Grid with 4 equal columns' },
+    { class: 'col-num-auto', desc: 'Auto-fill columns (use --auto-col-min-width)' },
     { class: 'with-divider', desc: 'Add dividers between columns' },
   ],
   alignment: [
@@ -96,17 +96,17 @@ export function LayoutUtilsPage() {
         <Text variant="h1">Layout Utilities</Text>
         <Text variant="body1" mixin={{ mb: 2 }}>
           Layout utilities provide quick, composable CSS classes for common layout patterns.
-          They live in the <code>utils</code> layer and use attribute selectors for flexible class composition.
+          They live in the <code>utils</code> layer and use class selectors for composable styling.
         </Text>
         <Card className="LayoutUtilsPage--card">
           <CardHeader>Key Concept</CardHeader>
           <CardContent>
             <Text variant="body2" mixin={{ mb: 2 }}>
-              Classes can be <Strong>combined freely</Strong> in a single className string.
-              The attribute selector <code>[class*="..."]</code> matches any class containing that substring.
+              Classes can be <Strong>combined freely</Strong> as space-separated values.
+              Each utility is a separate class that can be mixed and matched.
             </Text>
             <Text variant="body2">
-              Example: <code>d-flex-gap-2-ali-center</code> applies flex, gap, and alignment in one class.
+              Example: <code>d-flex gap-2 ali-center</code> applies flex, gap, and alignment.
             </Text>
           </CardContent>
         </Card>
@@ -123,7 +123,7 @@ export function LayoutUtilsPage() {
           <Text variant="h4" mixin={{ mb: 1 }}>Live Demo</Text>
           <Text variant="body2" muted mixin={{ mb: 2 }}>Flex row with gap and center alignment</Text>
           <div className="LayoutUtilsPage--demoBox">
-            <div className="d-flex-gap-2-ali-center">
+            <div className="d-flex gap-2 ali-center">
               <Text className="LayoutUtilsPage--demoItem" mixin={{ p: 1 }}>Item 1</Text>
               <Text className="LayoutUtilsPage--demoItem" mixin={{ p: 2 }}>Item 2</Text>
               <Text className="LayoutUtilsPage--demoItem" mixin={{ p: 1 }}>Item 3</Text>
@@ -154,7 +154,7 @@ export function LayoutUtilsPage() {
           <Text variant="h4" mixin={{ mb: 1 }}>Live Demo</Text>
           <Text variant="body2" muted mixin={{ mb: 2 }}>3-column grid with gap</Text>
           <div className="LayoutUtilsPage--demoBox">
-            <div className="col-container:3-gap-2">
+            <div className="col-container col-num-3 gap-2">
               <Text className="LayoutUtilsPage--demoItem" mixin={{ p: 2 }}>Column 1</Text>
               <Text className="LayoutUtilsPage--demoItem" mixin={{ p: 2 }}>Column 2</Text>
               <Text className="LayoutUtilsPage--demoItem" mixin={{ p: 2 }}>Column 3</Text>
@@ -184,7 +184,7 @@ export function LayoutUtilsPage() {
           <Text variant="h4" mixin={{ mb: 1 }}>Live Demo</Text>
           <Text variant="body2" muted mixin={{ mb: 2 }}>Space-between with center alignment</Text>
           <div className="LayoutUtilsPage--demoBox">
-            <div className="d-flex-jc-sb-ali-center LayoutUtilsPage--alignDemo">
+            <div className="d-flex jc-sb ali-center LayoutUtilsPage--alignDemo">
               <Text className="LayoutUtilsPage--demoItem" mixin={{ p: 1 }}>Left</Text>
               <Text className="LayoutUtilsPage--demoItem" mixin={{ p: 2 }}>Center</Text>
               <Text className="LayoutUtilsPage--demoItem" mixin={{ p: 1 }}>Right</Text>
@@ -214,18 +214,18 @@ export function LayoutUtilsPage() {
           <Text variant="h4" mixin={{ mb: 1 }}>Live Demo</Text>
           <Text variant="body2" muted mixin={{ mb: 2 }}>Comparing different gap sizes</Text>
           <div className="LayoutUtilsPage--demoBox">
-            <div className="d-flex-dir-col-gap-3">
-              <div className="d-flex-gap-1">
+            <div className="d-flex dir-col gap-3">
+              <div className="d-flex gap-1">
                 <Text className="LayoutUtilsPage--demoItem" mixin={{ p: 1 }}>gap-1</Text>
                 <Text className="LayoutUtilsPage--demoItem" mixin={{ p: 1 }}>gap-1</Text>
                 <Text className="LayoutUtilsPage--demoItem" mixin={{ p: 1 }}>gap-1</Text>
               </div>
-              <div className="d-flex-gap-3">
+              <div className="d-flex gap-3">
                 <Text className="LayoutUtilsPage--demoItem" mixin={{ p: 1 }}>gap-3</Text>
                 <Text className="LayoutUtilsPage--demoItem" mixin={{ p: 1 }}>gap-3</Text>
                 <Text className="LayoutUtilsPage--demoItem" mixin={{ p: 1 }}>gap-3</Text>
               </div>
-              <div className="d-flex-gap-6">
+              <div className="d-flex gap-6">
                 <Text className="LayoutUtilsPage--demoItem" mixin={{ p: 1 }}>gap-6</Text>
                 <Text className="LayoutUtilsPage--demoItem" mixin={{ p: 1 }}>gap-6</Text>
                 <Text className="LayoutUtilsPage--demoItem" mixin={{ p: 1 }}>gap-6</Text>
@@ -237,10 +237,10 @@ export function LayoutUtilsPage() {
         <Card className="LayoutUtilsPage--card">
           <CardHeader>Gap Classes</CardHeader>
           <CardContent>
-            <div className="d-flex-f-wrap-gap-2">
+            <div className="d-flex f-wrap gap-2">
               {classReference.gap.map(({ class: cls, desc }) => (
                 <Text key={cls} variant="body2" className="LayoutUtilsPage--gapItem">
-                  <code>{cls}</code> <span className="LayoutUtilsPage--gapValue">{desc}</span>
+                  <code>{cls}</code> <Text tag="span" className="LayoutUtilsPage--gapValue">{desc}</Text>
                 </Text>
               ))}
             </div>
@@ -281,18 +281,18 @@ export function LayoutUtilsPage() {
           </CardContent>
         </Card>
 
-        <div className="LayoutUtilsPage--demo">
+        <div className="LayoutUtilsPage--demo inline-container">
           <Text variant="h4" mixin={{ mb: 1 }}>Live Demo</Text>
           <Text variant="body2" muted mixin={{ mb: 2 }}>Grid layout with responsive column override</Text>
           <Box
-            className="d-grid-gap-2 LayoutUtilsPage--demoBox"
+            className="d-grid gap-2 LayoutUtilsPage--demoBox"
             mixin={{ smallScreen: { gridColTemplate: '1fr' }, mediumContainer: { gridColTemplate: '1fr 1fr'} }}
           >
             <Text className="LayoutUtilsPage--demoItem" mixin={{ p: 2 }}>Column 1</Text>
             <Text className="LayoutUtilsPage--demoItem" mixin={{ p: 2 }}>Column 2</Text>
           </Box>
           <Text variant="body2" muted mixin={{ mt: 1 }}>
-            ↑ 2 columns on medium+, 1 column on small screens
+            ↑ 2 columns on medium+, 1 column on small container
           </Text>
         </div>
       </Section>

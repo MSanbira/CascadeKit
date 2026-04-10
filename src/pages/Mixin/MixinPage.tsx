@@ -98,7 +98,7 @@ const containerExample = `<Text
 
 export function MixinPage() {
   return (
-    <div className="MixinPage--root container-query">
+    <div className="MixinPage--root inline-container">
       <Section>
         <Text variant="h1">Mixin System</Text>
         <Text variant="body1" mixin={{ mb: 2 }}>
@@ -160,15 +160,15 @@ export function MixinPage() {
         <Text variant="h2">Basic Usage</Text>
         <CodeBlock language="tsx">{basicUsageExample}</CodeBlock>
 
-        <Box className="d-flex-gap-4" mixin={{ mt: 4 }}>
-          <Box className="d-flex-dir-col">
+        <Box className="d-flex gap-4" mixin={{ mt: 4 }}>
+          <Box className="d-flex dir-col">
             <Text variant="body2" muted mixin={{ mb: 1 }}>With base units (mb: 2):</Text>
             <Text mixin={{ mb: 2, p: 1 }} className="MixinPage--exampleBox">
               This text has margin-bottom: 2 units
             </Text>
           </Box>
 
-          <Box className="d-flex-dir-col">
+          <Box className="d-flex dir-col">
             <Text variant="body2" muted mixin={{ mb: 1 }}>With raw values (mb: '24px'):</Text>
             <Text mixin={{ mb: '24px', p: '8px' }} className="MixinPage--exampleBox">
               This text has margin-bottom: 24px
@@ -212,7 +212,7 @@ export function MixinPage() {
           styles based on the container size rather than viewport.
         </Text>
         <Text variant="body2" muted mixin={{ mb: 2 }}>
-          <Strong>Note:</Strong> Container queries require the parent element to have <code>container-type: inline-size</code> defined in CSS.
+          <Strong>Note:</Strong> Container queries require the parent element to have the <code>inline-container</code> utility class.
           The mixin system provides the responsive classes, but the container context must be set separately.
         </Text>
         <CodeBlock language="tsx">{containerExample}</CodeBlock>
@@ -230,12 +230,12 @@ export function MixinPage() {
       <Section>
         <Text variant="h2">Live Examples</Text>
 
-        <Box className="d-grid-gap-4" mixin={{ my: 4, smallContainer: { gridColTemplate: '1fr' }, mediumContainer: { gridColTemplate: '1fr 1fr' } }}>
-          <Box className="d-flex-dir-col">
+        <Box className="d-grid gap-4" mixin={{ my: 4, smallContainer: { gridColTemplate: '1fr' }, mediumContainer: { gridColTemplate: '1fr 1fr' } }}>
+          <Box className="d-flex dir-col">
             <Text variant="h4" mixin={{ mb: 1 }}>Spacing</Text>
             <Text variant="body2" muted mixin={{ mb: 2 }}>Padding with different spacing values</Text>
-            <Card variant="subtle" mixin={{ p: 4 }} className="container-query">
-              <div className="d-flex-f-wrap-gap-3-ali-start">
+            <Card variant="subtle" mixin={{ p: 4 }} className="inline-container">
+              <div className="d-flex f-wrap gap-3 ali-start">
                 <Text
                   mixin={{ m: 0, p: 2 }}
                   className="MixinPage--demoItem"
@@ -258,11 +258,11 @@ export function MixinPage() {
             </Card>
           </Box>
 
-          <Box className="d-flex-dir-col">
+          <Box className="d-flex dir-col">
             <Text variant="h4" mixin={{ mb: 1 }}>Opacity</Text>
             <Text variant="body2" muted mixin={{ mb: 2 }}>Control element transparency</Text>
-            <Card variant="subtle" mixin={{ p: 4 }} className="container-query">
-              <Box className="d-flex-f-wrap-gap-2">
+            <Card variant="subtle" mixin={{ p: 4 }} className="inline-container">
+              <Box className="d-flex f-wrap gap-2">
                 <Button mixin={{ opacity: 1 }}>100%</Button>
                 <Button mixin={{ opacity: 0.7 }}>70%</Button>
                 <Button mixin={{ opacity: 0.4 }}>40%</Button>
@@ -270,17 +270,17 @@ export function MixinPage() {
             </Card>
           </Box>
 
-          <Box className="d-flex-dir-col">
+          <Box className="d-flex dir-col">
             <Text variant="h4" mixin={{ mb: 1 }}>Responsive (resize viewport)</Text>
             <Text variant="body2" muted mixin={{ mb: 2 }}>Padding changes based on screen size</Text>
-            <Card variant="subtle" mixin={{ p: 4 }} className="container-query">
+            <Card variant="subtle" mixin={{ p: 4 }} className="inline-container">
               <Text
                 mixin={{
                   p: 2,
                   smallScreen: { p: 1 },
                   bigScreen: { p: 4 }
                 }}
-                className="MixinPage--demoItem d-flex-dir-col-gap-1"
+                className="MixinPage--demoItem d-flex dir-col gap-1"
               >
                 <Text tag="span" mixin={{ display: 'block', mediumScreen: { display: 'none' } }}>Small: p:1</Text>
                 <Text tag="span" mixin={{ display: 'none', mediumScreen: { display: 'block' }, bigScreen: { display: 'none' } }}>Medium: p:2</Text>
@@ -289,12 +289,12 @@ export function MixinPage() {
             </Card>
           </Box>
 
-          <Box className="d-flex-dir-col">
+          <Box className="d-flex dir-col">
             <Text variant="h4" mixin={{ mb: 1 }}>Flex Layout</Text>
             <Text variant="body2" muted mixin={{ mb: 2 }}>Direction switches from column to row</Text>
             <Card
               variant="subtle"
-              className="d-flex-gap-1"
+              className="d-flex gap-1"
               mixin={{
                 p: 4,
                 display: 'flex',
@@ -308,17 +308,17 @@ export function MixinPage() {
             </Card>
           </Box>
 
-          <Box className="d-flex-dir-col" mixin={{ gridColumn: '1 / -1' }}>
+          <Box className="d-flex dir-col" mixin={{ gridColumn: '1 / -1' }}>
             <Text variant="h4" mixin={{ mb: 1 }}>Container Query (resize panel)</Text>
             <Text variant="body2" muted mixin={{ mb: 2 }}>Styles change based on container width</Text>
-            <Card variant="subtle" mixin={{ p: 4 }} className="container-query MixinPage--resizable">
+            <Card variant="subtle" mixin={{ p: 4 }} className="inline-container MixinPage--resizable">
               <Text
                 mixin={{
                   p: 2,
                   smallContainer: { p: 1, opacity: 0.6 },
                   mediumContainer: { p: 4, opacity: 1 }
                 }}
-                className="MixinPage--demoItem d-flex-dir-col-gap-1"
+                className="MixinPage--demoItem d-flex dir-col gap-1"
               >
                 <Text tag="span" mixin={{ display: 'block', mediumContainer: { display: 'none' } }}>Small: p:1, dim</Text>
                 <Text tag="span" mixin={{ display: 'none', mediumContainer: { display: 'block' }, bigContainer: { display: 'none' } }}>Medium: p:2</Text>
@@ -328,10 +328,10 @@ export function MixinPage() {
           </Box>
         </Box>
 
-        <Box className="d-flex-dir-col" mixin={{ mt: 4 }}>
+        <Box className="d-flex dir-col" mixin={{ mt: 4 }}>
           <Text variant="h4" mixin={{ mb: 1 }}>Card with Mixin</Text>
           <Text variant="body2" muted mixin={{ mb: 2 }}>Cards accept mixin props for padding and opacity</Text>
-          <Box className="d-grid-gap-4" mixin={{ smallContainer: { gridColTemplate: '1fr' }, mediumContainer: { gridColTemplate: '1fr 1fr' } }}>
+          <Box className="d-grid gap-4" mixin={{ smallContainer: { gridColTemplate: '1fr' }, mediumContainer: { gridColTemplate: '1fr 1fr' } }}>
             <Card mixin={{ p: 2 }}>
               <CardHeader>Default padding</CardHeader>
               <CardContent>
@@ -347,7 +347,7 @@ export function MixinPage() {
           </Box>
         </Box>
 
-        <Box className="d-flex-dir-col" mixin={{ mt: 4 }}>
+        <Box className="d-flex dir-col" mixin={{ mt: 4 }}>
           <Text variant="h4" mixin={{ mb: 1 }}>Heading & Section</Text>
           <Text variant="body2" muted mixin={{ mb: 2 }}>Structural components also support mixins</Text>
           <Card variant="subtle" mixin={{ p: 3 }}>
@@ -356,10 +356,10 @@ export function MixinPage() {
           </Card>
         </Box>
 
-        <Box className="d-flex-dir-col" mixin={{ mt: 4 }}>
+        <Box className="d-flex dir-col" mixin={{ mt: 4 }}>
           <Text variant="h4" mixin={{ mb: 2 }}>Buttons</Text>
           <Card variant="subtle" mixin={{ p: 4 }}>
-            <Box className="d-flex-f-wrap-ali-center">
+            <Box className="d-flex f-wrap ali-center">
               <Button mixin={{ mr: 2 }}>Normal</Button>
               <Button mixin={{ mr: 2, p: 3 }} variant="secondary">Large padding</Button>
               <Button mixin={{ opacity: 0.5 }} variant="ghost">Dimmed</Button>
