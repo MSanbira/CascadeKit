@@ -6,30 +6,27 @@
     border-radius: var(--radius-full);
     font-weight: var(--font-weight-medium);
     font-size: var(--text-1_75);
-  }
-
-  .Badge--primary {
-    background-color: var(--color-primary-subtle);
-    color: var(--color-primary);
+    background-color: var(--badge-color-bg, var(--color-primary-subtle));
+    color: var(--badge-color-text, var(--color-primary));
   }
 
   .Badge--secondary {
-    background-color: var(--color-bg-muted);
-    color: var(--color-text-muted);
+    --badge-color-bg: var(--color-bg-muted);
+    --badge-color-text: var(--color-text-muted);
   }
 
   .Badge--success {
-    background-color: color-mix(in srgb, var(--color-success) 15%, transparent);
-    color: var(--color-success);
+    --badge-color-bg: color-mix(in srgb, var(--color-success) 15%, transparent);
+    --badge-color-text: var(--color-success);
   }
 
   .Badge--warning {
-    background-color: color-mix(in srgb, var(--color-warning) 15%, transparent);
-    color: var(--color-warning);
+    --badge-color-bg: color-mix(in srgb, var(--color-warning) 15%, transparent);
+    --badge-color-text: var(--color-warning);
   }
 
   .Badge--error {
-    background-color: color-mix(in srgb, var(--color-error) 15%, transparent);
-    color: var(--color-error);
+    --badge-color-bg: color-mix(in srgb, var(--color-error) 15%, transparent);
+    --badge-color-text: var(--color-error);
   }
 }

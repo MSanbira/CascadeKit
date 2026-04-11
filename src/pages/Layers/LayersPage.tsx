@@ -1,9 +1,9 @@
-import { Section } from '../../components/Section';
-import { CodeBlock } from '../../components/CodeBlock';
-import { Card } from '../../components/Card';
-import { Text, Strong } from '../../components/Text';
-import { Box } from '../../components/Box';
-import { LayerStack } from '../../components/LayerStack';
+import { Section } from '../../components/Section/Section';
+import { CodeBlock } from '../../components/CodeBlock/CodeBlock';
+import { Card } from '../../components/Card/Card';
+import { Text, Strong } from '../../components/Text/Text';
+import { Box } from '../../components/Box/Box';
+import { LayerStack } from '../../components/LayerStack/LayerStack';
 import './LayersPage.css';
 
 const layerDefinition = `/* This MUST be first CSS import */

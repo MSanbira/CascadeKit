@@ -1,7 +1,7 @@
 import { classNames } from '../../helpers/classNameHelper';
 import { getMixin, type MixinProps } from '../../helpers/mixinHelper';
-import { Text } from '../Text';
-import { Box } from '../Box';
+import { Text } from '../Text/Text';
+import { Box } from '../Box/Box';
 import './LayerStack.css';
 
 type LayerName = 'user-overrides' | 'component-overrides' | 'pages' | 'components' | 'utils' | 'base';

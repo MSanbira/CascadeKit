@@ -1,8 +1,8 @@
-import { Section } from '../../components/Section';
-import { CodeBlock } from '../../components/CodeBlock';
-import { Text, Strong } from '../../components/Text';
-import { Box } from '../../components/Box';
-import { LayerStack } from '../../components/LayerStack';
+import { Section } from '../../components/Section/Section';
+import { CodeBlock } from '../../components/CodeBlock/CodeBlock';
+import { Text, Strong } from '../../components/Text/Text';
+import { Box } from '../../components/Box/Box';
+import { LayerStack } from '../../components/LayerStack/LayerStack';
 import './HowPage.css';
 
 const layerOrderCSS = `/* layers.css - Import this FIRST */

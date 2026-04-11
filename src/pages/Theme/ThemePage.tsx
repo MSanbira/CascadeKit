@@ -1,10 +1,10 @@
-import { Section } from '../../components/Section';
-import { CodeBlock } from '../../components/CodeBlock';
-import { Card } from '../../components/Card';
-import { Text, Strong } from '../../components/Text';
-import { Box } from '../../components/Box';
-import { Button } from '../../components/Button';
-import { Badge } from '../../components/Badge';
+import { Section } from '../../components/Section/Section';
+import { CodeBlock } from '../../components/CodeBlock/CodeBlock';
+import { Card } from '../../components/Card/Card';
+import { Text, Strong } from '../../components/Text/Text';
+import { Box } from '../../components/Box/Box';
+import { Button } from '../../components/Button/Button';
+import { Badge } from '../../components/Badge/Badge';
 import { useTheme } from '../../context/ThemeContext';
 import './ThemePage.css';
 

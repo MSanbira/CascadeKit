@@ -1,8 +1,8 @@
-import { Section } from '../../components/Section';
-import { CodeBlock } from '../../components/CodeBlock';
-import { Card } from '../../components/Card';
-import { Text, Strong } from '../../components/Text';
-import { Box } from '../../components/Box';
+import { Section } from '../../components/Section/Section';
+import { CodeBlock } from '../../components/CodeBlock/CodeBlock';
+import { Card } from '../../components/Card/Card';
+import { Text, Strong } from '../../components/Text/Text';
+import { Box } from '../../components/Box/Box';
 import './LayoutUtilsPage.css';
 
 const flexExample = `<div className="d-flex gap-2 ali-center">

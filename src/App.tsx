@@ -9,18 +9,18 @@ import './styles/layoutUtils.css';
 import './styles/mixin.css';
 import './styles/theme.css';
 
-import { Layout } from './components/Layout';
-import { ScrollToTop } from './components/ScrollToTop';
-import { HomePage } from './pages/Home';
-import { WhyPage } from './pages/Why';
-import { HowPage } from './pages/How';
-import { ComponentModelPage } from './pages/ComponentModel';
-import { LayersPage } from './pages/Layers';
-import { MixinPage } from './pages/Mixin';
-import { LayoutUtilsPage } from './pages/LayoutUtils';
-import { ExamplePage } from './pages/Example';
-import { ThemePage } from './pages/Theme';
-import { ScopedStylesPage } from './pages/ScopedStyles';
+import { Layout } from './components/Layout/Layout';
+import { ScrollToTop } from './components/ScrollToTop/ScrollToTop';
+import { HomePage } from './pages/Home/HomePage';
+import { WhyPage } from './pages/Why/WhyPage';
+import { HowPage } from './pages/How/HowPage';
+import { ComponentModelPage } from './pages/ComponentModel/ComponentModelPage';
+import { LayersPage } from './pages/Layers/LayersPage';
+import { MixinPage } from './pages/Mixin/MixinPage';
+import { LayoutUtilsPage } from './pages/LayoutUtils/LayoutUtilsPage';
+import { ExamplePage } from './pages/Example/ExamplePage';
+import { ThemePage } from './pages/Theme/ThemePage';
+import { ScopedStylesPage } from './pages/ScopedStyles/ScopedStylesPage';
 
 function App() {
   return (

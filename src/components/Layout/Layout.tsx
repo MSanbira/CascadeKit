@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Navbar } from '../Navbar';
-import { Sidebar } from '../Sidebar';
+import { Navbar } from '../Navbar/Navbar';
+import { Sidebar } from '../Sidebar/Sidebar';
 import { classNames } from '../../helpers/classNameHelper';
 import './Layout.css';
 

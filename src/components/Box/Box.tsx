@@ -1,6 +1,7 @@
 import { classNames } from '../../helpers/classNameHelper';
 import { getMixin, type MixinProps } from '../../helpers/mixinHelper';
-import { ScopedStyle, type ScopedStylesObj, type LayerOptions } from '../ScopedStyle';
+import { ScopedStyle } from '../ScopedStyle/ScopedStyle';
+import { type ScopedStylesObj , type LayerOptions} from '../../helpers/scopedStyle';
 
 interface BoxProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
@@ -10,13 +11,20 @@ interface BoxProps extends React.HTMLAttributes<HTMLDivElement> {
   scopedLayer?: LayerOptions;
 }
 
-export function Box({ children, className = '', mixin, scopedStyle, scopedLayer, ...props }: BoxProps) {
+export function Box({ 
+  children, 
+  className = '', 
+  mixin, 
+  scopedStyle, 
+  scopedLayer, 
+  ...props 
+}: BoxProps) {
   const { className: mixinClassName, style: mixinStyle } = getMixin(mixin);
-  
+
   return (
-    <div 
-      className={classNames('Box', [mixinClassName, className])} 
-      style={{...mixinStyle, ...props.style}}
+    <div
+      className={classNames('Box', [mixinClassName, className])}
+      style={{ ...mixinStyle, ...props.style }}
       {...props}
     >
       <ScopedStyle style={scopedStyle} layer={scopedLayer} />

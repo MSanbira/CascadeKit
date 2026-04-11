@@ -1,9 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import { useTheme } from '../../context/ThemeContext';
-import { Box } from '../Box';
+import { Box } from '../Box/Box';
 import { classNames } from '../../helpers/classNameHelper';
-import { Button } from '../Button';
-import { Text } from '../Text';
+import { Button } from '../Button/Button';
+import { Text } from '../Text/Text';
 import './Sidebar.css';
 
 interface NavItem {

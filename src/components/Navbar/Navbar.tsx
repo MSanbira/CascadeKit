@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { GitHubIcon, MenuIcon } from '../Icons';
+import { GitHubIcon, MenuIcon } from '../Icons/Icons';
 import { classNames } from '../../helpers/classNameHelper';
 import './Navbar.css';
 

@@ -1,7 +1,8 @@
 import { classNames } from '../../helpers/classNameHelper';
 import { getMixin, type MixinProps } from '../../helpers/mixinHelper';
-import { ScopedStyle, type ScopedStylesObj, type LayerOptions } from '../ScopedStyle';
-import { Text } from '../Text';
+import { ScopedStyle } from '../ScopedStyle/ScopedStyle';
+import { type ScopedStylesObj, type LayerOptions } from '../../helpers/scopedStyle';
+import { Text } from '../Text/Text';
 import './Card.css';
 
 type CardVariant = 'default' | 'subtle';

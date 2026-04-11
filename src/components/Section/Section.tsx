@@ -1,8 +1,8 @@
 import { classNames } from '../../helpers/classNameHelper';
 import { getMixin, type MixinProps } from '../../helpers/mixinHelper';
-import { ScopedStyle, type ScopedStylesObj, type LayerOptions } from '../ScopedStyle';
+import { ScopedStyle } from '../ScopedStyle/ScopedStyle';
+import { type ScopedStylesObj , type LayerOptions} from '../../helpers/scopedStyle';
 import './Section.css';
-
 
 interface SectionProps {
   children: React.ReactNode;

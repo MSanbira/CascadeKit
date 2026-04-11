@@ -1,7 +1,7 @@
-import { Section } from '../../components/Section';
-import { Card } from '../../components/Card';
-import { Text, Strong } from '../../components/Text';
-import { Box } from '../../components/Box';
+import { Section } from '../../components/Section/Section';
+import { Card } from '../../components/Card/Card';
+import { Text, Strong } from '../../components/Text/Text';
+import { Box } from '../../components/Box/Box';
 import './WhyPage.css';
 
 export function WhyPage() {

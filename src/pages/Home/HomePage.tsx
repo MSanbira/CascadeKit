@@ -1,19 +1,17 @@
 import { Link } from 'react-router-dom';
-import { Section } from '../../components/Section';
-import { Button } from '../../components/Button';
-import { Card } from '../../components/Card';
-import { CodeBlock } from '../../components/CodeBlock';
-import { Text, Strong } from '../../components/Text';
-import { Box } from '../../components/Box';
-import { Badge } from '../../components/Badge';
-import './HomePage.css';
+import { Section } from '../../components/Section/Section';
+import { Button } from '../../components/Button/Button';
+import { Card } from '../../components/Card/Card';
+import { CodeBlock } from '../../components/CodeBlock/CodeBlock';
+import { Text, Strong } from '../../components/Text/Text';
+import { Box } from '../../components/Box/Box';
 import { HomePagePrinciple } from './HomePagePrinciple';
+import './HomePage.css';
 
 export function HomePage() {
   return (
     <div className="HomePage--root">
       <Section className='d-flex ali-center dir-col' mixin={{ py: 8 }}>
-        <Badge mixin={{ mb: 4 }}>CSS Architecture</Badge>
         <Text variant="h1" alignText='center'>
           CascadeKit
         </Text>

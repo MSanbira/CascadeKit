@@ -1,1 +1,0 @@
-export { HowPage } from './HowPage';

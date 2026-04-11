@@ -1,4 +1,4 @@
-import { Text } from "../../components/Text";
+import { Text } from "../../components/Text/Text";
 
 export const HomePagePrinciple = (props: { number: string; title: string; description: React.ReactNode }) => {
     const { number, title, description } = props;
