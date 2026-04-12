@@ -6,6 +6,9 @@
     padding: var(--space-3) var(--space-4);
     border-radius: var(--radius-md);
     font-family: var(--font-mono);
+    background-color: var(--layer-bg, var(--color-bg-subtle));
+    color: var(--layer-color, var(--color-text-muted));
+    border: 1px solid var(--layer-border, var(--color-border));
   }
 
   .LayerStack--item > span:last-child {
@@ -13,38 +16,38 @@
   }
 
   .LayerStack--item-user-overrides {
-    background-color: color-mix(in srgb, var(--color-error) 15%, var(--color-bg));
-    color: var(--color-error);
-    border: 1px solid color-mix(in srgb, var(--color-error) 30%, var(--color-bg));
+    --layer-bg: color-mix(in srgb, var(--color-error) 15%, var(--color-bg));
+    --layer-color: var(--color-error);
+    --layer-border: color-mix(in srgb, var(--color-error) 30%, var(--color-bg));
   }
 
   .LayerStack--item-component-overrides {
-    background-color: color-mix(in srgb, var(--color-warning) 15%, var(--color-bg));
-    color: color-mix(in srgb, var(--color-warning) 80%, black);
-    border: 1px solid color-mix(in srgb, var(--color-warning) 30%, var(--color-bg));
+    --layer-bg: color-mix(in srgb, var(--color-warning) 15%, var(--color-bg));
+    --layer-color: color-mix(in srgb, var(--color-warning) 80%, black);
+    --layer-border: color-mix(in srgb, var(--color-warning) 30%, var(--color-bg));
   }
 
   .LayerStack--item-pages {
-    background-color: color-mix(in srgb, var(--color-success) 15%, var(--color-bg));
-    color: color-mix(in srgb, var(--color-success) 80%, black);
-    border: 1px solid color-mix(in srgb, var(--color-success) 30%, var(--color-bg));
+    --layer-bg: color-mix(in srgb, var(--color-success) 15%, var(--color-bg));
+    --layer-color: color-mix(in srgb, var(--color-success) 80%, black);
+    --layer-border: color-mix(in srgb, var(--color-success) 30%, var(--color-bg));
   }
 
   .LayerStack--item-components {
-    background-color: color-mix(in srgb, var(--color-primary) 15%, var(--color-bg));
-    color: var(--color-primary);
-    border: 1px solid color-mix(in srgb, var(--color-primary) 30%, var(--color-bg));
+    --layer-bg: color-mix(in srgb, var(--color-primary) 15%, var(--color-bg));
+    --layer-color: var(--color-primary);
+    --layer-border: color-mix(in srgb, var(--color-primary) 30%, var(--color-bg));
   }
 
   .LayerStack--item-utils {
-    background-color: color-mix(in srgb, var(--color-accent) 15%, var(--color-bg));
-    color: var(--color-accent);
-    border: 1px solid color-mix(in srgb, var(--color-accent) 30%, var(--color-bg));
+    --layer-bg: color-mix(in srgb, var(--color-accent) 15%, var(--color-bg));
+    --layer-color: var(--color-accent);
+    --layer-border: color-mix(in srgb, var(--color-accent) 30%, var(--color-bg));
   }
 
   .LayerStack--item-base {
-    background-color: var(--color-bg-subtle);
-    color: var(--color-text-muted);
-    border: 1px solid var(--color-border);
+    --layer-bg: var(--color-bg-subtle);
+    --layer-color: var(--color-text-muted);
+    --layer-border: var(--color-border);
   }
 }

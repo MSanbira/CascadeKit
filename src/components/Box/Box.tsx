@@ -23,7 +23,7 @@ export function Box({
 
   return (
     <div
-      className={classNames('Box', [mixinClassName, className])}
+      className={classNames('Box--root', [mixinClassName, className])}
       style={{ ...mixinStyle, ...props.style }}
       {...props}
     >

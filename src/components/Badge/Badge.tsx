@@ -16,7 +16,7 @@ export function Badge({ children, className = '', variant = 'primary', mixin }: 
   
   return (
     <span 
-      className={classNames('Badge', [`Badge--${variant}`, mixinClassName, className])} 
+      className={classNames('Badge--root', [`Badge--${variant}`, mixinClassName, className])} 
       style={mixinStyle}
     >
       {children}

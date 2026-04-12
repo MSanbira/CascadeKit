@@ -70,7 +70,7 @@
     
     /* Layout */
     --sidebar-width: calc(var(--base-size) * 33);    /* 280px */
-    --navbar-height: calc(var(--base-size) * 7.5);   /* 60px */
+    --navbar-height: calc(var(--text-2_25) + var(--space-2) * 2);
     --content-max-width: calc(var(--base-size) * 100); /* 800px */
     
     /* Borders */

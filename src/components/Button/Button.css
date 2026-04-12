@@ -22,7 +22,7 @@
     background: var(--button-bg-color-hover, var(--button-bg-color));
   }
 
-  .Button--root:active{
+  .Button--root:active {
     border-color: var(--color-primary-active);
   }
 
@@ -70,6 +70,10 @@
     font-size: var(--text-2_25);
   }
 
+  .Button--is-icon {
+    padding: var(--space-1);
+  }
+
   .Button--root:disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -78,7 +82,7 @@
     &:hover {
       background: var(--button-bg-color, var(--color-bg));
     }
-    
+
     &:active {
       border-color: var(--button-border-color, transparent);
     }

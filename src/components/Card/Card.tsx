@@ -30,7 +30,7 @@ export function Card({ children, className = '', variant = 'default', title, mix
   };
   
   return (
-    <div className={classNames('Card', [variantClass, mixinClassName, className])} style={mixinStyle}>
+    <div className={classNames('Card--root', [variantClass, mixinClassName, className])} style={mixinStyle}>
       <ScopedStyle style={scopedStyle} layer={scopedLayer} />
       {renderTitle()}
       <div className="Card--content">{children}</div>

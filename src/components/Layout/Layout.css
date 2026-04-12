@@ -2,7 +2,7 @@
   .Layout--root {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: var(--navbar-height) 1fr;
+    grid-template-rows: auto 1fr;
     block-size: 100dvh;
   }
 
@@ -19,7 +19,6 @@
     margin-inline: auto;
   }
 
-  /* Desktop - 2 column layout */
   @media (min-width: 640px) {
     .Layout--root {
       grid-template-columns: var(--sidebar-width) 1fr;

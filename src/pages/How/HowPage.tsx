@@ -1,7 +1,6 @@
 import { Section } from '../../components/Section/Section';
 import { CodeBlock } from '../../components/CodeBlock/CodeBlock';
 import { Text, Strong } from '../../components/Text/Text';
-import { Box } from '../../components/Box/Box';
 import { LayerStack } from '../../components/LayerStack/LayerStack';
 import './HowPage.css';
 
@@ -40,7 +39,7 @@ const globalClassCSS = `/* Global but structured */
 const classNamesHelper = `import { classNames } from '../../helpers/classNameHelper';
 
 // classNames auto-adds --root and joins classes
-<button className={classNames('Button', [\`Button--\${variant}\`, className])}>
+<button className={classNames('Button--root', [\`Button--\${variant}\`, className])}>
   {children}
 </button>
 

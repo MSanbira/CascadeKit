@@ -51,7 +51,7 @@ export function Text({
   
   return (
     <Tag 
-      className={classNames('Text', [
+      className={classNames('Text--root', [
         `Text--variant-${variant}`,
         mixinClassName,
         className

@@ -1,16 +1,15 @@
 @layer components {
   .Card--root {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
+    background-color: var(--card-bg, var(--color-surface));
+    border: var(--card-border, 1px solid var(--color-border));
     border-radius: var(--radius-lg);
     overflow: hidden;
     padding: var(--space-3);
   }
 
   .Card--subtle {
-    background-color: var(--color-bg-subtle);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
+    --card-bg: var(--color-bg-subtle);
+    --card-border: 1px solid var(--color-border);
   }
 
   .Card--title {

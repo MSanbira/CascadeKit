@@ -42,7 +42,7 @@ export function Sidebar({ isOpen = true, onClose }: SidebarProps) {
         />
       )}
       <aside
-        className={classNames('Sidebar', [], { 'Sidebar--open': isOpen })}
+        className={classNames('Sidebar--root', [], { 'Sidebar--open': isOpen })}
         aria-label="Main navigation"
       >
         <nav className="Sidebar--nav">
@@ -52,7 +52,7 @@ export function Sidebar({ isOpen = true, onClose }: SidebarProps) {
                 <NavLink
                   to={item.to}
                   className={({ isActive }) =>
-                    `Sidebar--link ${isActive ? 'Sidebar--link-active' : ''}`
+                    classNames('Sidebar--link', [], { 'Sidebar--link-active': isActive })
                   }
                   onClick={onClose}
                 >
@@ -62,8 +62,9 @@ export function Sidebar({ isOpen = true, onClose }: SidebarProps) {
             ))}
           </ul>
         </nav>
+        
         <Box
-          className="Sidebar--themeSection d-flex dir-col gap-1"
+          className="Sidebar--theme-section d-flex dir-col gap-1"
           mixin={{ pt: 3 }}
         >
           <Text variant='body2'>

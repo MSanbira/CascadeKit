@@ -15,7 +15,7 @@ export function Layout({ children }: LayoutProps) {
   const closeSidebar = () => setSidebarOpen(false);
 
   return (
-    <div className={classNames('Layout')}>
+    <div className={classNames('Layout--root')}>
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>

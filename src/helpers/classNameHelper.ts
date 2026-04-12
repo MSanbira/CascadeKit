@@ -1,7 +1,11 @@
-export const classNames = (rootName: string, classNames: string[] = [], conditionals: Record<string, boolean> = {}) => {
-  const classes = [`${rootName}--root`];
+export const classNames = (rootName?: string, classNames: string | string[] = [], conditionals: Record<string, boolean> = {}) => {
+  const classes = rootName ? [rootName] : [];
 
-  classes.push(...classNames);
+  if (typeof classNames === 'string') {
+    classes.push(classNames);
+  } else {
+    classes.push(...classNames);
+  }
 
   Object.entries(conditionals).forEach(([key, value]) => {
     if (value) {

@@ -12,10 +12,20 @@ interface SectionProps {
   scopedLayer?: LayerOptions;
 }
 
-export function Section({ children, className = '', mixin, scopedStyle, scopedLayer }: SectionProps) {
+export function Section({ 
+  children, 
+  className = '', 
+  mixin, 
+  scopedStyle, 
+  scopedLayer 
+}: SectionProps) {
   const { className: mixinClassName, style: mixinStyle } = getMixin(mixin);
+
   return (
-    <section className={classNames('Section', [mixinClassName, className])} style={mixinStyle}>
+    <section 
+      className={classNames('Section--root', [mixinClassName, className])} 
+      style={mixinStyle}
+    >
       <ScopedStyle style={scopedStyle} layer={scopedLayer} />
       {children}
     </section>

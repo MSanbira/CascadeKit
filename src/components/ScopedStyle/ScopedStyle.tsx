@@ -14,7 +14,7 @@ export function ScopedStyle({
   
   return (
     <style>
-    {`@layer ${layer}{ @scope { :scope { ${stylesString} } } }`}
+      {`@layer ${layer}{ @scope { :scope { ${stylesString} } } }`}
     </style>
   );
 }

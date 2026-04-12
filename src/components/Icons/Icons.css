@@ -1,0 +1,6 @@
+@layer components {
+  .Icon--root {
+    width: var(--text-2_5);
+    height: var(--text-2_5);
+  }
+}

@@ -32,7 +32,7 @@ export function LayerStack({ layers = defaultLayers, className = '', mixin }: La
 
   return (
     <Box 
-      className={classNames('LayerStack', ['d-flex dir-col gap-2', mixinClassName, className])} 
+      className={classNames('LayerStack--root', ['d-flex dir-col gap-2', mixinClassName, className])} 
       style={mixinStyle}
     >
       {layers.map((layer) => (

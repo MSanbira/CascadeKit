@@ -10,11 +10,17 @@ interface CodeBlockProps {
   mixin?: MixinProps;
 }
 
-export function CodeBlock({ children, language = 'css', filename, className = '', mixin }: CodeBlockProps) {
+export function CodeBlock({ 
+  children, 
+  language = 'css', 
+  filename, 
+  className = '', 
+  mixin 
+}: CodeBlockProps) {
   const { className: mixinClassName, style: mixinStyle } = getMixin(mixin);
   
   return (
-    <div className={classNames('CodeBlock', [mixinClassName, className])} style={mixinStyle}>
+    <div className={classNames('CodeBlock--root', [mixinClassName, className])} style={mixinStyle}>
       {filename && (
         <div className="CodeBlock--header">
           <span className="CodeBlock--filename">{filename}</span>

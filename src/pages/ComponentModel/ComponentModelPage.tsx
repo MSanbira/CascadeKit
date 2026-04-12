@@ -42,7 +42,7 @@ export function Button({
   
   return (
     <button 
-      className={classNames('Button', [\`Button--\${variant}\`, \`Button--\${size}\`, mixinClassName, className])} 
+      className={classNames('Button--root', [\`Button--\${variant}\`, \`Button--\${size}\`, mixinClassName, className])} 
       style={{...mixinStyle, ...props.style}}
       {...props}
     >

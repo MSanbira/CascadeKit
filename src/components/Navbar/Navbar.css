@@ -2,100 +2,26 @@
   .Navbar--root {
     grid-column: 1 / -1;
     grid-row: 1;
-    block-size: var(--navbar-height);
-    background-color: var(--color-surface);
-    border-block-end: 1px solid var(--color-border);
-    z-index: var(--z-fixed);
-  }
-
-  .Navbar--container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    block-size: 100%;
+    gap: var(--space-3);
+    block-size: var(--navbar-height);
     padding-inline: var(--space-2);
-    max-inline-size: 100%;
-  }
-
-  .Navbar--start {
-    display: flex;
-    align-items: center;
-    gap: var(--space-1_5);
-  }
-
-  .Navbar--menuButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--space-1);
-    border-radius: var(--radius-md);
-    color: var(--color-text);
-    transition: background-color var(--transition-fast);
-  }
-
-  .Navbar--menuButton:hover {
-    background-color: var(--color-bg-muted);
-  }
-
-  .Navbar--menuIcon {
-    inline-size: var(--space-3);
-    block-size: var(--space-3);
-  }
-
-  .Navbar--brand {
-    display: flex;
-    align-items: center;
-    gap: var(--space-1);
-    color: var(--color-text);
-    font-weight: 700;
-    font-size: var(--text-2_25);
-  }
-
-  .Navbar--brand:hover {
-    color: var(--color-text);
+    background-color: var(--color-surface);
+    border-block-end: 1px solid var(--color-border);
   }
 
   .Navbar--logo {
     inline-size: var(--space-3);
     block-size: var(--space-3);
-  }
+  }  
+}
 
-  .Navbar--end {
-    display: flex;
-    align-items: center;
-    gap: var(--space-1);
-  }
-
-  .Navbar--githubLink {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--space-1);
-    border-radius: var(--radius-md);
-    color: var(--color-text);
-    transition: 
-      background-color var(--transition-fast),
-      color var(--transition-fast);
-  }
-
-  .Navbar--githubLink:hover {
-    background-color: var(--color-bg-muted);
-    color: var(--color-text);
-  }
-
-  .Navbar--githubIcon {
-    inline-size: var(--space-2_5);
-    block-size: var(--space-2_5);
-  }
-
-  /* Desktop */
+@layer component-overrides {
   @media (min-width: 640px) {
-    .Navbar--menuButton {
+    .Navbar--menu-button {
       display: none;
-    }
-
-    .Navbar--container {
-      padding-inline: var(--space-3);
     }
   }
 }
