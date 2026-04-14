@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { GitHubIcon, MenuIcon } from '../Icons/Icons';
-import { classNames } from '../../helpers/classNameHelper';
+import { classNames } from 'cascade-kit-tools/classNames';
 import { Button } from '../Button/Button';
 import { Text } from '../Text/Text';
 import './Navbar.css';

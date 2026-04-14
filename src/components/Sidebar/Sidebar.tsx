@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useTheme } from '../../context/ThemeContext';
 import { Box } from '../Box/Box';
-import { classNames } from '../../helpers/classNameHelper';
+import { classNames } from 'cascade-kit-tools/classNames';
 import { Button } from '../Button/Button';
 import { Text } from '../Text/Text';
 import './Sidebar.css';

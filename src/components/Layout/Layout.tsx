@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Navbar } from '../Navbar/Navbar';
 import { Sidebar } from '../Sidebar/Sidebar';
-import { classNames } from '../../helpers/classNameHelper';
+import { classNames } from 'cascade-kit-tools/classNames';
 import './Layout.css';
 
 interface LayoutProps {

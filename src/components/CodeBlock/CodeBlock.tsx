@@ -1,4 +1,4 @@
-import { classNames } from '../../helpers/classNameHelper';
+import { classNames } from 'cascade-kit-tools/classNames';
 import { getMixin, type MixinProps } from '../../helpers/mixinHelper';
 import './CodeBlock.css';
 
