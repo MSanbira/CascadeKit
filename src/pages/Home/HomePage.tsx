@@ -11,7 +11,7 @@ import './HomePage.css';
 export function HomePage() {
   return (
     <div className="HomePage--root">
-      <Section className='d-flex ali-center dir-col' mixin={{ py: 8 }}>
+      <Section className='d-flex ali-center dir-col' mixin={{ py: 3 }}>
         <Text variant="h1" alignText='center'>
           CascadeKit
         </Text>
@@ -28,6 +28,20 @@ export function HomePage() {
           </Link>
         </Box>
       </Section>
+
+      <Card mixin={{ mb: 8 }} title="About CascadeKit">
+        <Text mixin={{ mb: 3 }}>
+          In a world filled with code abstractions, frameworks, and packages, we tend to forget
+          that web apps ultimately run on a browser that still works with native HTML, CSS, and JavaScript.
+          And although most computers nowadays are powerful enough to run anything, we as developers
+          can be more inclusive across different devices and have more performant applications for a better user experience.
+        </Text>
+        <Text>
+          CascadeKit is a solution for common component-based web apps that removes unnecessary
+          abstraction layers in production by providing a framework of principles and tools
+          for a scalable, maintainable, native CSS approach.
+        </Text>
+      </Card>
 
       <Section>
         <Text variant="h2">Core Principles</Text>
@@ -57,11 +71,6 @@ export function HomePage() {
             number="5"
             title="Consistent Class Naming"
             description={<>All classes follow <code>ComponentName--element</code> convention. Readable in DevTools, greppable in code, no generated hashes.</>}
-          />
-          <HomePagePrinciple
-            number="6"
-            title="Utility Classes for Recurring Patterns"
-            description={<>Common layout patterns (flex, grid, gaps) live in a <code>utils</code> layer. Composable classes that don't bloat component CSS.</>}
           />
         </Box>
       </Section>

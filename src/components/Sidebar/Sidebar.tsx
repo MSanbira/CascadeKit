@@ -21,6 +21,7 @@ const navItems: NavItem[] = [
   { to: '/layout-utils', label: 'Layout Utilities' },
   { to: '/theme', label: 'Theming' },
   { to: '/scoped-styles', label: 'Scoped Styles' },
+  { to: '/ai-tools', label: 'AI Tools' },
   { to: '/example', label: 'Live Example' },
 ];
 

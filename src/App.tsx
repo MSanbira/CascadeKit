@@ -21,6 +21,7 @@ import { LayoutUtilsPage } from './pages/LayoutUtils/LayoutUtilsPage';
 import { ExamplePage } from './pages/Example/ExamplePage';
 import { ThemePage } from './pages/Theme/ThemePage';
 import { ScopedStylesPage } from './pages/ScopedStyles/ScopedStylesPage';
+import { AIToolsPage } from './pages/AITools/AIToolsPage';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
             <Route path="/example" element={<ExamplePage />} />
             <Route path="/theme" element={<ThemePage />} />
             <Route path="/scoped-styles" element={<ScopedStylesPage />} />
+            <Route path="/ai-tools" element={<AIToolsPage />} />
           </Routes>
         </Layout>
       </BrowserRouter>

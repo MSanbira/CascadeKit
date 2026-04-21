@@ -5,7 +5,7 @@
   }
 
   .HomePage--tagline {
-    max-inline-size: calc(var(--base-size) * 75);
+    max-inline-size: calc(var(--base-size) * 60);
     margin-inline: auto;
   }
 

@@ -1,6 +1,9 @@
+import { Link } from 'react-router-dom';
 import { Section } from '../../components/Section/Section';
 import { CodeBlock } from '../../components/CodeBlock/CodeBlock';
 import { Text, Strong } from '../../components/Text/Text';
+import { Button } from '../../components/Button/Button';
+import { Box } from '../../components/Box/Box';
 import { LayerStack } from '../../components/LayerStack/LayerStack';
 import './HowPage.css';
 
@@ -75,6 +78,21 @@ export function HowPage() {
           CascadeKit works by combining three native CSS/JS features:
           import-based CSS loading, cascade layers, and naming conventions.
         </Text>
+      </Section>
+
+      <Section>
+        <Text variant="h2">AI-Integrated Tooling</Text>
+        <Text>
+          CascadeKit ships with tools that help AI coding assistants understand and follow these
+          conventions automatically. A <Strong>PROMPT_GUIDE.md</Strong> teaches any AI the rules,
+          and an <Strong>MCP server</Strong> gives compatible editors direct access to component
+          generation, token lookups, and documentation.
+        </Text>
+        <Box mixin={{ mt: 3 }}>
+          <Link to="/ai-tools">
+            <Button variant="secondary">Learn about AI tools →</Button>
+          </Link>
+        </Box>
       </Section>
 
       <Section>
@@ -181,6 +199,7 @@ export function HowPage() {
           mixins, theme toggles, etc. Always use CSS vars + classes, never raw inline styles.
         </Text>
       </Section>
+
     </div>
   );
 }
