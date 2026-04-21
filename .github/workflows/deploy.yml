@@ -26,9 +26,9 @@ jobs:
         with:
           node-version: 20
 
-      - run: npm ci
+      - run: npm ci --registry https://registry.npmjs.org
 
-      - run: npm run build
+      - run: npx tsc -b --clean && npm run build
 
       - uses: actions/upload-pages-artifact@v3
         with:
