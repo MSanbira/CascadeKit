@@ -22,14 +22,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: pnpm
 
-      - run: npm cache clean --force
-      - run: npm install
+      - run: pnpm install --frozen-lockfile --no-optional
 
-      - run: npx tsc -b --clean && npm run build
+      - run: pnpm exec tsc -b --clean && pnpm run build
 
       - uses: actions/upload-pages-artifact@v3
         with:
