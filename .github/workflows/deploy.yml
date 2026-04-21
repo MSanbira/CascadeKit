@@ -25,9 +25,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
 
-      - run: npm install --frozen-lockfile || npm ci
+      - run: npm cache clean --force
+      - run: npm install
 
       - run: npx tsc -b --clean && npm run build
 
