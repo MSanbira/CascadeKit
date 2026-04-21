@@ -9,9 +9,16 @@ export function WhyPage() {
     <div className="WhyPage--root">
       <Section>
         <Text variant="h1">Why CascadeKit?</Text>
+        <Text mixin={{ mb: 3 }}>
+          In a world filled with code abstractions, frameworks, and packages, we tend to forget
+          that web apps ultimately run on a browser that still works with native HTML, CSS, and JavaScript.
+          And although most computers nowadays are powerful enough to run anything, we as developers
+          can be more inclusive across different devices and have more performant applications for a better user experience.
+        </Text>
         <Text>
-          CSS has evolved. Native features like <code>@layer</code>, CSS variables, and container queries 
-          solve problems that once required tooling. CascadeKit is an architecture that uses these features directly.
+          CascadeKit is a solution for common component-based web apps that removes unnecessary
+          abstraction layers in production by providing a framework of principles and tools
+          for a scalable, maintainable, native CSS approach.
         </Text>
       </Section>
 

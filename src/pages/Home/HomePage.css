@@ -1,11 +1,15 @@
 @layer pages {
-  .HomePage--cardLink {
-    margin-block-start: auto;
-    padding-block-start: var(--space-3);
+  .HomePage--root > .Section--root {
+    margin-block-end: var(--space-10);
   }
 
   .HomePage--tagline {
     max-inline-size: calc(var(--base-size) * 60);
+    margin-inline: auto;
+  }
+
+  .HomePage--pitch {
+    max-inline-size: calc(var(--base-size) * 70);
     margin-inline: auto;
   }
 
@@ -32,21 +36,61 @@
     font-size: var(--text-1_75);
   }
 
-  .HomePage--layer {
-    display: flex;
-    justify-content: space-between;
+  /* Feature sections — side-by-side text + visual */
+  .HomePage--feature {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
     align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-2) var(--space-3);
-    border-radius: var(--radius-sm);
-    border-inline-start: 3px solid var(--color-border);
-    background: var(--color-surface);
   }
 
-  .HomePage--layer--base { border-inline-start-color: var(--color-text-muted); }
-  .HomePage--layer--utils { border-inline-start-color: var(--color-secondary); }
-  .HomePage--layer--components { border-inline-start-color: var(--color-primary); }
-  .HomePage--layer--pages { border-inline-start-color: var(--color-success); }
-  .HomePage--layer--component-overrides { border-inline-start-color: var(--color-warning); }
-  .HomePage--layer--user-overrides { border-inline-start-color: var(--color-error); }
+  .HomePage--feature-stacked {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    .HomePage--feature {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .HomePage--feature-reverse .HomePage--feature-text {
+      order: 2;
+    }
+
+    .HomePage--feature-reverse .HomePage--feature-visual {
+      order: 1;
+    }
+  }
+
+  .HomePage--feature-link {
+    display: inline-block;
+    margin-block-start: var(--space-3);
+  }
+
+  /* Why grid — 3-column on desktop, 2 on tablet, 1 on mobile */
+  .HomePage--why-grid {
+    grid-template-columns: 1fr;
+    max-inline-size: calc(var(--base-size) * 80);
+    inline-size: 100%;
+  }
+
+  @media (min-width: 480px) {
+    .HomePage--why-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .HomePage--why-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  .HomePage--why-item {
+    text-align: center;
+    padding: var(--space-3);
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+  }
 }

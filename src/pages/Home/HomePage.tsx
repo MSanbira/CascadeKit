@@ -1,52 +1,48 @@
 import { Link } from 'react-router-dom';
 import { Section } from '../../components/Section/Section';
 import { Button } from '../../components/Button/Button';
-import { Card } from '../../components/Card/Card';
 import { CodeBlock } from '../../components/CodeBlock/CodeBlock';
 import { Text, Strong } from '../../components/Text/Text';
 import { Box } from '../../components/Box/Box';
+import { LayerStack } from '../../components/LayerStack/LayerStack';
 import { HomePagePrinciple } from './HomePagePrinciple';
 import './HomePage.css';
 
 export function HomePage() {
   return (
     <div className="HomePage--root">
-      <Section className='d-flex ali-center dir-col' mixin={{ py: 3 }}>
-        <Text variant="h1" alignText='center'>
+      {/* Hero */}
+      <Section className="d-flex ali-center dir-col" mixin={{ py: 3 }}>
+        <Text variant="h1" alignText="center">
           CascadeKit
         </Text>
-        <Text variant="h5" tag="p" alignText='center' muted className="HomePage--tagline" mixin={{ mb: 8 }} isPretty>
-          A holistic CSS system built on native cascade layers, unified design tokens,
-          and co-located styles.<br /> No inline styles, no runtime — just CSS that scales.
+        <Text variant="h5" tag="p" alignText="center" muted className="HomePage--tagline" mixin={{ mb: 8 }} isPretty>
+          A CSS architecture built on native cascade layers.
+          <br />No runtime. No inline styles. Just CSS that scales.
         </Text>
         <Box className="d-flex gap-4 jc-center f-wrap">
           <Link to="/how">
             <Button size="lg">Get Started</Button>
           </Link>
           <Link to="/example">
-            <Button variant="secondary" size="lg">View Examples</Button>
+            <Button variant="secondary" size="lg">Live Example</Button>
           </Link>
         </Box>
       </Section>
 
-      <Card mixin={{ mb: 8 }} title="About CascadeKit">
-        <Text mixin={{ mb: 3 }}>
-          In a world filled with code abstractions, frameworks, and packages, we tend to forget
-          that web apps ultimately run on a browser that still works with native HTML, CSS, and JavaScript.
-          And although most computers nowadays are powerful enough to run anything, we as developers
-          can be more inclusive across different devices and have more performant applications for a better user experience.
-        </Text>
-        <Text>
-          CascadeKit is a solution for common component-based web apps that removes unnecessary
-          abstraction layers in production by providing a framework of principles and tools
-          for a scalable, maintainable, native CSS approach.
-        </Text>
-      </Card>
-
+      {/* Pitch */}
       <Section>
-        <Text variant="h2">Core Principles</Text>
+        <Text variant="body1" alignText="center" className="HomePage--pitch" isPretty>
+          Modern browsers support <code>@layer</code>, CSS variables, and container queries natively.
+          CascadeKit is an architecture that uses these features directly — giving you predictable
+          overrides, co-located styles, and zero runtime cost.
+        </Text>
+      </Section>
 
-        <Box className="d-flex dir-col gap-3" mixin={{ mt: 4 }}>
+      {/* Core Principles */}
+      <Section>
+        <Text variant="h2" alignText="center" mixin={{ mb: 4 }}>Core Principles</Text>
+        <Box className="d-flex dir-col gap-3">
           <HomePagePrinciple
             number="1"
             title="Ordered Cascade Layers"
@@ -75,150 +71,184 @@ export function HomePage() {
         </Box>
       </Section>
 
-      <Section>
-        <Text variant="h2">The Layer Stack</Text>
-        <Text>
-          Layers are declared once and define the cascade order. Each layer has a clear purpose:
-        </Text>
-
-        <CodeBlock language="css">{`@layer base, utils, components, pages, component-overrides, user-overrides;`}</CodeBlock>
-
-        <Box className="d-flex dir-col gap-1" mixin={{ mt: 4 }}>
-          <div className="HomePage--layer HomePage--layer--base">
-            <Text variant="h6">base</Text>
-            <Text variant="body2" muted>Design tokens, resets, typography defaults</Text>
-          </div>
-          <div className="HomePage--layer HomePage--layer--utils">
-            <Text variant="h6">utils</Text>
-            <Text variant="body2" muted>Layout utilities, spacing helpers</Text>
-          </div>
-          <div className="HomePage--layer HomePage--layer--components">
-            <Text variant="h6">components</Text>
-            <Text variant="body2" muted>Button, Card, Text — all component styles</Text>
-          </div>
-          <div className="HomePage--layer HomePage--layer--pages">
-            <Text variant="h6">pages</Text>
-            <Text variant="body2" muted>Page-specific layouts and overrides</Text>
-          </div>
-          <div className="HomePage--layer HomePage--layer--component-overrides">
-            <Text variant="h6">component-overrides</Text>
-            <Text variant="body2" muted>Component variant overrides, state modifiers</Text>
-          </div>
-          <div className="HomePage--layer HomePage--layer--user-overrides">
-            <Text variant="h6">user-overrides</Text>
-            <Text variant="body2" muted>Final user customizations, theme adjustments</Text>
-          </div>
-        </Box>
-        <Text variant="body2" muted mixin={{ mt: 2 }}>
-          ↑ Higher layers always win, regardless of selector specificity.
-        </Text>
+      {/* Feature: Cascade Layers */}
+      <Section className="HomePage--feature HomePage--feature-stacked">
+        <div className="HomePage--feature-text">
+          <Text variant="h3" mixin={{ mb: 2 }}>Cascade Layers</Text>
+          <Text muted>
+            Six ordered layers replace specificity wars. Components always override base styles,
+            pages override components, and user overrides always win — predictably.
+          </Text>
+          <Link to="/layers" className="HomePage--feature-link">
+            <Button variant="secondary" size="sm">Layers explained →</Button>
+          </Link>
+        </div>
+        <div className="HomePage--feature-visual">
+          <LayerStack />
+        </div>
       </Section>
 
-      <Section>
-        <Text variant="h2">File Structure</Text>
-        <Text>
-          Components are self-contained: a TSX file imports its CSS file.
-          Global styles live in <code>src/styles/</code>.
-        </Text>
-
-        <CodeBlock language="text">{`src/
-├── styles/
-│   ├── layers.css      # @layer order declaration
-│   ├── base.css        # Design tokens & resets
-│   ├── utils.css       # General utilities
-│   └── layoutUtils.css # Flex, grid, gap utilities
-│
-├── components/
-│   ├── Button/
-│   │   ├── Button.tsx  # import './Button.css'
-│   │   └── Button.css  # @layer components { .Button--root { } }
-│   └── Card/
-│       ├── Card.tsx
-│       └── Card.css
-│
-└── pages/
-    └── Home/
-        ├── HomePage.tsx
-        └── HomePage.css  # @layer pages { .HomePage--root { } }`}</CodeBlock>
+      {/* Feature: Component Model */}
+      <Section className="HomePage--feature HomePage--feature-reverse">
+        <div className="HomePage--feature-text">
+          <Text variant="h3" mixin={{ mb: 2 }}>Component Model</Text>
+          <Text muted>
+            Each component owns its styles in a co-located CSS file. Tree-shaking means
+            unused components = unused CSS. Delete a folder, delete everything.
+          </Text>
+          <Link to="/components" className="HomePage--feature-link">
+            <Button variant="secondary" size="sm">Component model →</Button>
+          </Link>
+        </div>
+        <div className="HomePage--feature-visual">
+          <CodeBlock language="text">{`/Button
+  Button.tsx   ← import './Button.css'
+  Button.css   ← @layer components { }
+  index.ts     ← public export`}</CodeBlock>
+        </div>
       </Section>
 
-      <Section>
-        <Text variant="h2">Example Patterns</Text>
-        <Text>
-          These patterns demonstrate how to build tools within the layer system.
-          All work through CSS classes and layers, not inline styles.
-        </Text>
-
-        <Box className="d-grid gap-4" mixin={{ mt: 4, smallContainer: { gridColTemplate: '1fr' }, mediumContainer: { gridColTemplate: '1fr 1fr' } }}>
-          <Card className="d-flex dir-col">
-            <Text variant="h5" tag="h3" mixin={{ mb: 1 }}>Layout Utilities</Text>
-            <Text variant="body2" muted mixin={{ mb: 2 }}>
-              Utility classes in the <code>utils</code> layer for flex, grid,
-              alignment, and gaps.
-            </Text>
-            <CodeBlock language="tsx">{`<div className="d-flex gap-2 ali-center">
-  ...
+      {/* Feature: Layout Utilities */}
+      <Section className="HomePage--feature">
+        <div className="HomePage--feature-text">
+          <Text variant="h3" mixin={{ mb: 2 }}>Layout Utilities</Text>
+          <Text muted>
+            Composable utility classes for flex, grid, alignment, and gaps —
+            all in the <code>utils</code> layer with low specificity via <code>:where()</code>.
+          </Text>
+          <Link to="/layout-utils" className="HomePage--feature-link">
+            <Button variant="secondary" size="sm">Layout utilities →</Button>
+          </Link>
+        </div>
+        <div className="HomePage--feature-visual">
+          <CodeBlock language="tsx">{`<div className="d-flex gap-2 ali-center jc-sb">
+  <Badge>Status</Badge>
+  <Button variant="ghost" size="sm">Edit</Button>
 </div>`}</CodeBlock>
-            <Link to="/layout-utils" className="HomePage--cardLink">
-              <Button variant="secondary" size="sm">Layout utilities →</Button>
-            </Link>
-          </Card>
-
-          <Card className="d-flex dir-col">
-            <Text variant="h5" tag="h3" mixin={{ mb: 1 }}>Mixin System</Text>
-            <Text variant="body2" muted mixin={{ mb: 2 }}>
-              Per-component responsive styling with breakpoints and container queries.
-            </Text>
-            <CodeBlock language="tsx">{`<Box mixin={{ 
-  p: 2, 
-  smallScreen: { p: 1 } 
-}}>...</Box>`}</CodeBlock>
-            <Link to="/mixin" className="HomePage--cardLink">
-              <Button variant="secondary" size="sm">Mixin system →</Button>
-            </Link>
-          </Card>
-
-          <Card className="d-flex dir-col">
-            <Text variant="h5" tag="h3" mixin={{ mb: 1 }}>Theming</Text>
-            <Text variant="body2" muted mixin={{ mb: 2 }}>
-              Token overrides via <code>data-theme</code> attribute in the <code>user-overrides</code> layer.
-            </Text>
-            <CodeBlock language="css">{`[data-theme="midnight"] {
-  --color-primary: #7c3aed;
-}`}</CodeBlock>
-            <Link to="/theme" className="HomePage--cardLink">
-              <Button variant="secondary" size="sm">Theming →</Button>
-            </Link>
-          </Card>
-
-          <Card className="d-flex dir-col">
-            <Text variant="h5" tag="h3" mixin={{ mb: 1 }}>Scoped Styles</Text>
-            <Text variant="body2" muted mixin={{ mb: 2 }}>
-              Per-instance overrides using CSS <code>@scope</code> for dynamic or extreme customizations.
-            </Text>
-            <CodeBlock language="tsx">{`<Card scopedStyle={{ 
-  '--color-primary': userColor 
-}}>...</Card>`}</CodeBlock>
-            <Link to="/scoped-styles" className="HomePage--cardLink">
-              <Button variant="secondary" size="sm">Scoped styles →</Button>
-            </Link>
-          </Card>
-        </Box>
-        <Text variant="body2" muted mixin={{ mt: 2 }}>
-          Combine patterns as needed — utilities for layout, mixins for responsive, themes for global overrides, scoped styles for per-instance tweaks.
-        </Text>
+        </div>
       </Section>
 
-      <Section>
-        <Text variant="h2">Why CascadeKit?</Text>
-        <ul>
-          <li><Strong>Zero Runtime</Strong> — Native CSS, no JavaScript overhead</li>
-          <li><Strong>Predictable Cascade</Strong> — Layers eliminate specificity conflicts</li>
-          <li><Strong>Debuggable</Strong> — Real class names, visible in DevTools</li>
-          <li><Strong>Tree-shakeable</Strong> — Unused component CSS never ships</li>
-          <li><Strong>SSR-friendly</Strong> — No hydration issues, layers ensure CSS order doesn't matter</li>
-          <li><Strong>Future-proof</Strong> — Uses native CSS features that browsers already support</li>
-        </ul>
+      {/* Feature: Mixin System */}
+      <Section className="HomePage--feature HomePage--feature-reverse">
+        <div className="HomePage--feature-text">
+          <Text variant="h3" mixin={{ mb: 2 }}>Mixin System</Text>
+          <Text muted>
+            Responsive, per-component spacing and layout — without inline styles.
+            Mixins generate classes in the <code>component-overrides</code> layer.
+          </Text>
+          <Link to="/mixin" className="HomePage--feature-link">
+            <Button variant="secondary" size="sm">Mixin system →</Button>
+          </Link>
+        </div>
+        <div className="HomePage--feature-visual">
+          <CodeBlock language="tsx">{`<Card mixin={{
+  p: 4,
+  gap: 2,
+  smallScreen: { p: 2 },
+  bigScreen: { gridColTemplate: '1fr 1fr' }
+}}>
+  ...
+</Card>`}</CodeBlock>
+        </div>
+      </Section>
+
+      {/* Feature: Theming */}
+      <Section className="HomePage--feature">
+        <div className="HomePage--feature-text">
+          <Text variant="h3" mixin={{ mb: 2 }}>Theming</Text>
+          <Text muted>
+            Swap design tokens globally via <code>data-theme</code> attributes.
+            Themes live in the <code>user-overrides</code> layer — they always win.
+          </Text>
+          <Link to="/theme" className="HomePage--feature-link">
+            <Button variant="secondary" size="sm">Theming →</Button>
+          </Link>
+        </div>
+        <div className="HomePage--feature-visual">
+          <CodeBlock language="css">{`@layer user-overrides {
+  [data-theme="midnight"] {
+    --color-primary: #7c3aed;
+    --color-bg: #0f0d1a;
+    --color-surface: #1a1730;
+  }
+}`}</CodeBlock>
+        </div>
+      </Section>
+
+      {/* Feature: Scoped Styles */}
+      <Section className="HomePage--feature HomePage--feature-reverse">
+        <div className="HomePage--feature-text">
+          <Text variant="h3" mixin={{ mb: 2 }}>Scoped Styles</Text>
+          <Text muted>
+            Per-instance overrides using native CSS <code>@scope</code>.
+            Dynamic values stay in the cascade — never inline.
+          </Text>
+          <Link to="/scoped-styles" className="HomePage--feature-link">
+            <Button variant="secondary" size="sm">Scoped styles →</Button>
+          </Link>
+        </div>
+        <div className="HomePage--feature-visual">
+          <CodeBlock language="tsx">{`<Card scopedStyle={{
+  '--color-primary': userColor,
+  '--color-surface': userBg,
+}}>
+  Fully custom card instance
+</Card>`}</CodeBlock>
+        </div>
+      </Section>
+
+      {/* Feature: AI Tools */}
+      <Section className="HomePage--feature">
+        <div className="HomePage--feature-text">
+          <Text variant="h3" mixin={{ mb: 2 }}>AI-Integrated Tooling</Text>
+          <Text muted>
+            An MCP server and prompt guide teach AI assistants the CascadeKit conventions.
+            Generate components, look up tokens, and follow the architecture automatically.
+          </Text>
+          <Link to="/ai-tools" className="HomePage--feature-link">
+            <Button variant="secondary" size="sm">AI tools →</Button>
+          </Link>
+        </div>
+        <div className="HomePage--feature-visual">
+          <CodeBlock language="json">{`{
+  "mcpServers": {
+    "cascadekit": {
+      "command": "cascade-kit-mcp"
+    }
+  }
+}`}</CodeBlock>
+        </div>
+      </Section>
+
+      {/* Why CascadeKit — compact closer */}
+      <Section className="d-flex ali-center dir-col">
+        <Text variant="h2" alignText="center" mixin={{ mb: 4 }}>Why CascadeKit?</Text>
+        <Box className="d-grid gap-4 HomePage--why-grid">
+          <div className="HomePage--why-item">
+            <Strong>Zero Runtime</Strong>
+            <Text variant="body2" muted>Native CSS only — no JS overhead</Text>
+          </div>
+          <div className="HomePage--why-item">
+            <Strong>Predictable Cascade</Strong>
+            <Text variant="body2" muted>Layers define who wins, always</Text>
+          </div>
+          <div className="HomePage--why-item">
+            <Strong>Debuggable</Strong>
+            <Text variant="body2" muted>Real class names in DevTools</Text>
+          </div>
+          <div className="HomePage--why-item">
+            <Strong>Tree-shakeable</Strong>
+            <Text variant="body2" muted>Unused CSS never ships</Text>
+          </div>
+          <div className="HomePage--why-item">
+            <Strong>SSR-friendly</Strong>
+            <Text variant="body2" muted>No hydration issues</Text>
+          </div>
+          <div className="HomePage--why-item">
+            <Strong>Future-proof</Strong>
+            <Text variant="body2" muted>Native features browsers already support</Text>
+          </div>
+        </Box>
         <Box mixin={{ mt: 6 }}>
           <Link to="/why">
             <Button variant="secondary">Learn more about the philosophy →</Button>
