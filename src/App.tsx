@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 
 import './styles/layers.css';
@@ -26,7 +26,7 @@ import { AIToolsPage } from './pages/AITools/AIToolsPage';
 function App() {
   return (
     <ThemeProvider>
-      <BrowserRouter>
+      <HashRouter>
         <ScrollToTop />
         <Layout>
           <Routes>
@@ -43,7 +43,7 @@ function App() {
             <Route path="/ai-tools" element={<AIToolsPage />} />
           </Routes>
         </Layout>
-      </BrowserRouter>
+      </HashRouter>
     </ThemeProvider>
   );
 }
