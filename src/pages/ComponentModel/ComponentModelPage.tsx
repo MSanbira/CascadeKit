@@ -16,8 +16,8 @@ const folderStructure = `/src
       Card.css
       index.ts`;
 
-const componentTSX = `import { classNames } from '../../helpers/classNameHelper';
-import { getMixin, type MixinProps } from '../../helpers/mixinHelper';
+const componentTSX = `import { classNames } from 'cascade-kit-tools/classNames';
+import { getMixin, type MixinProps } from 'cascade-kit-tools/mixin';
 import './Button.css';
 
 type ButtonVariant = 'primary' | 'secondary' | 'ghost';

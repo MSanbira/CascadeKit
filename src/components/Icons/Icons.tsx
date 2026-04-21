@@ -1,4 +1,4 @@
-import { classNames } from "../../helpers/classNameHelper";
+import { classNames } from 'cascade-kit-tools/classNames';
 import './Icons.css';
 
 interface IconProps {

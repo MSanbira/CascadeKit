@@ -1,5 +1,5 @@
 import { classNames } from 'cascade-kit-tools/classNames';
-import { getMixin, type MixinProps } from '../../helpers/mixinHelper';
+import { getMixin, type MixinProps } from 'cascade-kit-tools/mixin';
 import './Text.css';
 
 type TextVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'body1' | 'body2' | 'inline';

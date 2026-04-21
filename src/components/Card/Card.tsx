@@ -1,5 +1,5 @@
 import { classNames } from 'cascade-kit-tools/classNames';
-import { getMixin, type MixinProps } from '../../helpers/mixinHelper';
+import { getMixin, type MixinProps } from 'cascade-kit-tools/mixin';
 import { ScopedStyle, type ScopedStylesObj, type LayerOptions } from 'cascade-kit-tools/scopedStyle';
 import { Text } from '../Text/Text';
 import './Card.css';

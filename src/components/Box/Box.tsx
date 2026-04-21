@@ -1,7 +1,6 @@
 import { classNames } from 'cascade-kit-tools/classNames';
-import { getMixin, type MixinProps } from '../../helpers/mixinHelper';
-import { ScopedStyle } from '../ScopedStyle/ScopedStyle';
-import { type ScopedStylesObj , type LayerOptions} from '../../helpers/scopedStyle';
+import { getMixin, type MixinProps } from 'cascade-kit-tools/mixin';
+import { ScopedStyle, type ScopedStylesObj, type LayerOptions } from 'cascade-kit-tools/scopedStyle';
 
 interface BoxProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;

@@ -1,5 +1,5 @@
 import { classNames } from 'cascade-kit-tools/classNames';
-import { getMixin, type MixinProps } from '../../helpers/mixinHelper';
+import { getMixin, type MixinProps } from 'cascade-kit-tools/mixin';
 import './CodeBlock.css';
 
 interface CodeBlockProps {

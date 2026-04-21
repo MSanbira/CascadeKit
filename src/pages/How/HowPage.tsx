@@ -39,7 +39,7 @@ const globalClassCSS = `/* Global but structured */
 .Button--icon { }      /* Component-scoped */
 .Button--label { }     /* No hash needed */`;
 
-const classNamesHelper = `import { classNames } from '../../helpers/classNameHelper';
+const classNamesHelper = `import { classNames } from 'cascade-kit-tools/classNames';
 
 // classNames auto-adds --root and joins classes
 <button className={classNames('Button--root', [\`Button--\${variant}\`, className])}>
