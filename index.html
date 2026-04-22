@@ -2,7 +2,7 @@
 <html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/CascadeKitFavicon.png" />
+    <link rel="icon" type="image/png" href="/CascadeKit/CascadeKitFavicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
@@ -17,6 +17,17 @@
     />
   </head>
   <body>
+    <script>
+      // Handle GitHub Pages SPA redirect
+      (function() {
+        const params = new URLSearchParams(window.location.search);
+        const path = params.get('p');
+        if (path) {
+          // Restore the clean URL: /CascadeKit/?p=/why → /CascadeKit/why
+          window.history.replaceState(null, '', '/CascadeKit' + path);
+        }
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script>
+      // GitHub Pages SPA redirect
+      // /CascadeKit/why → /CascadeKit/?p=/why
+      const path = window.location.pathname;
+      const base = '/CascadeKit';
+      if (path.startsWith(base)) {
+        const route = path.slice(base.length) || '/';
+        window.location.replace(base + '/?p=' + encodeURIComponent(route));
+      }
+    </script>
+  </head>
+  <body>
+    Redirecting...
+  </body>
+</html>
