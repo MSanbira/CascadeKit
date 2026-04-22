@@ -38,7 +38,7 @@ export function ExamplePage() {
   return (
     <div className="ExamplePage--root">
       <Section>
-        <Text variant="h1">Live Examples</Text>
+        <Text variant="h1" bottomMargin>Live Examples</Text>
         <Text>
           Real-world UI patterns built with CascadeKit. Inspect any element 
           to see readable class names and CSS layers in action.
@@ -46,7 +46,7 @@ export function ExamplePage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Button Component</Text>
+        <Text variant="h2" bottomMargin>Button Component</Text>
         <Text>The Button component demonstrates CascadeKit's variant and size system.</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <Text variant="body2" muted>
@@ -127,7 +127,7 @@ export function ExamplePage() {
       </Section>
 
       <Section>
-        <Text variant="h2">User Profile Card</Text>
+        <Text variant="h2" bottomMargin>User Profile Card</Text>
         <Text>A common pattern for displaying user information with actions.</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <Text variant="body2" muted>
@@ -177,7 +177,7 @@ export function ExamplePage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Notifications</Text>
+        <Text variant="h2" bottomMargin>Notifications</Text>
         <Text>Dismissible alerts with different severity levels.</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <Text variant="body2" muted>
@@ -211,7 +211,7 @@ export function ExamplePage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Pricing Cards</Text>
+        <Text variant="h2" bottomMargin>Pricing Cards</Text>
         <Text>Interactive pricing comparison with selection state.</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <Text variant="body2" muted>
@@ -254,7 +254,7 @@ export function ExamplePage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Contact Form</Text>
+        <Text variant="h2" bottomMargin>Contact Form</Text>
         <Text>Form layout with validation states and responsive design.</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <Text variant="body2" muted>
@@ -296,7 +296,7 @@ export function ExamplePage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Stats Dashboard</Text>
+        <Text variant="h2" bottomMargin>Stats Dashboard</Text>
         <Text>Data visualization cards with responsive grid layout.</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <Text variant="body2" muted>
@@ -324,7 +324,7 @@ export function ExamplePage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Scoped Styles</Text>
+        <Text variant="h2" bottomMargin>Scoped Styles</Text>
         <Text>Override CSS custom properties and regular CSS properties per-component instance using CSS <code>@scope</code>.</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <Text variant="body2" muted>
@@ -431,7 +431,7 @@ export function ExamplePage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Inspect & Learn</Text>
+        <Text variant="h2" bottomMargin>Inspect & Learn</Text>
         <Text>
           Open DevTools and inspect any element above. You'll see:
         </Text>

@@ -2,26 +2,32 @@
   .Navbar--root {
     grid-column: 1 / -1;
     grid-row: 1;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
     align-items: center;
-    justify-content: space-between;
     gap: var(--space-3);
     block-size: var(--navbar-height);
     padding-inline: var(--space-2);
     background-color: var(--color-surface);
     border-block-end: 1px solid var(--color-border);
   }
+  
+  .Navbar--left-section {
+    justify-self: start;
+  }
+  
+  .Navbar--right-section {
+    justify-self: end;
+  }
 
   .Navbar--logo {
     inline-size: var(--space-3);
     block-size: var(--space-3);
-  }  
-}
+  }
 
-@layer component-overrides {
-  @media (min-width: 640px) {
-    .Navbar--menu-button {
-      display: none;
+  @media (max-width: 799px) {
+    .Navbar--root {
+      grid-template-columns: 1fr auto;
     }
   }
 }

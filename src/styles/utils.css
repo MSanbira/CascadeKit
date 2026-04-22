@@ -14,4 +14,16 @@
     white-space: nowrap;
     border: 0;
   }
+
+  @media (min-width: 800px) {
+    .hide-on-desktop {
+      display: none !important;
+    }
+  }
+  
+  @media (max-width: 799px) {
+    .hide-on-small-screens {
+      display: none !important;
+    }
+  }
 }

@@ -4,6 +4,7 @@ import { Box } from '../Box/Box';
 import { classNames } from 'cascade-kit-tools/classNames';
 import { Button } from '../Button/Button';
 import { Text } from '../Text/Text';
+import { routes } from '../../constants/routes';
 import './Sidebar.css';
 
 interface NavItem {
@@ -11,18 +12,21 @@ interface NavItem {
   label: string;
 }
 
+const mobileNavItems: NavItem[] = [
+  { to: routes.home, label: 'Home' },
+  { to: routes.why, label: 'Why' },
+];
+
 const navItems: NavItem[] = [
-  { to: '/', label: 'Home' },
-  { to: '/why', label: 'Why CascadeKit' },
-  { to: '/how', label: 'How It Works' },
-  { to: '/components', label: 'Component Model' },
-  { to: '/layers', label: 'Layers Explained' },
-  { to: '/mixin', label: 'Mixin System' },
-  { to: '/layout-utils', label: 'Layout Utilities' },
-  { to: '/theme', label: 'Theming' },
-  { to: '/scoped-styles', label: 'Scoped Styles' },
-  { to: '/ai-tools', label: 'AI Tools' },
-  { to: '/example', label: 'Live Example' },
+  { to: routes.how, label: 'How It Works' },
+  { to: routes.components, label: 'Component Model' },
+  { to: routes.layers, label: 'Layers Explained' },
+  { to: routes.mixin, label: 'Mixin System' },
+  { to: routes.layoutUtils, label: 'Layout Utilities' },
+  { to: routes.theme, label: 'Theming' },
+  { to: routes.scopedStyles, label: 'Scoped Styles' },
+  { to: routes.aiTools, label: 'AI Tools' },
+  { to: routes.example, label: 'Live Example' },
 ];
 
 interface SidebarProps {
@@ -47,6 +51,21 @@ export function Sidebar({ isOpen = true, onClose }: SidebarProps) {
         aria-label="Main navigation"
       >
         <nav className="Sidebar--nav">
+          <ul className='Sidebar--list Sidebar--list-non-docs hide-on-desktop'>
+            {mobileNavItems.map((item) => (
+              <li key={item.to} className="Sidebar--item">
+                <NavLink
+                  to={item.to}
+                  className={({ isActive }) =>
+                    classNames('Sidebar--link', [], { 'Sidebar--link-active': isActive })
+                  }
+                  onClick={onClose}
+                >
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
           <ul className="Sidebar--list" role="list">
             {navItems.map((item) => (
               <li key={item.to} className="Sidebar--item">

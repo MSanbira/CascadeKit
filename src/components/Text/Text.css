@@ -6,26 +6,21 @@
   .Text--variant-h1 {
     font-size: var(--text-4_5);
     font-weight: var(--font-weight-bold);
-    margin-block-end: var(--space-3);
   }
 
   .Text--variant-h2 {
     font-size: var(--text-3_75);
     font-weight: var(--font-weight-medium);
-    margin-block-start: var(--space-6);
-    margin-block-end: var(--space-2);
   }
 
   .Text--variant-h3 {
     font-size: var(--text-3);
     font-weight: var(--font-weight-medium);
-    margin-block-start: var(--space-4);
   }
 
   .Text--variant-h4 {
     font-size: var(--text-2_5);
     font-weight: var(--font-weight-medium);
-    margin-block-start: var(--space-3);
   }
 
   .Text--variant-h5 {
@@ -108,5 +103,13 @@
 
   .Text--align-right {
     text-align: right;
+  }
+
+  .Text--top-margin {
+    margin-block-start: .3em;
+  }
+
+  .Text--bottom-margin {
+    margin-block-end: .5em;
   }
 }

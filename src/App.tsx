@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 
 import './styles/layers.css';
@@ -6,7 +6,7 @@ import './styles/base.css';
 import './styles/reset.css';
 import './styles/utils.css';
 import 'cascade-kit-tools/layoutUtils/layoutUtils.css';
-import './styles/mixin.css';
+import 'cascade-kit-tools/mixin/mixin.css';
 import './styles/theme.css';
 
 import { Layout } from './components/Layout/Layout';
@@ -22,28 +22,29 @@ import { ExamplePage } from './pages/Example/ExamplePage';
 import { ThemePage } from './pages/Theme/ThemePage';
 import { ScopedStylesPage } from './pages/ScopedStyles/ScopedStylesPage';
 import { AIToolsPage } from './pages/AITools/AIToolsPage';
+import { routes } from './constants/routes';
 
 function App() {
   return (
     <ThemeProvider>
-      <HashRouter>
+      <BrowserRouter>
         <ScrollToTop />
         <Layout>
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/why" element={<WhyPage />} />
-            <Route path="/how" element={<HowPage />} />
-            <Route path="/components" element={<ComponentModelPage />} />
-            <Route path="/layers" element={<LayersPage />} />
-            <Route path="/mixin" element={<MixinPage />} />
-            <Route path="/layout-utils" element={<LayoutUtilsPage />} />
-            <Route path="/example" element={<ExamplePage />} />
-            <Route path="/theme" element={<ThemePage />} />
-            <Route path="/scoped-styles" element={<ScopedStylesPage />} />
-            <Route path="/ai-tools" element={<AIToolsPage />} />
+            <Route path={routes.home} element={<HomePage />} />
+            <Route path={routes.why} element={<WhyPage />} />
+            <Route path={routes.how} element={<HowPage />} />
+            <Route path={routes.components} element={<ComponentModelPage />} />
+            <Route path={routes.layers} element={<LayersPage />} />
+            <Route path={routes.mixin} element={<MixinPage />} />
+            <Route path={routes.layoutUtils} element={<LayoutUtilsPage />} />
+            <Route path={routes.example} element={<ExamplePage />} />
+            <Route path={routes.theme} element={<ThemePage />} />
+            <Route path={routes.scopedStyles} element={<ScopedStylesPage />} />
+            <Route path={routes.aiTools} element={<AIToolsPage />} />
           </Routes>
         </Layout>
-      </HashRouter>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

@@ -1,18 +1,18 @@
 @layer components {
   .Section--root {
-    margin-block-end: var(--space-6);
+    --section-inline-padding: var(--space-4);
+    
+    padding-inline: var(--section-inline-padding);
+    padding-block: var(--space-6);
+    background-color: var(--section-background-color, var(--color-surface));
   }
 
-  .Section--root > p {
-    color: var(--color-text-muted);
-    line-height: var(--line-height-relaxed);
-    margin-block-end: var(--space-2);
+  .Section--content {
+    max-inline-size: var(--content-max-width);
+    margin-inline: auto;
   }
 
-  .Section--root > p:last-child {
-    margin-block-end: 0;
-  }
-
+  /* TODO - make a list component */
   .Section--root ul,
   .Section--root ol {
     color: var(--color-text-muted);
@@ -26,5 +26,11 @@
 
   .Section--root li::marker {
     color: var(--color-primary);
+  }
+
+  @media (max-width: 799px) {
+    .Section--root {
+      --section-inline-padding: var(--space-2);
+    }
   }
 }

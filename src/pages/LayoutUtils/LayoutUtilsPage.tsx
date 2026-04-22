@@ -93,7 +93,7 @@ export function LayoutUtilsPage() {
   return (
     <div className="LayoutUtilsPage--root">
       <Section>
-        <Text variant="h1">Layout Utilities</Text>
+        <Text variant="h1" bottomMargin>Layout Utilities</Text>
         <Text variant="body1" mixin={{ mb: 2 }}>
           Layout utilities provide quick, composable CSS classes for common layout patterns.
           They live in the <code>utils</code> layer and use class selectors for composable styling.
@@ -110,7 +110,7 @@ export function LayoutUtilsPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Flexbox</Text>
+        <Text variant="h2" bottomMargin>Flexbox</Text>
         <Text variant="body1" mixin={{ mb: 2 }}>
           Use <code>d-flex</code> as the base, then add modifiers for direction, wrapping, and alignment.
         </Text>
@@ -138,7 +138,7 @@ export function LayoutUtilsPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Grid & Columns</Text>
+        <Text variant="h2" bottomMargin>Grid & Columns</Text>
         <Text variant="body1" mixin={{ mb: 2 }}>
           Use <code>d-grid</code> for basic grid or <code>col-container</code> for predefined column layouts.
         </Text>
@@ -166,7 +166,7 @@ export function LayoutUtilsPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Alignment</Text>
+        <Text variant="h2" bottomMargin>Alignment</Text>
         <Text variant="body1" mixin={{ mb: 2 }}>
           Alignment classes work with both flex and grid layouts.
         </Text>
@@ -193,7 +193,7 @@ export function LayoutUtilsPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Gap</Text>
+        <Text variant="h2" bottomMargin>Gap</Text>
         <Text variant="body1" mixin={{ mb: 2 }}>
           Gap classes follow the spacing scale from <code>base.css</code>.
         </Text>
@@ -234,7 +234,7 @@ export function LayoutUtilsPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Combining with Mixin</Text>
+        <Text variant="h2" bottomMargin>Combining with Mixin</Text>
         <Text variant="body1" mixin={{ mb: 2 }}>
           Layout utilities handle <Strong>static structure</Strong>, while the mixin system handles 
           <Strong> dynamic and responsive</Strong> properties. They work together seamlessly.

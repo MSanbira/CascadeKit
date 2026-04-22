@@ -18,6 +18,8 @@ interface TextProps extends React.HTMLAttributes<HTMLElement> {
   alignText?: TextAlign;
   color?: TextColor;
   mixin?: MixinProps;
+  topMargin?: boolean;
+  bottomMargin?: boolean;
 }
 
 const defaultTagMap: Record<TextVariant, TextTag> = {
@@ -44,6 +46,8 @@ export function Text({
   alignText,
   color,
   mixin,
+  topMargin = false,
+  bottomMargin = false,
   ...props 
 }: TextProps) {
   const Tag = tag ?? defaultTagMap[variant];
@@ -62,6 +66,8 @@ export function Text({
         'Text--pretty': isPretty,
         [`Text--align-${alignText}`]: !!alignText,
         [`Text--color-${color}`]: !!color,
+        'Text--top-margin': topMargin,
+        'Text--bottom-margin': bottomMargin,
       })}
       style={{...mixinStyle, ...props.style}}
       {...props}

@@ -1,11 +1,6 @@
 @layer pages {
-  .HomePage--root > .Section--root {
-    margin-block-end: var(--space-10);
-  }
-
   .HomePage--tagline {
     max-inline-size: calc(var(--base-size) * 60);
-    margin-inline: auto;
   }
 
   .HomePage--pitch {
@@ -36,8 +31,7 @@
     font-size: var(--text-1_75);
   }
 
-  /* Feature sections — side-by-side text + visual */
-  .HomePage--feature {
+  .HomePage--feature .Section--content {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-4);
@@ -49,7 +43,7 @@
   }
 
   @media (min-width: 640px) {
-    .HomePage--feature {
+    .HomePage--feature .Section--content {
       grid-template-columns: 1fr 1fr;
     }
 
@@ -74,13 +68,13 @@
     inline-size: 100%;
   }
 
-  @media (min-width: 480px) {
+  @media (min-width: 640px) {
     .HomePage--why-grid {
       grid-template-columns: 1fr 1fr;
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 800px) {
     .HomePage--why-grid {
       grid-template-columns: 1fr 1fr 1fr;
     }

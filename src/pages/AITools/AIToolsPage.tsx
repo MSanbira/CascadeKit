@@ -52,7 +52,7 @@ export function AIToolsPage() {
   return (
     <div className="AIToolsPage--root">
       <Section>
-        <Text variant="h1">AI-Integrated Tools</Text>
+        <Text variant="h1" bottomMargin>AI-Integrated Tools</Text>
         <Text>
           CascadeKit is designed to work <Strong>with</Strong> AI coding assistants, not against them.
           Two packages help AI agents understand and follow CascadeKit conventions
@@ -61,7 +61,7 @@ export function AIToolsPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">The Two Packages</Text>
+        <Text variant="h2" bottomMargin>The Two Packages</Text>
         <Box className="d-flex dir-col gap-3" mixin={{ mt: 3 }}>
           <Card title="cascade-kit-tools" className="d-flex dir-col gap-2">
             <Text>
@@ -95,7 +95,7 @@ export function AIToolsPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">PROMPT_GUIDE.md</Text>
+        <Text variant="h2" bottomMargin>PROMPT_GUIDE.md</Text>
         <Text>
           The prompt guide is a detailed reference document that ships with <code>cascade-kit-tools</code>.
           It covers every CascadeKit convention: layered cascade, naming, tokens, component patterns,
@@ -116,7 +116,7 @@ export function AIToolsPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">MCP Server</Text>
+        <Text variant="h2" bottomMargin>MCP Server</Text>
         <Text>
           The MCP server takes AI integration a step further. Instead of the AI reading a static
           document, it gets <Strong>live access</Strong> to tools, documentation resources, and
@@ -174,7 +174,7 @@ export function AIToolsPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Prompt Guide vs MCP — When to Use Which</Text>
+        <Text variant="h2" bottomMargin>Prompt Guide vs MCP — When to Use Which</Text>
         <Box mixin={{ mt: 3 }}>
           <div className="AIToolsPage--comparison">
             <div className="AIToolsPage--comparison-header">
@@ -215,7 +215,7 @@ export function AIToolsPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Next Steps</Text>
+        <Text variant="h2" bottomMargin>Next Steps</Text>
         <Box className="d-flex gap-3 f-wrap" mixin={{ mt: 3 }}>
           <Link to="/components">
             <Button variant="secondary">Component Model →</Button>

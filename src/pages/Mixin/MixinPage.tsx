@@ -100,7 +100,7 @@ export function MixinPage() {
   return (
     <div className="MixinPage--root inline-container">
       <Section>
-        <Text variant="h1">Mixin System</Text>
+        <Text variant="h1" bottomMargin>Mixin System</Text>
         <Text variant="body1" mixin={{ mb: 2 }}>
           The mixin system provides a flexible way to apply spacing, layout, and
           responsive styles directly through component props.
@@ -123,7 +123,7 @@ export function MixinPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">How It Works</Text>
+        <Text variant="h2" bottomMargin>How It Works</Text>
         <Text variant="body1" mixin={{ mb: 2 }}>
           Components with mixin support accept a <code>mixin</code> prop. This prop
           is processed into CSS classes and custom properties that are applied to
@@ -137,7 +137,7 @@ export function MixinPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Available Properties</Text>
+        <Text variant="h2" bottomMargin>Available Properties</Text>
         <CodeBlock language="typescript">{mixinTypeExample}</CodeBlock>
 
         <Card mixin={{ mt: 4 }} title="Spacing Values">
@@ -151,7 +151,7 @@ export function MixinPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Basic Usage</Text>
+        <Text variant="h2" bottomMargin>Basic Usage</Text>
         <CodeBlock language="tsx">{basicUsageExample}</CodeBlock>
 
         <Box className="d-flex gap-4" mixin={{ mt: 4 }}>
@@ -172,7 +172,7 @@ export function MixinPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Responsive Breakpoints</Text>
+        <Text variant="h2" bottomMargin>Responsive Breakpoints</Text>
         <Text variant="body1" mixin={{ mb: 2 }}>
           Use <code>smallScreen</code>, <code>mediumScreen</code>, and <code>bigScreen</code> to
           apply different values at different viewport sizes.
@@ -181,13 +181,13 @@ export function MixinPage() {
 
         <Card mixin={{ mt: 4 }} title="Breakpoint Ranges">
           <Text variant="body2" mixin={{ mb: 1 }}><code>smallScreen</code>: max-width: 639px</Text>
-          <Text variant="body2" mixin={{ mb: 1 }}><code>mediumScreen</code>: 640px – 1023px</Text>
-          <Text variant="body2"><code>bigScreen</code>: min-width: 1024px</Text>
+          <Text variant="body2" mixin={{ mb: 1 }}><code>mediumScreen</code>: 640px – 799px</Text>
+          <Text variant="body2"><code>bigScreen</code>: min-width: 800px</Text>
         </Card>
       </Section>
 
       <Section>
-        <Text variant="h2">Mobile-First Cascade</Text>
+        <Text variant="h2" bottomMargin>Mobile-First Cascade</Text>
         <Text variant="body1" mixin={{ mb: 2 }}>
           The mixin system automatically cascades values from smaller to larger breakpoints.
           If you set a value for <code>smallScreen</code> but not <code>mediumScreen</code>,
@@ -197,7 +197,7 @@ export function MixinPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Container Queries</Text>
+        <Text variant="h2" bottomMargin>Container Queries</Text>
         <Text variant="body1" mixin={{ mb: 2 }}>
           Use <code>smallContainer</code>, <code>mediumContainer</code>, and <code>bigContainer</code> for
           styles based on the container size rather than viewport.
@@ -216,7 +216,7 @@ export function MixinPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Live Examples</Text>
+        <Text variant="h2" bottomMargin>Live Examples</Text>
 
         <Box className="d-grid gap-4" mixin={{ my: 4, smallContainer: { gridColTemplate: '1fr' }, mediumContainer: { gridColTemplate: '1fr 1fr' } }}>
           <div>

@@ -37,8 +37,8 @@ importers:
         specifier: ^6.0.1
         version: 6.0.1(vite@8.0.9(@types/node@24.12.2))
       cascade-kit-tools:
-        specifier: ^0.1.4
-        version: 0.1.4(react@19.2.5)
+        specifier: ^0.1.6
+        version: 0.1.6(react@19.2.5)
       eslint:
         specifier: ^9.39.4
         version: 9.39.4
@@ -503,8 +503,8 @@ packages:
   caniuse-lite@1.0.30001788:
     resolution: {integrity: sha512-6q8HFp+lOQtcf7wBK+uEenxymVWkGKkjFpCvw5W25cmMwEDU45p1xQFBQv8JDlMMry7eNxyBaR+qxgmTUZkIRQ==}
 
-  cascade-kit-tools@0.1.4:
-    resolution: {integrity: sha512-79rqugPLDU6AjOjh/zN85uAAshiOkwOEOa+mTES/WGEhErwQyYriWumJsRqJQpOHAGRk1G9cblpGfJlN20oisQ==}
+  cascade-kit-tools@0.1.6:
+    resolution: {integrity: sha512-Br/+xKf7N0G1lmdmIG5IPJLQK1QsOTgJx8FKp2ikltUNp0G+oM3duWkHaj/zByObAUtCO2J4mzCA8+L74GJ1fQ==}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
 
@@ -1644,7 +1644,7 @@ snapshots:
 
   caniuse-lite@1.0.30001788: {}
 
-  cascade-kit-tools@0.1.4(react@19.2.5):
+  cascade-kit-tools@0.1.6(react@19.2.5):
     dependencies:
       react: 19.2.5
 

@@ -113,7 +113,7 @@ export function ComponentModelPage() {
   return (
     <div className="ComponentModelPage--root">
       <Section>
-        <Text variant="h1">Component Model</Text>
+        <Text variant="h1" bottomMargin>Component Model</Text>
         <Text>
           CascadeKit components follow a simple pattern: each component owns
           its styles through co-located CSS files and consistent naming.
@@ -121,7 +121,7 @@ export function ComponentModelPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Folder Structure</Text>
+        <Text variant="h2" bottomMargin>Folder Structure</Text>
         <Text>
           Each component lives in its own folder with its TSX and CSS files:
         </Text>
@@ -135,7 +135,7 @@ export function ComponentModelPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">The Root Class Pattern</Text>
+        <Text variant="h2" bottomMargin>The Root Class Pattern</Text>
         <Text>
           Every component must have a root class: <code>.ComponentName--root</code>.
           This provides a reliable anchor for all component styles:
@@ -157,7 +157,7 @@ export function ComponentModelPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Complete Example</Text>
+        <Text variant="h2" bottomMargin>Complete Example</Text>
         <Text>
           Here's a complete Button component showing the full pattern:
         </Text>
@@ -170,7 +170,7 @@ export function ComponentModelPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Why This Pattern?</Text>
+        <Text variant="h2" bottomMargin>Why This Pattern?</Text>
         <Box className="d-grid" mixin={{ gap: 4, smallScreen: { gridColTemplate: '1fr' }, mediumScreen: { gridColTemplate: '1fr 1fr' } }}>
           <Card>
             <Text variant="h6" tag="h4" mixin={{ mb: 2 }}>🔍 Debuggable</Text>

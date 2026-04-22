@@ -7,8 +7,8 @@ import './WhyPage.css';
 export function WhyPage() {
   return (
     <div className="WhyPage--root">
-      <Section>
-        <Text variant="h1">Why CascadeKit?</Text>
+      <Section scopedStyle={{ '--section-background-color': 'var(--color-bg)' }}>
+        <Text variant="h1" bottomMargin>Why CascadeKit?</Text>
         <Text mixin={{ mb: 3 }}>
           In a world filled with code abstractions, frameworks, and packages, we tend to forget
           that web apps ultimately run on a browser that still works with native HTML, CSS, and JavaScript.
@@ -22,8 +22,8 @@ export function WhyPage() {
         </Text>
       </Section>
 
-      <Section>
-        <Text variant="h2">The Problem</Text>
+      <Section scopedStyle={{ '--section-background-color': 'var(--color-surface)' }}>
+        <Text variant="h2" bottomMargin>The Problem</Text>
         <Text>
           Most CSS approaches trade one problem for another:
         </Text>
@@ -35,8 +35,8 @@ export function WhyPage() {
         </ul>
       </Section>
 
-      <Section>
-        <Text variant="h2">The Solution</Text>
+      <Section scopedStyle={{ '--section-background-color': 'var(--color-bg)' }}>
+        <Text variant="h2" bottomMargin>The Solution</Text>
         <Text>
           CascadeKit solves these with native CSS features and clear conventions:
         </Text>
@@ -76,8 +76,8 @@ export function WhyPage() {
         </Box>
       </Section>
 
-      <Section>
-        <Text variant="h2">What You Get</Text>
+      <Section scopedStyle={{ '--section-background-color': 'var(--color-surface)' }}>
+        <Text variant="h2" bottomMargin>What You Get</Text>
         <Box className="d-grid" mixin={{gap: 4, smallScreen: {gridColTemplate: '1fr'}, bigScreen: {gridColTemplate: '1fr 1fr'}}}>
           <Card title="Benefits">
             <ul className="WhyPage--list WhyPage--list-positive">

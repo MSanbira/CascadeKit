@@ -73,7 +73,7 @@ export function HowPage() {
   return (
     <div className="HowPage--root">
       <Section>
-        <Text variant="h1">How It Works</Text>
+        <Text variant="h1" bottomMargin>How It Works</Text>
         <Text>
           CascadeKit works by combining three native CSS/JS features:
           import-based CSS loading, cascade layers, and naming conventions.
@@ -81,7 +81,7 @@ export function HowPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">AI-Integrated Tooling</Text>
+        <Text variant="h2" bottomMargin>AI-Integrated Tooling</Text>
         <Text>
           CascadeKit ships with tools that help AI coding assistants understand and follow these
           conventions automatically. A <Strong>PROMPT_GUIDE.md</Strong> teaches any AI the rules,
@@ -96,7 +96,7 @@ export function HowPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">1. Define Layer Order</Text>
+        <Text variant="h2" bottomMargin>1. Define Layer Order</Text>
         <Text>
           First, define the cascade layer order in a single file. This file 
           must be imported before any other CSS to establish the hierarchy:
@@ -116,7 +116,7 @@ export function HowPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">2. Import CSS in Components</Text>
+        <Text variant="h2" bottomMargin>2. Import CSS in Components</Text>
         <Text>
           Each component imports its own CSS file. Bundlers like Vite handle 
           this automatically — CSS loads when the component is used:
@@ -134,7 +134,7 @@ export function HowPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">3. Bootstrap in App Root</Text>
+        <Text variant="h2" bottomMargin>3. Bootstrap in App Root</Text>
         <Text>
           In your app entry point, import global styles first, then components:
         </Text>
@@ -147,7 +147,7 @@ export function HowPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">4. Use Global-but-Structured Classes</Text>
+        <Text variant="h2" bottomMargin>4. Use Global-but-Structured Classes</Text>
         <Text>
           Class names are global (no hashing), but structured by convention:
         </Text>
@@ -161,7 +161,7 @@ export function HowPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">How the Cascade Works</Text>
+        <Text variant="h2" bottomMargin>How the Cascade Works</Text>
         <Text>
           With <code>@layer</code>, specificity within a layer doesn't affect 
           styles in other layers. A simple selector in <code>@layer user-overrides</code> 
@@ -175,7 +175,7 @@ export function HowPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Why All Tools Must Respect Layers</Text>
+        <Text variant="h2" bottomMargin>Why All Tools Must Respect Layers</Text>
         <Text>
           The layering system only works when <Strong>all styling tools respect it</Strong>. 
           Any feature that applies styles — whether built-in props, mixins, or utilities — 

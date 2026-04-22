@@ -50,7 +50,13 @@
     border-block-start: 1px solid var(--color-border);
   }
 
-  @media (max-width: 640px) {
+  .Sidebar--list-non-docs {
+    padding-block-end: var(--space-2);
+    margin-block-end: var(--space-2);
+    border-block-end: 1px solid var(--color-border);
+  }
+
+  @media (max-width: 799px) {
     .Sidebar--root {
       position: fixed;
       inset-block-start: var(--navbar-height);
@@ -90,8 +96,14 @@
     color: var(--color-primary);
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: 799px) {
     .Sidebar--root:not(.Sidebar--open) + .Sidebar--overlay {
+      display: none;
+    }
+  }
+
+  @media (min-width: 800px) {
+    .Layout--root:not(.Layout--is-docs) .Sidebar--root {
       display: none;
     }
   }

@@ -5,6 +5,7 @@
     overflow: hidden;
     margin-block: var(--space-3);
     font-size: var(--text-1_75);
+    max-inline-size: calc(100dvw - var(--section-inline-padding, var(--space-4)) * 2);
   }
 
   .CodeBlock--root:last-child {

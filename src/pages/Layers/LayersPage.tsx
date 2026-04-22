@@ -100,7 +100,7 @@ export function LayersPage() {
   return (
     <div className="LayersPage--root">
       <Section>
-        <Text variant="h1">Layers Explained</Text>
+        <Text variant="h1" bottomMargin>Layers Explained</Text>
         <Text>
           CSS Cascade Layers (<code>@layer</code>) let you control which styles 
           win when there are conflicts — without resorting to specificity tricks 
@@ -109,7 +109,7 @@ export function LayersPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Layer Order</Text>
+        <Text variant="h2" bottomMargin>Layer Order</Text>
         <Text>
           CascadeKit uses six layers, ordered from lowest to highest priority:
         </Text>
@@ -117,11 +117,11 @@ export function LayersPage() {
           {layerDefinition}
         </CodeBlock>
         
-        <LayerStack mixin={{ my: 6 }} />
+        <LayerStack mixin={{ mt: 6 }} />
       </Section>
 
       <Section>
-        <Text variant="h2">Layer Purposes</Text>
+        <Text variant="h2" bottomMargin>Layer Purposes</Text>
         
         <Card className="LayersPage--card" title={<code>@layer base</code>}>
           <Text><Strong>Purpose:</Strong> CSS reset, design tokens, typography defaults</Text>
@@ -165,7 +165,7 @@ export function LayersPage() {
       </Section>
 
       <Section>
-        <Text variant="h2">Key Insight</Text>
+        <Text variant="h2" bottomMargin>Key Insight</Text>
         <Text>
           With layers, a <Strong>simple selector</Strong> in a higher layer always 
           beats a <Strong>complex selector</Strong> in a lower layer:
