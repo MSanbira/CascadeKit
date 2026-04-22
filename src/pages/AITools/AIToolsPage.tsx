@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import { Section } from '../../components/Section/Section';
+import { routes } from '../../constants/routes';
 import { CodeBlock } from '../../components/CodeBlock/CodeBlock';
 import { Text, Strong } from '../../components/Text/Text';
 import { Card } from '../../components/Card/Card';
@@ -217,12 +217,8 @@ export function AIToolsPage() {
       <Section>
         <Text variant="h2" bottomMargin>Next Steps</Text>
         <Box className="d-flex gap-3 f-wrap" mixin={{ mt: 3 }}>
-          <Link to="/components">
-            <Button variant="secondary">Component Model →</Button>
-          </Link>
-          <Link to="/example">
-            <Button variant="secondary">Live Example →</Button>
-          </Link>
+          <Button variant="secondary" href={routes.components}>Component Model →</Button>
+          <Button variant="secondary" href={routes.example}>Live Example →</Button>
         </Box>
       </Section>
     </div>

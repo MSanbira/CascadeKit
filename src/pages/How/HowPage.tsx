@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import { Section } from '../../components/Section/Section';
+import { routes } from '../../constants/routes';
 import { CodeBlock } from '../../components/CodeBlock/CodeBlock';
 import { Text, Strong } from '../../components/Text/Text';
 import { Button } from '../../components/Button/Button';
@@ -89,9 +89,7 @@ export function HowPage() {
           generation, token lookups, and documentation.
         </Text>
         <Box mixin={{ mt: 3 }}>
-          <Link to="/ai-tools">
-            <Button variant="secondary">Learn about AI tools →</Button>
-          </Link>
+          <Button variant="secondary" href={routes.aiTools}>Learn about AI tools →</Button>
         </Box>
       </Section>
 

@@ -3,7 +3,7 @@ import { GitHubIcon, MenuIcon } from '../Icons/Icons';
 import { classNames } from 'cascade-kit-tools/classNames';
 import { Button } from '../Button/Button';
 import { Text } from '../Text/Text';
-import { routes } from '../../constants/routes';
+import { routes, BasePath } from '../../constants/routes';
 import './Navbar.css';
 
 interface NavbarProps {
@@ -23,8 +23,8 @@ export function Navbar({ onMenuClick }: NavbarProps) {
         >
           <MenuIcon />
         </Button>
-        <Link to="/" className="d-flex ali-center gap-1">
-          <img src="/CascadeKitIcon.png" alt="" className="Navbar--logo" aria-hidden="true" />
+        <Link to={routes.home} className="d-flex ali-center gap-1">
+          <img src={`${BasePath}/CascadeKitIcon.png`} alt="" className="Navbar--logo" aria-hidden="true" />
           <Text variant='h5' tag='span'>CascadeKit</Text>
         </Link>
       </div>
