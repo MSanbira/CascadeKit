@@ -5,69 +5,17 @@ import { Text, Strong } from '../../components/Text/Text';
 import { Button } from '../../components/Button/Button';
 import { Box } from '../../components/Box/Box';
 import { LayerStack } from '../../components/LayerStack/LayerStack';
+import {
+  layerOrderCSS,
+  componentImportTSX,
+  componentCSS as howComponentCSS,
+  appImportTSX,
+  globalClassCSS,
+  classNamesHelper,
+  inlineStyleBad,
+  cssVarsGood,
+} from './howPageContent';
 import './HowPage.css';
-
-const layerOrderCSS = `/* layers.css - Import this FIRST */
-@layer base, utils, components, pages, component-overrides, user-overrides;`;
-
-const componentImportTSX = `// Button.tsx
-import './Button.css';  // CSS loads when component loads
-
-export function Button({ children }) {
-  return <button className="Button--root">{children}</button>;
-}`;
-
-const componentCSS = `/* Button.css */
-@layer components {
-  .Button--root {
-    background: var(--color-primary);
-    padding: var(--space-2) var(--space-4);
-  }
-}`;
-
-const appImportTSX = `// App.tsx
-import './styles/layers.css';  // Layer order (first!)
-import './styles/base.css';    // Resets, variables
-import './styles/utils.css';   // Utility classes
-
-// Component CSS loads automatically via imports
-import { Button } from './components/Button';
-import { Card } from './components/Card';`;
-
-const globalClassCSS = `/* Global but structured */
-.Button--root { }      /* Unique by convention */
-.Button--icon { }      /* Component-scoped */
-.Button--label { }     /* No hash needed */`;
-
-const classNamesHelper = `import { classNames } from 'cascade-kit-tools/classNames';
-
-// classNames auto-adds --root and joins classes
-<button className={classNames('Button--root', [\`Button--\${variant}\`, className])}>
-  {children}
-</button>
-
-// Output: "Button--root Button--primary custom-class"`;
-
-const inlineStyleBad = `/* ❌ Inline styles bypass the cascade */
-<Button style={{ margin: '16px' }}>
-  Click me
-</Button>
-
-/* user-overrides cannot override this! */
-@layer user-overrides {
-  .Button--root { margin: 0; }  /* ignored */
-}`;
-
-const cssVarsGood = `/* ✓ CSS vars preserve the cascade */
-<Button mixin={{ m: 2 }}>
-  Click me
-</Button>
-
-/* Generates: style="--mixin-margin: ..." */
-/* user-overrides CAN override this! */
-@layer user-overrides {
-  .Button--root { margin: 0; }  /* works! */
-}`;
 
 export function HowPage() {
   return (
@@ -123,7 +71,7 @@ export function HowPage() {
           {componentImportTSX}
         </CodeBlock>
         <CodeBlock language="css" filename="Button.css">
-          {componentCSS}
+          {howComponentCSS}
         </CodeBlock>
         <Text>
           When <code>Button</code> is imported, its CSS is added to the bundle. 

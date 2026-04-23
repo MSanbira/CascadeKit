@@ -6,6 +6,30 @@ import { Text, Strong } from '../../components/Text/Text';
 import { Box } from '../../components/Box/Box';
 import { Badge } from '../../components/Badge/Badge';
 import { CodeBlock } from '../../components/CodeBlock/CodeBlock';
+import {
+  buttonSectionDescription,
+  buttonPrinciples,
+  buttonVariantsCode,
+  buttonVariantsCss,
+  buttonSizesCode,
+  buttonDisabledCss,
+  userProfileDescription,
+  userProfilePrinciples,
+  notificationsDescription,
+  notificationsPrinciples,
+  pricingDescription,
+  pricingPrinciples,
+  pricingPlans,
+  contactFormDescription,
+  contactFormPrinciples,
+  statsDashboardDescription,
+  statsDashboardPrinciples,
+  statsData,
+  scopedStylesDescription,
+  scopedStylesPrinciples,
+  scopedStylesUsageCode,
+  scopedStylesExplanation,
+} from './examplePageContent';
 import './ExamplePage.css';
 
 export function ExamplePage() {
@@ -47,13 +71,10 @@ export function ExamplePage() {
 
       <Section>
         <Text variant="h2" bottomMargin>Button Component</Text>
-        <Text>The Button component demonstrates CascadeKit's variant and size system.</Text>
+        <Text>{buttonSectionDescription}</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <Text variant="body2" muted>
-            <Strong>CascadeKit principles:</Strong> The base class defines all behavior (hover, active, transitions) 
-            using CSS variables with sensible fallbacks. Variant classes only set variable values — 
-            they don't repeat property declarations. This keeps the code DRY and makes adding new variants simple. 
-            Size and state overrides live in a higher-priority layer to ensure they always win.
+            <Strong>CascadeKit principles:</Strong> {buttonPrinciples}
           </Text>
         </Card>
 
@@ -64,9 +85,7 @@ export function ExamplePage() {
             <Button variant="secondary">Secondary</Button>
             <Button variant="ghost">Ghost</Button>
           </Box>
-          <CodeBlock language="tsx" filename="Usage">{`<Button variant="primary">Primary</Button>
-<Button variant="secondary">Secondary</Button>
-<Button variant="ghost">Ghost</Button>`}</CodeBlock>
+          <CodeBlock language="tsx" filename="Usage">{buttonVariantsCode}</CodeBlock>
         </Box>
 
         <Box mixin={{ mt: 4 }}>
@@ -74,21 +93,7 @@ export function ExamplePage() {
           <Text variant="body2" muted mixin={{ mb: 2 }}>
             Base styles use variables with fallbacks. Variants only set variable values.
           </Text>
-          <CodeBlock language="css" filename="Button.css">{`.Button--root {
-  background: var(--button-bg-color, var(--color-bg));
-  color: var(--button-color, var(--color-text));
-  border: 1px solid var(--button-border-color, transparent);
-}
-
-.Button--root:hover {
-  background: var(--button-bg-color-hover, var(--button-bg-color));
-}
-
-.Button--primary {
-  --button-bg-color: var(--color-primary);
-  --button-color: var(--color-bg);
-  --button-bg-color-hover: var(--color-primary-hover);
-}`}</CodeBlock>
+          <CodeBlock language="css" filename="Button.css">{buttonVariantsCss}</CodeBlock>
         </Box>
 
         <Box mixin={{ mt: 4 }}>
@@ -98,9 +103,7 @@ export function ExamplePage() {
             <Button variant="primary" size="md">Medium</Button>
             <Button variant="primary" size="lg">Large</Button>
           </Box>
-          <CodeBlock language="tsx" filename="Usage">{`<Button variant="primary" size="sm">Small</Button>
-<Button variant="primary" size="md">Medium</Button>
-<Button variant="primary" size="lg">Large</Button>`}</CodeBlock>
+          <CodeBlock language="tsx" filename="Usage">{buttonSizesCode}</CodeBlock>
         </Box>
 
         <Box mixin={{ mt: 4 }}>
@@ -113,28 +116,16 @@ export function ExamplePage() {
           <Text variant="body2" muted mixin={{ mb: 2 }}>
             Disabled styles in <code>@layer component-overrides</code> reset hover/active states.
           </Text>
-          <CodeBlock language="css" filename="Button.css">{`@layer component-overrides {
-  .Button--root:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-
-    &:hover {
-      background: var(--button-bg-color, var(--color-bg));
-    }
-  }
-}`}</CodeBlock>
+          <CodeBlock language="css" filename="Button.css">{buttonDisabledCss}</CodeBlock>
         </Box>
       </Section>
 
       <Section>
         <Text variant="h2" bottomMargin>User Profile Card</Text>
-        <Text>A common pattern for displaying user information with actions.</Text>
+        <Text>{userProfileDescription}</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <Text variant="body2" muted>
-            <Strong>CascadeKit principles:</Strong> Component composition (Card + Badge + Button), 
-            utility classes for layout (<code>d-flex gap-4 ali-center</code>), 
-            responsive grid via mixin (<code>smallScreen</code>/<code>mediumScreen</code>), 
-            page-specific CSS for avatar styling.
+            <Strong>CascadeKit principles:</Strong> {userProfilePrinciples}
           </Text>
         </Card>
         <Box className="d-grid" mixin={{ gap: 4, mt: 4, smallScreen: { gridColTemplate: '1fr' }, mediumScreen: { gridColTemplate: '1fr 1fr' } }}>
@@ -178,13 +169,10 @@ export function ExamplePage() {
 
       <Section>
         <Text variant="h2" bottomMargin>Notifications</Text>
-        <Text>Dismissible alerts with different severity levels.</Text>
+        <Text>{notificationsDescription}</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <Text variant="body2" muted>
-            <Strong>CascadeKit principles:</Strong> BEM-style variant classes 
-            (<code>--notification-success</code>, <code>--notification-warning</code>), 
-            design tokens for colors (<code>var(--color-success)</code>), 
-            CSS <code>color-mix()</code> for computed backgrounds.
+            <Strong>CascadeKit principles:</Strong> {notificationsPrinciples}
           </Text>
         </Card>
 
@@ -212,22 +200,15 @@ export function ExamplePage() {
 
       <Section>
         <Text variant="h2" bottomMargin>Pricing Cards</Text>
-        <Text>Interactive pricing comparison with selection state.</Text>
+        <Text>{pricingDescription}</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <Text variant="body2" muted>
-            <Strong>CascadeKit principles:</Strong> Layer cascade for state overrides 
-            (<code>@layer pages</code> overrides <code>@layer components</code>), 
-            responsive breakpoints via mixin (<code>bigScreen: gridColTemplate</code>), 
-            dynamic className for selected state without runtime CSS.
+            <Strong>CascadeKit principles:</Strong> {pricingPrinciples}
           </Text>
         </Card>
 
         <Box className="d-grid" mixin={{ gap: 4, smallScreen: { gridColTemplate: '1fr' }, bigScreen: { gridColTemplate: '1fr 1fr 1fr' } }}>
-          {[
-            { id: 'starter' as const, name: 'Starter', price: '$9', features: ['5 Projects', '10GB Storage', 'Email Support'] },
-            { id: 'pro' as const, name: 'Pro', price: '$29', features: ['Unlimited Projects', '100GB Storage', 'Priority Support', 'Analytics'] },
-            { id: 'enterprise' as const, name: 'Enterprise', price: '$99', features: ['Everything in Pro', 'Dedicated Account', 'Custom Integrations', 'SLA'] },
-          ].map(plan => (
+          {pricingPlans.map(plan => (
             <Card 
               key={plan.id} 
               className={selectedPlan === plan.id ? 'ExamplePage--pricingCard-selected' : ''}
@@ -255,13 +236,10 @@ export function ExamplePage() {
 
       <Section>
         <Text variant="h2" bottomMargin>Contact Form</Text>
-        <Text>Form layout with validation states and responsive design.</Text>
+        <Text>{contactFormDescription}</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <Text variant="body2" muted>
-            <Strong>CascadeKit principles:</Strong> Page-specific form styles in <code>@layer pages</code>, 
-            focus states using design tokens (<code>var(--color-primary)</code>), 
-            utility classes for form layout (<code>d-flex dir-col gap-4</code>), 
-            no CSS-in-JS — pure native CSS transitions.
+            <Strong>CascadeKit principles:</Strong> {contactFormPrinciples}
           </Text>
         </Card>
 
@@ -297,23 +275,15 @@ export function ExamplePage() {
 
       <Section>
         <Text variant="h2" bottomMargin>Stats Dashboard</Text>
-        <Text>Data visualization cards with responsive grid layout.</Text>
+        <Text>{statsDashboardDescription}</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <Text variant="body2" muted>
-            <Strong>CascadeKit principles:</Strong> Component variants via props (<code>Card variant="subtle"</code>), 
-            conditional Badge variants for positive/negative states, 
-            4-column responsive grid demonstrating mixin breakpoints, 
-            all styling defined in component CSS — zero inline styles.
+            <Strong>CascadeKit principles:</Strong> {statsDashboardPrinciples}
           </Text>
         </Card>
 
         <Box className="d-grid" mixin={{ gap: 4, smallScreen: { gridColTemplate: '1fr 1fr' }, bigScreen: { gridColTemplate: '1fr 1fr 1fr 1fr' } }}>
-          {[
-            { label: 'Total Users', value: '12,345', change: '+12%', positive: true },
-            { label: 'Revenue', value: '$54,321', change: '+8%', positive: true },
-            { label: 'Orders', value: '1,234', change: '-3%', positive: false },
-            { label: 'Conversion', value: '3.2%', change: '+0.5%', positive: true },
-          ].map(stat => (
+          {statsData.map(stat => (
             <Card key={stat.label} variant="subtle">
               <Text variant="body2" muted>{stat.label}</Text>
               <Text variant="h3" mixin={{ my: 1 }}>{stat.value}</Text>
@@ -325,13 +295,10 @@ export function ExamplePage() {
 
       <Section>
         <Text variant="h2" bottomMargin>Scoped Styles</Text>
-        <Text>Override CSS custom properties and regular CSS properties per-component instance using CSS <code>@scope</code>.</Text>
+        <Text>{scopedStylesDescription}</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <Text variant="body2" muted>
-            <Strong>CascadeKit principles:</Strong> The <code>scopedStyle</code> prop accepts both CSS custom properties 
-            (design tokens like <code>--color-primary</code>) and regular CSS properties (<code>boxShadow</code>, <code>background</code>). 
-            It injects a scoped <code>&lt;style&gt;</code> element within <code>@layer component-overrides</code> — 
-            per-instance styling that respects the cascade without inline styles.
+            <Strong>CascadeKit principles:</Strong> {scopedStylesPrinciples}
           </Text>
         </Card>
 
@@ -408,25 +375,9 @@ export function ExamplePage() {
           </Card>
         </Box>
 
-        <CodeBlock language="tsx" filename="Usage" mixin={{ mt: 4 }}>{`<Card scopedStyle={{ 
-  '--color-primary': '#8b5cf6',
-  transition: 'transform 0.2s',
-  
-  '&:hover': {
-    transform: 'translateY(-4px)'
-  },
-  
-  '@media (prefers-color-scheme: dark)': {
-    '--color-primary': '#a78bfa',
-    '&:hover': {
-      boxShadow: '0 0 30px rgba(167, 139, 250, 0.5)'
-    }
-  }
-}}>
-  <Button variant="primary">Action</Button>
-</Card>`}</CodeBlock>
+        <CodeBlock language="tsx" filename="Usage" mixin={{ mt: 4 }}>{scopedStylesUsageCode}</CodeBlock>
         <Text variant="body2" muted mixin={{ mt: 2 }}>
-          Object values are nested CSS rules — use <code>&</code> for pseudo-selectors, nest infinitely.
+          {scopedStylesExplanation}
         </Text>
       </Section>
 
