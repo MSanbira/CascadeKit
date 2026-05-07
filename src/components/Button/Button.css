@@ -46,12 +46,20 @@
     --button-bg-color-hover: var(--color-bg-muted);
   }
 
-  .Button--outline {
+  .Button--outline-light {
     --button-bg-color: transparent;
     --button-color: var(--color-text-lightest);
     --button-bg-color-hover: var(--color-text-lightest);
     --button-border-color: var(--color-text-lightest);
     --button-color-hover: var(--color-text);
+  }
+
+  .Button--outline {
+    --button-bg-color: transparent;
+    --button-color: var(--color-card-dark);
+    --button-bg-color-hover: var(--color-card-dark);
+    --button-border-color: var(--color-card-dark);
+    --button-color-hover: var(--color-text-lightest);
   }
 }
 

@@ -16,6 +16,7 @@ import {
 import './HomePage.css';
 import { routes } from '../../constants/routes';
 import { MainIcon } from '../../components/Icons/Icons';
+import { HomePageWhySection } from './HomePageWhySection';
 
 export function HomePage() {
   return (
@@ -74,7 +75,7 @@ export function HomePage() {
               Six ordered layers replace specificity wars. Components always override base styles,
               pages override components, and user overrides always win predictably.
             </Text>
-            <Button href={routes.layers} variant="outline" mixin={{ mt: 4 }}>Layers explained →</Button>
+            <Button href={routes.layers} variant="outline-light" mixin={{ mt: 4 }}>Layers explained →</Button>
           </div>
           <LayerStack className="HomePage--feature-visual" />
         </div>
@@ -176,38 +177,7 @@ export function HomePage() {
         </div>
       </Section>
 
-      <Section scopedStyle={{ '--section-background': 'var(--color-surface)' }}>
-        <Text variant="h2" alignText="center" mixin={{ mb: 4 }}>Why CascadeKit?</Text>
-        <Box className="d-flex ali-center dir-col">
-          <Box className="d-grid gap-4 HomePage--why-grid">
-            <div className="HomePage--why-item">
-              <Strong>Zero Runtime</Strong>
-              <Text variant="body2" muted>Native CSS only — no JS overhead</Text>
-            </div>
-            <div className="HomePage--why-item">
-              <Strong>Predictable Cascade</Strong>
-              <Text variant="body2" muted>Layers define who wins, always</Text>
-            </div>
-            <div className="HomePage--why-item">
-              <Strong>Debuggable</Strong>
-              <Text variant="body2" muted>Real class names in DevTools</Text>
-            </div>
-            <div className="HomePage--why-item">
-              <Strong>Tree-shakeable</Strong>
-              <Text variant="body2" muted>Unused CSS never ships</Text>
-            </div>
-            <div className="HomePage--why-item">
-              <Strong>SSR-friendly</Strong>
-              <Text variant="body2" muted>No hydration issues</Text>
-            </div>
-            <div className="HomePage--why-item">
-              <Strong>Future-proof</Strong>
-              <Text variant="body2" muted>Native features browsers already support</Text>
-            </div>
-          </Box>
-          <Button variant="secondary" href={routes.why} mixin={{ mt: 6 }}>Learn more about the philosophy →</Button>
-        </Box>
-      </Section>
+      <HomePageWhySection />
     </div>
   );
 }

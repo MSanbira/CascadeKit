@@ -1,0 +1,103 @@
+@layer pages {
+    .HomePageWhySection--root {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        background-color: var(--color-bg-surface);
+    }
+
+    .HomePageWhySection--row {
+        display: grid;
+        gap: var(--space-2);
+    }
+
+    .HomePageWhySection--row>div {
+        padding: var(--space-2);
+        background: var(--color-primary);
+        border-radius: var(--radius-md);
+        min-block-size: 100px;
+
+        &:first-child {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        &:last-child {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
+
+    .HomePageWhySection--row:nth-child(1) {
+        grid-template-columns: 1fr 5fr 3fr 1fr;
+    }
+
+    .HomePageWhySection--row:nth-child(2) {
+        grid-template-columns: 7fr 4fr 5fr 1fr;
+    }
+
+    .HomePageWhySection--row:nth-child(3) {
+        grid-template-columns: 3fr 1fr 3fr 1fr 3fr 2fr;
+    }
+
+    .HomePageWhySection--row:nth-child(4) {
+        grid-template-columns: 1fr 5fr 4fr 4fr 1fr;
+    }
+
+    .HomePageWhySection--row:nth-child(5) {
+        grid-template-columns: 1fr 1fr 7fr 3fr;
+    }
+
+    .HomePageWhySection--row .HomePageWhySection--title-block {
+        display: flex;
+        align-items: center;
+        background-color: var(--color-card-light);
+    }
+
+    .HomePageWhySection--row .HomePageWhySection--button-block {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--color-card-light);
+    }
+
+    @media (max-width: 800px) {
+        .HomePageWhySection--row > .hide-on-small-screens + div,
+        .HomePageWhySection--row > .HomePageWhySection--title-block + div,
+        .HomePageWhySection--row > .HomePageWhySection--button-block + div {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .HomePageWhySection--row > .HomePageWhySection--title-block,
+        .HomePageWhySection--row > .HomePageWhySection--button-block,
+        .HomePageWhySection--row >  div:has( + .hide-on-small-screens) {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .HomePageWhySection--row:nth-child(2) {
+            grid-template-columns: 1fr 1fr;
+
+            & .HomePageWhySection--title-block {
+                grid-column: 1 / -1;
+                justify-content: center;
+            }
+        }
+
+        .HomePageWhySection--row:nth-child(3) {
+            grid-template-columns: 2fr 1fr 2fr;
+        }
+
+        .HomePageWhySection--row:nth-child(4) {
+            grid-template-columns: 1fr 1fr;
+            & > div {
+                grid-row: 1 / 2;
+            }
+            & .HomePageWhySection--button-block {
+                grid-column: 1 / -1;
+                grid-row: 2 / 3;
+            }
+        }
+    }
+}

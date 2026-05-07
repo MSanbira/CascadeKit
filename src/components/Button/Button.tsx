@@ -3,7 +3,7 @@ import { getMixin, type MixinProps } from 'cascade-kit-tools/mixin';
 import { ScopedStyle, type ScopedStylesObj, type LayerOptions } from 'cascade-kit-tools/scopedStyle';
 import './Button.css';
 
-type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'outline';
+type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'outline-light' | 'outline';
 type ButtonSize = 'sm' | 'md' | 'lg';
 
 interface ButtonBaseProps {

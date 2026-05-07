@@ -10,6 +10,7 @@
     --color-border: var(--dark-cream);
     --color-border-subtle: var(--dark-cream-2);
     --color-card-dark: var(--dark-blue-2);
+    --color-card-light: var(--light-blue-3);
     
     --color-text: var(--black);
     --color-text-muted: var(--dark-cream-3);
