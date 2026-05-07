@@ -1,7 +1,7 @@
 export const BasePath = '/CascadeKit'; 
 
 export const BaseRouts = {
-    home: '/',
+    home: '/home',
     why: '/why',
     how: '/how',
     components: '/components',
@@ -15,17 +15,17 @@ export const BaseRouts = {
 }
 
 export const routes = {
-    home: BasePath + '/',
-    why: BasePath + '/why',
-    how: BasePath + '/how',
-    components: BasePath + '/components',
-    layers: BasePath + '/layers',
-    mixin: BasePath + '/mixin',
-    layoutUtils: BasePath + '/layout-utils',
-    example: BasePath + '/example',
-    theme: BasePath + '/theme',
-    scopedStyles: BasePath + '/scoped-styles',
-    aiTools: BasePath + '/ai-tools',
+    home: BasePath + BaseRouts.home,
+    why: BasePath + BaseRouts.why,
+    how: BasePath + BaseRouts.how,
+    components: BasePath + BaseRouts.components,
+    layers: BasePath + BaseRouts.layers,
+    mixin: BasePath + BaseRouts.mixin,
+    layoutUtils: BasePath + BaseRouts.layoutUtils,
+    example: BasePath + BaseRouts.example,
+    theme: BasePath + BaseRouts.theme,
+    scopedStyles: BasePath + BaseRouts.scopedStyles,
+    aiTools: BasePath + BaseRouts.aiTools,
 };
 
 export const nonDocsRoutes = [

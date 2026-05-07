@@ -26,9 +26,7 @@ export function Section({
       style={mixinStyle}
     >
       <ScopedStyle style={scopedStyle} layer={scopedLayer} />
-      <div className="Section--content">
-        {children}
-      </div>
+      {children}
     </section>
   );
 }

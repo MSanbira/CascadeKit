@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 
 import './styles/layers.css';
+import './styles/colors.css';
 import './styles/base.css';
 import './styles/reset.css';
 import './styles/utils.css';
@@ -42,6 +43,7 @@ function App() {
             <Route path={routes.theme} element={<ThemePage />} />
             <Route path={routes.scopedStyles} element={<ScopedStylesPage />} />
             <Route path={routes.aiTools} element={<AIToolsPage />} />
+            <Route path="*" element={<HomePage />} />
           </Routes>
         </Layout>
       </BrowserRouter>

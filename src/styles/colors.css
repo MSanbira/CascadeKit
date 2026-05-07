@@ -1,0 +1,22 @@
+@layer base {
+    :root {
+        --white: #ffffff;
+        --black: #000000;
+
+        --light-cream: #fefbf5;
+        --light-cream-2: #FFF0CA;
+        --medium-cream: #FFDC9A;
+        --dark-cream: #B8AC88;
+        --dark-cream-2: #b2ac90;
+        --dark-cream-3: #acae96;
+        --dark-cream-4: #837857;
+
+        --medium-yellow: #ffdc9a;
+
+        --light-blue: #B0CBE1;
+        --medium-blue: #7A95A9;
+        --dark-blue: #486275;
+
+        --dotted-gradient-cream: radial-gradient(circle, var(--medium-cream) 1px, var(--light-cream) 0) 50% 50% / 16px 16px;
+    }
+}

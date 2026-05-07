@@ -2,7 +2,7 @@ import { classNames } from 'cascade-kit-tools/classNames';
 import { getMixin, type MixinProps } from 'cascade-kit-tools/mixin';
 import './Text.css';
 
-type TextVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'body1' | 'body2' | 'inline';
+type TextVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'body1' | 'body2' | 'inline' | 'main-header';
 type TextTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'small' | 'label' | 'a' | 'strong' | 'em' | 'code' | 'li';
 type TextAlign = 'left' | 'center' | 'right';
 type TextColor = 'primary' | 'secondary' | 'success' | 'warning' | 'error';
@@ -32,6 +32,7 @@ const defaultTagMap: Record<TextVariant, TextTag> = {
   body1: 'p',
   body2: 'p',
   inline: 'span',
+  'main-header': 'h1',
 };
 
 export function Text({ 

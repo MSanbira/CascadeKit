@@ -1,0 +1,70 @@
+@layer components {
+  .NavButton--root {
+    --icon-border-color: var(--dark-cream);
+    --icon-background-color: var(--light-cream-2);
+    --text-color: var(--dark-cream-4);
+
+    all: unset;
+    font-size: var(--text-2);
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    color: var(--text-color);
+    cursor: pointer;
+  }
+
+  .NavButton--selected,
+  .NavButton--root:active {
+    --icon-border-color: var(--medium-blue);
+    --icon-background-color: var(--light-blue);
+    --text-color: var(--dark-blue);
+  }
+
+  .NavButton--icon {
+    --border-size: round(0.0625em, 1px);
+    --s: round(0.2em, 1px);
+
+    display: inline-block;
+    position: relative;
+    rotate: 45deg;
+  }
+
+  .NavButton--icon,
+  .NavButton--icon:after,
+  .NavButton--icon:before {
+    height: 0.75em;
+    width: 0.75em;
+    border: var(--border-size) solid var(--icon-border-color);
+    border-radius: round(0.125em, 1px);
+    background: var(--icon-background-color);
+    transition: 300ms;
+  }
+
+  .NavButton--icon:after,
+  .NavButton--icon:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: calc(var(--border-size) * -1);
+    left: calc(var(--border-size) * -1);
+    opacity: 0;
+    z-index: 1;
+  }
+
+  .NavButton--root:hover .NavButton--icon {
+    rotate: 0deg;
+    translate: calc(var(--s) * -1) calc(var(--s) * -1);
+  }
+
+  .NavButton--root:hover .NavButton--icon:before {
+    top: calc(var(--border-size) * -1 + var(--s));
+    left: calc(var(--border-size) * -1 + var(--s));
+    opacity: 1;
+  }
+
+  .NavButton--root:hover .NavButton--icon:after {
+    top: calc(var(--border-size) * -1 + var(--s) * 2);
+    left: calc(var(--border-size) * -1 + var(--s) * 2);
+    opacity: 1;
+  }
+}

@@ -7,7 +7,7 @@ import './WhyPage.css';
 export function WhyPage() {
   return (
     <div className="WhyPage--root">
-      <Section scopedStyle={{ '--section-background-color': 'var(--color-bg)' }}>
+      <Section scopedStyle={{ '--section-background': 'var(--color-bg)' }}>
         <Text variant="h1" bottomMargin>Why CascadeKit?</Text>
         <Text mixin={{ mb: 3 }}>
           In a world filled with code abstractions, frameworks, and packages, we tend to forget
@@ -22,7 +22,7 @@ export function WhyPage() {
         </Text>
       </Section>
 
-      <Section scopedStyle={{ '--section-background-color': 'var(--color-surface)' }}>
+      <Section scopedStyle={{ '--section-background': 'var(--color-surface)' }}>
         <Text variant="h2" bottomMargin>The Problem</Text>
         <Text>
           Most CSS approaches trade one problem for another:
@@ -35,7 +35,7 @@ export function WhyPage() {
         </ul>
       </Section>
 
-      <Section scopedStyle={{ '--section-background-color': 'var(--color-bg)' }}>
+      <Section scopedStyle={{ '--section-background': 'var(--color-bg)' }}>
         <Text variant="h2" bottomMargin>The Solution</Text>
         <Text>
           CascadeKit solves these with native CSS features and clear conventions:
@@ -76,7 +76,7 @@ export function WhyPage() {
         </Box>
       </Section>
 
-      <Section scopedStyle={{ '--section-background-color': 'var(--color-surface)' }}>
+      <Section scopedStyle={{ '--section-background': 'var(--color-surface)' }}>
         <Text variant="h2" bottomMargin>What You Get</Text>
         <Box className="d-grid" mixin={{gap: 4, smallScreen: {gridColTemplate: '1fr'}, bigScreen: {gridColTemplate: '1fr 1fr'}}}>
           <Card title="Benefits">

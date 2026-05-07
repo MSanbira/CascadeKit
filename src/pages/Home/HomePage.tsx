@@ -15,15 +15,19 @@ import {
 } from './homePageCodeExamples';
 import './HomePage.css';
 import { routes } from '../../constants/routes';
+import { MainIcon } from '../../components/Icons/Icons';
 
 export function HomePage() {
   return (
     <div className="HomePage--root">
-      <Section className="d-flex ali-center dir-col" scopedStyle={{ '--section-background-color': 'var(--color-bg)' }}>
-        <Text variant="h1" alignText="center" bottomMargin>
+      <Section className="d-flex ali-center dir-col HomePage--dotted-bg">
+        <Box className="d-flex jc-center">
+          <MainIcon/>
+        </Box>
+        <Text variant="h3" tag="h1" alignText="center">
           CascadeKit
         </Text>
-        <Text variant="h2" alignText="center">
+        <Text variant="main-header" tag="h2" alignText="center" className='Section--full-width'>
           CSS, without the fight.
         </Text>
         <Box className="d-flex gap-4 jc-center f-wrap" mixin={{ my: 6 }}>
@@ -36,7 +40,7 @@ export function HomePage() {
         </Text>
       </Section>
 
-      <Section scopedStyle={{ '--section-background-color': 'var(--color-surface)' }}>
+      <Section scopedStyle={{ '--section-background': 'var(--color-surface)' }}>
         <Text variant="h2" alignText="center" mixin={{ mb: 4 }}>Core Principles</Text>
         <Box className="d-flex dir-col gap-3">
           <HomePagePrinciple
@@ -67,105 +71,119 @@ export function HomePage() {
         </Box>
       </Section>
 
-      <Section className="HomePage--feature HomePage--feature-stacked" scopedStyle={{ '--section-background-color': 'var(--color-bg)' }}>
-        <div className="HomePage--feature-text">
-          <Text variant="h3" mixin={{ mb: 2 }}>Cascade Layers</Text>
-          <Text muted>
-            Six ordered layers replace specificity wars. Components always override base styles,
-            pages override components, and user overrides always win — predictably.
-          </Text>
-          <Button variant="secondary" size="sm" href={routes.layers} className="HomePage--feature-link">Layers explained →</Button>
-        </div>
-        <div className="HomePage--feature-visual">
-          <LayerStack />
-        </div>
-      </Section>
-
-      <Section className="HomePage--feature HomePage--feature-reverse" scopedStyle={{ '--section-background-color': 'var(--color-surface)' }}>
-        <div className="HomePage--feature-text">
-          <Text variant="h3" mixin={{ mb: 2 }}>Component Model</Text>
-          <Text muted>
-            Each component owns its styles in a co-located CSS file. Tree-shaking means
-            unused components = unused CSS. Delete a folder, delete everything.
-          </Text>
-          <Button variant="secondary" size="sm" href={routes.components} className="HomePage--feature-link">Component model →</Button>
-        </div>
-        <div className="HomePage--feature-visual">
-          <CodeBlock language="text">{componentModelExample}</CodeBlock>
+      <Section scopedStyle={{ '--section-background': 'var(--color-bg)' }}>
+        <div className='HomePage--feature'>
+          <div className="HomePage--feature-text">
+            <Text variant="h3" mixin={{ mb: 2 }}>Cascade Layers</Text>
+            <Text muted>
+              Six ordered layers replace specificity wars. Components always override base styles,
+              pages override components, and user overrides always win — predictably.
+            </Text>
+            <Button variant="secondary" size="sm" href={routes.layers} className="HomePage--feature-link">Layers explained →</Button>
+          </div>
+          <div className="HomePage--feature-visual">
+            <LayerStack />
+          </div>
         </div>
       </Section>
 
-      <Section className="HomePage--feature" scopedStyle={{ '--section-background-color': 'var(--color-bg)' }}>
-        <div className="HomePage--feature-text">
-          <Text variant="h3" mixin={{ mb: 2 }}>Layout Utilities</Text>
-          <Text muted>
-            Composable utility classes for flex, grid, alignment, and gaps —
-            all in the <code>utils</code> layer with low specificity via <code>:where()</code>.
-          </Text>
-          <Button variant="secondary" size="sm" href={routes.layoutUtils} className="HomePage--feature-link">Layout utilities →</Button>
-        </div>
-        <div className="HomePage--feature-visual">
-          <CodeBlock language="tsx">{layoutUtilsExample}</CodeBlock>
-        </div>
-      </Section>
-
-      <Section className="HomePage--feature HomePage--feature-reverse" scopedStyle={{ '--section-background-color': 'var(--color-surface)' }}>
-        <div className="HomePage--feature-text">
-          <Text variant="h3" mixin={{ mb: 2 }}>Mixin System</Text>
-          <Text muted>
-            Responsive, per-component spacing and layout — without inline styles.
-            Mixins generate classes in the <code>component-overrides</code> layer.
-          </Text>
-          <Button variant="secondary" size="sm" href={routes.mixin} className="HomePage--feature-link">Mixin system →</Button>
-        </div>
-        <div className="HomePage--feature-visual">
-          <CodeBlock language="tsx">{mixinExample}</CodeBlock>
+      <Section scopedStyle={{ '--section-background': 'var(--color-surface)' }}>
+        <div className='HomePage--feature HomePage--feature-reverse'>
+          <div className="HomePage--feature-text">
+            <Text variant="h3" mixin={{ mb: 2 }}>Component Model</Text>
+            <Text muted>
+              Each component owns its styles in a co-located CSS file. Tree-shaking means
+              unused components = unused CSS. Delete a folder, delete everything.
+            </Text>
+            <Button variant="secondary" size="sm" href={routes.components} className="HomePage--feature-link">Component model →</Button>
+          </div>
+          <div className="HomePage--feature-visual">
+            <CodeBlock language="text">{componentModelExample}</CodeBlock>
+          </div>
         </div>
       </Section>
 
-      <Section className="HomePage--feature" scopedStyle={{ '--section-background-color': 'var(--color-bg)' }}>
-        <div className="HomePage--feature-text">
-          <Text variant="h3" mixin={{ mb: 2 }}>Theming</Text>
-          <Text muted>
-            Swap design tokens globally via <code>data-theme</code> attributes.
-            Themes live in the <code>user-overrides</code> layer — they always win.
-          </Text>
-          <Button variant="secondary" size="sm" href={routes.theme} className="HomePage--feature-link">Theming →</Button>
-        </div>
-        <div className="HomePage--feature-visual">
-          <CodeBlock language="css">{themingExample}</CodeBlock>
-        </div>
-      </Section>
-
-      <Section className="HomePage--feature HomePage--feature-reverse" scopedStyle={{ '--section-background-color': 'var(--color-surface)' }}>
-        <div className="HomePage--feature-text">
-          <Text variant="h3" mixin={{ mb: 2 }}>Scoped Styles</Text>
-          <Text muted>
-            Per-instance overrides using native CSS <code>@scope</code>.
-            Dynamic values stay in the cascade — never inline.
-          </Text>
-          <Button variant="secondary" size="sm" href={routes.scopedStyles} className="HomePage--feature-link">Scoped styles →</Button>
-        </div>
-        <div className="HomePage--feature-visual">
-          <CodeBlock language="tsx">{scopedStylesExample}</CodeBlock>
+      <Section scopedStyle={{ '--section-background': 'var(--color-bg)' }}>
+        <div className='HomePage--feature'>
+          <div className="HomePage--feature-text">
+            <Text variant="h3" mixin={{ mb: 2 }}>Layout Utilities</Text>
+            <Text muted>
+              Composable utility classes for flex, grid, alignment, and gaps —
+              all in the <code>utils</code> layer with low specificity via <code>:where()</code>.
+            </Text>
+            <Button variant="secondary" size="sm" href={routes.layoutUtils} className="HomePage--feature-link">Layout utilities →</Button>
+          </div>
+          <div className="HomePage--feature-visual">
+            <CodeBlock language="tsx">{layoutUtilsExample}</CodeBlock>
+          </div>
         </div>
       </Section>
 
-      <Section className="HomePage--feature" scopedStyle={{ '--section-background-color': 'var(--color-bg)' }}>
-        <div className="HomePage--feature-text">
-          <Text variant="h3" mixin={{ mb: 2 }}>AI-Integrated Tooling</Text>
-          <Text muted>
-            An MCP server and prompt guide teach AI assistants the CascadeKit conventions.
-            Generate components, look up tokens, and follow the architecture automatically.
-          </Text>
-          <Button variant="secondary" size="sm" href={routes.aiTools} className="HomePage--feature-link">AI tools →</Button>
-        </div>
-        <div className="HomePage--feature-visual">
-          <CodeBlock language="json">{aiToolsExample}</CodeBlock>
+      <Section scopedStyle={{ '--section-background': 'var(--color-surface)' }}>
+        <div className='HomePage--feature HomePage--feature-reverse'>
+          <div className="HomePage--feature-text">
+            <Text variant="h3" mixin={{ mb: 2 }}>Mixin System</Text>
+            <Text muted>
+              Responsive, per-component spacing and layout — without inline styles.
+              Mixins generate classes in the <code>component-overrides</code> layer.
+            </Text>
+            <Button variant="secondary" size="sm" href={routes.mixin} className="HomePage--feature-link">Mixin system →</Button>
+          </div>
+          <div className="HomePage--feature-visual">
+            <CodeBlock language="tsx">{mixinExample}</CodeBlock>
+          </div>
         </div>
       </Section>
 
-      <Section scopedStyle={{ '--section-background-color': 'var(--color-surface)' }}>
+      <Section scopedStyle={{ '--section-background': 'var(--color-bg)' }}>
+        <div className='HomePage--feature'>
+          <div className="HomePage--feature-text">
+            <Text variant="h3" mixin={{ mb: 2 }}>Theming</Text>
+            <Text muted>
+              Swap design tokens globally via <code>data-theme</code> attributes.
+              Themes live in the <code>user-overrides</code> layer — they always win.
+            </Text>
+            <Button variant="secondary" size="sm" href={routes.theme} className="HomePage--feature-link">Theming →</Button>
+          </div>
+          <div className="HomePage--feature-visual">
+            <CodeBlock language="css">{themingExample}</CodeBlock>
+          </div>
+        </div>
+      </Section>
+
+      <Section scopedStyle={{ '--section-background': 'var(--color-surface)' }}>
+        <div className='HomePage--feature HomePage--feature-reverse'>
+          <div className="HomePage--feature-text">
+            <Text variant="h3" mixin={{ mb: 2 }}>Scoped Styles</Text>
+            <Text muted>
+              Per-instance overrides using native CSS <code>@scope</code>.
+              Dynamic values stay in the cascade — never inline.
+            </Text>
+            <Button variant="secondary" size="sm" href={routes.scopedStyles} className="HomePage--feature-link">Scoped styles →</Button>
+          </div>
+          <div className="HomePage--feature-visual">
+            <CodeBlock language="tsx">{scopedStylesExample}</CodeBlock>
+          </div>
+        </div>
+      </Section>
+
+      <Section scopedStyle={{ '--section-background': 'var(--color-bg)' }}>
+        <div className='HomePage--feature'>
+          <div className="HomePage--feature-text">
+            <Text variant="h3" mixin={{ mb: 2 }}>AI-Integrated Tooling</Text>
+            <Text muted>
+              An MCP server and prompt guide teach AI assistants the CascadeKit conventions.
+              Generate components, look up tokens, and follow the architecture automatically.
+            </Text>
+            <Button variant="secondary" size="sm" href={routes.aiTools} className="HomePage--feature-link">AI tools →</Button>
+          </div>
+          <div className="HomePage--feature-visual">
+            <CodeBlock language="json">{aiToolsExample}</CodeBlock>
+          </div>
+        </div>
+      </Section>
+
+      <Section scopedStyle={{ '--section-background': 'var(--color-surface)' }}>
         <Text variant="h2" alignText="center" mixin={{ mb: 4 }}>Why CascadeKit?</Text>
         <Box className="d-flex ali-center dir-col">
           <Box className="d-grid gap-4 HomePage--why-grid">

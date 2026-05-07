@@ -49,6 +49,11 @@
     font-size: inherit;
     font-weight: inherit;
   }
+  
+  .Text--variant-main-header {
+    font-size: var(--text-10);
+    font-weight: var(--font-weight-bold);
+  }
 
   .Text--color-primary {
     color: var(--color-primary);

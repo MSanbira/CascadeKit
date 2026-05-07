@@ -3,4 +3,9 @@
     width: var(--text-2_5);
     height: var(--text-2_5);
   }
+
+  .Icon--main {
+    width: 107px;
+    height: 75px;
+  }
 }

@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
 import { GitHubIcon, MenuIcon } from '../Icons/Icons';
 import { classNames } from 'cascade-kit-tools/classNames';
 import { Button } from '../Button/Button';
 import { Text } from '../Text/Text';
 import { routes, BasePath } from '../../constants/routes';
+import { NavButton } from '../NavButton/NavButton';
 import './Navbar.css';
 
 interface NavbarProps {
@@ -23,16 +23,16 @@ export function Navbar({ onMenuClick }: NavbarProps) {
         >
           <MenuIcon />
         </Button>
-        <Link to={routes.home} className="d-flex ali-center gap-1">
+        <div className="d-flex ali-center gap-1">
           <img src={`${BasePath}/CascadeKitIcon.png`} alt="" className="Navbar--logo" aria-hidden="true" />
           <Text variant='h5' tag='span'>CascadeKit</Text>
-        </Link>
+        </div>
       </div>
-      <div className='hide-on-small-screens d-flex ali-center gap-2'>
-        <Button variant='ghost' href={routes.home}>Home</Button>
-        <Button variant='ghost' href={routes.why}>Why</Button>
-        <Button variant='ghost' href={routes.aiTools}>CascadeKit for agents</Button>
-        <Button variant='ghost' href={routes.how}>Documentation</Button>
+      <div className='hide-on-small-screens d-flex ali-center gap-3'>
+        <NavButton href={routes.home}>Home</NavButton>
+        <NavButton href={routes.why}>Why</NavButton>
+        <NavButton href={routes.aiTools}>CascadeKit for agents</NavButton>
+        <NavButton href={routes.how}>Documentation</NavButton>
       </div>
       <div className='Navbar--right-section'>
         <Button

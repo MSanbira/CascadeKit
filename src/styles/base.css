@@ -1,19 +1,19 @@
 @layer base {
   :root {
     /* Colors */
-    --color-bg: #ffffff;
-    --color-bg-subtle: #f8f9fa;
-    --color-bg-muted: #e9ecef;
-    --color-surface: #ffffff;
-    --color-border: #dee2e6;
-    --color-border-subtle: #e9ecef;
+    --color-bg: var(--white);
+    --color-bg-subtle: var(--light-cream);
+    --color-bg-muted: var(--medium-cream);
+    --color-surface: var(--white);
+    --color-border: var(--dark-cream);
+    --color-border-subtle: var(--dark-cream-2);
     
-    --color-text: #212529;
-    --color-text-muted: #6c757d;
-    --color-text-subtle: #adb5bd;
+    --color-text: var(--black);
+    --color-text-muted: var(--dark-cream-3);
+    --color-text-subtle: var(--dark-cream-2);
     
-    --color-primary: #6366f1;
-    --color-primary-hover: #4f46e5;
+    --color-primary: var(--medium-blue);
+    --color-primary-hover: var(--dark-blue);
     --color-primary-subtle: #eef2ff;
     --color-primary-active: #4f46e5;
     
@@ -46,6 +46,9 @@
     --text-3: calc(var(--base-size) * 3);     /* 24px */
     --text-3_75: calc(var(--base-size) * 3.75); /* 30px */
     --text-4_5: calc(var(--base-size) * 4.5);   /* 36px */
+    --text-6: calc(var(--base-size) * 6);     /* 48px */
+    --text-8: calc(var(--base-size) * 8);     /* 64px */
+    --text-10: calc(var(--base-size) * 10);   /* 80px */
     
     --line-height-tight: 1.25;
     --line-height-normal: 1.5;
