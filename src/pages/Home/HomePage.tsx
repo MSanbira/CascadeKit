@@ -1,7 +1,7 @@
 import { Section } from '../../components/Section/Section';
 import { Button } from '../../components/Button/Button';
 import { CodeBlock } from '../../components/CodeBlock/CodeBlock';
-import { Text, Strong } from '../../components/Text/Text';
+import { Text } from '../../components/Text/Text';
 import { Box } from '../../components/Box/Box';
 import { LayerStack } from '../../components/LayerStack/LayerStack';
 import { HomePagePrinciple } from './HomePagePrinciple';
