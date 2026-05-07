@@ -5,7 +5,7 @@ import './Text.css';
 type TextVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'body1' | 'body2' | 'inline' | 'main-header';
 type TextTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'small' | 'label' | 'a' | 'strong' | 'em' | 'code' | 'li';
 type TextAlign = 'left' | 'center' | 'right';
-type TextColor = 'primary' | 'secondary' | 'success' | 'warning' | 'error';
+type TextColor = 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'light' | 'lightest' | 'light-highlight';
 
 interface TextProps extends React.HTMLAttributes<HTMLElement> {
   variant?: TextVariant;

@@ -1,16 +1,13 @@
 import { Text } from "../../components/Text/Text";
 
-export const HomePagePrinciple = (props: { number: string; title: string; description: React.ReactNode }) => {
-    const { number, title, description } = props;
+export const HomePagePrinciple = (props: { title: string; description: React.ReactNode }) => {
+    const { title, description } = props;
     return (
         <div className="HomePage--principle">
-            <Text variant="h6" className="HomePage--principle-number">{number}</Text>
-            <div>
-                <Text variant="h6" mixin={{ mb: 1 }}>{title}</Text>
-                <Text variant="body2" muted>
-                    {description}
-                </Text>
-            </div>
+            <Text variant="h6" bottomMargin color="light">{title}</Text>
+            <Text variant="body2" color="light" isPretty>
+                {description}
+            </Text>
         </div>
     );
 };

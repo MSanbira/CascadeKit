@@ -9,26 +9,10 @@
   }
 
   .HomePage--principle {
-    display: flex;
-    gap: var(--space-3);
-    align-items: flex-start;
     padding: var(--space-3);
-    background: var(--color-surface);
+    background: var(--color-card-dark);
     border-radius: var(--radius-md);
-    border: 1px solid var(--color-border);
-  }
-
-  .HomePage--principle-number {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-inline-size: calc(var(--base-size) * 3);
-    block-size: calc(var(--base-size) * 3);
-    background: var(--color-primary);
-    color: white;
-    border-radius: var(--radius-full);
-    flex-shrink: 0;
-    font-size: var(--text-1_75);
+    flex-grow: 1;
   }
 
   .HomePage--feature {
@@ -36,6 +20,22 @@
     grid-template-columns: 1fr;
     gap: var(--space-4);
     align-items: center;
+  }
+
+  .HomePage--feature-link {
+    display: inline-block;
+    margin-block-start: var(--space-3);
+  }
+
+  .HomePage--why-grid {
+    grid-template-columns: 1fr;
+    max-inline-size: calc(var(--base-size) * 80);
+    inline-size: 100%;
+  }
+
+  .HomePage--dotted-bg {
+    --section-background: var(--dotted-gradient-cream);
+    --section-border: var(--medium-cream);
   }
 
   @media (min-width: 640px) {
@@ -50,28 +50,26 @@
     .HomePage--feature-reverse .HomePage--feature-visual {
       order: 1;
     }
-  }
 
-  .HomePage--feature-link {
-    display: inline-block;
-    margin-block-start: var(--space-3);
-  }
-
-  /* Why grid — 3-column on desktop, 2 on tablet, 1 on mobile */
-  .HomePage--why-grid {
-    grid-template-columns: 1fr;
-    max-inline-size: calc(var(--base-size) * 80);
-    inline-size: 100%;
-  }
-
-  .HomePage--dotted-bg {
-    --section-background: var(--dotted-gradient-cream);
-    --section-border: var(--medium-cream);
-  }
-
-  @media (min-width: 640px) {
     .HomePage--why-grid {
       grid-template-columns: 1fr 1fr;
+    }
+
+    .HomePage--principles {
+      --card-size: min(30%, 420px);
+      max-inline-size: calc(var(--card-size) * 3 + var(--space-3) * 2);
+      margin-inline: auto;
+    }
+
+    .HomePage--principle {
+      flex-basis: var(--card-size);
+      flex-grow: unset;
+    }
+
+    .HomePage--layers-feature {
+      gap: var(--space-10);
+      max-inline-size: calc(var(--base-size) * 150);
+      margin-inline: auto;
     }
   }
 

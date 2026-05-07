@@ -1,16 +1,22 @@
 @layer base {
   :root {
     /* Colors */
+    --color-base: var(--white);
+    --color-contrast: var(--black);
     --color-bg: var(--white);
     --color-bg-subtle: var(--light-cream);
     --color-bg-muted: var(--medium-cream);
     --color-surface: var(--white);
     --color-border: var(--dark-cream);
     --color-border-subtle: var(--dark-cream-2);
+    --color-card-dark: var(--dark-blue-2);
     
     --color-text: var(--black);
     --color-text-muted: var(--dark-cream-3);
     --color-text-subtle: var(--dark-cream-2);
+    --color-text-light: var(--light-blue);
+    --color-text-lightest: var(--light-blue-3);
+    --color-text-light-highlight: var(--light-blue-2);
     
     --color-primary: var(--medium-blue);
     --color-primary-hover: var(--dark-blue);
@@ -103,6 +109,8 @@
 
   /* @media (prefers-color-scheme: dark) {
     :root {
+      --color-base: var(--black);
+      --color-contrast: var(--white);
       --color-bg: #0f172a;
       --color-bg-subtle: #1e293b;
       --color-bg-muted: #334155;

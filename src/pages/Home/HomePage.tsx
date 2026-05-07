@@ -22,7 +22,7 @@ export function HomePage() {
     <div className="HomePage--root">
       <Section className="d-flex ali-center dir-col HomePage--dotted-bg">
         <Box className="d-flex jc-center">
-          <MainIcon/>
+          <MainIcon />
         </Box>
         <Text variant="h3" tag="h1" alignText="center">
           CascadeKit
@@ -35,55 +35,48 @@ export function HomePage() {
         </Box>
         <Text variant="body1" alignText="center" className="HomePage--pitch" isPretty>
           CSS-in-JS gave us co-location but added runtime. Utility-first gave us consistency but cluttered markup.
-          CascadeKit gives you both — predictable cascade via native @layer, styles that tree-shake with your components,
+          CascadeKit gives you both: predictable cascade via native @layer, and styles that tree-shake with your components,
           and zero runtime cost. Just CSS.
         </Text>
       </Section>
 
-      <Section scopedStyle={{ '--section-background': 'var(--color-surface)' }}>
+      <Section scopedStyle={{ '--section-background': 'var(--light-blue-2)' }}>
         <Text variant="h2" alignText="center" mixin={{ mb: 4 }}>Core Principles</Text>
-        <Box className="d-flex dir-col gap-3">
+        <div className="HomePage--principles d-flex gap-3 f-wrap jc-center ali-stretch Section--full-width">
           <HomePagePrinciple
-            number="1"
             title="Ordered Cascade Layers"
-            description={<>All CSS lives in <code>@layer</code> blocks with a defined order. Later layers override earlier ones — no specificity wars.</>}
+            description="All CSS lives in layer blocks with a defined order. Later layers override earlier ones, no specificity wars."
           />
           <HomePagePrinciple
-            number="2"
             title="Unified Design Tokens"
-            description={<>Colors, spacing, typography defined once in <code>base.css</code>. Every component references the same <code>var(--token)</code> values.</>}
+            description="Colors, spacing, typography defined once in a base file. Every component references the same CSS token values."
           />
           <HomePagePrinciple
-            number="3"
             title="CSS Classes, Not Inline Styles"
             description="Styling happens in CSS files via classes. Utilities and mixins generate classes — keeping styles in the cascade, not on elements."
           />
           <HomePagePrinciple
-            number="4"
             title="Co-located Component CSS"
             description="Each component imports its own CSS file. Tree-shaking means unused components = unused CSS. Delete a component, delete its CSS."
           />
           <HomePagePrinciple
-            number="5"
             title="Consistent Class Naming"
-            description={<>All classes follow <code>ComponentName--element</code> convention. Readable in DevTools, greppable in code, no generated hashes.</>}
+            description="All classes follow 'ComponentName--element' convention. Readable in DevTools, greppable in code, no generated hashes."
           />
-        </Box>
+        </div>
       </Section>
 
-      <Section scopedStyle={{ '--section-background': 'var(--color-bg)' }}>
-        <div className='HomePage--feature'>
+      <Section scopedStyle={{ '--section-background': 'var(--dark-blue)' }}>
+        <div className='HomePage--feature Section--full-width HomePage--layers-feature'>
           <div className="HomePage--feature-text">
-            <Text variant="h3" mixin={{ mb: 2 }}>Cascade Layers</Text>
-            <Text muted>
+            <Text variant="h2" bottomMargin color="lightest">Cascade Layers</Text>
+            <Text color="lightest" isPretty>
               Six ordered layers replace specificity wars. Components always override base styles,
-              pages override components, and user overrides always win — predictably.
+              pages override components, and user overrides always win predictably.
             </Text>
-            <Button variant="secondary" size="sm" href={routes.layers} className="HomePage--feature-link">Layers explained →</Button>
+            <Button href={routes.layers} variant="outline" mixin={{ mt: 4 }}>Layers explained →</Button>
           </div>
-          <div className="HomePage--feature-visual">
-            <LayerStack />
-          </div>
+          <LayerStack className="HomePage--feature-visual" />
         </div>
       </Section>
 

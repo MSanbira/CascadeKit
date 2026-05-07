@@ -5,6 +5,7 @@
 
         --light-cream: #fefbf5;
         --light-cream-2: #FFF0CA;
+        --light-cream-3: #FFFBF5;
         --medium-cream: #FFDC9A;
         --dark-cream: #B8AC88;
         --dark-cream-2: #b2ac90;
@@ -14,8 +15,11 @@
         --medium-yellow: #ffdc9a;
 
         --light-blue: #B0CBE1;
+        --light-blue-2: #E6F2FF;
+        --light-blue-3: #CBE7FD;
         --medium-blue: #7A95A9;
         --dark-blue: #486275;
+        --dark-blue-2: #001B28;
 
         --dotted-gradient-cream: radial-gradient(circle, var(--medium-cream) 1px, var(--light-cream) 0) 50% 50% / 16px 16px;
     }

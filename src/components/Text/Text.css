@@ -75,6 +75,18 @@
     color: var(--color-error);
   }
 
+  .Text--color-light {
+    color: var(--color-text-light);
+  }
+
+  .Text--color-lightest {
+    color: var(--color-text-lightest);
+  }
+
+  .Text--color-light-highlight {
+    color: var(--color-text-light-highlight);
+  }
+
   /* Remove top margin for first heading */
   :where(.Text--variant-h1, .Text--variant-h2, .Text--variant-h3, .Text--variant-h4):first-child {
     margin-block-start: 0;
