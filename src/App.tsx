@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 
 import './styles/layers.css';
@@ -43,7 +43,8 @@ function App() {
             <Route path={routes.theme} element={<ThemePage />} />
             <Route path={routes.scopedStyles} element={<ScopedStylesPage />} />
             <Route path={routes.aiTools} element={<AIToolsPage />} />
-            <Route path="*" element={<HomePage />} />
+            <Route path="/" element={<Navigate to={routes.home} replace />} />
+            <Route path="*" element={<Navigate to={routes.home} replace />} />
           </Routes>
         </Layout>
       </BrowserRouter>
