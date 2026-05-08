@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Navbar } from '../Navbar/Navbar';
 import { Sidebar } from '../Sidebar/Sidebar';
 import { classNames } from 'cascade-kit-tools/classNames';
@@ -11,9 +12,8 @@ interface LayoutProps {
 
 export function Layout({ children }: LayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const currentPath = window.location.pathname;
-  console.log(currentPath);
-  const isCurrentPageDocs = isDocsPage(currentPath);
+  const { pathname } = useLocation();
+  const isCurrentPageDocs = isDocsPage(pathname);
 
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
   const closeSidebar = () => setSidebarOpen(false);
