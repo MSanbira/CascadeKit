@@ -219,7 +219,7 @@ export function ExamplePage() {
                 <Text variant="h2" tag="span" mixin={{ my: 2 }}>{plan.price}<Text variant="body2" tag="span" muted>/mo</Text></Text>
                 <Box className="d-flex dir-col gap-2" mixin={{ mb: 4 }}>
                   {plan.features.map(feature => (
-                    <Text key={feature} variant="body2" muted>✓ {feature}</Text>
+                    <Text key={feature} variant="body2">✓ {feature}</Text>
                   ))}
                 </Box>
                 <Button 

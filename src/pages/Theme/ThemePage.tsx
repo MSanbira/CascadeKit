@@ -38,7 +38,7 @@ export function ThemePage() {
         <Box className="d-grid" mixin={{ gap: 4, mt: 4, smallScreen: { gridColTemplate: '1fr' }, mediumScreen: { gridColTemplate: '1fr 1fr 1fr' } }}>
           <Card className="ThemePage--principle-card">
             <Text variant="h6" mixin={{ mb: 1 }}>1. Token Override</Text>
-            <Text variant="body2" muted>
+            <Text variant="body2">
               Themes redefine CSS variables like <code>--color-primary</code> and <code>--color-bg</code>.
               All components using these tokens update automatically.
             </Text>
@@ -46,7 +46,7 @@ export function ThemePage() {
 
           <Card className="ThemePage--principle-card">
             <Text variant="h6" mixin={{ mb: 1 }}>2. Layer Priority</Text>
-            <Text variant="body2" muted>
+            <Text variant="body2">
               Themes use <code>@layer user-overrides</code> — the highest priority layer.
               Theme values always win without specificity tricks.
             </Text>
@@ -54,7 +54,7 @@ export function ThemePage() {
 
           <Card className="ThemePage--principle-card">
             <Text variant="h6" mixin={{ mb: 1 }}>3. Dark Mode Support</Text>
-            <Text variant="body2" muted>
+            <Text variant="body2">
               Each theme defines light and dark variants using <code>@media (prefers-color-scheme)</code>.
               System preference is respected automatically.
             </Text>
@@ -151,21 +151,21 @@ export function ThemePage() {
         <Box className="d-flex dir-col gap-3" mixin={{ mt: 3 }}>
           <Card>
             <Text variant="h6" mixin={{ mb: 1 }}>1. Add theme CSS</Text>
-            <Text variant="body2" muted>
+            <Text variant="body2">
               Create a new <code>[data-theme="yourtheme"]</code> block in <code>theme.css</code> with
               light and dark variants.
             </Text>
           </Card>
           <Card>
             <Text variant="h6" mixin={{ mb: 1 }}>2. Register in context</Text>
-            <Text variant="body2" muted>
+            <Text variant="body2">
               Add the theme name to the <code>THEMES</code> array and <code>THEME_LABELS</code> map
               in <code>ThemeContext.tsx</code>.
             </Text>
           </Card>
           <Card>
             <Text variant="h6" mixin={{ mb: 1 }}>3. Optional: Component overrides</Text>
-            <Text variant="body2" muted>
+            <Text variant="body2">
               Add component-specific styles using <code>[data-theme="yourtheme"] .Component--root</code>
               selectors for unique component styling.
             </Text>

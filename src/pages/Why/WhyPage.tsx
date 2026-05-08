@@ -44,7 +44,7 @@ export function WhyPage() {
         <Box className="d-grid" mixin={{gap: 4, mt: 4, smallScreen: {gridColTemplate: '1fr'}, bigScreen: {gridColTemplate: '1fr 1fr'}}}>
           <Card>
             <Text variant="h6" mixin={{ mb: 1 }}>Layers eliminate specificity wars</Text>
-            <Text variant="body2" muted>
+            <Text variant="body2">
               <code>@layer</code> defines cascade order explicitly. 
               Components always override base styles, pages override components — predictably.
             </Text>
@@ -52,7 +52,7 @@ export function WhyPage() {
 
           <Card>
             <Text variant="h6" mixin={{ mb: 1 }}>Tokens create consistency</Text>
-            <Text variant="body2" muted>
+            <Text variant="body2">
               CSS variables in <code>base.css</code> define spacing, colors, and typography once. 
               Every component uses the same values.
             </Text>
@@ -60,7 +60,7 @@ export function WhyPage() {
 
           <Card>
             <Text variant="h6" mixin={{ mb: 1 }}>Co-location keeps styles with components</Text>
-            <Text variant="body2" muted>
+            <Text variant="body2">
               Each component imports its own CSS file. Tree-shaking means 
               unused CSS never ships. Delete a component, its styles go with it.
             </Text>
@@ -68,7 +68,7 @@ export function WhyPage() {
 
           <Card>
             <Text variant="h6" mixin={{ mb: 1 }}>Naming makes debugging easy</Text>
-            <Text variant="body2" muted>
+            <Text variant="body2">
               <code>ComponentName--element</code> is readable in DevTools, 
               greppable in code, and requires no source maps.
             </Text>

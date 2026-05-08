@@ -12,11 +12,11 @@
     inset-inline-start: -1.4em;
     inset-block-start: .4em;
     font-size: .6em;
-    opacity: .3;
-    transition: opacity var(--transition-fast);
+    opacity: 0;
+    transition: opacity var(--transition-slow);
   }
 
-  .Text--hash-link:hover {
+  .Text--root:hover .Text--hash-link {
     opacity: 1;
   }
 
@@ -113,6 +113,7 @@
     .Text--hash-link {
       inset-inline-end: .2em;
       inset-inline-start: unset;
+      opacity: .5;
     }
   }
 }

@@ -5,6 +5,7 @@ import { Text, Strong } from '../../components/Text/Text';
 import { Box } from '../../components/Box/Box';
 import { Button } from '../../components/Button/Button';
 import { Badge } from '../../components/Badge/Badge';
+import { useCaniuse } from '../../hooks/useCaniuse';
 import {
   basicUsage,
   nestedSelectors,
@@ -14,7 +15,17 @@ import {
 } from './scopedStylesPageContent';
 import './ScopedStylesPage.css';
 
+const STATUS_VARIANT = {
+  y: 'success',
+  a: 'warning',
+  p: 'secondary',
+  n: 'error',
+  u: 'secondary',
+} as const;
+
 export function ScopedStylesPage() {
+  const { browsers, loading, error } = useCaniuse('css-cascade-scope');
+
   return (
     <div className="ScopedStylesPage--root">
       <Section>
@@ -34,7 +45,7 @@ export function ScopedStylesPage() {
         <Box className="d-grid" mixin={{ gap: 4, mt: 4, smallScreen: { gridColTemplate: '1fr' }, mediumScreen: { gridColTemplate: '1fr 1fr' } }}>
           <Card variant="subtle">
             <Text variant="h6" mixin={{ mb: 1 }}>Backend/User Inputs</Text>
-            <Text variant="body2" muted>
+            <Text variant="body2">
               User-selected brand colors, custom themes from a CMS, or any dynamic values 
               that aren't known at build time.
             </Text>
@@ -42,7 +53,7 @@ export function ScopedStylesPage() {
 
           <Card variant="subtle">
             <Text variant="h6" mixin={{ mb: 1 }}>Extreme Customizations</Text>
-            <Text variant="body2" muted>
+            <Text variant="body2">
               One-off styling that doesn't fit into your design system — promotional cards, 
               special states, or highly specific UI requirements.
             </Text>
@@ -50,7 +61,7 @@ export function ScopedStylesPage() {
 
           <Card variant="subtle">
             <Text variant="h6" mixin={{ mb: 1 }}>Prototype & Experimentation</Text>
-            <Text variant="body2" muted>
+            <Text variant="body2">
               Quick iteration on styles without creating new CSS classes or modifying 
               component stylesheets.
             </Text>
@@ -58,7 +69,7 @@ export function ScopedStylesPage() {
 
           <Card variant="subtle">
             <Text variant="h6" mixin={{ mb: 1 }}>Third-party Integration</Text>
-            <Text variant="body2" muted>
+            <Text variant="body2">
               Styling components to match external brand guidelines or embedded widgets 
               with specific color requirements.
             </Text>
@@ -110,7 +121,7 @@ export function ScopedStylesPage() {
         <Box mixin={{ mt: 4 }}>
           <Card variant="subtle" mixin={{ mb: 3 }}>
             <Text variant="h6" mixin={{ mb: 2 }}>Cascade Respect</Text>
-            <Text variant="body2" muted>
+            <Text variant="body2">
               Inline styles have the highest specificity and can only be overridden with <code>!important</code>. 
               Scoped styles live in <code>@layer component-overrides</code>, so <code>user-overrides</code> layer 
               naturally wins without specificity hacks. The cascade stays predictable.
@@ -119,7 +130,7 @@ export function ScopedStylesPage() {
 
           <Card variant="subtle" mixin={{ mb: 3 }}>
             <Text variant="h6" mixin={{ mb: 2 }}>Full CSS Selector Support</Text>
-            <Text variant="body2" muted>
+            <Text variant="body2">
               Inline styles can't use selectors at all. With <code>@scope</code>, you get <code>&:hover</code>, 
               <code>@media</code> queries, and can target children like <code>.Card--header</code> — 
               all with native CSS nesting.
@@ -128,7 +139,7 @@ export function ScopedStylesPage() {
 
           <Card variant="subtle" mixin={{ mb: 3 }}>
             <Text variant="h6" mixin={{ mb: 2 }}>Token Inheritance</Text>
-            <Text variant="body2" muted>
+            <Text variant="body2">
               When you override <code>--color-primary</code> on a Card, all children (Buttons, Badges) 
               automatically inherit it. Inline styles would require passing the value to every child.
             </Text>
@@ -136,7 +147,7 @@ export function ScopedStylesPage() {
 
           <Card variant="subtle">
             <Text variant="h6" mixin={{ mb: 2 }}>DevTools Experience</Text>
-            <Text variant="body2" muted>
+            <Text variant="body2">
               Scoped styles appear as proper CSS rules in DevTools with clear layer information, 
               making debugging easier than hunting through inline style attributes.
             </Text>
@@ -194,8 +205,8 @@ export function ScopedStylesPage() {
         <Text variant="h2" bottomMargin id="browserSupport">Browser Support</Text>
         <Card variant="subtle" mixin={{ mt: 3 }}>
           <Text variant="body2">
-            <Strong>CSS @scope</Strong> is supported in Chrome 118+, Edge 118+, and Safari 17.4+. 
-            Firefox support is in development (behind a flag as of early 2024).
+            <Strong>CSS @scope</Strong> browser support data via{' '}
+            <a href="https://caniuse.com/css-cascade-scope" target="_blank" rel="noopener noreferrer">caniuse.com</a>.
           </Text>
           <Text variant="body2" muted mixin={{ mt: 2 }}>
             For production apps targeting older browsers, consider using this feature progressively — 
@@ -203,10 +214,17 @@ export function ScopedStylesPage() {
             you can use a PostCSS plugin to transform <code>@scope</code> to equivalent selectors.
           </Text>
           <Box mixin={{ mt: 3 }}>
-            <Badge variant="success" mixin={{ mr: 1 }}>Chrome 118+</Badge>
-            <Badge variant="success" mixin={{ mr: 1 }}>Edge 118+</Badge>
-            <Badge variant="success" mixin={{ mr: 1 }}>Safari 17.4+</Badge>
-            <Badge variant="secondary">Firefox (flag)</Badge>
+            {loading && <Text variant="body2" muted>Loading browser support data…</Text>}
+            {error && <Text variant="body2" muted>Could not load live data.</Text>}
+            {!loading && !error && browsers.map(browser => (
+              <Badge
+                key={browser.name}
+                variant={STATUS_VARIANT[browser.status]}
+                mixin={{ mr: 1, mb: 1 }}
+              >
+                {browser.name}{browser.version ? ` ${browser.version}+` : browser.status === 'p' ? ' (flag)' : ' ✗'}
+              </Badge>
+            ))}
           </Box>
         </Card>
       </Section>
