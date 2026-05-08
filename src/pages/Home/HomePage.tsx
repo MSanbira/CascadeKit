@@ -21,7 +21,10 @@ import { HomePageWhySection } from './HomePageWhySection';
 export function HomePage() {
   return (
     <div className="HomePage--root">
-      <Section className="d-flex ali-center dir-col HomePage--dotted-bg">
+      <Section
+        className="d-flex ali-center dir-col"
+        scopedStyle={{ '--section-background': 'var(--color-section-bg-dotted-gradient)', '--section-border': 'var(--color-section-border-medium)' }}
+      >
         <Box className="d-flex jc-center">
           <MainIcon />
         </Box>
@@ -41,7 +44,7 @@ export function HomePage() {
         </Text>
       </Section>
 
-      <Section scopedStyle={{ '--section-background': 'var(--light-blue-2)' }}>
+      <Section scopedStyle={{ '--section-background': 'var(--color-section-bg-light)' }}>
         <Text variant="h2" alignText="center" mixin={{ mb: 4 }}>Core Principles</Text>
         <div className="HomePage--principles d-flex gap-3 f-wrap jc-center ali-stretch Section--full-width">
           <HomePagePrinciple
@@ -67,7 +70,7 @@ export function HomePage() {
         </div>
       </Section>
 
-      <Section scopedStyle={{ '--section-background': 'var(--dark-blue)' }}>
+      <Section scopedStyle={{ '--section-background': 'var(--color-section-bg-dark)' }}>
         <div className='HomePage--feature Section--full-width HomePage--layers-feature'>
           <div className="HomePage--feature-text">
             <Text variant="h2" bottomMargin color="lightest">Cascade Layers</Text>
@@ -81,11 +84,11 @@ export function HomePage() {
         </div>
       </Section>
 
-      <Section scopedStyle={{ '--section-background': 'var(--color-surface)' }}>
+      <Section scopedStyle={{ '--section-background': 'var(--color-bg-subtle)' }}>
         <div className='HomePage--feature HomePage--feature-reverse'>
           <div className="HomePage--feature-text">
             <Text variant="h3" mixin={{ mb: 2 }}>Component Model</Text>
-            <Text muted>
+            <Text>
               Each component owns its styles in a co-located CSS file. Tree-shaking means
               unused components = unused CSS. Delete a folder, delete everything.
             </Text>
@@ -101,7 +104,7 @@ export function HomePage() {
         <div className='HomePage--feature'>
           <div className="HomePage--feature-text">
             <Text variant="h3" mixin={{ mb: 2 }}>Layout Utilities</Text>
-            <Text muted>
+            <Text >
               Composable utility classes for flex, grid, alignment, and gaps —
               all in the <code>utils</code> layer with low specificity via <code>:where()</code>.
             </Text>
@@ -113,11 +116,11 @@ export function HomePage() {
         </div>
       </Section>
 
-      <Section scopedStyle={{ '--section-background': 'var(--color-surface)' }}>
+      <Section scopedStyle={{ '--section-background': 'var(--color-bg-subtle)' }}>
         <div className='HomePage--feature HomePage--feature-reverse'>
           <div className="HomePage--feature-text">
             <Text variant="h3" mixin={{ mb: 2 }}>Mixin System</Text>
-            <Text muted>
+            <Text>
               Responsive, per-component spacing and layout — without inline styles.
               Mixins generate classes in the <code>component-overrides</code> layer.
             </Text>
@@ -133,7 +136,7 @@ export function HomePage() {
         <div className='HomePage--feature'>
           <div className="HomePage--feature-text">
             <Text variant="h3" mixin={{ mb: 2 }}>Theming</Text>
-            <Text muted>
+            <Text>
               Swap design tokens globally via <code>data-theme</code> attributes.
               Themes live in the <code>user-overrides</code> layer — they always win.
             </Text>
@@ -145,11 +148,11 @@ export function HomePage() {
         </div>
       </Section>
 
-      <Section scopedStyle={{ '--section-background': 'var(--color-surface)' }}>
+      <Section scopedStyle={{ '--section-background': 'var(--color-bg-subtle)' }}>
         <div className='HomePage--feature HomePage--feature-reverse'>
           <div className="HomePage--feature-text">
             <Text variant="h3" mixin={{ mb: 2 }}>Scoped Styles</Text>
-            <Text muted>
+            <Text>
               Per-instance overrides using native CSS <code>@scope</code>.
               Dynamic values stay in the cascade — never inline.
             </Text>
@@ -165,7 +168,7 @@ export function HomePage() {
         <div className='HomePage--feature'>
           <div className="HomePage--feature-text">
             <Text variant="h3" mixin={{ mb: 2 }}>AI-Integrated Tooling</Text>
-            <Text muted>
+            <Text>
               An MCP server and prompt guide teach AI assistants the CascadeKit conventions.
               Generate components, look up tokens, and follow the architecture automatically.
             </Text>

@@ -3,6 +3,23 @@
     color: var(--color-text);
   }
 
+  .Text--root:has(.Text--hash-link) {
+    position: relative;
+  }
+
+  .Text--hash-link {
+    position: absolute;
+    inset-inline-start: -1.4em;
+    inset-block-start: .4em;
+    font-size: .6em;
+    opacity: .3;
+    transition: opacity var(--transition-fast);
+  }
+
+  .Text--hash-link:hover {
+    opacity: 1;
+  }
+
   .Text--variant-h1 {
     font-size: var(--text-4_5);
     font-weight: var(--font-weight-bold);
@@ -90,6 +107,13 @@
   /* Remove top margin for first heading */
   :where(.Text--variant-h1, .Text--variant-h2, .Text--variant-h3, .Text--variant-h4):first-child {
     margin-block-start: 0;
+  }
+
+  @media (max-width: 799px) {
+    .Text--hash-link {
+      inset-inline-end: .2em;
+      inset-inline-start: unset;
+    }
   }
 }
 

@@ -33,11 +33,6 @@
     inline-size: 100%;
   }
 
-  .HomePage--dotted-bg {
-    --section-background: var(--dotted-gradient-cream);
-    --section-border: var(--medium-cream);
-  }
-
   @media (min-width: 640px) {
     .HomePage--feature {
       grid-template-columns: 1fr 1fr;
@@ -56,7 +51,7 @@
     }
 
     .HomePage--principles {
-      --card-size: min(30%, 420px);
+      --card-size: min(30%, calc(var(--base-size) * 50));
       max-inline-size: calc(var(--card-size) * 3 + var(--space-3) * 2);
       margin-inline: auto;
     }

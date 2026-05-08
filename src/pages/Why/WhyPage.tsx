@@ -22,7 +22,7 @@ export function WhyPage() {
         </Text>
       </Section>
 
-      <Section scopedStyle={{ '--section-background': 'var(--color-surface)' }}>
+      <Section scopedStyle={{ '--section-background': 'var(--color-bg-subtle)' }}>
         <Text variant="h2" bottomMargin>The Problem</Text>
         <Text>
           Most CSS approaches trade one problem for another:
@@ -76,7 +76,7 @@ export function WhyPage() {
         </Box>
       </Section>
 
-      <Section scopedStyle={{ '--section-background': 'var(--color-surface)' }}>
+      <Section scopedStyle={{ '--section-background': 'var(--color-bg-subtle)' }}>
         <Text variant="h2" bottomMargin>What You Get</Text>
         <Box className="d-grid" mixin={{gap: 4, smallScreen: {gridColTemplate: '1fr'}, bigScreen: {gridColTemplate: '1fr 1fr'}}}>
           <Card title="Benefits">

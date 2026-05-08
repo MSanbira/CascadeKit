@@ -3,7 +3,7 @@ import { getMixin, type MixinProps } from 'cascade-kit-tools/mixin';
 import { ScopedStyle, type ScopedStylesObj, type LayerOptions } from 'cascade-kit-tools/scopedStyle';
 import './Section.css';
 
-interface SectionProps {
+interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   className?: string;
   mixin?: MixinProps;
@@ -16,14 +16,16 @@ export function Section({
   className = '', 
   mixin, 
   scopedStyle, 
-  scopedLayer 
+  scopedLayer,
+  ...restProps
 }: SectionProps) {
   const { className: mixinClassName, style: mixinStyle } = getMixin(mixin);
 
   return (
     <section 
       className={classNames('Section--root', [mixinClassName, className])} 
-      style={mixinStyle}
+      style={{...mixinStyle, ...restProps.style}}
+      {...restProps}
     >
       <ScopedStyle style={scopedStyle} layer={scopedLayer} />
       {children}

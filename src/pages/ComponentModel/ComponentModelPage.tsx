@@ -23,7 +23,7 @@ export function ComponentModelPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin>Folder Structure</Text>
+        <Text variant="h2" bottomMargin id="folderStructure">Folder Structure</Text>
         <Text>
           Each component lives in its own folder with its TSX and CSS files:
         </Text>
@@ -37,7 +37,7 @@ export function ComponentModelPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin>The Root Class Pattern</Text>
+        <Text variant="h2" bottomMargin id="theRootClassPattern">The Root Class Pattern</Text>
         <Text>
           Every component must have a root class: <code>.ComponentName--root</code>.
           This provides a reliable anchor for all component styles:
@@ -59,7 +59,7 @@ export function ComponentModelPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin>Complete Example</Text>
+        <Text variant="h2" bottomMargin id="completeExample">Complete Example</Text>
         <Text>
           Here's a complete Button component showing the full pattern:
         </Text>
@@ -72,7 +72,7 @@ export function ComponentModelPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin>Why This Pattern?</Text>
+        <Text variant="h2" bottomMargin id="whyThisPattern">Why This Pattern?</Text>
         <Box className="d-grid" mixin={{ gap: 4, smallScreen: { gridColTemplate: '1fr' }, mediumScreen: { gridColTemplate: '1fr 1fr' } }}>
           <Card>
             <Text variant="h6" tag="h4" mixin={{ mb: 2 }}>🔍 Debuggable</Text>

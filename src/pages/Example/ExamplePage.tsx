@@ -70,7 +70,7 @@ export function ExamplePage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin>Button Component</Text>
+        <Text variant="h2" bottomMargin id="buttonComponent">Button Component</Text>
         <Text>{buttonSectionDescription}</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <Text variant="body2" muted>
@@ -121,7 +121,7 @@ export function ExamplePage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin>User Profile Card</Text>
+        <Text variant="h2" bottomMargin id="userProfileCard">User Profile Card</Text>
         <Text>{userProfileDescription}</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <Text variant="body2" muted>
@@ -168,7 +168,7 @@ export function ExamplePage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin>Notifications</Text>
+        <Text variant="h2" bottomMargin id="notifications">Notifications</Text>
         <Text>{notificationsDescription}</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <Text variant="body2" muted>
@@ -199,7 +199,7 @@ export function ExamplePage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin>Pricing Cards</Text>
+        <Text variant="h2" bottomMargin id="pricingCards">Pricing Cards</Text>
         <Text>{pricingDescription}</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <Text variant="body2" muted>
@@ -235,7 +235,7 @@ export function ExamplePage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin>Contact Form</Text>
+        <Text variant="h2" bottomMargin id="contactForm">Contact Form</Text>
         <Text>{contactFormDescription}</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <Text variant="body2" muted>
@@ -274,7 +274,7 @@ export function ExamplePage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin>Stats Dashboard</Text>
+        <Text variant="h2" bottomMargin id="statsDashboard">Stats Dashboard</Text>
         <Text>{statsDashboardDescription}</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <Text variant="body2" muted>
@@ -294,7 +294,7 @@ export function ExamplePage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin>Scoped Styles</Text>
+        <Text variant="h2" bottomMargin id="scopedStyles">Scoped Styles</Text>
         <Text>{scopedStylesDescription}</Text>
         <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
           <Text variant="body2" muted>
@@ -382,7 +382,7 @@ export function ExamplePage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin>Inspect & Learn</Text>
+        <Text variant="h2" bottomMargin id="inspectAndLearn">Inspect & Learn</Text>
         <Text>
           Open DevTools and inspect any element above. You'll see:
         </Text>

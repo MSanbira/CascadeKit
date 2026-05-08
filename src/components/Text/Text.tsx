@@ -49,6 +49,7 @@ export function Text({
   mixin,
   topMargin = false,
   bottomMargin = false,
+  id,
   ...props 
 }: TextProps) {
   const Tag = tag ?? defaultTagMap[variant];
@@ -71,8 +72,10 @@ export function Text({
         'Text--bottom-margin': bottomMargin,
       })}
       style={{...mixinStyle, ...props.style}}
+      id={id}
       {...props}
     >
+      {id && <a href={`#${id}`} className='Text--hash-link'>🔗</a>}
       {children}
     </Tag>
   );

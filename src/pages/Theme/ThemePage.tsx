@@ -28,7 +28,7 @@ export function ThemePage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin>How Themes Work</Text>
+        <Text variant="h2" bottomMargin id="howThemesWork">How Themes Work</Text>
         <Text>
           A theme is a set of CSS custom property overrides applied via a <code>data-theme</code> attribute
           on the root element. Because themes live in <code>@layer user-overrides</code>, they always win
@@ -63,7 +63,7 @@ export function ThemePage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin>Defining a Theme</Text>
+        <Text variant="h2" bottomMargin id="definingATheme">Defining a Theme</Text>
         <Text>
           Themes are defined in <code>theme.css</code> using the <code>[data-theme]</code> attribute selector.
           Override any design tokens from <code>base.css</code> to create your theme's look.
@@ -81,7 +81,7 @@ export function ThemePage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin>Component Overrides</Text>
+        <Text variant="h2" bottomMargin id="componentOverrides">Component Overrides</Text>
         <Text>
           Beyond token changes, themes can modify specific component styles.
           Use the theme selector combined with component class names.
@@ -93,7 +93,7 @@ export function ThemePage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin>Theme Context</Text>
+        <Text variant="h2" bottomMargin id="themeContext">Theme Context</Text>
         <Text>
           A React context manages theme state, persistence, and the <code>data-theme</code> attribute.
         </Text>
@@ -102,7 +102,7 @@ export function ThemePage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin>Live Preview</Text>
+        <Text variant="h2" bottomMargin id="livePreview">Live Preview</Text>
         <Text>
           Try the current themes. Notice how components adapt to each theme's personality.
         </Text>
@@ -147,7 +147,7 @@ export function ThemePage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin>Creating a New Theme</Text>
+        <Text variant="h2" bottomMargin id="creatingANewTheme">Creating a New Theme</Text>
         <Box className="d-flex dir-col gap-3" mixin={{ mt: 3 }}>
           <Card>
             <Text variant="h6" mixin={{ mb: 1 }}>1. Add theme CSS</Text>

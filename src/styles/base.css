@@ -11,6 +11,11 @@
     --color-border-subtle: var(--dark-cream-2);
     --color-card-dark: var(--dark-blue-2);
     --color-card-light: var(--light-blue-3);
+
+    --color-section-bg-dotted-gradient: var(--dotted-gradient-cream);
+    --color-section-border-medium: var(--medium-cream);
+    --color-section-bg-light: var(--light-blue-2);
+    --color-section-bg-dark: var(--dark-blue-2);
     
     --color-text: var(--black);
     --color-text-muted: var(--dark-cream-3);
