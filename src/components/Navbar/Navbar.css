@@ -25,6 +25,12 @@
     block-size: var(--space-3);
   }
 
+  .Navbar--theme-emoji {
+    font-size: var(--text-2);
+    line-height: 1;
+    display: block;
+  }
+
   @media (max-width: 799px) {
     .Navbar--root {
       grid-template-columns: 1fr auto;

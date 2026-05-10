@@ -1,8 +1,8 @@
 @layer components {
   .NavButton--root {
-    --icon-border-color: var(--dark-cream);
-    --icon-background-color: var(--light-cream-2);
-    --text-color: var(--dark-cream-4);
+    --icon-border-color: var(--color-nav-btn-border);
+    --icon-background-color: var(--color-nav-btn-bg);
+    --text-color: var(--color-nav-btn-text);
 
     all: unset;
     font-size: var(--text-2);
@@ -15,24 +15,9 @@
 
   .NavButton--selected,
   .NavButton--root:active {
-    --icon-border-color: var(--medium-blue);
-    --icon-background-color: var(--light-blue);
-    --text-color: var(--dark-blue);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .NavButton--root {
-      --icon-border-color: var(--dark-slate-2);
-      --icon-background-color: var(--dark-slate-3);
-      --text-color: var(--medium-slate);
-    }
-
-    .NavButton--selected,
-    .NavButton--root:active {
-      --icon-border-color: var(--light-indigo-2);
-      --icon-background-color: var(--dark-indigo-2);
-      --text-color: var(--light-indigo-3);
-    }
+    --icon-border-color: var(--color-nav-btn-border-active);
+    --icon-background-color: var(--color-nav-btn-bg-active);
+    --text-color: var(--color-nav-btn-text-active);
   }
 
   .NavButton--icon {

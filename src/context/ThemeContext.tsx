@@ -1,13 +1,13 @@
 import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
 
-type Theme = 'default' | 'midnight' | 'bubblegum';
+type Theme = 'default' | 'bubblegum' | 'unicorn';
 
-const THEMES: Theme[] = ['default', 'midnight', 'bubblegum'];
+const THEMES: Theme[] = ['default', 'bubblegum', 'unicorn'];
 
 const THEME_LABELS: Record<Theme, string> = {
   default: 'Default',
-  midnight: 'Midnight',
   bubblegum: 'Bubblegum',
+  unicorn: 'Unicorn',
 };
 
 interface ThemeContextValue {

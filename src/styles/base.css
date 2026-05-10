@@ -25,6 +25,13 @@
     --color-text-on-dark-subtle: var(--light-blue-3);
     --color-text-on-dark-highlight: var(--light-blue-2);
     --color-text-on-light: var(--dark-blue);
+
+    --color-nav-btn-border: var(--dark-cream);
+    --color-nav-btn-bg: var(--light-cream-2);
+    --color-nav-btn-text: var(--dark-cream-4);
+    --color-nav-btn-border-active: var(--medium-blue);
+    --color-nav-btn-bg-active: var(--light-blue);
+    --color-nav-btn-text-active: var(--dark-blue);
     
     --color-primary: var(--medium-blue);
     --color-primary-hover: var(--dark-blue);
@@ -137,6 +144,13 @@
       --color-text: var(--light-slate);
       --color-text-muted: var(--medium-slate);
       --color-text-subtle: var(--dark-slate);
+
+      --color-nav-btn-border: var(--dark-slate-2);
+      --color-nav-btn-bg: var(--dark-slate-3);
+      --color-nav-btn-text: var(--medium-slate);
+      --color-nav-btn-border-active: var(--light-indigo-2);
+      --color-nav-btn-bg-active: var(--dark-indigo-2);
+      --color-nav-btn-text-active: var(--light-indigo-3);
 
       --color-primary: var(--light-indigo-2);
       --color-primary-hover: var(--light-indigo-3);

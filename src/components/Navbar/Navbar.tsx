@@ -4,13 +4,22 @@ import { Button } from '../Button/Button';
 import { Text } from '../Text/Text';
 import { routes } from '../../constants/routes';
 import { NavButton } from '../NavButton/NavButton';
+import { useTheme } from '../../context/ThemeContext';
 import './Navbar.css';
+
+const THEME_EMOJI: Record<string, string> = {
+  default: '🎨',
+  bubblegum: '🍬',
+  unicorn: '🦄',
+};
 
 interface NavbarProps {
   onMenuClick?: () => void;
 }
 
 export function Navbar({ onMenuClick }: NavbarProps) {
+  const { theme, themeLabel, toggleTheme } = useTheme();
+
   return (
     <header className={classNames('Navbar--root')}>
       <div className="Navbar--left-section d-flex ali-center gap-1">
@@ -34,7 +43,16 @@ export function Navbar({ onMenuClick }: NavbarProps) {
         <NavButton href={routes.aiTools}>CascadeKit for agents</NavButton>
         <NavButton href={routes.how} isDocs>Documentation</NavButton>
       </div>
-      <div className='Navbar--right-section'>
+      <div className='Navbar--right-section d-flex ali-center gap-1'>
+        <Button
+          variant='ghost'
+          onClick={toggleTheme}
+          aria-label={`Switch theme, current: ${themeLabel}`}
+          isIcon
+          title={`Theme: ${themeLabel}`}
+        >
+          <span className="Navbar--theme-emoji" aria-hidden="true">{THEME_EMOJI[theme]}</span>
+        </Button>
         <Button
           variant='ghost'
           href="https://github.com/MSanbira/CascadeKit"

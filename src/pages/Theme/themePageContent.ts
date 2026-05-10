@@ -1,17 +1,17 @@
 export const themeCSS = `@layer user-overrides {
-  [data-theme="midnight"] {
-    --color-bg: #f5f3ff;
-    --color-primary: #7c3aed;
-    --color-text: #1e1b4b;
+  [data-theme="bubblegum"] {
+    --color-bg: #fdf2f8;
+    --color-primary: #ec4899;
+    --color-text: #500724;
     /* ... other token overrides */
   }
 
   /* Dark variant respects system preference */
   @media (prefers-color-scheme: dark) {
-    [data-theme="midnight"] {
-      --color-bg: #0f0d1a;
-      --color-primary: #a78bfa;
-      --color-text: #e8e4f0;
+    [data-theme="bubblegum"] {
+      --color-bg: #1a0a14;
+      --color-primary: #f472b6;
+      --color-text: #fdf2f8;
     }
   }
 }`;
@@ -29,9 +29,9 @@ export const componentOverrides = `/* Component-specific overrides within a them
 }`;
 
 export const themeContext = `// ThemeContext.tsx
-type Theme = 'default' | 'midnight' | 'bubblegum';
+type Theme = 'default' | 'bubblegum' | 'unicorn';
 
-const THEMES: Theme[] = ['default', 'midnight', 'bubblegum'];
+const THEMES: Theme[] = ['default', 'bubblegum', 'unicorn'];
 
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState<Theme>(() => {
