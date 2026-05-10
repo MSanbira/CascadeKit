@@ -9,13 +9,13 @@ export function WhyPage() {
     <div className="WhyPage--root">
       <Section scopedStyle={{ '--section-background': 'var(--color-bg)' }}>
         <Text variant="h1" bottomMargin>Why CascadeKit?</Text>
-        <Text mixin={{ mb: 3 }}>
+        <Text>
           In a world filled with code abstractions, frameworks, and packages, we tend to forget
           that web apps ultimately run on a browser that still works with native HTML, CSS, and JavaScript.
           And although most computers nowadays are powerful enough to run anything, we as developers
           can be more inclusive across different devices and have more performant applications for a better user experience.
-        </Text>
-        <Text>
+          <br />
+          <br />
           CascadeKit is a solution for common component-based web apps that removes unnecessary
           abstraction layers in production by providing a framework of principles and tools
           for a scalable, maintainable, native CSS approach.
@@ -41,35 +41,35 @@ export function WhyPage() {
           CascadeKit solves these with native CSS features and clear conventions:
         </Text>
 
-        <Box className="d-grid" mixin={{gap: 4, mt: 4, smallScreen: {gridColTemplate: '1fr'}, bigScreen: {gridColTemplate: '1fr 1fr'}}}>
+        <Box className="d-grid" mixin={{ gap: 4, mt: 4, smallScreen: { gridColTemplate: '1fr' }, bigScreen: { gridColTemplate: '1fr 1fr' } }}>
           <Card>
-            <Text variant="h6" mixin={{ mb: 1 }}>Layers eliminate specificity wars</Text>
+            <Text variant="h6" bottomMargin>Layers eliminate specificity wars</Text>
             <Text variant="body2">
-              <code>@layer</code> defines cascade order explicitly. 
+              <code>@layer</code> defines cascade order explicitly.
               Components always override base styles, pages override components — predictably.
             </Text>
           </Card>
 
           <Card>
-            <Text variant="h6" mixin={{ mb: 1 }}>Tokens create consistency</Text>
+            <Text variant="h6" bottomMargin>Tokens create consistency</Text>
             <Text variant="body2">
-              CSS variables in <code>base.css</code> define spacing, colors, and typography once. 
+              CSS variables in <code>base.css</code> define spacing, colors, and typography once.
               Every component uses the same values.
             </Text>
           </Card>
 
           <Card>
-            <Text variant="h6" mixin={{ mb: 1 }}>Co-location keeps styles with components</Text>
+            <Text variant="h6" bottomMargin>Co-location keeps styles with components</Text>
             <Text variant="body2">
-              Each component imports its own CSS file. Tree-shaking means 
+              Each component imports its own CSS file. Tree-shaking means
               unused CSS never ships. Delete a component, its styles go with it.
             </Text>
           </Card>
 
           <Card>
-            <Text variant="h6" mixin={{ mb: 1 }}>Naming makes debugging easy</Text>
+            <Text variant="h6" bottomMargin>Naming makes debugging easy</Text>
             <Text variant="body2">
-              <code>ComponentName--element</code> is readable in DevTools, 
+              <code>ComponentName--element</code> is readable in DevTools,
               greppable in code, and requires no source maps.
             </Text>
           </Card>
@@ -78,7 +78,7 @@ export function WhyPage() {
 
       <Section scopedStyle={{ '--section-background': 'var(--color-bg-subtle)' }}>
         <Text variant="h2" bottomMargin>What You Get</Text>
-        <Box className="d-grid" mixin={{gap: 4, smallScreen: {gridColTemplate: '1fr'}, bigScreen: {gridColTemplate: '1fr 1fr'}}}>
+        <Box className="d-grid" mixin={{ gap: 4, smallScreen: { gridColTemplate: '1fr' }, bigScreen: { gridColTemplate: '1fr 1fr' } }}>
           <Card title="Benefits">
             <ul className="WhyPage--list WhyPage--list-positive">
               <li>Zero runtime — native CSS only</li>
@@ -89,7 +89,7 @@ export function WhyPage() {
               <li>Future-proof — native features, no abstractions</li>
             </ul>
           </Card>
-          
+
           <Card title="What You Avoid">
             <ul className="WhyPage--list WhyPage--list-negative">
               <li>Runtime style computation</li>

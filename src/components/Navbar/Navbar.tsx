@@ -23,16 +23,16 @@ export function Navbar({ onMenuClick }: NavbarProps) {
         >
           <MenuIcon />
         </Button>
-        <div className="d-flex ali-center gap-1">
+        <a className="d-flex ali-center gap-1" href={routes.home}>
           <img src={`/CascadeKitIcon.png`} alt="" className="Navbar--logo" aria-hidden="true" />
           <Text variant='h5' tag='span'>CascadeKit</Text>
-        </div>
+        </a>
       </div>
       <div className='hide-on-small-screens d-flex ali-center gap-3'>
         <NavButton href={routes.home}>Home</NavButton>
         <NavButton href={routes.why}>Why</NavButton>
         <NavButton href={routes.aiTools}>CascadeKit for agents</NavButton>
-        <NavButton href={routes.how}>Documentation</NavButton>
+        <NavButton href={routes.how} isDocs>Documentation</NavButton>
       </div>
       <div className='Navbar--right-section'>
         <Button

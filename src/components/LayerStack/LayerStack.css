@@ -7,6 +7,17 @@
     --color-layer-component-overrides: #DFECBB;
     --color-layer-user-overrides: #C8ECBB;
   }
+
+  @media (prefers-color-scheme: dark) {
+    .LayerStack--root {
+      --color-layer-base: #3b2645;
+      --color-layer-utils: #3b2438;
+      --color-layer-components: #3b2824;
+      --color-layer-pages: #3b3224;
+      --color-layer-component-overrides: #2e3b24;
+      --color-layer-user-overrides: #243b22;
+    }
+  }
   .LayerStack--item {
     display: flex;
     justify-content: space-between;

@@ -4,8 +4,8 @@ export const HomePagePrinciple = (props: { title: string; description: React.Rea
     const { title, description } = props;
     return (
         <div className="HomePage--principle">
-            <Text variant="h6" bottomMargin color="light">{title}</Text>
-            <Text variant="body2" color="light" isPretty>
+            <Text variant="h6" bottomMargin color="on-dark">{title}</Text>
+            <Text variant="body2" color="on-dark" isPretty>
                 {description}
             </Text>
         </div>

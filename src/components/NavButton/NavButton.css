@@ -20,6 +20,21 @@
     --text-color: var(--dark-blue);
   }
 
+  @media (prefers-color-scheme: dark) {
+    .NavButton--root {
+      --icon-border-color: var(--dark-slate-2);
+      --icon-background-color: var(--dark-slate-3);
+      --text-color: var(--medium-slate);
+    }
+
+    .NavButton--selected,
+    .NavButton--root:active {
+      --icon-border-color: var(--light-indigo-2);
+      --icon-background-color: var(--dark-indigo-2);
+      --text-color: var(--light-indigo-3);
+    }
+  }
+
   .NavButton--icon {
     --border-size: round(0.0625em, 1px);
     --s: round(0.2em, 1px);

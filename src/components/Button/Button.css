@@ -46,20 +46,20 @@
     --button-bg-color-hover: var(--color-bg-muted);
   }
 
-  .Button--outline-light {
+  .Button--outline-on-dark {
     --button-bg-color: transparent;
-    --button-color: var(--color-text-lightest);
-    --button-bg-color-hover: var(--color-text-lightest);
-    --button-border-color: var(--color-text-lightest);
-    --button-color-hover: var(--color-text);
+    --button-color: var(--color-text-on-dark-subtle);
+    --button-bg-color-hover: var(--color-text-on-dark-subtle);
+    --button-border-color: var(--color-text-on-dark-subtle);
+    --button-color-hover: var(--color-text-on-light);
   }
 
   .Button--outline {
     --button-bg-color: transparent;
-    --button-color: var(--color-card-dark);
-    --button-bg-color-hover: var(--color-card-dark);
-    --button-border-color: var(--color-card-dark);
-    --button-color-hover: var(--color-text-lightest);
+    --button-color: color-mix(in srgb, var(--color-primary) 30%, var(--color-contrast));
+    --button-bg-color-hover: color-mix(in srgb, var(--color-primary) 30%, var(--color-contrast));
+    --button-border-color: color-mix(in srgb, var(--color-primary) 30%, var(--color-contrast));
+    --button-color-hover: color-mix(in srgb, var(--color-primary) 30%, var(--color-base));
   }
 }
 

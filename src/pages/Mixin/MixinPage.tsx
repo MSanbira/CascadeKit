@@ -20,17 +20,17 @@ export function MixinPage() {
     <div className="MixinPage--root inline-container">
       <Section>
         <Text variant="h1" bottomMargin>Mixin System</Text>
-        <Text variant="body1" mixin={{ mb: 2 }}>
+        <Text variant="body1" bottomMargin>
           The mixin system provides a flexible way to apply spacing, layout, and
           responsive styles directly through component props.
         </Text>
         <Card mixin={{ mt: 4 }} title="Why Not Just Use Inline Styles?">
-          <Text variant="body2" mixin={{ mb: 2 }}>
+          <Text variant="body2" bottomMargin>
             In CascadeKit, <Strong>every styling tool must respect the layer system</Strong>.
             If we wrote CSS values directly into inline styles, they would bypass the cascade
             entirely — making it impossible for <code>user-overrides</code> to override them.
           </Text>
-          <Text variant="body2" mixin={{ mb: 2 }}>
+          <Text variant="body2" bottomMargin>
             Instead, the mixin system uses <Strong>CSS custom properties</Strong> (variables)
             combined with <Strong>CSS classes</Strong> that live in the <code>component-overrides</code> layer.
             This preserves the cascade: users can still override mixin-applied styles from higher layers.
@@ -43,7 +43,7 @@ export function MixinPage() {
 
       <Section>
         <Text variant="h2" bottomMargin id="howItWorks">How It Works</Text>
-        <Text variant="body1" mixin={{ mb: 2 }}>
+        <Text variant="body1" bottomMargin>
           Components with mixin support accept a <code>mixin</code> prop. This prop
           is processed into CSS classes and custom properties that are applied to
           the element.
@@ -60,7 +60,7 @@ export function MixinPage() {
         <CodeBlock language="typescript">{mixinTypeExample}</CodeBlock>
 
         <Card mixin={{ mt: 4 }} title="Spacing Values">
-          <Text variant="body2" mixin={{ mb: 1 }}>
+          <Text variant="body2" bottomMargin>
             <Strong>Numbers</Strong> are multiplied by <code>--base-size</code> (e.g., <code>2</code> → <code>calc(var(--base-size) * 2)</code>)
           </Text>
           <Text variant="body2">
@@ -75,14 +75,14 @@ export function MixinPage() {
 
         <Box className="d-flex gap-4" mixin={{ mt: 4 }}>
           <Box className="d-flex dir-col">
-            <Text variant="body2" muted mixin={{ mb: 1 }}>With base units (mb: 2):</Text>
+            <Text variant="body2" muted bottomMargin>With base units (mb: 2):</Text>
             <Text mixin={{ mb: 2, p: 1 }} className="MixinPage--example-box">
               This text has margin-bottom: 2 units
             </Text>
           </Box>
 
           <Box className="d-flex dir-col">
-            <Text variant="body2" muted mixin={{ mb: 1 }}>With raw values (mb: '24px'):</Text>
+            <Text variant="body2" muted bottomMargin>With raw values (mb: '24px'):</Text>
             <Text mixin={{ mb: '24px', p: '8px' }} className="MixinPage--example-box">
               This text has margin-bottom: 24px
             </Text>
@@ -92,22 +92,22 @@ export function MixinPage() {
 
       <Section>
         <Text variant="h2" bottomMargin id="responsiveBreakpoints">Responsive Breakpoints</Text>
-        <Text variant="body1" mixin={{ mb: 2 }}>
+        <Text variant="body1" bottomMargin>
           Use <code>smallScreen</code>, <code>mediumScreen</code>, and <code>bigScreen</code> to
           apply different values at different viewport sizes.
         </Text>
         <CodeBlock language="tsx">{responsiveExample}</CodeBlock>
 
         <Card mixin={{ mt: 4 }} title="Breakpoint Ranges">
-          <Text variant="body2" mixin={{ mb: 1 }}><code>smallScreen</code>: max-width: 639px</Text>
-          <Text variant="body2" mixin={{ mb: 1 }}><code>mediumScreen</code>: 640px – 799px</Text>
+          <Text variant="body2" bottomMargin><code>smallScreen</code>: max-width: 639px</Text>
+          <Text variant="body2" bottomMargin><code>mediumScreen</code>: 640px – 799px</Text>
           <Text variant="body2"><code>bigScreen</code>: min-width: 800px</Text>
         </Card>
       </Section>
 
       <Section>
         <Text variant="h2" bottomMargin id="mobileFirstCascade">Mobile-First Cascade</Text>
-        <Text variant="body1" mixin={{ mb: 2 }}>
+        <Text variant="body1" bottomMargin>
           The mixin system automatically cascades values from smaller to larger breakpoints.
           If you set a value for <code>smallScreen</code> but not <code>mediumScreen</code>,
           the small screen value will be used for medium screens too.
@@ -117,19 +117,19 @@ export function MixinPage() {
 
       <Section>
         <Text variant="h2" bottomMargin id="containerQueries">Container Queries</Text>
-        <Text variant="body1" mixin={{ mb: 2 }}>
+        <Text variant="body1" bottomMargin>
           Use <code>smallContainer</code>, <code>mediumContainer</code>, and <code>bigContainer</code> for
           styles based on the container size rather than viewport.
         </Text>
-        <Text variant="body2" muted mixin={{ mb: 2 }}>
+        <Text variant="body2" muted bottomMargin>
           <Strong>Note:</Strong> Container queries require the parent element to have the <code>inline-container</code> utility class.
           The mixin system provides the responsive classes, but the container context must be set separately.
         </Text>
         <CodeBlock language="tsx">{containerExample}</CodeBlock>
 
         <Card mixin={{ mt: 4 }} title="Container Breakpoints">
-          <Text variant="body2" mixin={{ mb: 1 }}><code>smallContainer</code>: max-width: 400px</Text>
-          <Text variant="body2" mixin={{ mb: 1 }}><code>mediumContainer</code>: 401px – 800px</Text>
+          <Text variant="body2" bottomMargin><code>smallContainer</code>: max-width: 400px</Text>
+          <Text variant="body2" bottomMargin><code>mediumContainer</code>: 401px – 800px</Text>
           <Text variant="body2"><code>bigContainer</code>: min-width: 801px</Text>
         </Card>
       </Section>
@@ -139,8 +139,8 @@ export function MixinPage() {
 
         <Box className="d-grid gap-4" mixin={{ my: 4, smallContainer: { gridColTemplate: '1fr' }, mediumContainer: { gridColTemplate: '1fr 1fr' } }}>
           <div>
-            <Text variant="h4" mixin={{ mb: 1 }}>Spacing</Text>
-            <Text variant="body2" muted mixin={{ mb: 2 }}>Padding with different spacing values</Text>
+            <Text variant="h4" bottomMargin>Spacing</Text>
+            <Text variant="body2" muted bottomMargin>Padding with different spacing values</Text>
             <Card variant="subtle" mixin={{ p: 4 }} className="inline-container">
               <div className="d-flex f-wrap gap-3 ali-start">
                 <Text
@@ -166,8 +166,8 @@ export function MixinPage() {
           </div>
 
           <div>
-            <Text variant="h4" mixin={{ mb: 1 }}>Opacity</Text>
-            <Text variant="body2" muted mixin={{ mb: 2 }}>Control element transparency</Text>
+            <Text variant="h4" bottomMargin>Opacity</Text>
+            <Text variant="body2" muted bottomMargin>Control element transparency</Text>
             <Card variant="subtle" mixin={{ p: 4 }} className="inline-container">
               <Box className="d-flex f-wrap gap-2">
                 <Button mixin={{ opacity: 1 }}>100%</Button>
@@ -178,8 +178,8 @@ export function MixinPage() {
           </div>
 
           <div>
-            <Text variant="h4" mixin={{ mb: 1 }}>Responsive (resize viewport)</Text>
-            <Text variant="body2" muted mixin={{ mb: 2 }}>Padding changes based on screen size</Text>
+            <Text variant="h4" bottomMargin>Responsive (resize viewport)</Text>
+            <Text variant="body2" muted bottomMargin>Padding changes based on screen size</Text>
             <Card variant="subtle" mixin={{ p: 4 }} className="inline-container">
               <Text
                 mixin={{
@@ -197,8 +197,8 @@ export function MixinPage() {
           </div>
 
           <div>
-            <Text variant="h4" mixin={{ mb: 1 }}>Flex Layout</Text>
-            <Text variant="body2" muted mixin={{ mb: 2 }}>Direction switches from column to row</Text>
+            <Text variant="h4" bottomMargin>Flex Layout</Text>
+            <Text variant="body2" muted bottomMargin>Direction switches from column to row</Text>
             <Card variant="subtle" >
               <Box
                 mixin={{
@@ -216,8 +216,8 @@ export function MixinPage() {
           </div>
 
           <Box className="d-flex dir-col" mixin={{ gridColumn: '1 / -1' }}>
-            <Text variant="h4" mixin={{ mb: 1 }}>Container Query (resize panel)</Text>
-            <Text variant="body2" muted mixin={{ mb: 2 }}>Styles change based on container width</Text>
+            <Text variant="h4" bottomMargin>Container Query (resize panel)</Text>
+            <Text variant="body2" muted bottomMargin>Styles change based on container width</Text>
             <Card variant="subtle" mixin={{ p: 4 }} className="inline-container MixinPage--resizable">
               <Text
                 mixin={{
@@ -236,8 +236,8 @@ export function MixinPage() {
         </Box>
 
         <Box className="d-flex dir-col" mixin={{ mt: 4 }}>
-          <Text variant="h4" mixin={{ mb: 1 }}>Card with Mixin</Text>
-          <Text variant="body2" muted mixin={{ mb: 2 }}>Cards accept mixin props for padding and opacity</Text>
+          <Text variant="h4" bottomMargin>Card with Mixin</Text>
+          <Text variant="body2" muted bottomMargin>Cards accept mixin props for padding and opacity</Text>
           <Box className="d-grid gap-4" mixin={{ smallContainer: { gridColTemplate: '1fr' }, mediumContainer: { gridColTemplate: '1fr 1fr' } }}>
             <Card mixin={{ p: 2 }} title="Default padding">
               <Text variant="body2">Card with p: 2</Text>
@@ -249,8 +249,8 @@ export function MixinPage() {
         </Box>
 
         <Box className="d-flex dir-col" mixin={{ mt: 4 }}>
-          <Text variant="h4" mixin={{ mb: 1 }}>Heading & Section</Text>
-          <Text variant="body2" muted mixin={{ mb: 2 }}>Structural components also support mixins</Text>
+          <Text variant="h4" bottomMargin>Heading & Section</Text>
+          <Text variant="body2" muted bottomMargin>Structural components also support mixins</Text>
           <Card variant="subtle" mixin={{ p: 3 }}>
             <Text variant="h3" mixin={{ mb: 2 }}>Heading with mb: 2</Text>
             <Text variant="body2">Section with p: 3 containing a heading and text.</Text>
@@ -258,7 +258,7 @@ export function MixinPage() {
         </Box>
 
         <Box className="d-flex dir-col" mixin={{ mt: 4 }}>
-          <Text variant="h4" mixin={{ mb: 2 }}>Buttons</Text>
+          <Text variant="h4" bottomMargin>Buttons</Text>
           <Card variant="subtle" mixin={{ p: 4 }}>
             <Box className="d-flex f-wrap ali-center">
               <Button mixin={{ mr: 2 }}>Normal</Button>

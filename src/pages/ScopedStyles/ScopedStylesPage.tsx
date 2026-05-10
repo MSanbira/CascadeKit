@@ -44,7 +44,7 @@ export function ScopedStylesPage() {
 
         <Box className="d-grid" mixin={{ gap: 4, mt: 4, smallScreen: { gridColTemplate: '1fr' }, mediumScreen: { gridColTemplate: '1fr 1fr' } }}>
           <Card variant="subtle">
-            <Text variant="h6" mixin={{ mb: 1 }}>Backend/User Inputs</Text>
+            <Text variant="h6" bottomMargin>Backend/User Inputs</Text>
             <Text variant="body2">
               User-selected brand colors, custom themes from a CMS, or any dynamic values 
               that aren't known at build time.
@@ -52,7 +52,7 @@ export function ScopedStylesPage() {
           </Card>
 
           <Card variant="subtle">
-            <Text variant="h6" mixin={{ mb: 1 }}>Extreme Customizations</Text>
+            <Text variant="h6" bottomMargin>Extreme Customizations</Text>
             <Text variant="body2">
               One-off styling that doesn't fit into your design system — promotional cards, 
               special states, or highly specific UI requirements.
@@ -60,7 +60,7 @@ export function ScopedStylesPage() {
           </Card>
 
           <Card variant="subtle">
-            <Text variant="h6" mixin={{ mb: 1 }}>Prototype & Experimentation</Text>
+            <Text variant="h6" bottomMargin>Prototype & Experimentation</Text>
             <Text variant="body2">
               Quick iteration on styles without creating new CSS classes or modifying 
               component stylesheets.
@@ -68,7 +68,7 @@ export function ScopedStylesPage() {
           </Card>
 
           <Card variant="subtle">
-            <Text variant="h6" mixin={{ mb: 1 }}>Third-party Integration</Text>
+            <Text variant="h6" bottomMargin>Third-party Integration</Text>
             <Text variant="body2">
               Styling components to match external brand guidelines or embedded widgets 
               with specific color requirements.
@@ -120,7 +120,7 @@ export function ScopedStylesPage() {
 
         <Box mixin={{ mt: 4 }}>
           <Card variant="subtle" mixin={{ mb: 3 }}>
-            <Text variant="h6" mixin={{ mb: 2 }}>Cascade Respect</Text>
+            <Text variant="h6" bottomMargin>Cascade Respect</Text>
             <Text variant="body2">
               Inline styles have the highest specificity and can only be overridden with <code>!important</code>. 
               Scoped styles live in <code>@layer component-overrides</code>, so <code>user-overrides</code> layer 
@@ -129,7 +129,7 @@ export function ScopedStylesPage() {
           </Card>
 
           <Card variant="subtle" mixin={{ mb: 3 }}>
-            <Text variant="h6" mixin={{ mb: 2 }}>Full CSS Selector Support</Text>
+            <Text variant="h6" bottomMargin>Full CSS Selector Support</Text>
             <Text variant="body2">
               Inline styles can't use selectors at all. With <code>@scope</code>, you get <code>&:hover</code>, 
               <code>@media</code> queries, and can target children like <code>.Card--header</code> — 
@@ -138,7 +138,7 @@ export function ScopedStylesPage() {
           </Card>
 
           <Card variant="subtle" mixin={{ mb: 3 }}>
-            <Text variant="h6" mixin={{ mb: 2 }}>Token Inheritance</Text>
+            <Text variant="h6" bottomMargin>Token Inheritance</Text>
             <Text variant="body2">
               When you override <code>--color-primary</code> on a Card, all children (Buttons, Badges) 
               automatically inherit it. Inline styles would require passing the value to every child.
@@ -146,7 +146,7 @@ export function ScopedStylesPage() {
           </Card>
 
           <Card variant="subtle">
-            <Text variant="h6" mixin={{ mb: 2 }}>DevTools Experience</Text>
+            <Text variant="h6" bottomMargin>DevTools Experience</Text>
             <Text variant="body2">
               Scoped styles appear as proper CSS rules in DevTools with clear layer information, 
               making debugging easier than hunting through inline style attributes.

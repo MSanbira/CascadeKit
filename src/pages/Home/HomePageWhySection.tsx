@@ -45,8 +45,8 @@ const HomePageWhySectionTextBlock = (props: { title: string; description: string
     const { title, description } = props;
     return (
         <div>
-            <Text variant="h3" bottomMargin color="lightest">{title}</Text>
-            <Text variant="body2" color="lightest">{description}</Text>
+            <Text variant="h3" bottomMargin color="on-dark-subtle">{title}</Text>
+            <Text variant="body2" color="on-dark-subtle">{description}</Text>
         </div>
     );
 };

@@ -73,12 +73,12 @@ export function HomePage() {
       <Section scopedStyle={{ '--section-background': 'var(--color-section-bg-dark)' }}>
         <div className='HomePage--feature Section--full-width HomePage--layers-feature'>
           <div className="HomePage--feature-text">
-            <Text variant="h2" bottomMargin color="lightest">Cascade Layers</Text>
-            <Text color="lightest" isPretty>
+            <Text variant="h2" bottomMargin color="on-dark-subtle">Cascade Layers</Text>
+            <Text color="on-dark-subtle" isPretty>
               Six ordered layers replace specificity wars. Components always override base styles,
               pages override components, and user overrides always win predictably.
             </Text>
-            <Button href={routes.layers} variant="outline-light" mixin={{ mt: 4 }}>Layers explained →</Button>
+            <Button href={routes.layers} variant="outline-on-dark" mixin={{ mt: 4 }}>Layers explained →</Button>
           </div>
           <LayerStack className="HomePage--feature-visual" />
         </div>
@@ -87,7 +87,7 @@ export function HomePage() {
       <Section scopedStyle={{ '--section-background': 'var(--color-bg-subtle)' }}>
         <div className='HomePage--feature HomePage--feature-reverse'>
           <div className="HomePage--feature-text">
-            <Text variant="h3" mixin={{ mb: 2 }}>Component Model</Text>
+            <Text variant="h3" bottomMargin>Component Model</Text>
             <Text>
               Each component owns its styles in a co-located CSS file. Tree-shaking means
               unused components = unused CSS. Delete a folder, delete everything.
@@ -103,7 +103,7 @@ export function HomePage() {
       <Section scopedStyle={{ '--section-background': 'var(--color-bg)' }}>
         <div className='HomePage--feature'>
           <div className="HomePage--feature-text">
-            <Text variant="h3" mixin={{ mb: 2 }}>Layout Utilities</Text>
+            <Text variant="h3" bottomMargin>Layout Utilities</Text>
             <Text >
               Composable utility classes for flex, grid, alignment, and gaps —
               all in the <code>utils</code> layer with low specificity via <code>:where()</code>.
@@ -119,7 +119,7 @@ export function HomePage() {
       <Section scopedStyle={{ '--section-background': 'var(--color-bg-subtle)' }}>
         <div className='HomePage--feature HomePage--feature-reverse'>
           <div className="HomePage--feature-text">
-            <Text variant="h3" mixin={{ mb: 2 }}>Mixin System</Text>
+            <Text variant="h3" bottomMargin>Mixin System</Text>
             <Text>
               Responsive, per-component spacing and layout — without inline styles.
               Mixins generate classes in the <code>component-overrides</code> layer.
@@ -135,7 +135,7 @@ export function HomePage() {
       <Section scopedStyle={{ '--section-background': 'var(--color-bg)' }}>
         <div className='HomePage--feature'>
           <div className="HomePage--feature-text">
-            <Text variant="h3" mixin={{ mb: 2 }}>Theming</Text>
+            <Text variant="h3" bottomMargin>Theming</Text>
             <Text>
               Swap design tokens globally via <code>data-theme</code> attributes.
               Themes live in the <code>user-overrides</code> layer — they always win.
@@ -151,7 +151,7 @@ export function HomePage() {
       <Section scopedStyle={{ '--section-background': 'var(--color-bg-subtle)' }}>
         <div className='HomePage--feature HomePage--feature-reverse'>
           <div className="HomePage--feature-text">
-            <Text variant="h3" mixin={{ mb: 2 }}>Scoped Styles</Text>
+            <Text variant="h3" bottomMargin>Scoped Styles</Text>
             <Text>
               Per-instance overrides using native CSS <code>@scope</code>.
               Dynamic values stay in the cascade — never inline.
@@ -167,7 +167,7 @@ export function HomePage() {
       <Section scopedStyle={{ '--section-background': 'var(--color-bg)' }}>
         <div className='HomePage--feature'>
           <div className="HomePage--feature-text">
-            <Text variant="h3" mixin={{ mb: 2 }}>AI-Integrated Tooling</Text>
+            <Text variant="h3" bottomMargin>AI-Integrated Tooling</Text>
             <Text>
               An MCP server and prompt guide teach AI assistants the CascadeKit conventions.
               Generate components, look up tokens, and follow the architecture automatically.

@@ -16,12 +16,12 @@ export function LayoutUtilsPage() {
     <div className="LayoutUtilsPage--root">
       <Section>
         <Text variant="h1" bottomMargin>Layout Utilities</Text>
-        <Text variant="body1" mixin={{ mb: 2 }}>
+        <Text variant="body1" bottomMargin>
           Layout utilities provide quick, composable CSS classes for common layout patterns.
           They live in the <code>utils</code> layer and use class selectors for composable styling.
         </Text>
         <Card className="LayoutUtilsPage--card" title="Key Concept">
-          <Text variant="body2" mixin={{ mb: 2 }}>
+          <Text variant="body2" bottomMargin>
             Classes can be <Strong>combined freely</Strong> as space-separated values.
             Each utility is a separate class that can be mixed and matched.
           </Text>
@@ -33,14 +33,14 @@ export function LayoutUtilsPage() {
 
       <Section>
         <Text variant="h2" bottomMargin id="flexbox">Flexbox</Text>
-        <Text variant="body1" mixin={{ mb: 2 }}>
+        <Text variant="body1" bottomMargin>
           Use <code>d-flex</code> as the base, then add modifiers for direction, wrapping, and alignment.
         </Text>
         <CodeBlock language="tsx">{flexExample}</CodeBlock>
 
         <div className="LayoutUtilsPage--demo">
-          <Text variant="h4" mixin={{ mb: 1 }}>Live Demo</Text>
-          <Text variant="body2" muted mixin={{ mb: 2 }}>Flex row with gap and center alignment</Text>
+          <Text variant="h4" bottomMargin>Live Demo</Text>
+          <Text variant="body2" muted bottomMargin>Flex row with gap and center alignment</Text>
           <div className="LayoutUtilsPage--demo-box">
             <div className="d-flex gap-2 ali-center">
               <Text className="LayoutUtilsPage--demo-item" mixin={{ p: 1 }}>Item 1</Text>
@@ -52,7 +52,7 @@ export function LayoutUtilsPage() {
 
         <Card className="LayoutUtilsPage--card" title="Flex Classes">
           {classReference.flex.map(({ class: cls, desc }) => (
-            <Text key={cls} variant="body2" mixin={{ mb: 1 }}>
+            <Text key={cls} variant="body2" bottomMargin>
               <code>{cls}</code> — {desc}
             </Text>
           ))}
@@ -61,14 +61,14 @@ export function LayoutUtilsPage() {
 
       <Section>
         <Text variant="h2" bottomMargin id="gridAndColumns">Grid & Columns</Text>
-        <Text variant="body1" mixin={{ mb: 2 }}>
+        <Text variant="body1" bottomMargin>
           Use <code>d-grid</code> for basic grid or <code>col-container</code> for predefined column layouts.
         </Text>
         <CodeBlock language="tsx">{gridExample}</CodeBlock>
 
         <div className="LayoutUtilsPage--demo">
-          <Text variant="h4" mixin={{ mb: 1 }}>Live Demo</Text>
-          <Text variant="body2" muted mixin={{ mb: 2 }}>3-column grid with gap</Text>
+          <Text variant="h4" bottomMargin>Live Demo</Text>
+          <Text variant="body2" muted bottomMargin>3-column grid with gap</Text>
           <div className="LayoutUtilsPage--demo-box">
             <div className="col-container col-num-3 gap-2">
               <Text className="LayoutUtilsPage--demo-item" mixin={{ p: 2 }}>Column 1</Text>
@@ -80,7 +80,7 @@ export function LayoutUtilsPage() {
 
         <Card className="LayoutUtilsPage--card" title="Grid Classes">
           {classReference.grid.map(({ class: cls, desc }) => (
-            <Text key={cls} variant="body2" mixin={{ mb: 1 }}>
+            <Text key={cls} variant="body2" bottomMargin>
               <code>{cls}</code> — {desc}
             </Text>
           ))}
@@ -89,13 +89,13 @@ export function LayoutUtilsPage() {
 
       <Section>
         <Text variant="h2" bottomMargin id="alignment">Alignment</Text>
-        <Text variant="body1" mixin={{ mb: 2 }}>
+        <Text variant="body1" bottomMargin>
           Alignment classes work with both flex and grid layouts.
         </Text>
 
         <div className="LayoutUtilsPage--demo">
-          <Text variant="h4" mixin={{ mb: 1 }}>Live Demo</Text>
-          <Text variant="body2" muted mixin={{ mb: 2 }}>Space-between with center alignment</Text>
+          <Text variant="h4" bottomMargin>Live Demo</Text>
+          <Text variant="body2" muted bottomMargin>Space-between with center alignment</Text>
           <div className="LayoutUtilsPage--demo-box">
             <div className="d-flex jc-sb ali-center LayoutUtilsPage--align-demo">
               <Text className="LayoutUtilsPage--demo-item" mixin={{ p: 1 }}>Left</Text>
@@ -107,7 +107,7 @@ export function LayoutUtilsPage() {
 
         <Card className="LayoutUtilsPage--card" title="Alignment Classes">
           {classReference.alignment.map(({ class: cls, desc }) => (
-            <Text key={cls} variant="body2" mixin={{ mb: 1 }}>
+            <Text key={cls} variant="body2" bottomMargin>
               <code>{cls}</code> — {desc}
             </Text>
           ))}
@@ -116,13 +116,13 @@ export function LayoutUtilsPage() {
 
       <Section>
         <Text variant="h2" bottomMargin id="gap">Gap</Text>
-        <Text variant="body1" mixin={{ mb: 2 }}>
+        <Text variant="body1" bottomMargin>
           Gap classes follow the spacing scale from <code>base.css</code>.
         </Text>
 
         <div className="LayoutUtilsPage--demo">
-          <Text variant="h4" mixin={{ mb: 1 }}>Live Demo</Text>
-          <Text variant="body2" muted mixin={{ mb: 2 }}>Comparing different gap sizes</Text>
+          <Text variant="h4" bottomMargin>Live Demo</Text>
+          <Text variant="body2" muted bottomMargin>Comparing different gap sizes</Text>
           <div className="LayoutUtilsPage--demo-box">
             <div className="d-flex dir-col gap-3">
               <div className="d-flex gap-1">
@@ -157,14 +157,14 @@ export function LayoutUtilsPage() {
 
       <Section>
         <Text variant="h2" bottomMargin id="combiningWithMixin">Combining with Mixin</Text>
-        <Text variant="body1" mixin={{ mb: 2 }}>
+        <Text variant="body1" bottomMargin>
           Layout utilities handle <Strong>static structure</Strong>, while the mixin system handles 
           <Strong> dynamic and responsive</Strong> properties. They work together seamlessly.
         </Text>
         <CodeBlock language="tsx">{combinedExample}</CodeBlock>
 
         <Card className="LayoutUtilsPage--card" title="When to Use Each">
-          <Text variant="body2" mixin={{ mb: 2 }}>
+          <Text variant="body2" bottomMargin>
             <Strong>Use layout utilities when:</Strong>
           </Text>
           <ul className="LayoutUtilsPage--list">
@@ -172,7 +172,7 @@ export function LayoutUtilsPage() {
             <li>You want quick, composable layout classes</li>
             <li>Gap and alignment don't need to change responsively</li>
           </ul>
-          <Text variant="body2" mixin={{ mb: 2, mt: 3 }}>
+          <Text variant="body2" bottomMargin mixin={{ mt: 3 }}>
             <Strong>Use mixin when:</Strong>
           </Text>
           <ul className="LayoutUtilsPage--list">
@@ -186,8 +186,8 @@ export function LayoutUtilsPage() {
         </Card>
 
         <div className="LayoutUtilsPage--demo inline-container">
-          <Text variant="h4" mixin={{ mb: 1 }}>Live Demo</Text>
-          <Text variant="body2" muted mixin={{ mb: 2 }}>Grid layout with responsive column override</Text>
+          <Text variant="h4" bottomMargin>Live Demo</Text>
+          <Text variant="body2" muted bottomMargin>Grid layout with responsive column override</Text>
           <Box
             className="d-grid gap-2 LayoutUtilsPage--demo-box"
             mixin={{ smallScreen: { gridColTemplate: '1fr' }, mediumContainer: { gridColTemplate: '1fr 1fr'} }}

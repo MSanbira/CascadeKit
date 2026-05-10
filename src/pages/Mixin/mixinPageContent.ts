@@ -56,7 +56,7 @@ mixin={{ smallScreen: { mb: 2 } }}
 // mediumScreen: { mb: 2 }  ← auto-filled
 // bigScreen: { mb: 2 }     ← auto-filled`;
 
-export const outputExample = `// getMixin({ mb: 2, smallScreen: { mb: 4 } })
+export const outputExample = `getMixin({ mb: 2, smallScreen: { mb: 4 } })
 
 // Returns:
 {

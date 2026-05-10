@@ -79,7 +79,7 @@ export function ExamplePage() {
         </Card>
 
         <Box mixin={{ mt: 4 }}>
-          <Text variant="h5" mixin={{ mb: 2 }}>Variants</Text>
+          <Text variant="h5" bottomMargin>Variants</Text>
           <Box className="d-flex gap-3 ali-center" mixin={{ mb: 3 }}>
             <Button variant="primary">Primary</Button>
             <Button variant="secondary">Secondary</Button>
@@ -89,15 +89,15 @@ export function ExamplePage() {
         </Box>
 
         <Box mixin={{ mt: 4 }}>
-          <Text variant="h5" mixin={{ mb: 2 }}>How Variants Work (CSS)</Text>
-          <Text variant="body2" muted mixin={{ mb: 2 }}>
+          <Text variant="h5" bottomMargin>How Variants Work (CSS)</Text>
+          <Text variant="body2" muted bottomMargin>
             Base styles use variables with fallbacks. Variants only set variable values.
           </Text>
           <CodeBlock language="css" filename="Button.css">{buttonVariantsCss}</CodeBlock>
         </Box>
 
         <Box mixin={{ mt: 4 }}>
-          <Text variant="h5" mixin={{ mb: 2 }}>Sizes</Text>
+          <Text variant="h5" bottomMargin>Sizes</Text>
           <Box className="d-flex gap-3 ali-center" mixin={{ mb: 3 }}>
             <Button variant="primary" size="sm">Small</Button>
             <Button variant="primary" size="md">Medium</Button>
@@ -107,13 +107,13 @@ export function ExamplePage() {
         </Box>
 
         <Box mixin={{ mt: 4 }}>
-          <Text variant="h5" mixin={{ mb: 2 }}>Disabled State</Text>
+          <Text variant="h5" bottomMargin>Disabled State</Text>
           <Box className="d-flex gap-3 ali-center" mixin={{ mb: 3 }}>
             <Button variant="primary" disabled>Primary</Button>
             <Button variant="secondary" disabled>Secondary</Button>
             <Button variant="ghost" disabled>Ghost</Button>
           </Box>
-          <Text variant="body2" muted mixin={{ mb: 2 }}>
+          <Text variant="body2" muted bottomMargin>
             Disabled styles in <code>@layer component-overrides</code> reset hover/active states.
           </Text>
           <CodeBlock language="css" filename="Button.css">{buttonDisabledCss}</CodeBlock>
@@ -340,7 +340,7 @@ export function ExamplePage() {
         </Box>
 
         <Text variant="h4" mixin={{ mt: 5, mb: 2 }}>With Nested Selectors</Text>
-        <Text variant="body2" muted mixin={{ mb: 3 }}>
+        <Text variant="body2" muted bottomMargin>
           Use CSS nesting with <code>&</code> for pseudo-selectors and <code>@media</code> for responsive styles.
         </Text>
 

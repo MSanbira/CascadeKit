@@ -92,16 +92,16 @@
     color: var(--color-error);
   }
 
-  .Text--color-light {
-    color: var(--color-text-light);
+  .Text--color-on-dark {
+    color: var(--color-text-on-dark);
   }
 
-  .Text--color-lightest {
-    color: var(--color-text-lightest);
+  .Text--color-on-dark-subtle {
+    color: var(--color-text-on-dark-subtle);
   }
 
-  .Text--color-light-highlight {
-    color: var(--color-text-light-highlight);
+  .Text--color-on-dark-highlight {
+    color: var(--color-text-on-dark-highlight);
   }
 
   /* Remove top margin for first heading */

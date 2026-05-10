@@ -22,5 +22,37 @@
         --dark-blue-2: #001B28;
 
         --dotted-gradient-cream: radial-gradient(circle, var(--medium-cream) 1px, var(--light-cream) 0) 50% 50% / 16px 16px;
+        --dotted-gradient-slate: radial-gradient(circle, var(--dark-slate-3) 1px, var(--dark-slate-5) 0) 50% 50% / 16px 16px;
+
+        --light-slate: #f1f5f9;
+        --medium-slate: #94a3b8;
+        --dark-slate: #64748b;
+        --dark-slate-2: #475569;
+        --dark-slate-3: #334155;
+        --dark-slate-4: #1e293b;
+        --dark-slate-5: #0f172a;
+
+        --light-indigo: #eef2ff;
+        --light-indigo-2: #818cf8;
+        --light-indigo-3: #a5b4fc;
+        --dark-indigo: #4f46e5;
+        --dark-indigo-2: #1e1b4b;
+
+        --medium-cyan: #06b6d4;
+        --light-cyan-2: #22d3ee;
+        --medium-green: #10b981;
+        --light-green-2: #34d399;
+        --medium-amber: #f59e0b;
+        --light-amber-2: #fbbf24;
+        --medium-red: #ef4444;
+        --light-red-2: #f87171;
+
+        --dark-navy: #1e1e2e;
+        --light-lavender: #cdd6f4;
+        --medium-lavender: #6c7086;
+        --light-mauve: #cba6f7;
+        --light-mint: #a6e3a1;
+        --light-periwinkle: #89b4fa;
+        --light-peach: #fab387;
     }
 }

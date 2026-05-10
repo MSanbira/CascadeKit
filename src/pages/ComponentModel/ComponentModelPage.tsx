@@ -75,7 +75,7 @@ export function ComponentModelPage() {
         <Text variant="h2" bottomMargin id="whyThisPattern">Why This Pattern?</Text>
         <Box className="d-grid" mixin={{ gap: 4, smallScreen: { gridColTemplate: '1fr' }, mediumScreen: { gridColTemplate: '1fr 1fr' } }}>
           <Card>
-            <Text variant="h6" tag="h4" mixin={{ mb: 2 }}>🔍 Debuggable</Text>
+            <Text variant="h6" tag="h4" bottomMargin>🔍 Debuggable</Text>
             <Text variant="body2">
               Real class names in DevTools. See <code>.Button--primary</code>,
               not <code>.sc-bdnylx</code>.
@@ -83,7 +83,7 @@ export function ComponentModelPage() {
           </Card>
 
           <Card>
-            <Text variant="h6" tag="h4" mixin={{ mb: 2 }}>📦 Portable</Text>
+            <Text variant="h6" tag="h4" bottomMargin>📦 Portable</Text>
             <Text variant="body2">
               Copy a component folder and you have everything.
               No hunting for scattered styles.
@@ -91,7 +91,7 @@ export function ComponentModelPage() {
           </Card>
 
           <Card>
-            <Text variant="h6" tag="h4" mixin={{ mb: 2 }}>🎯 Predictable</Text>
+            <Text variant="h6" tag="h4" bottomMargin>🎯 Predictable</Text>
             <Text variant="body2">
               Know exactly where styles are defined.
               Component name → folder → CSS file.
@@ -99,7 +99,7 @@ export function ComponentModelPage() {
           </Card>
 
           <Card>
-            <Text variant="h6" tag="h4" mixin={{ mb: 2 }}>🤝 Collaborative</Text>
+            <Text variant="h6" tag="h4" bottomMargin>🤝 Collaborative</Text>
             <Text variant="body2">
               Teams can work on components independently.
               No merge conflicts on shared style files.
