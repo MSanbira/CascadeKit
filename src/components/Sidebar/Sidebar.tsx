@@ -1,9 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { useTheme } from '../../context/ThemeContext';
-import { Box } from '../Box/Box';
 import { classNames } from 'cascade-kit-tools/classNames';
-import { Button } from '../Button/Button';
-import { Text } from '../Text/Text';
 import { routes } from '../../constants/routes';
 import './Sidebar.css';
 
@@ -27,6 +23,7 @@ const navItems: NavItem[] = [
   { to: routes.scopedStyles, label: 'Scoped Styles' },
   { to: routes.aiTools, label: 'AI Tools' },
   { to: routes.example, label: 'Live Example' },
+  { to: routes.caseStudy, label: 'Case Study' },
 ];
 
 interface SidebarProps {
@@ -35,7 +32,6 @@ interface SidebarProps {
 }
 
 export function Sidebar({ isOpen = true, onClose }: SidebarProps) {
-  const { themeLabel, toggleTheme } = useTheme();
 
   return (
     <>
@@ -82,18 +78,6 @@ export function Sidebar({ isOpen = true, onClose }: SidebarProps) {
             ))}
           </ul>
         </nav>
-        
-        <Box
-          className="Sidebar--theme-section d-flex dir-col gap-1"
-          mixin={{ pt: 3 }}
-        >
-          <Text variant='body2'>
-            Theme: {themeLabel}
-          </Text>
-          <Button onClick={toggleTheme} variant="secondary">
-            Change Theme
-          </Button>
-        </Box>
       </aside>
     </>
   );

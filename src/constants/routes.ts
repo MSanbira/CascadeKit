@@ -7,6 +7,7 @@ export const routes = {
     mixin: '/mixin',
     layoutUtils: '/layout-utils',
     example: '/example',
+    caseStudy: '/case-study',
     theme: '/theme',
     scopedStyles: '/scoped-styles',
     aiTools: '/ai-tools',
