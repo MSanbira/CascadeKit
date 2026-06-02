@@ -10,11 +10,15 @@ export const routes = {
     theme: '/theme',
     scopedStyles: '/scoped-styles',
     aiTools: '/ai-tools',
+    about: '/about',
+    links: '/links',
 };
 
 export const nonDocsRoutes = [
     routes.home,
     routes.why,
+    routes.about,
+    routes.links,
 ];
 
 export const isDocsPage = (path: string) => {

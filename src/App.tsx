@@ -23,6 +23,8 @@ import { ExamplePage } from './pages/Example/ExamplePage';
 import { ThemePage } from './pages/Theme/ThemePage';
 import { ScopedStylesPage } from './pages/ScopedStyles/ScopedStylesPage';
 import { AIToolsPage } from './pages/AITools/AIToolsPage';
+import { AboutPage } from './pages/About/AboutPage';
+import { LinksPage } from './pages/Links/LinksPage';
 import { routes } from './constants/routes';
 
 function App() {
@@ -43,6 +45,8 @@ function App() {
             <Route path={routes.theme} element={<ThemePage />} />
             <Route path={routes.scopedStyles} element={<ScopedStylesPage />} />
             <Route path={routes.aiTools} element={<AIToolsPage />} />
+            <Route path={routes.about} element={<AboutPage />} />
+            <Route path={routes.links} element={<LinksPage />} />
             <Route path="/" element={<Navigate to={routes.home} replace />} />
             <Route path="*" element={<Navigate to={routes.home} replace />} />
           </Routes>

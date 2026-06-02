@@ -1,0 +1,23 @@
+@layer pages {
+  .AboutPage--intro {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  .AboutPage--photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 799px) {
+    .AboutPage--intro {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}

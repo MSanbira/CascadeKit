@@ -1,4 +1,4 @@
-import { GitHubIcon, MenuIcon } from '../Icons/Icons';
+import { MenuIcon } from '../Icons/Icons';
 import { classNames } from 'cascade-kit-tools/classNames';
 import { Button } from '../Button/Button';
 import { Text } from '../Text/Text';
@@ -55,13 +55,21 @@ export function Navbar({ onMenuClick }: NavbarProps) {
         </Button>
         <Button
           variant='ghost'
-          href="https://github.com/MSanbira/CascadeKit"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="View on GitHub"
+          href={routes.about}
+          aria-label="About"
+          title="About"
           isIcon
         >
-          <GitHubIcon />
+          <span aria-hidden="true">🧔🏻‍♂️</span>
+        </Button>
+        <Button
+          variant='ghost'
+          href={routes.links}
+          aria-label="Links"
+          title="Links"
+          isIcon
+        >
+          <span aria-hidden="true">🔗</span>
         </Button>
       </div>
     </header>
