@@ -1,13 +1,13 @@
 // HERO ────────────────────────────────────────────────────────────────────────
 
-export const heroIntro = `You're shipping the dashboard for a multi-tenant SaaS. Each tenant has its own brand color. Some workspaces are pinned. Three teams ship into the same Card. Tiles show alerts that need their own color. Let's build the tile, hit each wall, and watch CascadeKit get out of the way.`;
+export const heroIntro = `You're shipping the dashboard for a multi-tenant SaaS. Each tenant has its own brand color. Some workspaces are pinned. Three teams ship into the same Card. Some buttons need to break out of the tenant theme. Let's build the tile, hit each wall, and watch CascadeKit get out of the way.`;
 
 export const heroCast = [
   'Per-tenant brand color from the backend',
   'Pinned workspaces with an accent border',
   'A header to lay out without writing CSS',
   'Three product teams sharing one Card',
-  'Inline alerts that fight the tenant color',
+  'A red Retry button inside a tenant-tinted tile',
 ];
 
 // ACT 1 ── Per-tenant brand color (the inline-style trap) ─────────────────────
@@ -195,84 +195,79 @@ export const act4SolutionCode = `// MarketingLanding.css
 
 export const act4Lever = `user-overrides sits at the top of the cascade by definition. No !important needed, ever. Marketing polishes. Card team refactors. Both keep moving without coordination. This is the moment design-system veterans nod at.`;
 
-// ACT 5 ── The clashing theme (theme islands via class-based rebinding) ──────
+// ACT 5 ── Breaking out of ambient theming (variants + scopedLayer) ─────────
 
-export const act5Problem = `Tiles show inline status alerts: "Build failed" (red), "Storage 80% full" (amber), "Deploy succeeded" (green). Each alert has an action button that should match its variant. But the Card is already tinted with the tenant brand from Act 1, so the alert's Retry button renders in tenant color instead of red. Two contexts, one --color-primary. One has to lose.`;
+export const act5Problem = `Inside a tenant-tinted Card from Act 1, a "Retry" button needs to be red. Errors must read as errors regardless of brand. The Card already rebound --color-primary to the tenant color, and a default Button would happily inherit it. How does red win?`;
 
-export const act5NaiveCode = `// Attempt 1: prop-drill the color through every nested primitive
-<Alert variant="error" themeColor="#ef4444">
-  <Button themeColor="#ef4444" onClick={retry}>Retry</Button>
+export const act5NaiveCode = `// Attempt 1: wrap in an Alert that rebinds --color-primary for its subtree
+<Alert variant="error">
+  <Button variant="primary">Retry</Button>
 </Alert>
 
-// Attempt 2: !important
-.Alert--error .Button--primary {
-  background: red !important;
-}
+// Attempt 2: !important on the button
+.Button--retry { background: red !important; }
 
 // Attempt 3: inline style (Act 1 already debunked this)
 <Button style={{ background: 'red' }}>Retry</Button>`;
 
 export const act5Walls = [
-  'Attempt 1: every primitive (Button, Badge, Icon, Link) needs a themeColor prop. The rot spreads through the whole library.',
-  'Attempt 2: !important poisons every future override and still misses the badge, icon, and link.',
-  'Attempt 3: inline styles bypass the cascade. No hover, no media, no user-overrides. We learned this in Act 1.',
+  'Attempt 1: a primitive that exists only for theming. The count grows every time a region needs a different palette.',
+  'Attempt 2: !important poisons every future override (Act 4).',
+  'Attempt 3: inline styles bypass the cascade (Act 1).',
 ];
 
-export const act5SolutionTsxCode = `import { classNames } from 'cascade-kit-tools/classNames';
-
-type AlertVariant = 'success' | 'warning' | 'error';
-
-interface AlertProps {
-  variant?: AlertVariant;
-  children: React.ReactNode;
-}
-
-export function Alert({ variant = 'success', children }: AlertProps) {
-  return (
-    <div className={classNames('Alert--root', [\`Alert--\${variant}\`])}>
-      {children}
-    </div>
-  );
-}`;
-
-export const act5SolutionCssCode = `@layer components {
-  .Alert--root {
-    --alert-color: var(--color-success);
-
-    border-left: 3px solid var(--alert-color);
-    padding: var(--space-2);
-    background: var(--color-bg-subtle);
-
-    /* The lever: rebind --color-primary inside the alert's subtree.
-       Every descendant Button, Badge, and Link picks it up automatically. */
-    --color-primary: var(--alert-color);
-    --color-primary-hover: var(--alert-color);
-  }
-}
-
-@layer component-overrides {
-  .Alert--warning { --alert-color: var(--color-warning); }
-  .Alert--error   { --alert-color: var(--color-error); }
-}`;
-
-export const act5SolutionUsageCode = `<Card scopedStyle={{ '--color-primary': tenant.color }}>
-  <Text variant="h5">{tenant.name}</Text>
-
-  {/* Tenant color */}
-  <Button variant="primary">Open</Button>
-
-  <Alert variant="error">
-    <Text>Build failed on commit abc123</Text>
-    {/* Red: Alert is a closer ancestor than Card */}
-    <Button variant="primary">Retry</Button>
-  </Alert>
+export const act5SolutionTsxCode = `<Card scopedStyle={{ '--color-primary': tenant.color }}>
+  <Button variant="primary">Open</Button>     {/* tenant color via inheritance */}
+  <Button variant="error">Retry</Button>       {/* red via direct rule */}
 </Card>`;
 
-export const act5Lever = `Three things at once. (1) CSS variables resolve through the DOM ancestor chain. The closest binding wins. Alert is closer than Card, so Alert's color reigns inside it. (2) Any element can be a theme island by rebinding tokens via a regular class. No special primitive, no scopedStyle, no props. (3) Composability is automatic. Drop an Alert into any tenant-themed Card and the colors fall out of the cascade.`;
+export const act5SolutionCssCode = `// Button.css
+@layer component-overrides {
+  /*
+   * Errors must read as errors regardless of ambient page theming.
+   * Layer choice encodes intent: high enough to beat @layer pages.
+   */
+  .Button--error {
+    --button-bg-color: var(--color-error);
+    --button-bg-color-hover: color-mix(in srgb, var(--color-error) 85%, var(--color-contrast));
+    --button-color: var(--color-bg);
+  }
+}`;
 
-export const act5Insight = `Tokens are inputs to the cascade, not outputs. The cascade resolves them at use site by walking the DOM. Once scopedStyle and class-based rebinding feel like the same idea (place a fresh binding somewhere in the tree), nested theming stops being a problem to solve. It becomes a side effect of how CSS works. CascadeKit just makes the pattern intentional.`;
+export const act5MainExplanation = `The Card sets --color-primary on .Card--root; descendants inherit it. Button--primary reads it via inheritance and renders tenant-colored. Button--error rebinds --button-bg-color directly on the Button, and direct rules always beat inheritance. The variant wins, no wrapper needed.`;
 
-export const act5Footnote = `This works because the inner Button reads from --color-primary. If alerts must never inherit from buttons, introduce --alert-action-color and have the Alert's Button read from it instead. Choosing which tokens are shared (call to action) versus isolated (signal) is the design-system architect's most consequential decision.`;
+// ── Sub-section: scopedLayer as altitude ─────────────────────────────────────
+
+export const act5SubTitle = `When scopedLayer actually matters`;
+
+export const act5SubIntro = `The story above works because variants directly target their element. But scopedStyle has another mode: nested selectors targeting descendants directly. There, scopedLayer is a real lever.`;
+
+export const act5SubProblemCode = `{/* Nested selector: this rule directly targets every Button
+    inside the Card, just like Button--error does. */}
+<Card scopedStyle={{
+  '.Button--root': { '--button-bg-color': tenant.color },
+}}>
+  <Button variant="error">Retry</Button>
+</Card>`;
+
+export const act5SubProblemExplanation = `With the default scopedLayer (component-overrides), the Card's :scope .Button--root rule competes with Button--error at the same layer. The Card wins on specificity (0,2,0 vs 0,1,0). Retry comes out tenant-colored. Wrong.`;
+
+export const act5SubSolutionCode = `<Card
+  scopedStyle={{
+    '.Button--root': { '--button-bg-color': tenant.color },
+  }}
+  scopedLayer="pages"
+>
+  <Button variant="error">Retry</Button>
+</Card>`;
+
+export const act5SubSolutionExplanation = `Card's rule now lives in @layer pages. Button--error lives in @layer component-overrides. Higher layer wins regardless of specificity. Retry is red. Layer choice matched intent.`;
+
+export const act5Lever = `Two levers, one principle. (1) Variants are escape hatches. They directly target their element, so they beat ambient theming through inheritance. Reach for a variant before a wrapper. (2) scopedLayer is altitude. Tenant theming is page context, component states are component-state. Match layer to intent and the cascade resolves what you meant, even when scope and variant target the same property.`;
+
+export const act5Insight = `Every theming tool sits at a cascade altitude. Variants in component-overrides are intentional break-outs. Variants in components are default styling. scopedStyle at component-overrides is component-level; at pages, ambient context. Layer choice encodes how authoritative a rule is and what's allowed to override it.`;
+
+export const act5Footnote = `When does the wrapper still earn its place? When a whole region needs a coordinated alternative theme: an alert with heading, body, action, and badge all sharing the alert color. Four children with four variants is noise; a wrapper that rebinds tokens once is cleaner. Variants for one element, wrappers for a context.`;
 
 // CLOSING ─────────────────────────────────────────────────────────────────────
 

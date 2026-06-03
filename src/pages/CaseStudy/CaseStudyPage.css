@@ -2,21 +2,6 @@
    Class names match the code shown in the docs so DevTools tells the same
    story the page does. Each lives in the exact layer the docs claim. */
 
-@layer components {
-  /* Act 5: Alert primitive */
-  .Alert--root {
-    --alert-color: var(--color-success);
-
-    border-left: 3px solid var(--alert-color);
-    padding: var(--space-2);
-    border-radius: var(--radius-sm);
-    background: var(--color-bg-subtle);
-
-    --color-primary: var(--alert-color);
-    --color-primary-hover: var(--alert-color);
-  }
-}
-
 @layer component-overrides {
   /* Act 2: Card pinned state modifier */
   .Card--pinned {
@@ -27,10 +12,6 @@
   .Card--pinned:hover {
     transform: translateY(-1px);
   }
-
-  /* Act 5: Alert variants */
-  .Alert--warning { --alert-color: var(--color-warning); }
-  .Alert--error   { --alert-color: var(--color-error); }
 }
 
 @layer user-overrides {
@@ -54,9 +35,8 @@
     background: var(--color-primary-subtle);
     color: var(--color-primary);
     font-size: var(--text-1_5);
-    font-weight: 600;
+    font-weight: var(--font-weight-medium);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
   }
 
   .CaseStudyPage--problem {

@@ -37,7 +37,13 @@ import {
   act5Walls,
   act5SolutionTsxCode,
   act5SolutionCssCode,
-  act5SolutionUsageCode,
+  act5MainExplanation,
+  act5SubTitle,
+  act5SubIntro,
+  act5SubProblemCode,
+  act5SubProblemExplanation,
+  act5SubSolutionCode,
+  act5SubSolutionExplanation,
   act5Lever,
   act5Insight,
   act5Footnote,
@@ -430,8 +436,8 @@ export function CaseStudyPage() {
       <Section scopedStyle={{ '--section-background': 'var(--color-bg)' }}>
         <ActHeader
           number={5}
-          title="The clashing theme"
-          subtitle="Two contexts, one token name. Theme islands fall out of CSS. CascadeKit just makes the pattern intentional."
+          title="Breaking out of ambient theming"
+          subtitle="When one element needs to escape its parent's theme, reach for a variant before a wrapper."
         />
 
         <ProblemBlock>{act5Problem}</ProblemBlock>
@@ -452,37 +458,38 @@ export function CaseStudyPage() {
         <Box mixin={{ mt: 4 }}>
           <Text variant="h5" bottomMargin>The CascadeKit solution</Text>
           <Text variant="body2" muted bottomMargin>
-            <Strong>One:</Strong> the Alert primitive is plain class composition. No scopedStyle, no theming props.
+            <Strong>One:</Strong> add <code>variant="error"</code> on the Button. No wrapper.
           </Text>
-          <CodeBlock language="tsx" filename="Alert.tsx">{act5SolutionTsxCode}</CodeBlock>
+          <CodeBlock language="tsx" filename="DashboardPage.tsx">{act5SolutionTsxCode}</CodeBlock>
         </Box>
 
         <Box mixin={{ mt: 4 }}>
           <Text variant="body2" muted bottomMargin>
-            <Strong>Two:</Strong> the Alert <em>rebinds</em> <code>--color-primary</code> inside its own subtree. Every descendant Button, Badge, and Link picks it up automatically.
+            <Strong>Two:</Strong> place the variant in <code>@layer component-overrides</code>.
+            Layer choice encodes intent: errors beat ambient page theming.
           </Text>
-          <CodeBlock language="css" filename="Alert.css">{act5SolutionCssCode}</CodeBlock>
+          <CodeBlock language="css" filename="Button.css">{act5SolutionCssCode}</CodeBlock>
         </Box>
 
-        <Box mixin={{ mt: 4 }}>
-          <Text variant="body2" muted bottomMargin>
-            <Strong>Three:</Strong> the consumer just nests them. No coordination, no shared state.
+        <Card variant="subtle" mixin={{ mt: 3 }}>
+          <Text variant="body2" muted>
+            <Strong>Why it works:</Strong> {act5MainExplanation}
           </Text>
-          <CodeBlock language="tsx" filename="DashboardPage.tsx">{act5SolutionUsageCode}</CodeBlock>
-        </Box>
+        </Card>
 
         <LiveDemo
           description={
             <>
-              Two tenants, two brand colors. Each tile's Open button uses the tenant color.
-              Each alert inside picks up its own color. Closer DOM ancestor wins.
+              Two tenants, two brand colors. Open buttons inherit the tenant color.
+              Retry buttons come out red because the variant rebinds{' '}
+              <code>--button-bg-color</code> directly on the Button. No wrapper.
             </>
           }
           caption={
             <>
-              Inspect a Retry button. <code>--color-primary</code> resolves to{' '}
-              <code>--color-error</code> on the closest <code>.Alert--root</code> ancestor,
-              not the tenant value on the outer <code>.Card--root</code>.
+              Inspect a Retry button. <code>--button-bg-color</code> resolves to{' '}
+              <code>--color-error</code> on the Button itself, beating anything inherited from{' '}
+              <code>.Card--root</code>.
             </>
           }
         >
@@ -498,13 +505,11 @@ export function CaseStudyPage() {
                 <Text variant="h5" tag="span">Acme Robotics</Text>
                 <Badge variant="primary">Live</Badge>
               </Box>
-              <Box mixin={{ mb: 3 }}>
+              <Text variant="body2" muted mixin={{ mb: 3 }}>Build failed on commit abc123.</Text>
+              <Box className="d-flex gap-2">
                 <Button variant="primary" size="sm">Open</Button>
+                <Button variant="error" size="sm">Retry</Button>
               </Box>
-              <div className="Alert--root Alert--error">
-                <Text variant="body2" mixin={{ mb: 2 }}>Build failed on commit abc123.</Text>
-                <Button variant="primary" size="sm">Retry</Button>
-              </div>
             </Card>
 
             <Card scopedStyle={{ '--color-primary': '#f59e0b', '--color-border': '#f59e0b' }}>
@@ -512,16 +517,32 @@ export function CaseStudyPage() {
                 <Text variant="h5" tag="span">Flux Energy</Text>
                 <Badge variant="primary">Live</Badge>
               </Box>
-              <Box mixin={{ mb: 3 }}>
+              <Text variant="body2" muted mixin={{ mb: 3 }}>Storage at 90%. Action required.</Text>
+              <Box className="d-flex gap-2">
                 <Button variant="primary" size="sm">Open</Button>
+                <Button variant="error" size="sm">Retry</Button>
               </Box>
-              <div className="Alert--root Alert--warning">
-                <Text variant="body2" mixin={{ mb: 2 }}>Storage 80% full. Upgrade soon.</Text>
-                <Button variant="primary" size="sm">Upgrade</Button>
-              </div>
             </Card>
           </Box>
         </LiveDemo>
+
+        {/* SUB-SECTION: scopedLayer as altitude */}
+        <Box mixin={{ mt: 6 }}>
+          <Text variant="h3" bottomMargin id="act-5-sub">{act5SubTitle}</Text>
+          <Text variant="body1" muted isPretty mixin={{ mb: 4 }}>{act5SubIntro}</Text>
+
+          <Text variant="h5" bottomMargin>The setup</Text>
+          <CodeBlock language="tsx" filename="Default scopedLayer">{act5SubProblemCode}</CodeBlock>
+          <Card variant="subtle" mixin={{ mt: 3, mb: 4 }}>
+            <Text variant="body2" muted>{act5SubProblemExplanation}</Text>
+          </Card>
+
+          <Text variant="h5" bottomMargin>The fix: match the layer to the intent</Text>
+          <CodeBlock language="tsx" filename="scopedLayer=&quot;pages&quot;">{act5SubSolutionCode}</CodeBlock>
+          <Card variant="subtle" mixin={{ mt: 3 }}>
+            <Text variant="body2" muted>{act5SubSolutionExplanation}</Text>
+          </Card>
+        </Box>
 
         <LeverCard>{act5Lever}</LeverCard>
 
@@ -533,7 +554,7 @@ export function CaseStudyPage() {
 
         <Card variant="subtle" mixin={{ mt: 3 }}>
           <Text variant="body2" muted>
-            <Strong>Where this stops being free:</Strong> {act5Footnote}
+            <Strong>When wrappers still earn their place:</Strong> {act5Footnote}
           </Text>
         </Card>
       </Section>
