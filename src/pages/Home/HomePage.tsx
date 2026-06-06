@@ -58,7 +58,7 @@ export function HomePage() {
           />
           <HomePagePrinciple
             title="CSS Classes, Not Inline Styles"
-            description="Styling happens in CSS files via classes. Utilities and mixins generate classes — keeping styles in the cascade, not on elements."
+            description="Styling happens in CSS files via classes. Utilities and mixins generate classes, keeping styles in the cascade, not on elements."
           />
           <HomePagePrinciple
             title="Co-located Component CSS"
@@ -106,7 +106,7 @@ export function HomePage() {
           <div className="HomePage--feature-text">
             <Text variant="h3" bottomMargin>Layout Utilities</Text>
             <Text >
-              Composable utility classes for flex, grid, alignment, and gaps —
+              Composable utility classes for flex, grid, alignment, and gaps,
               all in the <code>utils</code> layer with low specificity via <code>:where()</code>.
             </Text>
             <Button variant="secondary" size="sm" href={routes.layoutUtils} className="HomePage--feature-link">Layout utilities →</Button>
@@ -122,7 +122,7 @@ export function HomePage() {
           <div className="HomePage--feature-text">
             <Text variant="h3" bottomMargin>Mixin System</Text>
             <Text>
-              Responsive, per-component spacing and layout — without inline styles.
+              Responsive, per-component spacing and layout, without inline styles.
               Mixins generate classes in the <code>component-overrides</code> layer.
             </Text>
             <Button variant="secondary" size="sm" href={routes.mixin} className="HomePage--feature-link">Mixin system →</Button>
@@ -139,7 +139,7 @@ export function HomePage() {
             <Text variant="h3" bottomMargin>Theming</Text>
             <Text>
               Swap design tokens globally via <code>data-theme</code> attributes.
-              Themes live in the <code>user-overrides</code> layer — they always win.
+              Themes live in the <code>user-overrides</code> layer, so they always win.
             </Text>
             <Button variant="secondary" size="sm" href={routes.theme} className="HomePage--feature-link">Theming →</Button>
           </div>
@@ -155,7 +155,7 @@ export function HomePage() {
             <Text variant="h3" bottomMargin>Scoped Styles</Text>
             <Text>
               Per-instance overrides using native CSS <code>@scope</code>.
-              Dynamic values stay in the cascade — never inline.
+              Dynamic values stay in the cascade, never inline.
             </Text>
             <Button variant="secondary" size="sm" href={routes.scopedStyles} className="HomePage--feature-link">Scoped styles →</Button>
           </div>

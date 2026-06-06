@@ -2,6 +2,8 @@ import { Section } from '../../components/Section/Section';
 import { Card } from '../../components/Card/Card';
 import { Text, Strong } from '../../components/Text/Text';
 import { Box } from '../../components/Box/Box';
+import { Button } from '../../components/Button/Button';
+import { routes } from '../../constants/routes';
 import './WhyPage.css';
 
 export function WhyPage() {
@@ -99,6 +101,13 @@ export function WhyPage() {
               <li>Library dependencies</li>
             </ul>
           </Card>
+        </Box>
+      </Section>
+
+      <Section>
+        <Text variant="h2" bottomMargin>Next steps</Text>
+        <Box className="d-flex gap-3 f-wrap" mixin={{ mt: 3 }}>
+          <Button variant="secondary" href={routes.how}>How It Works →</Button>
         </Box>
       </Section>
     </div>
