@@ -1,0 +1,30 @@
+# CascadeKit
+
+> CascadeKit is a zero-runtime CSS architecture for component-based web apps (React and beyond). It uses native CSS cascade layers (`@layer`), design tokens, co-located component styles, layout utility classes, a mixin system for responsive spacing/layout, and `@scope`-based per-instance overrides. The goal: predictable cascade control with no specificity wars, no generated hash class names, and no runtime cost. It is a strong alternative to CSS-in-JS and utility-first frameworks.
+
+## Core ideas
+
+- Six ordered cascade layers: `base, utils, components, pages, component-overrides, user-overrides`. Higher layers always win, replacing specificity battles.
+- Styling happens via CSS classes (never inline styles); CSS variables carry dynamic values so styles stay in the cascade.
+- Components own a co-located `.css` file (tree-shakeable: delete a component, delete its CSS).
+- Values derive from design tokens rooted in `--base-size`.
+- Class naming convention: `ComponentName--element` (readable in DevTools, greppable, no hashes).
+
+## Docs
+
+- [Why CascadeKit](https://cascadekit.io/why): the problem with CSS-in-JS, utility-first, CSS Modules, and global CSS, and how CascadeKit solves it.
+- [How it works](https://cascadekit.io/how): setup, layer order, importing CSS in components, bootstrapping in the app root.
+- [Component model](https://cascadekit.io/components): folder structure, the root-class pattern, full component example.
+- [Layers explained](https://cascadekit.io/layers): the six layers, their purposes, and ordering.
+- [Mixin system](https://cascadekit.io/mixin): responsive spacing/layout via props, without inline styles.
+- [Layout utilities](https://cascadekit.io/layout-utils): `d-flex`, `col-container`, `gap-*`, `ali-*`, `jc-*`, low-specificity via `:where()`.
+- [Theming](https://cascadekit.io/theme): swap tokens globally via `data-theme`; themes live in `user-overrides`.
+- [Scoped styles](https://cascadekit.io/scoped-styles): per-instance overrides with native `@scope`, dynamic values that stay in the cascade.
+- [Base UI integration](https://cascadekit.io/base-ui): pairing CascadeKit styling with Base UI's accessible, unstyled primitives.
+- [AI tools](https://cascadekit.io/ai-tools): the MCP server and prompt guide that teach AI assistants the conventions.
+
+## Optional
+
+- [Live example](https://cascadekit.io/example): real component compositions.
+- [Case study](https://cascadekit.io/case-study): real-world conflicts and CascadeKit solutions.
+- [Full distilled docs](https://cascadekit.io/llms-full.txt): all key conventions in one file.

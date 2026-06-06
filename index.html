@@ -3,11 +3,44 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="/CascadeKit/CascadeKitFavicon.png" />
+  <link rel="icon" type="image/png" href="/CascadeKitFavicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CascadeKit - Zero-runtime CSS architecture with native cascade layers</title>
   <meta name="description"
-    content="CascadeKit - A modern CSS architecture using native cascade layers and component co-location" />
-  <title>CascadeKit - CSS Architecture</title>
+    content="CascadeKit is a zero-runtime CSS architecture for component-based web apps. Native @layer cascade control, design tokens, co-located styles, and a mixin system - no specificity wars, no generated hashes, no runtime." />
+  <link rel="canonical" href="https://cascadekit.io/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="CascadeKit" />
+  <meta property="og:title" content="CascadeKit - Zero-runtime CSS architecture with native cascade layers" />
+  <meta property="og:description"
+    content="A zero-runtime CSS architecture using native @layer cascade control, design tokens, and co-located styles. No specificity wars, no runtime cost." />
+  <meta property="og:url" content="https://cascadekit.io/" />
+  <meta property="og:image" content="https://cascadekit.io/CascadeKitIcon.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CascadeKit - Zero-runtime CSS architecture" />
+  <meta name="twitter:description"
+    content="Native @layer cascade control, design tokens, co-located styles, and a mixin system. No specificity wars, no runtime cost." />
+  <meta name="twitter:image" content="https://cascadekit.io/CascadeKitIcon.png" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "CascadeKit",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web",
+    "url": "https://cascadekit.io/",
+    "description": "A zero-runtime CSS architecture for component-based web apps using native cascade layers (@layer), design tokens, co-located component styles, and a mixin system.",
+    "keywords": "CSS, cascade layers, @layer, zero-runtime, CSS-in-JS alternative, design tokens, CSS architecture, React",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -28,17 +61,46 @@
 </head>
 
 <body>
-  <script>
-    // Handle GitHub Pages SPA redirect
-    (function () {
-      const params = new URLSearchParams(window.location.search);
-      const path = params.get('p');
-      if (path) {
-        // Restore the clean URL: /CascadeKit/?p=/why → /CascadeKit/why
-        window.history.replaceState(null, '', '/CascadeKit' + path);
-      }
-    })();
-  </script>
+  <!--
+    Static, visually-hidden fallback content so JS-blind crawlers and AI bots
+    (GPTBot, ClaudeBot, PerplexityBot, etc.) read real content before/without
+    JS. It is a sibling of #root, so React (createRoot) never touches it.
+    aria-hidden avoids duplicate announcements for screen readers once the app renders.
+  -->
+  <div aria-hidden="true"
+    style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:normal;border:0;">
+    <h1>CascadeKit - Zero-runtime CSS architecture</h1>
+    <p>
+      CascadeKit is a zero-runtime CSS architecture for component-based web apps such as React.
+      It uses native CSS cascade layers (<code>@layer</code>), design tokens, co-located component
+      styles, layout utility classes, a mixin system for responsive spacing and layout, and
+      <code>@scope</code>-based per-instance overrides. The result is predictable cascade control
+      with no specificity wars, no generated hash class names, and no runtime cost - a practical
+      alternative to CSS-in-JS and utility-first frameworks.
+    </p>
+    <p>
+      Core ideas: six ordered cascade layers (base, utils, components, pages, component-overrides,
+      user-overrides) where higher layers always win; styling via CSS classes (never inline styles)
+      with CSS variables for dynamic values; co-located, tree-shakeable component CSS; values derived
+      from design tokens; and a readable <code>ComponentName--element</code> naming convention.
+    </p>
+    <nav aria-label="CascadeKit documentation">
+      <ul>
+        <li><a href="https://cascadekit.io/why">Why CascadeKit: the problem with CSS-in-JS, utility-first, CSS Modules, and global CSS</a></li>
+        <li><a href="https://cascadekit.io/how">How it works: setup, layer order, and bootstrapping</a></li>
+        <li><a href="https://cascadekit.io/components">Component model: folder structure and the root-class pattern</a></li>
+        <li><a href="https://cascadekit.io/layers">Cascade layers explained</a></li>
+        <li><a href="https://cascadekit.io/mixin">Mixin system: responsive spacing and layout without inline styles</a></li>
+        <li><a href="https://cascadekit.io/layout-utils">Layout utility classes</a></li>
+        <li><a href="https://cascadekit.io/theme">Theming via data-theme attributes</a></li>
+        <li><a href="https://cascadekit.io/scoped-styles">Scoped styles with native @scope</a></li>
+        <li><a href="https://cascadekit.io/base-ui">Base UI integration for accessible primitives</a></li>
+        <li><a href="https://cascadekit.io/ai-tools">AI tools: MCP server and prompt guide</a></li>
+      </ul>
+    </nav>
+    <p>Machine-readable docs: <a href="https://cascadekit.io/llms.txt">llms.txt</a> and <a href="https://cascadekit.io/llms-full.txt">llms-full.txt</a>.</p>
+  </div>
+
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>

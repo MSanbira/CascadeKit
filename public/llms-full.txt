@@ -1,0 +1,170 @@
+# CascadeKit - Full Distilled Documentation
+
+> Zero-runtime CSS architecture for component-based web apps. Native cascade layers, design tokens, co-located styles, layout utilities, a mixin system, and `@scope` per-instance overrides. No specificity wars, no generated hashes, no runtime cost.
+
+## 1. Core Principles
+
+### Layered Cascade
+All styles live in explicit layers, declared once in order:
+
+```css
+@layer base, utils, components, pages, component-overrides, user-overrides;
+```
+
+- base: design tokens, resets, root variables
+- utils: reusable layout utilities (d-flex, col-container, gap-*)
+- components: component base styles + variants
+- pages: page-specific compositions
+- component-overrides: modifiers, sizes, states, mixins
+- user-overrides: consumer customizations (always win)
+
+Higher layers beat lower layers regardless of selector specificity.
+
+### No Inline Styles, No Unnecessary CSS
+Style via classes, never inline `style` for layout/theming (inline breaks cascade control). CSS variables in `style` are OK - they are inputs to class rules, not rules themselves. Do not hand-write CSS for things the tools already handle:
+- Layout (flex/grid) -> layout util classes
+- Spacing between composed elements -> `mixin={{ mt: 2 }}` or `gap-*` on parent
+- Dynamic per-instance styles -> `scopedStyle`
+- Responsive changes -> `mixin={{ smallScreen: { ... } }}`
+
+### Naming Convention
+Single `--` delimiter: `.ComponentName--root`, `.ComponentName--variant`, `.ComponentName--element`.
+
+### Co-located Component CSS
+Each component imports its own CSS file; tree-shaking removes unused CSS.
+
+### Token-Driven Values
+All values derive from `--base-size: clamp(8px, .5vw, 12px)`, e.g. `--space-2: calc(var(--base-size) * 2)`.
+
+## 2. Component Pattern
+
+```tsx
+import { classNames } from 'cascade-kit-tools/classNames';
+import { getMixin, type MixinProps } from 'cascade-kit-tools/mixin';
+import './ComponentName.css';
+
+interface ComponentProps {
+  variant?: 'primary' | 'secondary';
+  size?: 'sm' | 'md' | 'lg';
+  className?: string;
+  mixin?: MixinProps;
+  children: React.ReactNode;
+}
+
+export function ComponentName({ variant = 'primary', size = 'md', className = '', mixin, children }: ComponentProps) {
+  const { className: mixinClassName, style: mixinStyle } = getMixin(mixin);
+  return (
+    <div
+      className={classNames('ComponentName--root', [`ComponentName--${variant}`, `ComponentName--${size}`, mixinClassName, className])}
+      style={mixinStyle}
+    >
+      {children}
+    </div>
+  );
+}
+```
+
+```css
+@layer components {
+  .ComponentName--root {
+    padding: var(--component-padding, var(--space-2));
+    background: var(--component-bg, var(--color-surface));
+    color: var(--component-color, var(--color-text));
+  }
+  /* Variants ONLY set variable values, never repeat properties */
+  .ComponentName--primary { --component-bg: var(--color-primary); --component-color: white; }
+}
+@layer component-overrides {
+  .ComponentName--sm { --component-padding: var(--space-1); }
+  .ComponentName--lg { --component-padding: var(--space-4); }
+}
+```
+
+Rules: base styles use CSS variables with fallbacks; variants only set variable values; sizes/states go in `component-overrides`; always support a `mixin` prop; use `classNames` for composition.
+
+## 3. Layout Utility Classes
+
+Import: `import 'cascade-kit-tools/layoutUtils/styles';` (uses `:where()` for low specificity).
+
+- Display: `d-flex`, `d-grid`, `col-container`
+- Flex: `dir-col`, `f-wrap`, `min-0`
+- Column grid: `col-num-2`, `col-num-3`, `col-num-4`, `col-num-auto`, `with-divider`
+- Align items: `ali-start`, `ali-center`, `ali-end`, `ali-baseline`, `ali-stretch`
+- Justify content: `jc-start`, `jc-center`, `jc-end`, `jc-sb`, `jc-se`
+- Gap: `gap-0_25` ... `gap-10`, `no-gap`
+
+Example: `<div className="d-flex dir-col gap-2 ali-center">` and `<div className="col-container col-num-3 gap-4">`.
+
+## 4. Mixin System
+
+Import: `import { getMixin, type MixinProps } from 'cascade-kit-tools/mixin';` plus `import 'cascade-kit-tools/mixin/styles';`.
+
+Numbers multiply `--base-size`; strings are used as-is. Generates classes (in `component-overrides`) + CSS variables, so values stay in the cascade (not inline).
+
+- Spacing: `m, mt, mr, mb, ml, mx, my` and `p, pt, pr, pb, pl, px, py`
+- Layout: `display, opacity, position, inset, top, right, bottom, left`
+- Flex/grid: `flexDirection, flexWrap, alignItems, justifyContent, gap, gridColTemplate, gridRowTemplate, gridColumn, gridRow`
+- Responsive: `smallScreen` (<768px), `mediumScreen` (768-1024px), `bigScreen` (>1024px)
+- Container queries: `smallContainer` (<400px), `mediumContainer` (400-800px), `bigContainer` (>800px). Requires parent with `inline-container`.
+
+Example: `<Card mixin={{ p: 3, smallScreen: { p: 1 }, bigScreen: { p: 4 } }} />`.
+
+## 5. Scoped Styles (per-instance overrides)
+
+`scopedStyle` renders a real `<style>` tag inside the component using `@layer` + `@scope`, so per-instance styles participate in the cascade (unlike inline `style`). Use it for dynamic values from state/props, backend/CMS-driven theming, per-instance hover/focus, and theming children via CSS-variable inheritance.
+
+```tsx
+import { ScopedStyle } from 'cascade-kit-tools/scopedStyle';
+
+<Card scopedStyle={{
+  '--color-primary': brand.color,
+  boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
+  '&:hover': { transform: 'translateY(-2px)' },
+}} scopedLayer="component-overrides" />
+```
+
+Add `scopedStyle`/`scopedLayer` to container components (Card, Box, Modal, Panel, Section). Do NOT add to primitives (Button, Badge, Text, Icon) - use variants. Default layer is `component-overrides`.
+
+## 6. Consumer & Composition Patterns
+
+Apply the conventions when COMPOSING components into features/pages, not just when building components:
+- flex/grid layout -> layout utils (not `display: flex` in CSS)
+- spacing between elements -> `gap-*` on parent or `mixin={{ mt: 2 }}`
+- dynamic visual state -> `scopedStyle` (not a CSS class per state)
+- responsive change -> `mixin={{ smallScreen: { ... } }}`
+- component-internal structure -> CSS in the component
+- unique page layout (sidebar width, etc.) -> CSS in `@layer pages`
+
+Page CSS should be minimal (often < 20 lines).
+
+## 7. Design Tokens (selected)
+
+Derived from `--base-size: clamp(8px, 0.5vw, 12px)`.
+- Spacing: `--space-0_5` (4px) ... `--space-10` (80px)
+- Typography: `--text-1_5` (12px) ... `--text-4_5` (36px)
+- Radius: `--radius-sm`, `--radius-md`, `--radius-lg`, `--radius-xl`, `--radius-full`
+- Colors: `--color-bg`, `--color-surface`, `--color-border`, `--color-text`, `--color-text-muted`, `--color-primary`, `--color-accent`, `--color-success`, `--color-warning`, `--color-error`
+- Transitions: `--transition-fast` (150ms), `--transition-base` (200ms), `--transition-slow` (300ms)
+- Shadows: `--shadow-sm`, `--shadow-md`, `--shadow-lg`
+
+## 8. Theming
+
+Swap tokens globally via `data-theme` attributes; theme overrides live in `@layer user-overrides` so they always win:
+
+```css
+@layer user-overrides {
+  [data-theme="midnight"] {
+    --color-primary: #7c3aed;
+    --color-bg: #0f0d1a;
+    --color-surface: #1a1730;
+  }
+}
+```
+
+## 9. AI Tooling
+
+CascadeKit ships an MCP server and a prompt guide that teach AI assistants the conventions: resources (principles, component pattern, scoped-style, mixin props, consumer patterns, layout utils, tokens), tools (`create_component`, `list_layout_utils`, `list_tokens`), and prompts (`cascadekit-setup`, `cascadekit-component`, `cascadekit-page`). Prefer the MCP as the canonical, queryable source for building apps.
+
+## 10. Base UI Integration
+
+Pair CascadeKit (styling) with Base UI (accessible, unstyled behavior). Base UI exposes state as `data-*` attributes that CascadeKit styles in the `component-overrides` layer, and its `render` prop lets existing CascadeKit components become Base UI parts. Note: overlays render through a portal, so apply `scopedStyle` to the popup itself (not the trigger) to keep theming and CSS-variable inheritance working across the portal boundary.
