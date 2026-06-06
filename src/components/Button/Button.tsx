@@ -9,7 +9,7 @@ type ButtonSize = 'sm' | 'md' | 'lg';
 interface ButtonBaseProps {
   variant?: ButtonVariant;
   size?: ButtonSize;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   mixin?: MixinProps;
   scopedStyle?: ScopedStylesObj;
   scopedLayer?: LayerOptions;

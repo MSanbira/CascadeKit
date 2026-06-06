@@ -1,0 +1,53 @@
+@layer components {
+  .Switch--root {
+    --switch-track-width: var(--space-6);
+    --switch-track-height: var(--space-3);
+    --switch-track-padding: calc(var(--base-size) * 0.25);
+    --switch-track-bg: var(--color-bg-muted);
+    --switch-thumb-bg: var(--color-bg);
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    width: var(--switch-track-width);
+    height: var(--switch-track-height);
+    padding: var(--switch-track-padding);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    background: var(--switch-track-bg);
+    cursor: pointer;
+    transition: background-color var(--transition-base), border-color var(--transition-base);
+  }
+
+  .Switch--thumb {
+    display: block;
+    height: 100%;
+    aspect-ratio: 1;
+    border-radius: var(--radius-full);
+    background: var(--switch-thumb-bg);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-base);
+  }
+}
+
+@layer component-overrides {
+  .Switch--root[data-checked] {
+    --switch-track-bg: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  .Switch--root[data-checked] .Switch--thumb {
+    transform: translateX(calc(var(--switch-track-width) - var(--switch-track-height)));
+  }
+
+  .Switch--root[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .Switch--root:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}

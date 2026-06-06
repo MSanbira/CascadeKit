@@ -21,6 +21,7 @@ const navItems: NavItem[] = [
   { to: routes.layoutUtils, label: 'Layout Utilities' },
   { to: routes.theme, label: 'Theming' },
   { to: routes.scopedStyles, label: 'Scoped Styles' },
+  { to: routes.baseUi, label: 'Base UI Integration' },
   { to: routes.aiTools, label: 'AI Tools' },
   { to: routes.example, label: 'Live Example' },
   { to: routes.caseStudy, label: 'Case Study' },

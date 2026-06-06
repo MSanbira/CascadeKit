@@ -1,0 +1,59 @@
+@layer components {
+  .Dialog--backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-modal);
+    background: color-mix(in srgb, var(--color-contrast) 45%, transparent);
+    transition: opacity var(--transition-base);
+  }
+
+  .Dialog--popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: var(--z-modal);
+    width: min(calc(var(--base-size) * 52), calc(100vw - var(--space-4)));
+    max-height: calc(100dvh - var(--space-6));
+    overflow-y: auto;
+    padding: var(--space-4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-lg);
+    transition:
+      opacity var(--transition-base),
+      transform var(--transition-base);
+  }
+
+  .Dialog--title {
+    margin: 0;
+    font-size: var(--text-3);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+  }
+
+  .Dialog--description {
+    margin: 0;
+    font-size: var(--text-2);
+    color: var(--color-text-muted);
+  }
+
+  .Dialog--content {
+    font-size: var(--text-2);
+    color: var(--color-text);
+  }
+}
+
+@layer component-overrides {
+  .Dialog--backdrop[data-starting-style],
+  .Dialog--backdrop[data-ending-style] {
+    opacity: 0;
+  }
+
+  .Dialog--popup[data-starting-style],
+  .Dialog--popup[data-ending-style] {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + var(--space-2))) scale(0.98);
+  }
+}

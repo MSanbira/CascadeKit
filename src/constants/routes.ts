@@ -10,6 +10,7 @@ export const routes = {
     caseStudy: '/case-study',
     theme: '/theme',
     scopedStyles: '/scoped-styles',
+    baseUi: '/base-ui',
     aiTools: '/ai-tools',
     about: '/about',
     links: '/links',

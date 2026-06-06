@@ -22,6 +22,7 @@ import { LayoutUtilsPage } from './pages/LayoutUtils/LayoutUtilsPage';
 import { ExamplePage } from './pages/Example/ExamplePage';
 import { ThemePage } from './pages/Theme/ThemePage';
 import { ScopedStylesPage } from './pages/ScopedStyles/ScopedStylesPage';
+import { BaseUIPage } from './pages/BaseUI/BaseUIPage';
 import { AIToolsPage } from './pages/AITools/AIToolsPage';
 import { AboutPage } from './pages/About/AboutPage';
 import { LinksPage } from './pages/Links/LinksPage';
@@ -45,6 +46,7 @@ function App() {
             <Route path={routes.example} element={<ExamplePage />} />
             <Route path={routes.theme} element={<ThemePage />} />
             <Route path={routes.scopedStyles} element={<ScopedStylesPage />} />
+            <Route path={routes.baseUi} element={<BaseUIPage />} />
             <Route path={routes.aiTools} element={<AIToolsPage />} />
             <Route path={routes.about} element={<AboutPage />} />
             <Route path={routes.links} element={<LinksPage />} />
