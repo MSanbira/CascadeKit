@@ -20,7 +20,7 @@ export function AboutPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin>The Startup Years</Text>
+        <Text variant="h2" bottomMargin>The startup years</Text>
         <Text bottomMargin>
           Working across multiple early-stage companies, I kept running into the same friction with CSS tooling.
           Tools like Emotion or CSS Modules made no scalable sense when you need broad theming or overrides

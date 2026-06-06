@@ -23,7 +23,7 @@ export function WhyPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin>The Problem</Text>
+        <Text variant="h2" bottomMargin>The problem</Text>
         <Text>
           Most CSS approaches trade one problem for another:
         </Text>
@@ -36,7 +36,7 @@ export function WhyPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin>The Solution</Text>
+        <Text variant="h2" bottomMargin>The solution</Text>
         <Text>
           CascadeKit solves these with native CSS features and clear conventions:
         </Text>
@@ -77,7 +77,7 @@ export function WhyPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin>What You Get</Text>
+        <Text variant="h2" bottomMargin>What you get</Text>
         <Box className="d-grid" mixin={{ gap: 4, smallScreen: { gridColTemplate: '1fr' }, bigScreen: { gridColTemplate: '1fr 1fr' } }}>
           <Card title="Benefits">
             <ul className="WhyPage--list WhyPage--list-positive">

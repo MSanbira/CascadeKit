@@ -12,6 +12,7 @@ import {
   themingExample,
   scopedStylesExample,
   aiToolsExample,
+  baseUiExample,
 } from './homePageCodeExamples';
 import './HomePage.css';
 import { routes } from '../../constants/routes';
@@ -45,7 +46,7 @@ export function HomePage() {
       </Section>
 
       <Section scopedStyle={{ '--section-background': 'var(--color-section-bg-light)' }}>
-        <Text variant="h2" alignText="center" mixin={{ mb: 4 }}>Core Principles</Text>
+        <Text variant="h2" alignText="center" mixin={{ mb: 4 }}>Core principles</Text>
         <div className="HomePage--principles d-flex gap-3 f-wrap jc-center ali-stretch Section--full-width">
           <HomePagePrinciple
             title="Ordered Cascade Layers"
@@ -73,7 +74,7 @@ export function HomePage() {
       <Section scopedStyle={{ '--section-background': 'var(--color-section-bg-dark)' }}>
         <div className='HomePage--feature Section--full-width HomePage--layers-feature'>
           <div className="HomePage--feature-text">
-            <Text variant="h2" bottomMargin color="on-dark-subtle">Cascade Layers</Text>
+            <Text variant="h2" bottomMargin color="on-dark-subtle">Cascade layers</Text>
             <Text color="on-dark-subtle" isPretty>
               Six ordered layers replace specificity wars. Components always override base styles,
               pages override components, and user overrides always win predictably.
@@ -176,6 +177,23 @@ export function HomePage() {
           </div>
           <div className="HomePage--feature-visual">
             <CodeBlock language="json">{aiToolsExample}</CodeBlock>
+          </div>
+        </div>
+      </Section>
+
+      <Section scopedStyle={{ '--section-background': 'var(--color-bg-subtle)' }}>
+        <div className='HomePage--feature HomePage--feature-reverse'>
+          <div className="HomePage--feature-text">
+            <Text variant="h3" bottomMargin>Base UI Integration</Text>
+            <Text>
+              Pair CascadeKit with <a href="https://base-ui.com" target="_blank" rel="noreferrer">Base UI</a> for
+              accessible behavior. Base UI brings focus management and state via <code>data-*</code> attributes;
+              CascadeKit styles them in the cascade. No styling runtime in between.
+            </Text>
+            <Button variant="secondary" size="sm" href={routes.baseUi} className="HomePage--feature-link">Base UI integration →</Button>
+          </div>
+          <div className="HomePage--feature-visual">
+            <CodeBlock language="tsx">{baseUiExample}</CodeBlock>
           </div>
         </div>
       </Section>

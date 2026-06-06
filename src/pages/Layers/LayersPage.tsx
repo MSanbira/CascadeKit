@@ -28,7 +28,7 @@ export function LayersPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin id="layerOrder">Layer Order</Text>
+        <Text variant="h2" bottomMargin id="layerOrder">Layer order</Text>
         <Text>
           CascadeKit uses six layers, ordered from lowest to highest priority:
         </Text>
@@ -40,7 +40,7 @@ export function LayersPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin id="layerPurposes">Layer Purposes</Text>
+        <Text variant="h2" bottomMargin id="layerPurposes">Layer purposes</Text>
         
         <Card className="LayersPage--card" title={<code>@layer base</code>}>
           <Text><Strong>Purpose:</Strong> CSS reset, design tokens, typography defaults</Text>
@@ -84,7 +84,7 @@ export function LayersPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin id="keyInsight">Key Insight</Text>
+        <Text variant="h2" bottomMargin id="keyInsight">Key insight</Text>
         <Text>
           With layers, a <Strong>simple selector</Strong> in a higher layer always 
           beats a <Strong>complex selector</Strong> in a lower layer:

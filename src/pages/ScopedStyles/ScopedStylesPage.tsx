@@ -37,7 +37,7 @@ export function ScopedStylesPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin id="whenToUse">When to Use</Text>
+        <Text variant="h2" bottomMargin id="whenToUse">When to use</Text>
         <Text>
           Scoped styles are designed for edge cases where you need per-instance control:
         </Text>
@@ -78,7 +78,7 @@ export function ScopedStylesPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin id="howToUse">How to Use</Text>
+        <Text variant="h2" bottomMargin id="howToUse">How to use</Text>
         
         <Text variant="h4" mixin={{ mt: 4, mb: 2 }}>Basic Usage</Text>
         <Text>
@@ -113,7 +113,7 @@ export function ScopedStylesPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin id="whyScopeOverInlineStyles">Why @scope Over Inline Styles?</Text>
+        <Text variant="h2" bottomMargin id="whyScopeOverInlineStyles">Why @scope over inline styles?</Text>
         <Text>
           CascadeKit uses CSS <code>@scope</code> instead of inline styles for important reasons:
         </Text>
@@ -162,7 +162,7 @@ export function ScopedStylesPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin id="liveExample">Live Example</Text>
+        <Text variant="h2" bottomMargin id="liveExample">Live example</Text>
         <Text>
           Compare the default card with scoped style overrides:
         </Text>
@@ -202,7 +202,7 @@ export function ScopedStylesPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin id="browserSupport">Browser Support</Text>
+        <Text variant="h2" bottomMargin id="browserSupport">Browser support</Text>
         <Card variant="subtle" mixin={{ mt: 3 }}>
           <Text variant="body2">
             <Strong>CSS @scope</Strong> browser support data via{' '}
@@ -230,7 +230,7 @@ export function ScopedStylesPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin id="bestPractices">Best Practices</Text>
+        <Text variant="h2" bottomMargin id="bestPractices">Best practices</Text>
         <ul className="ScopedStylesPage--list">
           <li>
             <Strong>Prefer design tokens</Strong> — Override <code>--color-primary</code> instead of 

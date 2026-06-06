@@ -39,3 +39,15 @@ export const aiToolsExample = `{
     }
   }
 }`;
+
+export const baseUiExample = `// Base UI behavior, CascadeKit styling
+export function Switch(props) {
+  return (
+    <BaseSwitch.Root className="Switch--root" {...props}>
+      <BaseSwitch.Thumb className="Switch--thumb" />
+    </BaseSwitch.Root>
+  );
+}
+
+// Your Button becomes any trigger, no re-styling:
+<Dialog.Trigger render={<Button>Open</Button>} />`;

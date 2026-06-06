@@ -42,7 +42,7 @@ export function MixinPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin id="howItWorks">How It Works</Text>
+        <Text variant="h2" bottomMargin id="howItWorks">How it works</Text>
         <Text variant="body1" bottomMargin>
           Components with mixin support accept a <code>mixin</code> prop. This prop
           is processed into CSS classes and custom properties that are applied to
@@ -56,7 +56,7 @@ export function MixinPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin id="availableProperties">Available Properties</Text>
+        <Text variant="h2" bottomMargin id="availableProperties">Available properties</Text>
         <CodeBlock language="typescript">{mixinTypeExample}</CodeBlock>
 
         <Card mixin={{ mt: 4 }} title="Spacing Values">
@@ -70,7 +70,7 @@ export function MixinPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin id="basicUsage">Basic Usage</Text>
+        <Text variant="h2" bottomMargin id="basicUsage">Basic usage</Text>
         <CodeBlock language="tsx">{basicUsageExample}</CodeBlock>
 
         <Box className="d-flex gap-4" mixin={{ mt: 4 }}>
@@ -91,7 +91,7 @@ export function MixinPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin id="responsiveBreakpoints">Responsive Breakpoints</Text>
+        <Text variant="h2" bottomMargin id="responsiveBreakpoints">Responsive breakpoints</Text>
         <Text variant="body1" bottomMargin>
           Use <code>smallScreen</code>, <code>mediumScreen</code>, and <code>bigScreen</code> to
           apply different values at different viewport sizes.
@@ -106,7 +106,7 @@ export function MixinPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin id="mobileFirstCascade">Mobile-First Cascade</Text>
+        <Text variant="h2" bottomMargin id="mobileFirstCascade">Mobile-first cascade</Text>
         <Text variant="body1" bottomMargin>
           The mixin system automatically cascades values from smaller to larger breakpoints.
           If you set a value for <code>smallScreen</code> but not <code>mediumScreen</code>,
@@ -116,7 +116,7 @@ export function MixinPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin id="containerQueries">Container Queries</Text>
+        <Text variant="h2" bottomMargin id="containerQueries">Container queries</Text>
         <Text variant="body1" bottomMargin>
           Use <code>smallContainer</code>, <code>mediumContainer</code>, and <code>bigContainer</code> for
           styles based on the container size rather than viewport.
@@ -135,7 +135,7 @@ export function MixinPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin id="liveExamples">Live Examples</Text>
+        <Text variant="h2" bottomMargin id="liveExamples">Live examples</Text>
 
         <Box className="d-grid gap-4" mixin={{ my: 4, smallContainer: { gridColTemplate: '1fr' }, mediumContainer: { gridColTemplate: '1fr 1fr' } }}>
           <div>

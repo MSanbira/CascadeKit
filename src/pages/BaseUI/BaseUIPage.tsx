@@ -81,7 +81,7 @@ export function BaseUIPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin id="wrapping">Anatomy of a Wrapped Primitive</Text>
+        <Text variant="h2" bottomMargin id="wrapping">Anatomy of a wrapped primitive</Text>
         <Text variant="body1" bottomMargin>
           You wrap each Base UI primitive once into a CascadeKit component. Because <code>className</code> is
           just a string, <code>classNames</code> and the <code>--</code> naming convention drop straight in,
@@ -120,7 +120,7 @@ export function BaseUIPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin id="state">State Lives in <code>data-*</code>, Styles Live in Layers</Text>
+        <Text variant="h2" bottomMargin id="state">State lives in <code>data-*</code>, styles live in layers</Text>
         <Text variant="body1" bottomMargin>
           This is the moment the two libraries click together. Base UI sets state as data attributes;
           CascadeKit's <code>component-overrides</code> layer reacts to them. No JS class toggling, no
@@ -134,7 +134,7 @@ export function BaseUIPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin id="compose">Composition via the <code>render</code> Prop</Text>
+        <Text variant="h2" bottomMargin id="compose">Composition via the <code>render</code> prop</Text>
         <Text variant="body1" bottomMargin>
           Base UI's <code>render</code> prop lets your existing CascadeKit components <em>become</em> Base UI
           parts. The dialog below reuses the project's own <code>Button</code> for both its trigger and its
@@ -160,11 +160,11 @@ export function BaseUIPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin id="portal">The Portal Gotcha (and the Fix)</Text>
+        <Text variant="h2" bottomMargin id="portal">The portal work around</Text>
         <Text variant="body1" bottomMargin>
           Overlays render through a <Strong>portal</Strong> at the end of <code>&lt;body&gt;</code>, outside
           the trigger's DOM subtree. So <code>scopedStyle</code> on a trigger can't reach the popup, and CSS
-          variables won't inherit across the boundary. The fix is to scope the <Strong>popup itself</Strong>.
+          variables won't inherit across the boundary. The work around is to scope the <Strong>popup itself</Strong>.
         </Text>
         <CodeBlock language="tsx" filename="components/Dialog/Dialog.tsx">{portalExample}</CodeBlock>
         <Text variant="body1" mixin={{ mt: 2 }} bottomMargin>

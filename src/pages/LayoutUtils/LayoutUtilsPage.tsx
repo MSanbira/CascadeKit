@@ -60,7 +60,7 @@ export function LayoutUtilsPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin id="gridAndColumns">Grid & Columns</Text>
+        <Text variant="h2" bottomMargin id="gridAndColumns">Grid & columns</Text>
         <Text variant="body1" bottomMargin>
           Use <code>d-grid</code> for basic grid or <code>col-container</code> for predefined column layouts.
         </Text>
@@ -156,7 +156,7 @@ export function LayoutUtilsPage() {
       </Section>
 
       <Section>
-        <Text variant="h2" bottomMargin id="combiningWithMixin">Combining with Mixin</Text>
+        <Text variant="h2" bottomMargin id="combiningWithMixin">Combining with mixin</Text>
         <Text variant="body1" bottomMargin>
           Layout utilities handle <Strong>static structure</Strong>, while the mixin system handles 
           <Strong> dynamic and responsive</Strong> properties. They work together seamlessly.
