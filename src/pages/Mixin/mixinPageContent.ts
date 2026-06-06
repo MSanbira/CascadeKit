@@ -19,6 +19,19 @@ export const mixinTypeExample = `interface MixinProps {
   // Inset (for positioned elements)
   inset?, top?, right?, bottom?, left?
   
+  // Flexbox
+  flexDirection?: 'row' | 'column' | ...
+  flexWrap?: 'nowrap' | 'wrap' | ...
+  alignItems?: 'flex-start' | 'center' | ...
+  justifyContent?: 'flex-start' | 'center' | 'space-between' | ...
+  gap?: number | string;
+  
+  // Grid
+  gridColTemplate?: string;
+  gridRowTemplate?: string;
+  gridColumn?: string;
+  gridRow?: string;
+  
   // Responsive breakpoints
   smallScreen?: MixinBaseProps;
   mediumScreen?: MixinBaseProps;

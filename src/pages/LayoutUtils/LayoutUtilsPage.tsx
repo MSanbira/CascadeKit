@@ -13,7 +13,7 @@ import './LayoutUtilsPage.css';
 
 export function LayoutUtilsPage() {
   return (
-    <div className="LayoutUtilsPage--root">
+    <div className="LayoutUtilsPage--root Section--sections-wrapper">
       <Section>
         <Text variant="h1" bottomMargin>Layout Utilities</Text>
         <Text variant="body1" bottomMargin>

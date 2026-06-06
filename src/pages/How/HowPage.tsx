@@ -19,7 +19,7 @@ import './HowPage.css';
 
 export function HowPage() {
   return (
-    <div className="HowPage--root">
+    <div className="HowPage--root Section--sections-wrapper">
       <Section>
         <Text variant="h1" bottomMargin>How It Works</Text>
         <Text>

@@ -18,7 +18,7 @@ export function ThemePage() {
   const { themeLabel, toggleTheme } = useTheme();
 
   return (
-    <div className="ThemePage--root">
+    <div className="ThemePage--root Section--sections-wrapper">
       <Section>
         <Text variant="h1" bottomMargin>Theming</Text>
         <Text>

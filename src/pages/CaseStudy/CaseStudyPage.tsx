@@ -164,7 +164,7 @@ const tenants = [
 
 export function CaseStudyPage() {
   return (
-    <div className="CaseStudyPage--root">
+    <div className="CaseStudyPage--root Section--sections-wrapper">
       {/* HERO ──────────────────────────────────────────────────────────── */}
       <Section scopedStyle={{ '--section-background': 'var(--color-bg-subtle)' }}>
         <Text variant="body2" muted mixin={{ mb: 2 }}>Case study</Text>

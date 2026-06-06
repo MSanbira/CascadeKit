@@ -13,7 +13,7 @@ import { Box } from '../../components/Box/Box';
 
 export function ComponentModelPage() {
   return (
-    <div className="ComponentModelPage--root">
+    <div className="ComponentModelPage--root Section--sections-wrapper">
       <Section>
         <Text variant="h1" bottomMargin>Component Model</Text>
         <Text>

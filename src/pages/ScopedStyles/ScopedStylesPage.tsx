@@ -27,7 +27,7 @@ export function ScopedStylesPage() {
   const { browsers, loading, error } = useCaniuse('css-cascade-scope');
 
   return (
-    <div className="ScopedStylesPage--root">
+    <div className="ScopedStylesPage--root Section--sections-wrapper">
       <Section>
         <Text variant="h1" bottomMargin>Scoped Styles</Text>
         <Text>

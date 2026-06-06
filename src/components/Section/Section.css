@@ -43,6 +43,14 @@
     color: var(--color-primary);
   }
 
+  .Section--sections-wrapper > .Section--root:nth-child(even) {
+    background-color: var(--color-bg-subtle);
+  }
+
+  .Section--sections-wrapper > .Section--root:nth-child(odd) {
+    background-color: var(--color-bg);
+  }
+
   @media (max-width: 799px) {
     .Section--root {
       --section-inline-padding: var(--space-2);

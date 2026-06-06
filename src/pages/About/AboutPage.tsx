@@ -4,8 +4,8 @@ import './AboutPage.css';
 
 export function AboutPage() {
   return (
-    <div className="AboutPage--root">
-      <Section scopedStyle={{ '--section-background': 'var(--color-bg)' }}>
+    <div className="AboutPage--root Section--sections-wrapper">
+      <Section>
         <div className="AboutPage--intro">
           <img src="/profile.jpeg" alt="Matan Sanbira" className="AboutPage--photo" />
           <div>
@@ -19,7 +19,7 @@ export function AboutPage() {
         </div>
       </Section>
 
-      <Section scopedStyle={{ '--section-background': 'var(--color-bg-subtle)' }}>
+      <Section>
         <Text variant="h2" bottomMargin>The Startup Years</Text>
         <Text bottomMargin>
           Working across multiple early-stage companies, I kept running into the same friction with CSS tooling.
@@ -39,7 +39,7 @@ export function AboutPage() {
         </Text>
       </Section>
 
-      <Section scopedStyle={{ '--section-background': 'var(--color-bg)' }}>
+      <Section>
         <Text variant="h2" bottomMargin>Booking.com</Text>
         <Text>
           I currently work on <Strong>BUI</Strong>, Booking.com's design system.
@@ -49,7 +49,7 @@ export function AboutPage() {
         </Text>
       </Section>
 
-      <Section scopedStyle={{ '--section-background': 'var(--color-bg-subtle)' }}>
+      <Section>
         <Text variant="h2" bottomMargin>Why CascadeKit</Text>
         <Text>
           CascadeKit is the result of all of that. Startup agility, design system discipline,

@@ -17,7 +17,7 @@ import { Box } from '../../components/Box/Box';
 
 export function MixinPage() {
   return (
-    <div className="MixinPage--root inline-container">
+    <div className="MixinPage--root inline-container Section--sections-wrapper">
       <Section>
         <Text variant="h1" bottomMargin>Mixin System</Text>
         <Text variant="body1" bottomMargin>

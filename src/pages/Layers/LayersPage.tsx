@@ -17,7 +17,7 @@ import './LayersPage.css';
 
 export function LayersPage() {
   return (
-    <div className="LayersPage--root">
+    <div className="LayersPage--root Section--sections-wrapper">
       <Section>
         <Text variant="h1" bottomMargin>Layers Explained</Text>
         <Text>

@@ -16,7 +16,7 @@ import './AIToolsPage.css';
 
 export function AIToolsPage() {
   return (
-    <div className="AIToolsPage--root">
+    <div className="AIToolsPage--root Section--sections-wrapper">
       <Section>
         <Text variant="h1" bottomMargin>AI-Integrated Tools</Text>
         <Text>

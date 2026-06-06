@@ -70,8 +70,8 @@ function LinkRow({ label, href, description }: LinkItem) {
 
 export function LinksPage() {
   return (
-    <div>
-      <Section scopedStyle={{ '--section-background': 'var(--color-bg-subtle)' }}>
+    <div className="Section--sections-wrapper">
+      <Section>
         <Text variant="h1" bottomMargin>Links</Text>
 
         <Box className="d-flex ali-center gap-2" mixin={{ mb: 4 }}>
@@ -83,7 +83,7 @@ export function LinksPage() {
         </div>
       </Section>
 
-      <Section scopedStyle={{ '--section-background': 'var(--color-bg)' }}>
+      <Section>
         <Box className="d-flex ali-center gap-2" mixin={{ mb: 4 }}>
           <NpmIcon />
           <Text variant="h2">npm</Text>
@@ -93,7 +93,7 @@ export function LinksPage() {
         </div>
       </Section>
 
-      <Section scopedStyle={{ '--section-background': 'var(--color-bg-subtle)' }}>
+      <Section>
         <Box className="d-flex ali-center gap-2" mixin={{ mb: 4 }}>
           <BlueskyIcon />
           <Text variant="h2">Social</Text>

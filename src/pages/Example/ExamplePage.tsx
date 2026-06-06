@@ -60,7 +60,7 @@ export function ExamplePage() {
   };
 
   return (
-    <div className="ExamplePage--root">
+    <div className="ExamplePage--root Section--sections-wrapper">
       <Section>
         <Text variant="h1" bottomMargin>Live Examples</Text>
         <Text>
