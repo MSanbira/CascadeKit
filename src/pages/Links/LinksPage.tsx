@@ -44,6 +44,11 @@ const npmLinks: LinkItem[] = [
 
 const socialLinks: LinkItem[] = [
   {
+    label: 'sanbira.com',
+    href: 'https://sanbira.com',
+    description: 'Portfolio — Matan Sanbira',
+  },
+  {
     label: '@sanbira.com',
     href: 'https://bsky.app/profile/sanbira.com',
     description: 'Bluesky',
