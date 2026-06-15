@@ -11,6 +11,13 @@
     gap: 0.5em;
     color: var(--text-color);
     cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .NavButton--root:after {
+    content: attr(data-label);
+    display: block;
+    order: 2;
   }
 
   .NavButton--selected,
@@ -27,6 +34,7 @@
     display: inline-block;
     position: relative;
     rotate: 45deg;
+    flex-shrink: 0;
   }
 
   .NavButton--icon,

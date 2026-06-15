@@ -68,7 +68,7 @@
   }
   
   .Text--variant-main-header {
-    font-size: var(--text-10);
+    font-size: min(var(--text-10), 80px);
     font-weight: var(--font-weight-bold);
   }
 

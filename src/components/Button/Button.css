@@ -97,6 +97,10 @@
     padding: var(--space-1);
   }
 
+  .Button--is-wrapping {
+    text-wrap: wrap;
+  }
+
   .Button--root:disabled {
     opacity: 0.5;
     cursor: not-allowed;

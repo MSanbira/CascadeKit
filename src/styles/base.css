@@ -54,22 +54,24 @@
     
     /* Base size unit */
     --base-size: clamp(8px, .5vw, 12px);
+    --text-base-size: clamp(.5rem, .5vw, .75rem);
+
     
     /* Typography */
     --font-sans: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-mono: 'Fira Code', 'JetBrains Mono', Consolas, monospace;
     
-    --text-1_5: calc(var(--base-size) * 1.5);   /* 12px */
-    --text-1_75: calc(var(--base-size) * 1.75); /* 14px */
-    --text-2: calc(var(--base-size) * 2);     /* 16px */
-    --text-2_25: calc(var(--base-size) * 2.25); /* 18px */
-    --text-2_5: calc(var(--base-size) * 2.5);   /* 20px */
-    --text-3: calc(var(--base-size) * 3);     /* 24px */
-    --text-3_75: calc(var(--base-size) * 3.75); /* 30px */
-    --text-4_5: calc(var(--base-size) * 4.5);   /* 36px */
-    --text-6: calc(var(--base-size) * 6);     /* 48px */
-    --text-8: calc(var(--base-size) * 8);     /* 64px */
-    --text-10: calc(var(--base-size) * 10);   /* 80px */
+    --text-1_5: calc(var(--text-base-size) * 1.5);   /* 12px */
+    --text-1_75: calc(var(--text-base-size) * 1.75); /* 14px */
+    --text-2: calc(var(--text-base-size) * 2);     /* 16px */
+    --text-2_25: calc(var(--text-base-size) * 2.25); /* 18px */
+    --text-2_5: calc(var(--text-base-size) * 2.5);   /* 20px */
+    --text-3: calc(var(--text-base-size) * 3);     /* 24px */
+    --text-3_75: calc(var(--text-base-size) * 3.75); /* 30px */
+    --text-4_5: calc(var(--text-base-size) * 4.5);   /* 36px */
+    --text-6: calc(var(--text-base-size) * 6);     /* 48px */
+    --text-8: calc(var(--text-base-size) * 8);     /* 64px */
+    --text-10: calc(var(--text-base-size) * 10);   /* 80px */
     
     --line-height-tight: 1.25;
     --line-height-normal: 1.5;

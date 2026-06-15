@@ -36,7 +36,7 @@ export function HomePage() {
           CSS, without the fight.
         </Text>
         <Box className="d-flex gap-4 jc-center f-wrap" mixin={{ my: 6 }}>
-          <Button size="lg" href={routes.how}>Cut the fluff and get started</Button>
+          <Button size="lg" href={routes.how} isWrapping>Cut the fluff and get started</Button>
         </Box>
         <Text variant="body1" alignText="center" className="HomePage--pitch" isPretty>
           CSS-in-JS gave us co-location but added runtime. Utility-first gave us consistency but cluttered markup.

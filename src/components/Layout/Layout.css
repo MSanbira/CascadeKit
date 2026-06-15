@@ -5,6 +5,8 @@
     grid-template-rows: auto 1fr;
     block-size: 100dvh;
     inline-size: 100dvw;
+    container-type: inline-size;
+    container-name: app-container;
   }
 
   .Layout--is-docs {

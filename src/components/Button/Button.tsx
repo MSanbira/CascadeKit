@@ -14,6 +14,7 @@ interface ButtonBaseProps {
   scopedStyle?: ScopedStylesObj;
   scopedLayer?: LayerOptions;
   isIcon?: boolean;
+  isWrapping?: boolean;
 }
 
 type LinkButtonProps = React.AnchorHTMLAttributes<HTMLAnchorElement>;
@@ -31,6 +32,7 @@ export function Button(props: ButtonProps) {
     scopedStyle, 
     scopedLayer, 
     isIcon = false,
+    isWrapping = false,
     ...restProps 
   } = props ;
 
@@ -45,6 +47,7 @@ export function Button(props: ButtonProps) {
     ],
     {
       'Button--is-icon': isIcon,
+      'Button--is-wrapping': isWrapping,
     }
   );
 

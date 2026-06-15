@@ -1,12 +1,11 @@
 
-import React from 'react';
 import { classNames } from 'cascade-kit-tools/classNames';
 import './NavButton.css';
 import { isDocsPage, routes } from '../../constants/routes';
 
 interface NavButtonProps {
     href: string;
-    children: React.ReactNode;
+    children: string;
     isDocs?: boolean;
 }
 
@@ -20,9 +19,9 @@ export const NavButton = ({ href, children, isDocs = false }: NavButtonProps) =>
                 'NavButton--selected': isSelected,
             })}
             href={href}
+            data-label={children}
         >
             <span className="NavButton--icon" />
-            {children}
         </a>
     );
 };

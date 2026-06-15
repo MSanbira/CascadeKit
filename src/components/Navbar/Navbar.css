@@ -3,7 +3,7 @@
     grid-column: 1 / -1;
     grid-row: 1;
     display: grid;
-    grid-template-columns: 1fr max-content 1fr;
+    grid-template-columns:minmax(0, 1fr) minmax(0, auto) minmax(0, 1fr);
     align-items: center;
     gap: var(--space-3);
     block-size: var(--navbar-height);
@@ -11,11 +11,11 @@
     background-color: var(--color-surface);
     border-block-end: 1px solid var(--color-border);
   }
-  
+
   .Navbar--left-section {
     justify-self: start;
   }
-  
+
   .Navbar--right-section {
     justify-self: end;
   }
@@ -34,6 +34,26 @@
   @media (max-width: 799px) {
     .Navbar--root {
       grid-template-columns: 1fr auto;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .Navbar--logo-text {
+      display: none;
+    }
+  }
+
+  @container app-container (50rem > width > 800px) {
+    .Navbar--logo-text {
+      display: none;
+    }
+
+    .NavButton--root:nth-child(3):after {
+      content: 'AI';
+    }
+
+    .NavButton--root:nth-child(4):after {
+      content: 'Docs';
     }
   }
 }

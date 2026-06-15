@@ -80,7 +80,7 @@ export function ExamplePage() {
 
         <Box mixin={{ mt: 4 }}>
           <Text variant="h5" bottomMargin>Variants</Text>
-          <Box className="d-flex gap-3 ali-center" mixin={{ mb: 3 }}>
+          <Box className="d-flex gap-3 ali-center f-wrap" mixin={{ mb: 3 }}>
             <Button variant="primary">Primary</Button>
             <Button variant="secondary">Secondary</Button>
             <Button variant="ghost">Ghost</Button>
@@ -98,7 +98,7 @@ export function ExamplePage() {
 
         <Box mixin={{ mt: 4 }}>
           <Text variant="h5" bottomMargin>Sizes</Text>
-          <Box className="d-flex gap-3 ali-center" mixin={{ mb: 3 }}>
+          <Box className="d-flex gap-3 ali-center f-wrap" mixin={{ mb: 3 }}>
             <Button variant="primary" size="sm">Small</Button>
             <Button variant="primary" size="md">Medium</Button>
             <Button variant="primary" size="lg">Large</Button>
@@ -108,7 +108,7 @@ export function ExamplePage() {
 
         <Box mixin={{ mt: 4 }}>
           <Text variant="h5" bottomMargin>Disabled State</Text>
-          <Box className="d-flex gap-3 ali-center" mixin={{ mb: 3 }}>
+          <Box className="d-flex gap-3 ali-center f-wrap" mixin={{ mb: 3 }}>
             <Button variant="primary" disabled>Primary</Button>
             <Button variant="secondary" disabled>Secondary</Button>
             <Button variant="ghost" disabled>Ghost</Button>
